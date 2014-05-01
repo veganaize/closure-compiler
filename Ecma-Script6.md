@@ -16,7 +16,7 @@ Spec: http://people.mozilla.org/~jorendorff/es6-draft.html
 
 ## Parser
 
-In progress.
+The new parser is in place, and will be enabled by default in the next release (probably in May). It already parses a lot of the new ES6 syntax, and we plan to be able to parse nearly all of ES6 by the end of Q2 2014.
 
 ## Type Checking
 
