@@ -1,8 +1,39 @@
 # Frequently asked questions.
 
-<wiki:toc max_depth="3" />
+## Table of Contents
+### Unexpected Output
+ * [The compiler crashes with UnsupportedClassVersionError or Unsupported major.minor version 51.0](#the-compiler-crashes-with-unsupportedclassversionerror-or-unsupported-majorminor-version-510)
+ * [I get a "Trailing comma is not legal" error. But it works on Firefox!](#i-get-a-trailing-comma-is-not-legal-error-but-it-works-on-firefox)
+ * [I get "invalid property id" errors. But it works on Firefox!](#i-get-invalid-property-id-errors-but-it-works-on-firefox)
+ * [I get "Unsupported syntax" errors. But it works on Firefox!](#i-get-unsupported-syntax-errors-but-it-works-on-firefox)
+ * [Closure Compiler inlined all my strings, which made my code size bigger. Why did it do that?](#closure-compiler-inlined-all-my-strings-which-made-my-code-size-bigger-why-did-it-do-that)
+ * [JSC_VAR_MULTIPLY_DECLARED_ERROR occur using the standalone compiler jar but not with the webservice](#jsc_var_multiply_declared_error-occur-using-the-standalone-compiler-jar-but-not-with-the-webservice)
+ * [My code broke when using advanced optimizations! How do I figure out what's wrong?](#my-code-broke-when-using-advanced-optimizations-how-do-i-figure-out-whats-wrong)
+ * [Some of my properties are getting renamed, but some aren't. Why?](#some-of-my-properties-are-getting-renamed-but-some-arent-why)
+ * [When using type-checking, sometimes Closure Compiler doesn't warn me about missing properties. Why not?](#when-using-type-checking-sometimes-closure-compiler-doesnt-warn-me-about-missing-properties-why-not)
 
-Let us know if you have one that you'd like to add!
+### Using Closure Compiler
+ * [What are the recommended Java VM command-line options?](#what-are-the-recommended-java-vm-command-line-options)
+ * [How do I use Advanced Optimizations?](#how-do-i-use-advanced-optimizations)
+ * [I want to use Advanced Optimizations, but { jQuery, YUI, Underscore, Prototype, JS Library Foo } does not work with them. What do I do?](#i-want-to-use-advanced-optimizations-but--jquery-yui-underscore-prototype-js-library-foo--does-not-work-with-them-what-do-i-do)
+ * [Do I need to write type annotations to take advantage of Advanced Optimizations?](#do-i-need-to-write-type-annotations-to-take-advantage-of-advanced-optimizations)
+ * [When using Advanced Optimizations, Closure Compiler adds new variables to the global scope. How do I make sure my variables don't collide with other scripts on the page?](#when-using-advanced-optimizations-closure-compiler-adds-new-variables-to-the-global-scope-how-do-i-make-sure-my-variables-dont-collide-with-other-scripts-on-the-page)
+ * [How do I call Closure Compiler from the Java API?](#how-do-i-call-closure-compiler-from-the-java-api)
+ * [How do I write an externs file?](#how-do-i-write-an-externs-file)
+ * [How do I add closure-compiler functionality to my project?](#how-do-i-add-closure-compiler-functionality-to-my-project)
+ * [What version of Closure Compiler should I use?](#what-version-of-closure-compiler-should-i-use)
+
+### Contributions
+ * [How do I submit a patch?](#how-do-i-submit-a-patch)
+ * [How do I submit a bug report?](#how-do-i-submit-a-bug-report)
+ * [How do I submit a feature request for a new type of optimization?](#how-do-i-submit-a-feature-request-for-a-new-type-of-optimization)
+
+### Design of Closure Compiler
+ * [How do I find out more about how Closure Compiler works?](#how-do-i-find-out-more-about-how-closure-compiler-works)
+ * [Is there a specification for the JSDoc type language?](#is-there-a-specification-for-the-jsdoc-type-language)
+ * [Can you add alternative syntax X to your JSDoc type language?](#can-you-add-alternative-syntax-x-to-your-jsdoc-type-language)
+ * [I'm writing a Firefox extension. It only needs to work on the bleeding-edge version of Firefox. I don't care if it doesn't work in other browsers. Could we add a --platform=FIREFOX flag that lets me use the snazzy features introduced in ?](#im-writing-a-firefox-extension-it-only-needs-to-work-on-the-bleeding-edge-version-of-firefox-i-dont-care-if-it-doesnt-work-in-other-browsers-could-we-add-a---platformfirefox-flag-that-lets-me-use-the-snazzy-javascript-features-introduced-in--javascript-17)
+ * [My question isn't covered on this list!](#my-question-isnt-covered-on-this-list)
 
 ## Unexpected Output
 
