@@ -76,7 +76,7 @@ When you're using the `--debug` flag, Closure Compiler will rename all your symb
 
 Even in advanced optimizations mode, Closure Compiler will not rename any property that appears in your externs. By default, the compiler uses all the externs files in this directory
 
-http://code.google.com/p/closure-compiler/source/browse/#git%2Fexterns
+https://github.com/google/closure-compiler/tree/master/externs
 
 Additional externs can be specified on the command line.
 
