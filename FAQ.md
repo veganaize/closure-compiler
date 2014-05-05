@@ -84,7 +84,7 @@ Normally, the compiler will not try to use type information to distinguish prope
 
 We also wrote a series of blog posts that describes how the renaming algorithm works in more technical detail.
 
-- [http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-1.html Part 1](http://closure-compiler.appspot.com#webservice])
+- [Part 1](http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-1.html)
 - [Part 2](http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-2.html)
 - [Part 3](http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-3.html)
 
