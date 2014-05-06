@@ -1,7 +1,5 @@
 # Explaining the @struct and @dict annotations
 
-# Explaining the @struct and @dict annotations
-
 @struct is used to create objects that have a fixed number of properties, ie, objects that behave similarly to Java objects.
 
 @dict is used for objects that are dictionaries.
