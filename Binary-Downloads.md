@@ -1,7 +1,5 @@
 # Binary Downloads of Closure Compiler
 
-# Binary Downloads of Closure Compiler
-
 The most recent release of Closure Compiler can always be downloaded from the following locations or via [[Maven]]:
 - http://dl.google.com/closure-compiler/compiler-latest.zip
 - http://dl.google.com/closure-compiler/compiler-latest.tar.gz
