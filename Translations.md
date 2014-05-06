@@ -1,5 +1,3 @@
-# Translations
-
 # Introduction
 
 TODO: add details about the translation process.
