@@ -1,5 +1,3 @@
-# To allow for better optimizations in the general case, the compiler makes various assumptions.
-
 # Introduction
 
 To allow for better optimizations in the general case, the compiler makes various assumptions. This is an attempt to document these assumptions more fully.
