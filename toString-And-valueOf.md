@@ -1,5 +1,3 @@
-# toString and valueOf are assumed to be effectively side-effect free.
-
 # Introduction
 
 To facilitate better optimization in the common case the Closure Compiler assumes toString and valueOf implementation are effectively side-effect free.  
