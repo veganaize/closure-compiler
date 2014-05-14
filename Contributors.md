@@ -10,7 +10,7 @@ This page should help guide you through the submitting process. We assume the re
 
 To submit a pull request, you will need to sign a [Contributor License Agreement](http://code.google.com/p/closure-compiler/source/browse/CONTRIBUTORS) if you haven't done so. 
 
-One of our committers will accept the patch by marking it as "Accepted" in the bug tracker. They may ask you additional questions about the change, or request improvements. Once the first committer is satisfied, he or she will ask a second committer to review the change and sign off on it.
+One of our committers may ask you additional questions about the change, or request improvements. Once the first committer is satisfied, he or she will ask a second committer to review the change and sign off on it.
 
 Some changes, particularly changes that add new optimizations, may require extensive integration testing to ensure they don't break under unforeseen edge cases. Fortunately, most of our committers work on large, proprietary JavaScript codebases with lots of integration tests. We may test your change against a few of those projects before we commit it. So if takes a day or two for us to commit your change after it has been reviewed, we may just be running integration tests on it first.
 
