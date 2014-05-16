@@ -186,11 +186,11 @@ Notice that Closure Compiler uses threads. Many Java implementations (like [Goog
 
 Externs files define APIs outside (or "external") to your code. the externs file should define all external variables, types, and properties that you intend to interact with. For example, Closure Compiler doesn't know about the browser APIs for interacting with the window and the DOM. Instead, we ship Closure Compiler with a default set of externs files that defines the browser APIs. This default set is probably the best example of how to write an externs file. As you can see, it defines global variables like `window`, types like `Range`, and properties like `Window.prototype.alert`.
 
-http://code.google.com/p/closure-compiler/source/browse/#git/externs
+https://github.com/google/closure-compiler/tree/master/externs
 
 If you need an externs file for a common API (like the Google Maps API), first try asking on [closure-compiler-discuss](http://groups.google.com/group/closure-compiler-discuss) whether someone has already written one. Many people have contributed externs for common JS libraries in our contrib directory.
 
-http://code.google.com/p/closure-compiler/source/browse/#git/contrib/externs
+https://github.com/google/closure-compiler/tree/master/contrib/externs
 
 It is also possible to automatically generate externs for a common library by running that library in a JS interpreter, and then traversing its objects with a little bit of JS code. Some people have even wrote web services to do this for you.
 
@@ -210,17 +210,17 @@ Closure Compiler does regular releases of a built JAR file. You can find them on
 
 We publish these JARs to the [[Maven|Maven]] repository.
 
-It is also safe to checkout Git head and use that. See the [README](http://code.google.com/p/closure-compiler/source/browse/README) for instructions on how to build it. Closure Compiler team believes in continuous integration: the code in Git should always work. Several of our users re-build Closure Compiler from head multiple times a day, and run all their JS tests against it. This means we can usually find regressions within a few hours of when they're checked in. Regressions are almost always rolled back immediately.
+It is also safe to checkout Git head and use that. See the [README](https://github.com/google/closure-compiler/tree/master/README.md) for instructions on how to build it. Closure Compiler team believes in continuous integration: the code in Git should always work. Several of our users re-build Closure Compiler from head multiple times a day, and run all their JS tests against it. This means we can usually find regressions within a few hours of when they're checked in. Regressions are almost always rolled back immediately.
 
 ## Contributions
 
 ### How do I submit a patch?
 
-Check out our [guide for contributors](http://code.google.com/p/closure-compiler/wiki/Contributors).
+Check out our [guide for contributors](Contributors).
 
 ### How do I submit a bug report?
 
-Go to the [Issue Tracker](http://code.google.com/p/closure-compiler/issues/list) and search to see if your problem has already been filed. If it has not, please [file a new one](http://code.google.com/p/closure-compiler/issues/entry). We try to respond to new bugs within a day. Feature requests may take longer to get a response.
+Go to the [Issue Tracker](https://github.com/google/closure-compiler/issues) and search to see if your problem has already been filed. If it has not, please [file a new one](https://github.com/google/closure-compiler/issues/new). We try to respond to new bugs within a day. Feature requests may take longer to get a response.
 
 ### How do I submit a feature request for a new type of optimization?
 
@@ -236,7 +236,7 @@ A few years ago, Kevin Bourrillion wrote [a thoughtful explanation](https://plus
 
 ### How do I find out more about how Closure Compiler works?
 
-See our DesignDocuments.
+See our [Design Documents](DesignDocuments).
 
 ### Is there a specification for the JSDoc type language?
 
