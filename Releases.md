@@ -14,7 +14,7 @@ For complete list of changes refer to the [change log](https://github.com/google
  - Several improvements to performance and memory usage.
  - Lots of work on the new type inference system (not on by default yet).
  - Initial support for some ES6 features in whitespace-only mode.
- - Fixed issues: issue 102, issue 119, issue 123, issue 186, issue 310, issue 387, issue 388, issue 389, issue 390, issue 400 
+ - Fixed issues: [issue 102](https://github.com/google/closure-compiler/issues#issue/102), [issue 119](https://github.com/google/closure-compiler/issues#issue/119), [issue 123](https://github.com/google/closure-compiler/issues#issue/123), [issue 186](https://github.com/google/closure-compiler/issues#issue/186), [issue 310](https://github.com/google/closure-compiler/issues#issue/310), [issue 387](https://github.com/google/closure-compiler/issues#issue/387), [issue 388](https://github.com/google/closure-compiler/issues#issue/388), [issue 389](https://github.com/google/closure-compiler/issues#issue/389), [issue 390](https://github.com/google/closure-compiler/issues#issue/390), [issue 400](https://github.com/google/closure-compiler/issues#issue/400) 
 
 ### April 7, 2014 (v20140407)
 - Add a warning for the use of goog.base for projects that want to support strict mode in uncompiled code.
