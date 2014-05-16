@@ -5,10 +5,10 @@
 If you know of a public externs file for a library you use not listed here, please add a comment.  And it will  be added.
 
 A variety of API are supported here:
-https://code.google.com/p/closure-compiler/source/browse/#git%2Fcontrib%2Fexterns
+https://github.com/google/closure-compiler/tree/master/contrib/externs
 
 If you don't see the externs here, be sure to start with the FAQ:
-[How do I write an extern file](http://code.google.com/p/closure-compiler/wiki/FAQ#How_do_I_write_an_externs_file?)
+[How do I write an extern file](FAQ#How_do_I_write_an_externs_file?)
 
 <wiki:toc max_depth="2" />
 
@@ -33,17 +33,17 @@ jQuery, then alphabetical
 
 ## jQuery
 
-project: https://code.google.com/p/closure-compiler/source/browse/#git%2Fcontrib%2Fexterns
+project: https://github.com/google/closure-compiler/tree/master/contrib/externs
 
-https://closure-compiler.googlecode.com/git/contrib/externs/jquery-1.8.js
+https://github.com/google/closure-compiler/tree/master/contrib/externs/jquery-1.8.js
 
-https://closure-compiler.googlecode.com/git/contrib/externs/jquery-1.7.js
+https://github.com/google/closure-compiler/tree/master/contrib/externsjquery-1.7.js
 
 ## Angular
 
-project: https://code.google.com/p/closure-compiler/source/browse/#git%2Fcontrib%2Fexterns
+project: https://github.com/google/closure-compiler/tree/master/contrib/externs
 
-https://closure-compiler.googlecode.com/git/contrib/externs/angular.js
+https://github.com/google/closure-compiler/tree/master/contrib/externs/angular.js
 
 ## Backbone
 
@@ -53,9 +53,9 @@ https://raw.github.com/lukeasrodgers/backbone-js-externs/master/backbone-0.9.10-
 
 ## Google Maps
 
-project: https://code.google.com/p/closure-compiler/source/browse/#git%2Fcontrib%2Fexterns%2Fmaps
+project: https://github.com/google/closure-compiler/tree/master/contrib/externs/maps
 
-https://closure-compiler.googlecode.com/git/contrib/externs/maps/google_maps_api_v3_11.js
+https://github.com/google/closure-compiler/tree/master/contrib/externs/maps/google_maps_api_v3_11.js
 
 
 
@@ -67,9 +67,9 @@ https://raw.github.com/lukeasrodgers/underscore-js-externs/master/underscore-1.4
 
 ## You Tube
 
-project: https://code.google.com/p/closure-compiler/source/browse/#git%2Fcontrib%2Fexterns
+project: https://github.com/google/closure-compiler/tree/master/contrib/externs
 
-https://closure-compiler.googlecode.com/git/contrib/externs/youtubeplayer.js
+https://github.com/google/closure-compiler/tree/master/contrib/externs/youtubeplayer.js
 
 ## node.js
 
