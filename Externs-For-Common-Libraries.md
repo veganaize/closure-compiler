@@ -8,7 +8,7 @@ A variety of API are supported here:
 https://github.com/google/closure-compiler/tree/master/contrib/externs
 
 If you don't see the externs here, be sure to start with the FAQ:
-[How do I write an extern file](FAQ#How_do_I_write_an_externs_file?)
+[How do I write an extern file](FAQ#how-do-i-write-an-externs-file)
 
 <wiki:toc max_depth="2" />
 
