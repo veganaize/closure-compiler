@@ -14,7 +14,7 @@ For complete list of changes refer to the [change log](https://github.com/google
  - Several improvements to performance and memory usage.
  - Lots of work on the new type inference system (not on by default yet).
  - Initial support for some ES6 features in whitespace-only mode.
- - Fixed issues: #102, #119, #123, #186, #310, #387, #388, #389, #390, #400 
+ - Fixed issues: issue 102, issue 119, issue 123, issue 186, issue 310, issue 387, issue 388, issue 389, issue 390, issue 400 
 
 ### April 7, 2014 (v20140407)
 - Add a warning for the use of goog.base for projects that want to support strict mode in uncompiled code.
