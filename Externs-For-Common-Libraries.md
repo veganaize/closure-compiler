@@ -77,4 +77,4 @@ project: https://github.com/dcodeIO/node.js-closure-compiler-externs
 
 ## Facebook React
 
-https://github.com/steida/este-library/blob/master/externs/react.js
+https://github.com/steida/react-externs/blob/master/externs.js
