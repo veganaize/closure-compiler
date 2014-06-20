@@ -8,7 +8,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### May 8, 2014 (v20140508)
  - Improvements to make goog.defineClass easier to use
- - Improvements to the command line option syntax, including file globs and -W/-O flags for warning levels and optimizations, respectively. See PR #402.
+ - Improvements to the command line option syntax, including file globs and -W/-O flags for warning levels and optimizations, respectively. See PR #403
  - Added sourceMapInputFiles option, to map from generated JS (for example, from Angular templates) to the original source.
  - New parser is enabled by default.
  - Several improvements to performance and memory usage.
