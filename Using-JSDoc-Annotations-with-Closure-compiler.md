@@ -44,6 +44,10 @@ Named Function
      */
     function foo(bar) { return true; }
 
+Alternatively, you can annotate the parameters and the return type inline.
+
+    function /** number */ foo(/** number */ n) { return n - 1; }
+
 Function Expressions
 -------------------
 
