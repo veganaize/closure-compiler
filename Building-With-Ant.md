@@ -35,5 +35,5 @@ Here is an example of a build.xml file that uses Closure Compiler.
     </project>
 
 
-New features are added occasionally, the [source for the task](http://code.google.com/p/closure-compiler/source/browse/#git%2Fsrc%2Fcom%2Fgoogle%2Fjavascript%2Fjscomp%2Fant) may be the best documentation.
+New features are added occasionally, the [source for the task](https://github.com/google/closure-compiler/tree/master/src/com/google/javascript/jscomp/ant) may be the best documentation.
  
