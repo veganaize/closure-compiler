@@ -6,6 +6,22 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### June 25, 2014 (v20140625)
+Major changes in this release:
+ - Variables in externs are copied to the "window" object. This means that properties can be accessed as "window.foo" even if they're only declared in the externs as "var foo;"
+ - Added support for goog.module() which helps the transition to ES6 modules.
+ - Added support for (non labs-prefixed) goog.defineClass which helps the transition to ES6 classes.
+ - Added @package access control mode which means the given variable can be accessed from within the same package (like package-private in Java). Thanks to 20% contributor Brendan Linn.
+ - Several fixes to make the compiler work with node.js code, mostly from Nick Santos.
+ - Turn on the InferConst pass, which allows the compiler to do more typechecking and inlining.
+ - Flatten module type expressions during module-preprocess.
+ - Added --source_map_location_mapping flag.
+ - Enable GatherExternsFromTypes pass for better handling of typedefs in externs.
+ - Removed the old Rhino JS parser, since we are now fully switched over to the new ES6 parser.
+ - Lots of work on transpiling ES6 to ES3, as well as running some checks directly on ES6 code. Big thanks to our interns, Matt Loring and Michael Zhou for pushing this work forward.
+ - Lots of work on the new type inference system (not enabled by default yet)
+ - Fixed Github issues: #110, #431, #432, #435, #439, #477
+
 ### May 8, 2014 (v20140508)
  - Improvements to make goog.defineClass easier to use
  - Improvements to the command line option syntax, including file globs and -W/-O flags for warning levels and optimizations, respectively. See [PR #403](https://github.com/google/closure-compiler/pull/403)
