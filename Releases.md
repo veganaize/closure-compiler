@@ -12,10 +12,11 @@ Major changes in this release:
  - Added support for goog.module() which helps the transition to ES6 modules.
  - Added support for (non labs-prefixed) goog.defineClass which helps the transition to ES6 classes.
  - Added @package access control mode which means the given variable can be accessed from within the same package (like package-private in Java). Thanks to 20% contributor Brendan Linn.
- - Several fixes to make the compiler work with node.js code, mostly from Nick Santos.
+ - Several fixes to make the compiler work with node.js code, mostly from @nicks.
  - Turn on the InferConst pass, which allows the compiler to do more typechecking and inlining.
  - Flatten module type expressions during module-preprocess.
- - Added --source_map_location_mapping flag.
+ - Added --source_map_location_mapping flag. Thanks @terencehonles!
+ - Added --output_wrapper_file flag. Thanks @retromodular!
  - Enable GatherExternsFromTypes pass for better handling of typedefs in externs.
  - Removed the old Rhino JS parser, since we are now fully switched over to the new ES6 parser.
  - Lots of work on transpiling ES6 to ES3, as well as running some checks directly on ES6 code. Big thanks to our interns, Matt Loring and Michael Zhou for pushing this work forward.
