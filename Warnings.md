@@ -2,15 +2,14 @@
 
 ## Introduction
 
-Closure Compiler has a `--warning_level` flag that gives you a few high-level options to control what warnings you see. The `--warni
-ng_level` flag gives you an easy way to choose the most common options. But even `--warning_level=VERBOSE` doesn't give you all the warnings that Closure Compiler can emit, and sometimes you want more fine-grained control.
+Closure Compiler has a `--warning_level` flag that gives you a few high-level options to control what warnings you see. The `--warning_level` flag gives you an easy way to choose the most common options. But even `--warning_level=VERBOSE` doesn't give you all the warnings that Closure Compiler can emit, and sometimes you want more fine-grained control.
 
 ## Warnings Level API
 
 Closure Compiler has an API for configuring the errors and warnings that you would like to see, and what level they're emitted at. 
 
-**Flag API**           | **Java API**                                       |**Effect**
------------------------|----------------------------------------------------|--------------------------------------------------------------
+**Flag API**|**Java API**|**Effect**
+------------|------------|----------
 `--jscomp_error=<type>`|`options.setWarningLevel(<type>, CheckLevel.ERROR);`|Makes all warnings of the given type to build-breaking error.
 `--jscomp_warning=<type>`|`options.setWarningLevel(<type>, CheckLevel.WARNING);`|Makes all warnings of the given type a non-breaking warning.|
 `--jscomp_off=<type>`|`options.setWarningLevel(<type>, CheckLevel.OFF);`|Silences all warnings of the given type.
