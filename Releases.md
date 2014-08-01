@@ -6,6 +6,13 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### July 30, 2014 (v20140730)
+Main changes in this release:
+ - CheckMissingReturn is enabled by default.
+ - Warn if an @param has a '.' in the name.
+ - Progress on ES6 transpilation: generators, default parameters, modules, destructuring, let/const, classes, for/of statements.
+ - Performance improvements to the new type inference (still off by default).
+
 ### June 25, 2014 (v20140625)
 Major changes in this release:
  - Variables in externs are copied to the "window" object. This means that properties can be accessed as "window.foo" even if they're only declared in the externs as "var foo;"
