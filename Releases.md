@@ -8,7 +8,6 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### July 30, 2014 (v20140730)
 Main changes in this release:
- - CheckMissingReturn is enabled by default.
  - Warn if an @param has a '.' in the name.
  - Progress on ES6 transpilation: generators, default parameters, modules, destructuring, let/const, classes, for/of statements.
  - Performance improvements to the new type inference (still off by default).
