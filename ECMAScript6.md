@@ -16,7 +16,27 @@ Spec: http://people.mozilla.org/~jorendorff/es6-draft.html
 
 ## Parser
 
-The new parser is in place, and will be enabled by default in the next release (probably in May). It already parses a lot of the new ES6 syntax, and we plan to be able to parse nearly all of ES6 by the end of Q2 2014.
+The new parser is in place, and has replaced the old Rhino parser. It understands all ES6 features though there may still be a few bugs here and there.
+
+## Transpilation
+
+We support transpilation of the following ES6 features down to ES3.
+
+* let/const
+* arrow functions
+* default parameters and rest ("...") parameters in functions
+* The spread ("...") operator in function calls and array literals
+* Classes (ES6 classes will be @struct by default. You can add @unrestricted to override that behavior. See the 'JSDoc Tag Reference' section of the [Google JS style guide](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) for information about the @struct annotation.)
+* Computed properties and short properties in object literals.
+* Method declarations in object literals (though the 'super' keyword will not work, currently)
+* "for of" loops
+* generator functions
+* template strings
+* Better unicode escapes in string literals (e.g. "\u{1F436}" == "🐶")
+
+Transpilation of these features will be supported soon:
+* destructuring assignment
+* modules
 
 ## Type Checking
 
