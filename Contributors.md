@@ -8,7 +8,7 @@ This page should help guide you through the submitting process. We assume the re
 
 ### Lifecycle of a Patch
 
-To submit a pull request, you will need to sign a [Contributor License Agreement](http://code.google.com/p/closure-compiler/source/browse/CONTRIBUTORS) if you haven't done so. 
+To submit a pull request, you will need to sign a [Contributor License Agreement](https://github.com/google/closure-compiler/blob/master/CONTRIBUTORS) if you haven't done so. 
 
 One of our committers may ask you additional questions about the change, or request improvements. Once the first committer is satisfied, he or she will ask a second committer to review the change and sign off on it.
 
