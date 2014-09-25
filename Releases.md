@@ -5,6 +5,13 @@ Here's a list of recent releases of Closure Compiler.  We update the source dist
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### September 23, 2014 (v20140923)
+ - Various bug fixes and improvements to the new type inference, including inference of array literals (still off by default).
+ - More Type Transformation work.
+ - ES6 parser and transpilation fixes, including support for ES6 destructuring.
+ - Move common ES6 Math methods to the "implemented" ES6 features in the standard externs
+ - More fixes and improvements for goog.module
+ - Open-source RefasterJs and the conformance framework.
 
 ### August 14, 2014 (v20140814)
  - Fix crash when declaring "var arguments" within a function.
