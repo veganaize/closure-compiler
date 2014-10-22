@@ -9,4 +9,5 @@ warning level|// @warning_level VERBOSE|QUIET, DEFAULT, VERBOSE
 externs url|// @externs_url http://a.url|
 externs code|// @js_externs var externName;|
 language|// @language ecmascript5|ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT
-use_types_for_optimization|// @use_types_for_optimization|true, false
+use_types_for_optimization|// @use_types_for_optimization true|true, false
+disable_property_renaming|// @disable_property_renaming true|true, false
