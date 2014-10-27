@@ -6,7 +6,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 ### October 23, 2014 (v20141023)
- - Compiler now allows generics without the dot (e.g. Foo<T>)
+ - Compiler now allows generics without the dot (e.g. Foo&lt;T&gt;)
  - Treat export as visibility annotation, allowing /** @export {Foo} */
  - Updates to ES6 parser and transpiler to match new ES6 spec
  - Got default externs working with new type inference
