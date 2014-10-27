@@ -5,6 +5,15 @@ Here's a list of recent releases of Closure Compiler.  We update the source dist
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### October 23, 2014 (v20141023)
+ - Compiler now allows generics without the dot (e.g. Foo<T>)
+ - Treat export as visibility annotation, allowing /** @export {Foo} */
+ - Updates to ES6 parser and transpiler to match new ES6 spec
+ - Got default externs working with new type inference
+ - Moved from json.org to gson
+ - More work on @fileoverview visibility annotations (still experimental)
+ - Github issues fixed:  #186, #187, #550, #589, #606, #618, #619, #635, #640, #643, #652, #656, #658
+
 ### September 23, 2014 (v20140923)
  - Various bug fixes and improvements to the new type inference, including inference of array literals (still off by default).
  - More Type Transformation work.
