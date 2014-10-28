@@ -15,22 +15,22 @@ To include closure-compiler in your project add the following to your build conf
       <dependency>
           <groupId>com.google.javascript</groupId>
          <artifactId>closure-compiler</artifactId>
-         <version>v20140814</version>
+         <version>v20141023</version>
       </dependency>
 
 ## Apache Ivy:
 
-      <dependency org="com.google.javascript" name="closure-compiler" rev="v20140814"/>
+      <dependency org="com.google.javascript" name="closure-compiler" rev="v20141023"/>
 
 ## Groovy Grape:
 
       @Grapes(
-          @Grab(group='com.google.javascript', module='closure-compiler', version='v20140814')
+          @Grab(group='com.google.javascript', module='closure-compiler', version='v20141023')
       )
 
 ## Apache Buildr
 
-      'com.google.javascript:closure-compiler:jar: v20140814'
+      'com.google.javascript:closure-compiler:jar: v20141023'
 
 
 # Release Archive
