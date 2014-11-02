@@ -52,8 +52,8 @@ visibility|`DiagnosticGroups.VISIBILITY`|Warnings when @private and @protected a
 If there is a category of warnings that you would like to configure but is not listed in the table above, it is easy to define a new one.
      
    1. Find the unique identifier of the warnings that you'd like to configure.
-   2. Create a new [DiagnosticGroup](http://code.google.com/p/closure-compiler/source/browse/src/com/google/javascript/jscomp/DiagnosticGroup.java) that gives this warning category a human-readable name, and add it to our central repository of warnings categories:
-      http://code.google.com/p/closure-compiler/source/browse/src/com/google/javascript/jscomp/DiagnosticGroups.java
+   2. Create a new [DiagnosticGroup](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/DiagnosticGroup.java) that gives this warning category a human-readable name, and add it to our central repository of warnings categories:
+      https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/DiagnosticGroups.java
    3. Send us a patch!
     
 This is how we "canary" new warnings until we feel they're stable.
