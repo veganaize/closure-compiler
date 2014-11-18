@@ -14,7 +14,7 @@ This tells the Closure Compiler to track the object as a unique, anonymous type.
 
 Objects used to define a set of values should be typed with `@enum`. Even if you don't use the enum name as a type anywhere, the enum definition restricts the object type and allows strong typing of the object.
 
-    /** @enum {ValueType} */`
+    /** @enum {ValueType} */
     var enum = {
       KEY: value
     };
