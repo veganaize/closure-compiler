@@ -10,7 +10,7 @@ Namespaces are best typed as `@const` without a type annotation:
 
 This tells the Closure Compiler to track the object as a unique, anonymous type. By contrast, annotations like `@const {Object}` and `@type {Object}` tell the compiler to treat it as any Object in the program (including any subtype of Object).
 
-Note: @const indicates only that the name to which the value is assigned is never overwritten.  In particular, for a namespace, it does not indicate that the set properties of the object fix nor that the properties values are themselves immutable.
+Note: `@const` indicates only that the name to which the value is assigned is never overwritten.  In particular, for a namespace, it does not indicate that the set properties of the object fix nor that the properties values are themselves immutable.
 
 ## Enumerations
 
