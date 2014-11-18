@@ -1,5 +1,5 @@
 ## Overview
-`@type {Object}` seems like the right type for a lot of JavaScript patterns.  But in the Closure Compiler type system, Object is a very loose type. There are usually better alternatives.
+`@type {Object}` may seem like the right type for a lot of JavaScript patterns, but in the Closure Compiler type system, Object is a very loose type. There are usually better alternatives.
 
 ## Namespaces
 
@@ -30,5 +30,5 @@ Objects used as maps for runtime additions or lookups should restrict their key 
     
     /** @const {!Object<string, ValueType>} */
     var map = {
-      'key': value
+      'string key': value
     };
