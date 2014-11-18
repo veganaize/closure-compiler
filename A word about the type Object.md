@@ -3,7 +3,7 @@
 
 ## Namespaces
 
-Namespace are best typed as `@const` without a type annotation:
+Namespaces are best typed as `@const` without a type annotation:
 
     /** @const */ var ns = {};
     /** @const */ ns.anInnerNamespace = {};
