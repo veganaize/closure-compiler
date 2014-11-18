@@ -21,7 +21,7 @@ Objects used to define a set of values should be typed with `@enum`. Even if you
 
 ## Maps
 
-Objects used as maps for runtime lookups should restrict their key and value types using generics.
+Objects used as maps for runtime additions or lookups should restrict their key and value types using generics.
 
     /** @type {!Object<number, number>} */
     var map = {};
