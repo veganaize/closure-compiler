@@ -32,3 +32,26 @@ Objects used as maps for runtime additions or lookups should restrict their key 
     var map = {
       'string key': value
     };
+
+## Records
+
+"Object" when used as a function parameter type when expecting a collection of properties, are often better expressed as a record type:
+
+    /** @param {{key:value}} props */
+    function f(props) {}
+
+Where optional values should include "undefined":
+
+    /** @param {{required:string, optional:(string|undefined)}} props */
+    function f(props) {}
+
+Record types tend to be verbose, and a typedef are often more practical:
+
+    /** @typedef {{required:string, optional:(string|undefined)}} */
+    var Params;
+
+    /** @param {Params} props */
+    function f(props) {}
+
+
+Note that record types are non-nullable by default.
