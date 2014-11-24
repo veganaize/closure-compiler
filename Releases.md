@@ -5,6 +5,22 @@ Here's a list of recent releases of Closure Compiler.  We update the source dist
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### November 20, 2014 (v20141120)
+* Add a warning for mistyping namespaces as Object. (See https://github.com/google/closure-compiler/wiki/A-word-about-the-type-Object for more explanation)
+* New JS Conformance check: ban Closure-style top-level declarations from having implicitly public visibility.
+* Migrated several lint checks into the compiler
+* Default visibility levels in @fileoverview is now supported.
+* File level @package no longer applies to goog.provide default namespaces
+* Add a warning for misuse of goog.provides/goog.requires
+* Fixes for goog.module rewriting
+* Fix goog.defineClass when extending a generic class
+* function(...[string]) can now be written as function(...string)
+* "&&" and "||" are now allowed in @define default value expressions
+* New type inference fixes:
+  - Made nullable dereference checks suppressible in new type inference
+  - Understand primitive unboxing
+* A few fixes to ES6 transpilation of generators, spread operators, and synthesized class constructors, as well as updates to the module syntax tracking the spec.
+
 ### October 23, 2014 (v20141023)
  - Compiler now allows generics without the dot (e.g. Foo&lt;T&gt;)
  - Treat export as visibility annotation, allowing /** @export {Foo} */
