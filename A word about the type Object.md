@@ -55,3 +55,7 @@ Record types tend to be verbose, and a typedef are often more practical:
 
 
 Note that record types are non-nullable by default.
+
+## Weak namespace type warnings
+
+If you got here because you got a warning from the compiler about a weak namespace type and simply want to get silence the warnings, you can use the type `Object<?,?>` which will tell the compiler that you are deliberately using a weak type.
