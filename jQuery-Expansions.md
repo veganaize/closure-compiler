@@ -37,7 +37,7 @@ If the jQuery.extend return value is used, the expansion is wrapped in an immedi
 
 <b>jQuery.each</b> causes problems with Closure-Compiler when it is used to assign properties to objects in an outer scope. For instance given the following code:
 <code>jQuery.each([function(i, val) {
-    jQuery.prototype[val](“trim”],) = String.prototype.trim;
+    jQuery.prototype\[val\](“trim”],) = String.prototype.trim;
 });</code>
 
 Closure-compiler can not natively recognize that <b>jQuery.prototype.trim</b> now exists. However many uses of <b>jQuery.each</b> do not cause any issues and should be left alone. In addition, the use of the [syntax instead of a dotted syntax blocks Closure-Compiler renaming and dead-code elimination.
