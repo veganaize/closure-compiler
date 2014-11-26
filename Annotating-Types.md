@@ -4,31 +4,31 @@ The compiler recognizes @type annotations in two contexts: declarations and cast
 
 Variable and functions can be declared with either traditional declarations, or inline declarations, which are more concise.
 
-# Examples
+## Examples
 
-## Function declarations
+### Function declarations
 
 ```javascript
-/** @type {function(number):string} */
-function f(x) {return x + ' apples'}
+    /** @type {function(number):string} */
+    function f(x) {return x + ' apples'}
 ```
 or the more concise inline function declaration:
 ```javascript
-function /** string */ f(/** number */ x) {return x + ' apples'}
+    function /** string */ f(/** number */ x) {return x + ' apples'}
 ```
 
-## Variable declarations
+### Variable declarations
 
 ```javascript
-/** @type {string} */
-var x = 'fruit';
+    /** @type {string} */
+    var x = 'fruit';
 ```
 or the more concise inline var declaration:
 ```javascript
-var /** string */ x = 'fruit';
+    var /** string */ x = 'fruit';
 ```
 
-## Property declarations
+### Property declarations
 ```javascript
     /** @type {string} */
     x.prop = 'fruit';
@@ -42,18 +42,18 @@ or
     };
 ```
 
-## Catch declarations
+### Catch declarations
 
 ```javascript
-try { 
-  ... 
-} catch (/** @type {string} */ e) {
-  ...
-}
+    try { 
+      ... 
+    } catch (/** @type {string} */ e) {
+      ...
+    }
 ```
 
 
-## Type Casts
+### Type Casts
 
 Type cast precede a parenthesized expression.
 
