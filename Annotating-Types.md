@@ -1,19 +1,21 @@
 # Annotating declarations and casts
 
-# Introduction
-
 The compiler recognizes @type annotations in two contexts: declarations and casts.
 
+Variable and functions can be declared with either traditional declarations, or inline declarations, which are more concise.
 
-# Details
+# Examples
 
 ## Function declarations
 
 ```javascript
-/** @type {function():string} */
-function f() {return 'str'}
+/** @type {function(number):string} */
+function f(x) {return x + ' apples'}
 ```
-
+or the more concise inline function declaration:
+```javascript
+function /** string */ f(/** number */ x) {return x + ' apples'}
+```
 
 ## Variable declarations
 
@@ -21,11 +23,9 @@ function f() {return 'str'}
 /** @type {string} */
 var x = 'fruit';
 ```
-
-or 
-
+or the more concise inline var declaration:
 ```javascript
-    var /** @type {string} */ x = 'fruit';
+var /** string */ x = 'fruit';
 ```
 
 ## Property declarations
