@@ -1,6 +1,6 @@
 # Annotating declarations and casts
 
-The compiler recognizes @type annotations in two contexts: declarations and casts.
+The compiler recognizes @type and function declarations (@param, @return, etc) annotations in two contexts: declarations and casts.
 
 Variable and functions can be declared with either traditional declarations, or inline declarations, which are more concise.
 
