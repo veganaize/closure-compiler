@@ -5,6 +5,28 @@ Here's a list of recent releases of Closure Compiler.  We update the source dist
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+
+### December 15, 2014 (v20141215)
+- General:
+  * Improved "smart name removal" runtime by 90% in some cases.
+  * Check inheritance inside prototype object literals (github issue #707)
+- Closure library support:
+  * "missing goog.require" check not validates that implemented interfaces are goog.require'd
+  * goog.module exports are now considered constants
+- Command line runner:
+  * added --rename_prefix_namespace command-line option
+- Conformance:
+  * framework now allows for naming and extending rules for better composability
+  * new NoImplicitlyPublicDecls standard rule
+- Parser:
+  * warn about misplaced function annotations (@param/@return)
+  * Minor parser speed improvements
+  * Parse ES6 template literals correctly
+- New type inference:
+  * function bind and goog.bind inference
+  * support for @return on constructors and @this on functions
+  * misc fixes
+
 ### November 20, 2014 (v20141120)
 * Add a warning for mistyping namespaces as Object. (See https://github.com/google/closure-compiler/wiki/A-word-about-the-type-Object for more explanation)
 * New JS Conformance check: ban Closure-style top-level declarations from having implicitly public visibility.
