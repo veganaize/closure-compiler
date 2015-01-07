@@ -170,7 +170,7 @@ The big wins in advanced optimizations come from [externs and exports](http://co
 
 Closure Compiler's advanced optimizations mode assumes that it's ok to add new variables to the global scope.
 
-In JavaScript, it's often standard practice to wrap your code in an anonymous function, so that variables don't pollute the global scope. Closure Compiler has an `--output_wrapper` flag for exactly this purpose. Invoking it as `--output_wrapper "(function() {%output%})();"` will wrap your code in an anonymous function at compile-time.
+In JavaScript, it's often standard practice to wrap your code in an anonymous function, so that variables don't pollute the global scope. Closure Compiler has an `--output_wrapper` flag for exactly this purpose. Invoking it as `--output_wrapper "(function() {%output%}).call(window);"` will wrap your code in an anonymous function at compile-time.
 
 Do not manually wrap your code in an immediately executed function, because the optimization passes may inline the call.
 
