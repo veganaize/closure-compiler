@@ -18,6 +18,8 @@ Closure Compiler has an API for configuring the errors and warnings that you wou
 
 In the examples above, `<type>` is a pre-defined category of warnings.
 
+Run the compiler with the --help flag to get a comprehensive up-to-date list.
+
 **Flag API**|**Java API**|**Effect**|**Default Value**
 ------------|------------|----------|-----------------
 accessControls|`DiagnosticGroups.ACCESS_CONTROLS`|Warnings when @deprecated, @private, or @protected are violated.|OFF
