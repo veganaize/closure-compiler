@@ -1,5 +1,8 @@
 # Meeting notes
 
+### This page is unmaintained.
+
+
 # July 2, 2012 (public)
 
 - Attendence: Nick Santos, John Lenz, Chad Killingsworth.
