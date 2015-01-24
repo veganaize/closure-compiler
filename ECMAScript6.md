@@ -20,7 +20,7 @@ The new parser is in place, and has replaced the old Rhino parser. It understand
 
 ## Transpilation
 
-We support transpilation of the following ES6 features down to ES3.
+We support transpilation of the following ES6 features down to ES5/3.
 
 * let/const
 * arrow functions
@@ -40,8 +40,12 @@ Transpilation of these features will be supported soon:
 
 ## Type Checking
 
+Type checking is currently done on "transpiled" code.  Direct support will happen after the new type inference is stable.
+
 ## Optimizations
+
+Optimization currently occur on "transpiled" code.  Direct support will happen after the "check" phase understands ES6.
 
 ## Code Printer
 
-In progress.
+The code printer should at this point support all of ES6
