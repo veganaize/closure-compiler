@@ -35,6 +35,8 @@ jQuery, then alphabetical
 
 project: https://github.com/google/closure-compiler/tree/master/contrib/externs
 
+https://github.com/google/closure-compiler/tree/master/contrib/externs/jquery-1.9.js
+
 https://github.com/google/closure-compiler/tree/master/contrib/externs/jquery-1.8.js
 
 https://github.com/google/closure-compiler/tree/master/contrib/externs/jquery-1.7.js
