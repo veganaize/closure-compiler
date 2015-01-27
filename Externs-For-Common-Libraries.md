@@ -37,13 +37,15 @@ project: https://github.com/google/closure-compiler/tree/master/contrib/externs
 
 https://github.com/google/closure-compiler/tree/master/contrib/externs/jquery-1.8.js
 
-https://github.com/google/closure-compiler/tree/master/contrib/externsjquery-1.7.js
+https://github.com/google/closure-compiler/tree/master/contrib/externs/jquery-1.7.js
 
 ## Angular
 
 project: https://github.com/google/closure-compiler/tree/master/contrib/externs
 
-https://github.com/google/closure-compiler/tree/master/contrib/externs/angular.js
+https://github.com/google/closure-compiler/blob/master/contrib/externs/angular-1.3.js
+
+https://github.com/google/closure-compiler/blob/master/contrib/externs/angular-1.2.js
 
 ## Backbone
 
