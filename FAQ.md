@@ -111,7 +111,7 @@ https://github.com/google/closure-compiler/tree/master/externs
 
 Additional externs can be specified on the command line.
 
-Normally, the compiler will not try to use type information to distinguish properties on one type from properties on another type. If you want the renaming to use type information, you have to turn on 341a8a3804b043850e1a8ed7ea4c9a6d from the Java API or by using the `--use_types_for_optimization` flag.
+Normally, the compiler will not try to use type information to distinguish properties on one type from properties on another type. If you want the renaming to use type information, you have to turn on [ambiguateProperties and disambiguateProperties](https://github.com/google/closure-compiler/wiki/Experimental-Type-Based-Property-Renaming) from the Java API or by using the `--use_types_for_optimization` flag.
 
 We also wrote a series of blog posts that describes how the renaming algorithm works in more technical detail.
 
