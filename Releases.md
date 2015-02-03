@@ -6,6 +6,21 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### February 2, 2015 (v20150126)
+- Initial work on supporting TypeScript-style type annotations, with the --language_in=ES6_TYPED flag.
+- The type annotation {?T} is now parsed correctly if T is a template type.
+- Infer the type of 'this' for functions that are immediately bound.
+- Performance improvements in the DisambiguateProperties and AmbiguateProperties passes.
+- Removed support for '@type {function(...[Foo])}' (the new syntax is '{function(...Foo)}')
+- Added the new ES6 collections (Map, Set, WeakMap, WeakSet) to the standard ES6 externs.
+- Removed support for the @notypecheck annotation. Use @suppress {checkTypes} instead.
+- Removed the checkProvides DiagnosticGroup. You can now use --jscomp_{error,warning}=missingProvide instead.
+- Deprecated the --check_requires flag (use --jscomp_{error,warning}=missingRequire instead).
+- Lots of improvements in the new type inference.
+- Fixed a bug causing the old type inference to behave differently in Java 8 than it does in Java 7
+- Removed some places where the parser was doing unnecessary lookahead, which will make parsing much faster, particularly for cases such as deeply nested array literals.
+- Fixed a bug in the transpilation of ES6 for/of loops.
+
 ### December 15, 2014 (v20141215)
 - General:
   * Improved "smart name removal" runtime by 90% in some cases.
