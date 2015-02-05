@@ -26,7 +26,7 @@ For complete list of changes refer to the [change log](https://github.com/google
   * Improved "smart name removal" runtime by 90% in some cases.
   * Check inheritance inside prototype object literals (github issue #707)
 - Closure library support:
-  * "missing goog.require" check not validates that implemented interfaces are goog.require'd
+  * "missing goog.require" check now validates that implemented interfaces are goog.require'd
   * goog.module exports are now considered constants
 - Command line runner:
   * added --rename_prefix_namespace command-line option
