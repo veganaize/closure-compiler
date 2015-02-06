@@ -22,6 +22,7 @@
  * [How do I write an externs file?](#how-do-i-write-an-externs-file)
  * [How do I add closure-compiler functionality to my project?](#how-do-i-add-closure-compiler-functionality-to-my-project)
  * [What version of Closure Compiler should I use?](#what-version-of-closure-compiler-should-i-use)
+ * [Source Maps and sourceMappingURL](#source-maps-and-sourcemappingurl)
 
 ### Contributions
  * [How do I submit a patch?](#how-do-i-submit-a-patch)
@@ -211,6 +212,15 @@ Closure Compiler does regular releases of a built JAR file. You can find them on
 We publish these JARs to the [[Maven|Maven]] repository.
 
 It is also safe to checkout Git head and use that. See the [README](https://github.com/google/closure-compiler/tree/master/README.md) for instructions on how to build it. Closure Compiler team believes in continuous integration: the code in Git should always work. Several of our users re-build Closure Compiler from head multiple times a day, and run all their JS tests against it. This means we can usually find regressions within a few hours of when they're checked in. Regressions are almost always rolled back immediately.
+
+### Source Maps and sourceMappingURL
+Closure Compiler provides the `--create_source_map` flag to generate a [JavaScript source map](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/). However, the compiler does not automatically add the sourceMappingUrl comment to the output file.
+
+Adding the sourceMappingUrl comment can be done with the `--output_wrapper` flag:
+
+```
+--output_wrapper "%output%\n//# sourceMappingURL=output.js.map"
+```
 
 ## Contributions
 
