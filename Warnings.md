@@ -23,7 +23,7 @@ Run the compiler with the --help flag to get a comprehensive up-to-date list.
 The following table describes the available diagnostic groups.  The name used with the --jscomp_off/warning/error flags and DiagnosticGroups member name that can be used to reference the group via the Java API. 
 
 Name|Field|Effect|Default Value
-------------|------------|----------|-----------------
+----|-----|------|-----------------
 accessControls|`ACCESS_CONTROLS`|Warnings when @deprecated, @private, or @protected are violated.|OFF
 ambiguousFunctionDecl|`AMBIGUOUS_FUNCTION_DECL`|Warnings about ambiguous definitions of functions|WARNING
 checkDebuggerStatement|`DEBUGGER_STATEMENT_PRESENT`|Check for the use of the `debugger` statement|OFF
