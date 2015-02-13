@@ -423,7 +423,7 @@ Major changes in this release:
 - Better property detection for missingProperties check
 - Much better type inference in local scopes
 - type inference of return types on functions
-- type checker warns about comparision of functions  to booleans, numbers, or strings
+- type checker warns about comparison of functions  to booleans, numbers, or strings
 - Better externs file validation
 - @suppress annotations work for all canonical warning groups
 - @notypecheck annotation blocks more warnings
