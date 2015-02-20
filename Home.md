@@ -1,7 +1,6 @@
 ## Common wiki pages
 
 * [FAQ](https://github.com/google/closure-compiler/wiki/FAQ)
-
 * [Binary-Downloads](https://github.com/google/closure-compiler/wiki/Binary-Downloads)
 * [Contributors](https://github.com/google/closure-compiler/wiki/Contributors)
 
