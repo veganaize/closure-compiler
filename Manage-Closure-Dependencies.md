@@ -1,4 +1,4 @@
-# Documents the --manage_closure_dependencies and --only_closure_dependencies options
+### Documents the --manage_closure_dependencies and --only_closure_dependencies options
 
 The browser processes JavaScript files serially. So if you have a lot of JavaScript files you'll need some way to make sure they get executed in the right order.
 
