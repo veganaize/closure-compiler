@@ -6,9 +6,10 @@
 
 ### Compiler Options
 
-* [Warnings](https://github.com/google/closure-compiler/wiki/Warnings)
 * [Experimental Type Based Property Renaming](https://github.com/google/closure-compiler/wiki/Experimental-Type-Based-Property-Renaming)
 * [JS Conformance](https://github.com/google/closure-compiler/wiki/JS-Conformance)
+* [Warnings](https://github.com/google/closure-compiler/wiki/Warnings)
+* [Manage Closure Dependencies](https://github.com/google/closure-compiler/wiki/Manage-Closure-Dependencies)
 
 ### Typing
 
