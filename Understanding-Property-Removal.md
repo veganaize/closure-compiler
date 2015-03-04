@@ -9,13 +9,19 @@ In the general case, properties can never be removed in JavaScript because the p
 In Simple mode, a property can be removed if:
 
 It is defined on a object literal and the entire object literal is unreferenced.
-    ({foo: 1});  // can remove this.  
+```JavaScript
+    ({foo: 1});  // can remove this.
+```
 It is defined on a object literal and assigned to local variable, the value does not escape the local scope, and the variable references allow for the property references to be rewritten into variables
+```JavaScript
     var x = {prop1: 1, prop2: 2};
     alert(x.prop2); 
+```
 becomes:
+```JavaScript
     var x$prop1 = 1, x$prop2 = 2;  // x$prop1 is unused and can be removed
     alert(x$prop2);
+```
 
 ## Advanced Mode
 
@@ -24,6 +30,7 @@ In Advanced mode, the compiler starts making assumptions to allow additional pro
 It does property flattening as described here (https://developers.google.com/closure/compiler/docs/limitations).  Property flattening is aggressive and restricts the kind of JavaScript code that can be written.  Property flattening only occurs on objects defined in global scope.
 
 It makes a strong assumption that properties defined on a "prototype" or "this" will not be iterated over and thus is a candidate for removal.  Or more specifically that iteration does not require the property be preserved (you can mixin in properties from one prototype to another).
+```JavaScript
     /** @constructor */
     function cls() {
        this.x = 1; // removal candidate due to "this" assumption;
@@ -34,3 +41,4 @@ It makes a strong assumption that properties defined on a "prototype" or "this" 
        // if "z" is unused and can be removed, "x" and "y" can also be removed.
        alert(this.x + this.y);
     }
+```
