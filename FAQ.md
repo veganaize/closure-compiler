@@ -46,7 +46,7 @@ Closure Compiler requires [Java 7](http://www.oracle.com/technetwork/java/javase
 
 EcmaScript 3 (the JavaScript standard prior to Dec 2009) did not specify the behavior, so browser implementations varied. In Internet Explorer versions prior to IE 9, the object literal `{key: value,}` is an error. 
 
-Different browsers may parse the array literal `[successfully, but differently.
+Different browsers may parse array literals with trailing commas successfully, but differently.
 
     [1,].length
     => 1 (on Firefox)
@@ -54,7 +54,7 @@ Different browsers may parse the array literal `[successfully, but differently.
 
 This difference is highly likely to lead to bugs, so by default we just forbid it outright.  
 
-EcmaScript 5 standardized the behavior to allow trailing commas, and the latest releases of the major browser vendors support it.  The Closure Compiler can accept and generate EcmaScript 5 code, however as significant number of older browsers are still in use, it is not the default.
+EcmaScript 5 standardized the behavior to allow trailing commas, and the latest releases of the major browser vendors support it.  The Closure Compiler can accept and generate EcmaScript 5 code (with `--language_in=ES5` or `--language_in=ES5_STRICT`), however as significant number of older browsers are still in use, it is not the default.
 
 ### I get "invalid property id" errors. But it works on Firefox!
 
