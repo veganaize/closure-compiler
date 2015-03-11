@@ -6,6 +6,7 @@ TODO: add details about the translation process.
 
 Here is a simple class that used the Closure Compiler's Java API to extract messages.
 
+```java
     import java.io.IOException;
     import java.lang.CharSequence;
     import java.lang.String;
@@ -36,11 +37,14 @@ Here is a simple class that used the Closure Compiler's Java API to extract mess
             }
         }
     }
+```
 
 # Example Message
 
+```javascript
     /** @desc context menu - make a duplicate of the selected block */
     MyProject.MSG_DUPLICATE_BLOCK = goog.getMsg("Duplicate");
+```
 
 # Example Messages File
 
@@ -48,11 +52,13 @@ The translation id was found by running the above program with the command line:
     java -classpath .:compiler.jar ExtractMessages MyMessages messages.js
 
 fr.xmb:
+```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE translationbundle SYSTEM "translationbundle.dtd">
     <translationbundle lang="fr">
       <translation id="5213219513082471002">Dupliquer</translation>
     </translationbundle>
+```
 
 # Using the translation file
 
