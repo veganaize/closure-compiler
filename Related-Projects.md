@@ -1,6 +1,6 @@
-# Projects related to Closure Compiler.
+# Projects related to Closure Compiler (feel free to suggest additions for this page).
 
-[Rhino](http://www.mozilla.org/rhino/) - An implementation of JavaScript written in Java. Closure Compiler uses Rhino to parse JavaScript and attach JSDoc comments to our syntax tree.
+[Rhino](http://www.mozilla.org/rhino/) - An implementation of JavaScript written in Java. Closure Compiler uses an fork of an old version of Rhino as our AST.
 
 ### Build Tools that use Closure Compiler
 
