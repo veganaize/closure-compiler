@@ -21,5 +21,3 @@ Closure type system:
 Other references: <br>
 AnnotatingTypes<br>
 StructDictAnnotations<br>
-
-<g:plusone size="medium"></g:plusone>
