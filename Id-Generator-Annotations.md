@@ -32,7 +32,7 @@ Three ID generation strategies are supported.
 
 `@idGenerator` creates short names using a simple counter, as shown in the example above.  Since compiled IDs are dependent on invocation order, all `@idGenerator` invocations must be in the global scope and unconditional.  While `@idGenerator` is guaranteed to be an injective function, the exact IDs produced should be considered opaque and non-stable between separate compilations.
 
-`@consistentIdGenerator` attempts to retrieve IDs from a mapping supplied to the compiler before falling back to the `@idGenerator` strategy.  
+`@consistentIdGenerator` produce the same short name for the same input string. For a consistent id generator `id`, `id('foo')` will produce the same result (unlike @idGenerator which produces a unique result each time). 
 
 `@stableIdGenerator` constructs IDs using a deterministic hashing strategy, at the cost of slightly longer IDs than `@consistentIdGenerator` and `@idGenerator`.  Unlike `@consistentIdGenerator` and `@idGenerator`, its IDs are guaranteed to be stable across separate compilations.  Invocations may also be made in any context.
 
@@ -44,4 +44,4 @@ ID generator replacement is on by default, but may be toggled with the `Compiler
 
 For debugging support, `CompilerOptions#setGeneratePseudoNames` may be set to make the transformed IDs human readable.
 
-`CompilerOptions#setIdGeneratorsMap` may be set to supply a serialize map for use with `@consistentIdGenerator`.
+To improve stability across builds it is possible to supply name maps for use by the `ReplaceIdGenerators` compiler pass, the map is used as a hint for the renaming and the compiler is free to pick a different name.  If cross build stability is required `@stableIdGenerator` should be used. Setting the renaming map is done via `CompilerOptions#setIdGeneratorsMap`.
