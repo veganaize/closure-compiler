@@ -104,21 +104,32 @@ Use the `--debug` flag combined with the `--formatting=PRETTY_PRINT` flag.
 
 When you're using the `--debug` flag, Closure Compiler will rename all your symbols, but it will give them _longer_ names so that you can figure out what the original name was.
 
+If you are using `ADVANCED` optimizations, you may also want to disable the type-based optimizations with `--use_types_for_optimization false`. Incorrect type optimizations can cause the compiler to make invalid assumptions.
+
 ### Some of my properties are getting renamed, but some aren't. Why?
 
-Even in advanced optimizations mode, Closure Compiler will not rename any property that appears in your externs. By default, the compiler uses all the externs files in this directory
-
-https://github.com/google/closure-compiler/tree/master/externs
-
-Additional externs can be specified on the command line.
-
-Normally, the compiler will not try to use type information to distinguish properties on one type from properties on another type. If you want the renaming to use type information, you have to turn on [ambiguateProperties and disambiguateProperties](https://github.com/google/closure-compiler/wiki/Experimental-Type-Based-Property-Renaming) from the Java API or by using the `--use_types_for_optimization` flag.
+As of the 20150315 release, Closure Compiler will try to use type information to distinguish properties on one type from properties on another type. If you do not want the renaming to use type information, you may disable the type based optimizations using the `--use_types_for_optimization false` flag.
 
 We also wrote a series of blog posts that describes how the renaming algorithm works in more technical detail.
 
 - [Part 1](http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-1.html)
 - [Part 2](http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-2.html)
 - [Part 3](http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-3.html)
+
+It may be helpful to disable these optimizations to debug errors. Incorrect type information may cause the compiler to make invalid assumptions. This is especially easy to do with event handler arguments. As an example:
+
+```JavaScript
+/**
+ * @param {Event} evt should really be a goog.events.BrowserEvent
+ *   goog.events.BrowserEvent does not inherit from Event and so the
+ *   compiler may rename the stopPropagation method in a breaking fashion
+ */
+function myEventHandler(evt) {
+  evt.stopPropagation();
+}
+
+goog.events.listen(document.getElementById('myanchor'), myEventHandler, false);
+```
 
 ### When using type-checking, sometimes Closure Compiler doesn't warn me about missing properties. Why not?
 
