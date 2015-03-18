@@ -8,6 +8,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 
 ### March 15, 2015 (v20150315)
+- Type based optimizations are not enabled by default in advanced mode. They may be disabled with `--use_types_for_optimization false`
 - Stricter missing goog.require check
 - Fix various crashes
 - Bugfixes in transpiling of ES6 modules and classes
