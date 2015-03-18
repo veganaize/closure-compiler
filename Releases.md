@@ -6,6 +6,16 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+
+### March 15, 2015 (v20150315)
+- Stricter missing goog.require check
+- Fix various crashes
+- Bugfixes in transpiling of ES6 modules and classes
+- More work on still experimental inline type syntax
+- Implement more lint checks in compiler:
+  * Extends without goog.require
+  * Use of implicitly nullable JSDoc
+
 ### February 2, 2015 (v20150126)
 - Initial work on supporting TypeScript-style type annotations, with the --language_in=ES6_TYPED flag.
 - The type annotation {?T} is now parsed correctly if T is a template type.
