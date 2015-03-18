@@ -9,6 +9,10 @@ The most recent release of Closure Compiler can always be downloaded from the fo
 -------------------------------------------------------------------------------
 ## Specific Versions
 
+### **v20150315**
+
+- http://dl.google.com/closure-compiler/compiler-20150315.zip
+- http://dl.google.com/closure-compiler/compiler-20150315.tar.gz
 
 ### **v20150126**
 
