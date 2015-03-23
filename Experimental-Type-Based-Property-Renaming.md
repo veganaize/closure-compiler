@@ -1,5 +1,7 @@
 # Improved property renaming using type information
 
+_As of the 03152015 release, these passes are enabled by default and therefore no longer considered experimental._
+
 # Introduction
 
 The two compiler passes DisambiguateProperties and AmbiguateProperties improve property renaming, dead code removal and other optimization using type information.  
