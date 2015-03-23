@@ -1,6 +1,6 @@
 # Improved property renaming using type information
 
-_As of the 03152015 release, these passes are enabled by default and therefore no longer considered experimental._
+_As of the 20150315 release, these passes are enabled by default and therefore no longer considered experimental._
 
 # Introduction
 
