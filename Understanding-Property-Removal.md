@@ -27,7 +27,7 @@ becomes:
 
 In Advanced mode, the compiler starts making assumptions to allow additional property removal.
 
-It does property flattening as described here (https://developers.google.com/closure/compiler/docs/limitations).  Property flattening is aggressive and restricts the kind of JavaScript code that can be written.  Property flattening only occurs on objects defined in global scope.
+It does property flattening as described here (https://developers.google.com/closure/compiler/docs/limitations).  Property flattening is aggressive and restricts the kind of JavaScript code that can be written.  Property flattening only occurs on objects defined in global scope.  Once properties are "flattened" to variable declarations and references, it is possible to remove or inline the values. 
 
 It makes a strong assumption that properties defined on a "prototype" or "this" will not be iterated over and thus is a candidate for removal.  Or more specifically that iteration does not require the property be preserved (you can mixin in properties from one prototype to another).
 ```JavaScript
