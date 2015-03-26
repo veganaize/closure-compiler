@@ -1,6 +1,6 @@
 # Introduction
 
-In the general case, properties can never be removed in JavaScript because the property references can be hidden by various approaches to property enumeration (for-in, Object.keys, etc).  This is an attempt to describe the various ways the compiler will properties.
+In the general case, properties can never be removed in JavaScript because the property references can be hidden by various approaches to property enumeration (for-in, Object.keys, etc).  This is an attempt to describe the various ways the compiler will remove properties.
 
 # Details
 
