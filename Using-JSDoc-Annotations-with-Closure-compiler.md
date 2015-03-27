@@ -66,11 +66,12 @@ Typedef
 
 Complex types (including unions, and record types) can be aliased for convenience and maintainability using a typedef. These annotations can be long, but can be split over multiple lines for readability.
 
-    /** @typedef {{
-     *             foo:string,
-     *             bar:number,
-     *             foobar:number|string
-     *           }}
+    /** 
+     * @typedef {{
+     *            foo:string,
+     *            bar:number,
+     *            foobar:number|string
+     *          }}
      */
     var Mytype;
 
