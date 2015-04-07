@@ -26,6 +26,8 @@ http://code.google.com/codesearch#OAMlx_jo-ck/src/third_party/WebKit/Source/WebC
 
 Discussions:
 
+dev-js-sourcemap@lists.mozilla.org 
+
 Chrome's support of Source Maps discussed:
 
 http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
