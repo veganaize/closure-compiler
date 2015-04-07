@@ -10,45 +10,45 @@ Closure Compiler has an API for configuring the errors and warnings that you wou
 
 **Flag API**|**Java API**|**Effect**
 ------------|------------|----------
-`--jscomp_error=<type>`|`options.setWarningLevel(<type>, CheckLevel.ERROR);`|Makes all warnings of the given type to build-breaking error.
-`--jscomp_warning=<type>`|`options.setWarningLevel(<type>, CheckLevel.WARNING);`|Makes all warnings of the given type a non-breaking warning.|
-`--jscomp_off=<type>`|`options.setWarningLevel(<type>, CheckLevel.OFF);`|Silences all warnings of the given type.
+`--jscomp_error=<group>`|`options.setWarningLevel("<group>", CheckLevel.ERROR);`|Makes all warnings of the given group to build-breaking error.
+`--jscomp_warning=<group>`|`options.setWarningLevel("<group>", CheckLevel.WARNING);`|Makes all warnings of the given group a non-breaking warning.|
+`--jscomp_off=<group>`|`options.setWarningLevel("<group>", CheckLevel.OFF);`|Silences all warnings of the given group.
 
 ## Warnings Categories
 
-In the examples above, `<type>` is a pre-defined category of warnings.
+In the examples above, `<group>` is a pre-defined category of warnings.
 
 Run the compiler with the --help flag to get a comprehensive up-to-date list.
 
-The following table describes the available diagnostic groups.  The name used with the --jscomp_off/warning/error flags and DiagnosticGroups member name that can be used to reference the group via the Java API. 
+The following table describes the available diagnostic groups.
 
-Name|Field|Effect|Default Value
-----|-----|------|-----------------
-accessControls|`ACCESS_CONTROLS`|Warnings when @deprecated, @private, or @protected are violated.|OFF
-ambiguousFunctionDecl|`AMBIGUOUS_FUNCTION_DECL`|Warnings about ambiguous definitions of functions|WARNING
-checkDebuggerStatement|`DEBUGGER_STATEMENT_PRESENT`|Check for the use of the `debugger` statement|OFF
-checkRegExp|`CHECK_REGEXP`|Check for regular expression literal problems|OFF
-checkTypes|`CHECK_TYPES`|Type-checking|OFF by default, WARNING on `--warning_level=VERBOSE`
-checkVars|`CHECK_VARS`|Warnings when vars are not declared.|OFF by default, ERROR on `--warning_level=VERBOSE`
-const|`CONST`|Warnings when @const annotated properties or variables are reassigned or deleted.|OFF
-constantProperty|`CONSTANT_PROPERTY`|Warnings when @const annotated properties are reassigned or deleted.|OFF
-deprecated|`DEPRECATED`|Warnings when non-deprecated code accesses code that's marked @deprecated|OFF by default, WARNING on `--warning_level=VERBOSE`
-duplicate|`DUPLICATE`|Warnings when a variable is declared twice in the global scope|OFF by default, ERROR on `--warning_level=VERBOSE`
-es5Strict|`ES5_STRICT`|Warnings about code that is invalid in EcmaScript 5 Strict mode|WARNING
-externsValidation|`EXTERNS_VALIDATION`|Warnings about malformed externs files|WARNING
-fileoverviewTags|`FILEOVERVIEW_JSDOC`|Warnings about duplicate @fileoverview tags|WARNING
-globalThis|`GLOBAL_THIS`|Warnings about [improper use of the global this](http://closuretools.blogspot.com/2010/10/this-this-is-your-this.html).|OFF by default, WARNING on `--warning_level=VERBOSE`
-internetExplorerChecks|`INTERNET_EXPLORER_CHECKS`|Warnings about syntax errors on Internet Explorer, like trailing commas.|ERROR
-invalidCasts|`INVALID_CASTS`|Warnings about invalid type casts.|OFF by default, WARNING when type checking is on
-missingProperties|`MISSING_PROPERTIES`|Warnings about whether a property will ever be defined on an object. Part of type-checking.|OFF by default, WARNING on `--warning_level=VERBOSE`
-nonStandardJsDocs|`NON_STANDARD_JS_DOCS`|Warnings when JSDoc has annotations that the compiler thinks you misspelled.|WARNING
-strictModuleDepCheck|`STRICT_MODULE_DEP_CHECK `|Warnings about all references potentially violating module dependencies|OFF
-suspiciousCode|`SUSPICIOUS_CODE`|Warning about things like missing missing semicolons and comparisons to NaN|WARNING
-undefinedNames|`UNDEFINED_NAMES`|Warnings when properties of global names are undefined.|OFF by default, WARNING on `--warning_level=VERBOSE`
-undefinedVars|`UNDEFINED_VARS`|Warnings when variables are undefined.|OFF by default, ERROR on `--warning_level=VERBOSE`
-unknownDefines|`UNKNOWN_DEFINES`|Warnings when unknown @define values are specified.|WARNING
-uselessCode|`USELESS_CODE`|Warnings when the compiler sees useless code that it plans to remove.|WARNING
-visibility|`VISIBILITY`|Warnings when @private and @protected are violated.|OFF
+Name|Effect|Default Value
+----|------|-----------------
+accessControls|Warnings when @deprecated, @private, or @protected are violated.|OFF
+ambiguousFunctionDecl|Warnings about ambiguous definitions of functions|WARNING
+checkDebuggerStatement|Check for the use of the `debugger` statement|OFF
+checkRegExp|Check for regular expression literal problems|OFF
+checkTypes|Type-checking|OFF by default, WARNING on `--warning_level=VERBOSE`
+checkVars|Warnings when vars are not declared.|OFF by default, ERROR on `--warning_level=VERBOSE`
+const|Warnings when @const annotated properties or variables are reassigned or deleted.|OFF
+constantProperty|Warnings when @const annotated properties are reassigned or deleted.|OFF
+deprecated|Warnings when non-deprecated code accesses code that's marked @deprecated|OFF by default, WARNING on `--warning_level=VERBOSE`
+duplicate|Warnings when a variable is declared twice in the global scope|OFF by default, ERROR on `--warning_level=VERBOSE`
+es5Strict|Warnings about code that is invalid in EcmaScript 5 Strict mode|WARNING
+externsValidation|Warnings about malformed externs files|WARNING
+fileoverviewTags|Warnings about duplicate @fileoverview tags|WARNING
+globalThis|Warnings about [improper use of the global this](http://closuretools.blogspot.com/2010/10/this-this-is-your-this.html).|OFF by default, WARNING on `--warning_level=VERBOSE`
+internetExplorerChecks|Warnings about syntax errors on Internet Explorer, like trailing commas.|ERROR
+invalidCasts|Warnings about invalid type casts.|OFF by default, WARNING when type checking is on
+missingProperties|Warnings about whether a property will ever be defined on an object. Part of type-checking.|OFF by default, WARNING on `--warning_level=VERBOSE`
+nonStandardJsDocs|Warnings when JSDoc has annotations that the compiler thinks you misspelled.|WARNING
+strictModuleDepCheck|Warnings about all references potentially violating module dependencies|OFF
+suspiciousCode|Warning about things like missing missing semicolons and comparisons to NaN|WARNING
+undefinedNames|Warnings when properties of global names are undefined.|OFF by default, WARNING on `--warning_level=VERBOSE`
+undefinedVars|Warnings when variables are undefined.|OFF by default, ERROR on `--warning_level=VERBOSE`
+unknownDefines|Warnings when unknown @define values are specified.|WARNING
+uselessCode|Warnings when the compiler sees useless code that it plans to remove.|WARNING
+visibility|Warnings when @private and @protected are violated.|OFF
 --------------------------------------------------------------------------------------------------
 
 ## Defining Your Own Categories
