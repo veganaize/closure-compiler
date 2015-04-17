@@ -2,7 +2,7 @@ How to create HTML documentation from a closure-compiler project by using the JS
 
 The JSDoc project at http://usejsdoc.org is a kind of distant cousin to the closure-compiler project.   Some recent (January 2015) changes to JSDoc have made it possible to use JSDoc on closure-compiler based projects.  Specifically, the new JSDoc 3.3.0 version has better support for the `@interface` tag and inheritance among interfaces and classes, so that the `@inheritDoc` tag is correctly recognized.
 
-Note that there are a couple of other projects aimed at generating docs for closure-compiler projects.  See  [js-dossier](https://github.com/jleyba/js-dossier) and [a discussion about closure docs](https://mail.google.com/mail/u/0/?shva=1#inbox/14cc118f8e858db3).
+Note that there are a couple of other projects aimed at generating docs for closure-compiler projects.  See  [js-dossier](https://github.com/jleyba/js-dossier) and [a discussion about closure docs](https://groups.google.com/forum/#!topic/closure-library-discuss/ElI-lAiUqFA).
 
 ## Changes to Adapt to JSDoc
 
