@@ -77,6 +77,9 @@ Here is a summary of changes needed to adapt a closure-compiler based project to
     }
 ```
 
+* You can modify the CSS used with the default template by specifying a  `templates.default.layoutFile` config property to be a custom `layout.tmpl` document.  See https://github.com/jsdoc3/jsdoc/issues/480 and https://github.com/jsdoc3/jsdoc3.github.com/issues/47.  The sample `jsdoc_configure.json` file shown above uses this option.
+
+
 ## Current Problems Using JSDoc
 
 As of April 2015 below are listed some problems of using JSDoc with closure-compiler.    See the [JSDoc issues list](https://github.com/jsdoc3/jsdoc/issues) for more information.
@@ -91,4 +94,4 @@ As of April 2015 below are listed some problems of using JSDoc with closure-comp
 
 * The link to source code in the docs points to the `@interface` instead of the actual code.  See https://github.com/jsdoc3/jsdoc/issues/895
 
-* The "template" part of JSDoc is not easy to modify and has very little documentation.  See https://github.com/jsdoc3/jsdoc.  Note that you can modify the CSS used with the default template by specifying a  `templates.default.layoutFile` config property to be a custom `layout.tmpl` document.  See https://github.com/jsdoc3/jsdoc/issues/480 and https://github.com/jsdoc3/jsdoc3.github.com/issues/47.  The sample `jsdoc_configure.json` file shown above uses this option.
+* The "template" part of JSDoc is not easy to modify and has very little documentation.  See https://github.com/jsdoc3/jsdoc.  There is a project underway called [JSDoc-Baseline](https://github.com/hegemonic/jsdoc-baseline) which is meant to be an extensible template for JSDoc3.
