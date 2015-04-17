@@ -81,6 +81,8 @@ Here is a summary of changes needed to adapt a closure-compiler based project to
 
 As of April 2015 below are listed some problems of using JSDoc with closure-compiler.    See the [JSDoc issues list](https://github.com/jsdoc3/jsdoc/issues) for more information.
 
+* [Closure Compiler Punch List](https://github.com/jsdoc3/jsdoc/issues/605) tracks all of the Google Closure Compiler annotations that JSDoc does not currently recognize. 
+
 * Some cases where interfaces inherit from other interfaces can result in documentation not appearing where it should.  See https://github.com/jsdoc3/jsdoc/issues/912
 
 * You cannot mark a constructor with `@private`.  See https://github.com/jsdoc3/jsdoc/issues/958 and https://github.com/jsdoc3/jsdoc/issues/952
