@@ -18,4 +18,4 @@ The most important assumptions are described in
 
 General:
 - "undefined", "NaN" and "Infinity" have not been externally redefined.
-- Object, Array, String, Number and Boolean have not be redefined. Standard methods on Object, Array, String, Number and Boolean have not be redefined in a way that breaks the original contract.
+- Object, Array, String, Number and Boolean have not been redefined. Standard methods on Object, Array, String, Number and Boolean have not been redefined in a way that breaks the original contract.
