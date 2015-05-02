@@ -24,30 +24,49 @@ The following table describes the available diagnostic groups.
 
 Name|Effect|Default Value
 ----|------|-----------------
-accessControls|Warnings when @deprecated, @private, or @protected are violated.|OFF
-ambiguousFunctionDecl|Warnings about ambiguous definitions of functions|WARNING
-checkDebuggerStatement|Check for the use of the `debugger` statement|OFF
-checkRegExp|Check for regular expression literal problems|OFF
-checkTypes|Type-checking|OFF by default, WARNING on `--warning_level=VERBOSE`
-checkVars|Warnings when vars are not declared.|OFF by default, ERROR on `--warning_level=VERBOSE`
-const|Warnings when @const annotated properties or variables are reassigned or deleted.|OFF
-constantProperty|Warnings when @const annotated properties are reassigned or deleted.|OFF
-deprecated|Warnings when non-deprecated code accesses code that's marked @deprecated|OFF by default, WARNING on `--warning_level=VERBOSE`
-duplicate|Warnings when a variable is declared twice in the global scope|OFF by default, ERROR on `--warning_level=VERBOSE`
-es5Strict|Warnings about code that is invalid in EcmaScript 5 Strict mode|WARNING
+accessControls|Warnings when @deprecated, @private, @protected, or @package are violated.|OFF
+ambiguousFunctionDecl|Warnings about ambiguous definitions of functions. On Chrome, <br/> if (false) { function f() {} } <br/> declared 'f' in the global scope anyway. Future versions of javascript forbid this, because the <br/> actual semantics differ between browsers.|ERROR
+checkDebuggerStatement|Warnings when the 'debugger' keyword is used.|OFF
+checkEventfulObjectDisposal|Warnings about undisposed eventful objects.|OFF
+checkRegExp|Warnings about weird regular expression literals|OFF
+checkTypes|Type-checking|WARNING
+checkVars|Warnings when vars are not declared or declared multiple times in the global scope.|ERROR
+closureDepMethodUsageChecks|Warnings about misused goog.provide/goog.require calls|ERROR
+conformanceViolations|Warnings about conformance violations and possible conformance violations.|WARNING
+constantProperty|Warnings when a member property marked @const is reassigned.|OFF
+const|Warnings when a variable or member property marked @const is reassigned.|OFF
+deprecatedAnnotations|Warnings when using annotations that are deprecated|OFF
+deprecated|Warnings when non-deprecated code accesses code that's marked @deprecated|OFF
+duplicateMessage|Warnings when two i18n messages have the same id|ERROR
+duplicate|Warnings when a variable is declared twice in the global scope|ERROR
+es3|Warnings about EcmaScript3|ERROR
+es5Strict|Warnings about EcmaScript5 strict mode|ERROR
 externsValidation|Warnings about malformed externs files|WARNING
+extraRequire|Warnings about unnecessary goog.require calls|OFF
 fileoverviewTags|Warnings about duplicate @fileoverview tags|WARNING
-globalThis|Warnings about [improper use of the global this](http://closuretools.blogspot.com/2010/10/this-this-is-your-this.html).|OFF by default, WARNING on `--warning_level=VERBOSE`
-internetExplorerChecks|Warnings about syntax errors on Internet Explorer, like trailing commas.|ERROR
-invalidCasts|Warnings about invalid type casts.|OFF by default, WARNING when type checking is on
-missingProperties|Warnings about whether a property will ever be defined on an object. Part of type-checking.|OFF by default, WARNING on `--warning_level=VERBOSE`
+globalThis|Warnings about [improper use of the global this](http://closuretools.blogspot.com/2010/10/this-this-is-your-this.html).|WARNING
+inferredConstCheck|Warnings if a @const declaration contains no declared type and the compiler cannot infer one|OFF
+internetExplorerChecks|Warnings about syntax error on Internet Explorer.|ERROR
+invalidCasts|Warnings about invalid type casts.|WARNING
+misplacedTypeAnnotation|Warnings about jsdoc type annotations that are misplaced|WARNING
+missingGetCssName|Warnings about strings that should only be used inside calls to goog.getCssName|OFF
+missingProperties|Warnings about whether a property will ever be defined on an object. Part of type-checking.|OFF
+missingProvide|Warnings if missing a goog.provide('Foo') when defining a Foo class|OFF
+missingRequire|Warnings if missing a goog.require('Foo') when a new Foo() is encountered|OFF
+missingReturn|Warnings if missing return in a function which a non-void return type|OFF
+newCheckTypes|Warnings from new type checker|OFF
 nonStandardJsDocs|Warnings when JSDoc has annotations that the compiler thinks you misspelled.|WARNING
+reportUnknownTypes|Warnings for any place in the code where type is inferred to ?. NOT RECOMMENDED!|OFF
 strictModuleDepCheck|Warnings about all references potentially violating module dependencies|OFF
-suspiciousCode|Warning about things like missing missing semicolons and comparisons to NaN|WARNING
-undefinedNames|Warnings when properties of global names are undefined.|OFF by default, WARNING on `--warning_level=VERBOSE`
-undefinedVars|Warnings when variables are undefined.|OFF by default, ERROR on `--warning_level=VERBOSE`
+suspiciousCode|Warning about things like missing semicolons and comparisons to NaN|WARNING
+tweakValidation|Warnings about goog.tweak primitives|OFF
+typeInvalidation|Warn about properties that cannot be disambiguated when using type based optimizations|OFF
+undefinedNames|Warnings when a property of a global name is not defined.|OFF
+undefinedVars|Warnings when a variable is never defined.|ERROR
 unknownDefines|Warnings when unknown @define values are specified.|WARNING
+useOfGoogBase|Warnings aout usages of goog.base, which is not compatible with strict mode|OFF
 uselessCode|Warnings when the compiler sees useless code that it plans to remove.|WARNING
+violatedModuleDep|Warnings when there are references in earlier modules to variables defined in later modules|ERROR
 visibility|Warnings when @private and @protected are violated.|OFF
 --------------------------------------------------------------------------------------------------
 
