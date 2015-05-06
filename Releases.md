@@ -10,11 +10,11 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### May 5, 2015 (v20150505)
  * The @expose annotation is now deprecated. Please use `@export` or `@nocollapse` instead.
  * Removed the "checkStructDictInheritance" warning so that `@struct` classes can extend non-`@struct` classes, and vice versa.
- * Better typechecking for properties assigned in a local scope. See dac0948cd318d9ac572b850964f4451295859422 for details.
+ * Better typechecking for properties assigned in a local scope. See https://github.com/google/closure-compiler/commit/dac0948cd318d9ac572b850964f4451295859422 for details.
  * Several fixes and improvements to the new type inference.
  * Classes defined in a goog.module can now be subclassed.
  * Added the PolymerPass which handles Polymer-specific patterns (thanks to @jklein24)
- * Added a new lint check to make sure invalid types are not used as object keys. See 78cd2730d4b201dc63d64c03683dddbb1d098c9e (thanks to @nbeloglazov).
+ * Added a new lint check to make sure invalid types are not used as object keys. See https://github.com/google/closure-compiler/commit/78cd2730d4b201dc63d64c03683dddbb1d098c9e (thanks to @nbeloglazov).
  * Better warnings for misplaced JSDoc annotations.
  * ES6-related fixes:
     - Transpiled for/of loops now work correctly with native Map and Set implementations.
