@@ -30,6 +30,8 @@ Parameterizes a type with a set of type arguments. Similar to Java generics.
 {Object<string, number>} 
 ```
 
+> Note: `Array.<string>` was the original syntax. The `.` was considered unnecessary and the requirement was removed. `Array<string>` is now the preferred form. 
+
 ### Type Union
 
 Indicates that a value might have type A OR type B. Note the parentheses, which are required.
