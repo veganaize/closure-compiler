@@ -1,4 +1,4 @@
-The compiler option `--new_type_inf` activates the "new type inference" version of the compiler (NTI).  This is still under development (as of May 2015), but is already useful.  It catches more error conditions, which can help find bugs in your code.  But you will probably need to make a fair number of changes to eliminate the warnings that it generates.
+The compiler option `--new_type_inf` activates the "new type inference" version of the compiler (NTI).  This is still under development (as of May 2015), but is already useful.  It catches more error conditions, which can help find bugs in your code.  See [issue #826](https://github.com/google/closure-compiler/issues/826) for an example of a situation that NTI compiles correctly where the old compiler did not. But you will probably need to make a fair number of changes to eliminate the warnings that NTI generates.
 
 Note that the closure library has not yet been tuned to work with NTI, so you will get a large number of warnings (around 1000) from closure library code that you use.  
 
@@ -91,7 +91,6 @@ goog.forwardDeclare(goog.math.Coordinate);
 This will compile if somewhere else in the code you have `goog.require(goog.math.Coordinate)`.
 
 See <https://github.com/google/closure-compiler/issues/838>
-
 
 
 
