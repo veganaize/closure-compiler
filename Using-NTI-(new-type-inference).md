@@ -8,7 +8,9 @@ Because NTI is still under development you will only want to use it occasionally
 
 ## compiler bugs
 
-NTI is still under development, so there are compiler bugs.  You may encounter NTI warnings are just plain wrong -- these are bugs in the compiler that have not yet been fixed.  You can usually tell because the warning just doesn't make sense.   But not always!  Sometimes the warning is rather cryptic.  To help you distinguish good warnings from bad warnings look in the [list of issues and select the NTI label](https://github.com/google/closure-compiler/issues?q=is%3Aopen+is%3Aissue+label%3ANTI).  
+NTI is still under development, so there are compiler bugs.  You may encounter NTI warnings are just plain wrong -- these are bugs in the compiler that have not yet been fixed.
+
+You can usually spot a compiler bug because the warning just doesn't make sense.   But not always!  Sometimes the warning is rather cryptic.  To help you distinguish good warnings from bad warnings look in the [list of issues and select the NTI label](https://github.com/google/closure-compiler/issues?q=is%3Aopen+is%3Aissue+label%3ANTI).  
 
 You can help move the NTI compiler project along by reporting bugs you find in the compiler (as long as the bug is not a duplicate of an already reported issue).
 
@@ -44,7 +46,7 @@ myNamespace.myClass = function(inputElem) {
   * @private
   */
   this.inputElem_ = inputElem != null ? inputElem : 
-       /** @type {!HTMLInputElement} */(document.createElement('input')); ;
+       /** @type {!HTMLInputElement} */(document.createElement('input'));
 };
 ```
 
@@ -64,7 +66,7 @@ prevent accidental property creation by assignment, you should annotate the cons
 
 See <https://github.com/google/closure-compiler/issues/861>
 
-## `goog.forwardDeclare()` helps with circular references
+## circular references and `goog.forwardDeclare()`
 
 NTI changes when `goog.require()` is needed. The old way is described in the book *Closure, The Definitive Guide* by Michael Bolin, p. 50:
 
@@ -89,7 +91,6 @@ goog.forwardDeclare(goog.math.Coordinate);
 This will compile if somewhere else in the code you have `goog.require(goog.math.Coordinate)`.
 
 See <https://github.com/google/closure-compiler/issues/838>
-
 
 
 
