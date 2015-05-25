@@ -6,7 +6,7 @@ It may be puzzling what to do to get rid of a warning.  You can ask on the [clos
 
 Because NTI is still under development you will only want to use it occasionally, to work thru bugs in your own code.  Then switch NTI off for your regular work to avoid seeing warnings that cannot yet be fixed.
 
-## compiler bugs
+### compiler bugs
 
 NTI is still under development, so there are compiler bugs.  You may encounter NTI warnings are just plain wrong -- these are bugs in the compiler that have not yet been fixed.
 
@@ -15,7 +15,7 @@ You can usually spot a compiler bug because the warning just doesn't make sense.
 You can help move the NTI compiler project along by reporting bugs you find in the compiler (as long as the bug is not a duplicate of an already reported issue).
 
 
-## warning "attempt to use nullable type"
+### warning "attempt to use nullable type"
 
 The majority of warnings in your code will probably be "attempt to use nullable type".  The compiler is warning that you are using a variable that can be `null` in a situation where it must be non-null. These warnings are fairly easy to fix, but it does take a bit of editing of your code.  The best solution is to prefer a non-nullable type whenever possible: make properties and parameters and return types be defined as non-nullable. Then you can just use that object without testing whether it is null.  A non-nullable type begins with an exclamation mark.  Here is an example:
 
@@ -52,7 +52,7 @@ myNamespace.myClass = function(inputElem) {
 
 You can also use `goog.isDefAndNotNull()` to test if the variable is `null`.
 
-## circular references and `goog.forwardDeclare()`
+### circular references and `goog.forwardDeclare()`
 
 NTI changes when `goog.require()` is needed. The old way is described in the book *Closure, The Definitive Guide* by Michael Bolin, p. 50:
 
@@ -78,7 +78,7 @@ This will compile if somewhere else in the code you have `goog.require(goog.math
 
 See <https://github.com/google/closure-compiler/issues/838>
 
-## mis-spelled property names and `@struct`
+### mis-spelled property names and `@struct`
 
 (This is not related to NTI, but falls in category of "wanting the compiler to find bugs in your code".)
 
