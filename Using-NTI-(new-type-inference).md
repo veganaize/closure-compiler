@@ -52,20 +52,6 @@ myNamespace.myClass = function(inputElem) {
 
 You can also use `goog.isDefAndNotNull()` to test if the variable is `null`.
 
-## mis-spelled property names and `@struct`
-
-Suppose an object has a property named `address`.  If you misspell that property by doing:
-```javascript
-this.adress = "10 Main St.";
-```
-the compiler will NOT complain.  It assumes you are adding a new property to `this`.
-The fix is to annotate the constructor with `@struct`.
-
->Assigning has different behavior than property access, because it creates a property. If you want to 
-prevent accidental property creation by assignment, you should annotate the constructor with @struct
-
-See <https://github.com/google/closure-compiler/issues/861>
-
 ## circular references and `goog.forwardDeclare()`
 
 NTI changes when `goog.require()` is needed. The old way is described in the book *Closure, The Definitive Guide* by Michael Bolin, p. 50:
@@ -91,6 +77,22 @@ goog.forwardDeclare(goog.math.Coordinate);
 This will compile if somewhere else in the code you have `goog.require(goog.math.Coordinate)`.
 
 See <https://github.com/google/closure-compiler/issues/838>
+
+## mis-spelled property names and `@struct`
+
+(This is not related to NTI, but falls in category of "wanting the compiler to find bugs in your code".)
+
+Suppose an object has a property named `address`.  If you misspell that property by doing:
+```javascript
+this.adress = "10 Main St.";
+```
+the compiler will NOT complain.  It assumes you are adding a new property to `this`.
+The fix is to annotate the constructor with `@struct`.
+
+>Assigning has different behavior than property access, because it creates a property. If you want to 
+prevent accidental property creation by assignment, you should annotate the constructor with @struct
+
+See <https://github.com/google/closure-compiler/issues/861>
 
 
 
