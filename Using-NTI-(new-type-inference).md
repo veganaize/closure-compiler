@@ -52,32 +52,6 @@ myNamespace.myClass = function(inputElem) {
 
 You can also use `goog.isDefAndNotNull()` to test if the variable is `null`.
 
-### circular references and `goog.forwardDeclare()`
-
-NTI changes when `goog.require()` is needed. The old way is described in the book *Closure, The Definitive Guide* by Michael Bolin, p. 50:
-
->Note that `goog.require()` is not exactly the same as `import` in Java. In Closure, defining a function that takes a parameter of a particular type does not necessitate a `goog.require()` call to ensure the type has been loaded. For example, the following code does not require `goog.math.Coordinate`:
-
-```javascript
-/**
-* @param {number} radius
-* @param {goog.math.Coordinate} point
-* @return {boolean} whether point is within the specified radius
-*/
-example.radius.isWithinRadius = function(radius, point) {
-  return Math.sqrt(point.x * point.x + point.y * point.y) <= radius;
-};
-```
-With NTI this no longer works, you will get warnings like "Type annotation references non-existent type".  Using `goog.forwardDeclare()` solves the problem.  In the above example you would add
-
-```javascript
-goog.forwardDeclare(goog.math.Coordinate);
-```
-
-This will compile if somewhere else in the code you have `goog.require(goog.math.Coordinate)`.
-
-See <https://github.com/google/closure-compiler/issues/838>
-
 ### mis-spelled property names and `@struct`
 
 (This is not related to NTI, but falls in category of "wanting the compiler to find bugs in your code".)
