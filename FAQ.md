@@ -245,7 +245,7 @@ Go to the [Issue Tracker](https://github.com/google/closure-compiler/issues) and
 
 ### How do I submit a feature request for a new type of optimization?
 
-If you want us to add new optimizations that will make your code smaller or faster, you can also file that as a feature request in the issue tracker. Please label it with "Type-Enhancement" instead of "Type-Defect". We are more than happy to add more optimizations because they do help lots of people.
+If you want us to add new optimizations that will make your code smaller or faster, you can also file that as a feature request in the issue tracker. Please label it with "enhancement". We are more than happy to add more optimizations because they do help lots of people.
 
 However, keep in mind that there are infinitely many optimizations we could perform. Each extra optimization adds a maintenance cost and makes the compiler run more slowly. This is not an exaggeration: the number really is infinite. Wikipedia calls this the ["Full Employment Theorem for Compiler Writers"](http://en.wikipedia.org/wiki/Full_employment_theorem), and it basically says that even if we had infinite engineers, you would always be able to give them more work.
 
