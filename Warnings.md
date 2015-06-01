@@ -100,3 +100,10 @@ There is also one warning category that you can suppress with @suppress tags, bu
 
     /** @suppress {duplicate} */ foo.prop = ...
 Suppresses warnings about a declaration of the same method or property twice in the global scope.
+
+If you want to suppress many warnings at once, you can write
+
+    /** @suppress {duplicate, accessControls} */ function f() { ... }
+or
+
+    /** @suppress {duplicate|accessControls} */ function f() { ... }
