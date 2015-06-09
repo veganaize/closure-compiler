@@ -82,3 +82,9 @@ project: https://github.com/dcodeIO/node.js-closure-compiler-externs
 ## Facebook React
 
 https://github.com/steida/react-externs/blob/master/externs.js
+
+## Firebase
+
+project: https://github.com/isabo/firebase-externs
+
+https://github.com/isabo/firebase-externs/blob/master/firebase-externs.js
