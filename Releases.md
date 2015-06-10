@@ -6,6 +6,16 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### June 10, 2015 (v20150609)
+*   AMBIGUOUS\_FUNCTION\_DECL is now an error by default.
+*   New lint check: Extended interfaces should be goog.require'd
+*   --generate_exports generates goog.exportProperty calls instead
+    of goog.exportSymbol for @exports on prototype properties.
+*   Several fixes and improvements to the [[new type inference|Using-NTI-(new-type-inference)]]
+*   Several improvements to the PolymerPass.
+*   ES6-related fixes:
+    * Fix bug with redeclared this for arrow functions
+    * Fix goog.scope rewriting to work in ES6 mode
 
 ### May 5, 2015 (v20150505)
  * The `@expose` annotation is now deprecated. Please use `@export` or `@nocollapse` instead.
