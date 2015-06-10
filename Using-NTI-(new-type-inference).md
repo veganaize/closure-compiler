@@ -52,6 +52,18 @@ myNamespace.myClass = function(inputElem) {
 
 You can also use `goog.isDefAndNotNull()` to test if the variable is `null`.
 
+### warning "Property hasOwnProperty never defined on type Object"
+
+To eliminate this warning you need to remove all four of these compiler options:
+```
+--jscomp_warning=newCheckTypes
+--warning_level=VERBOSE
+--jscomp_error=missingProperties
+--jscomp_error=checkTypes
+```
+This may be fixed soon, see <https://github.com/google/closure-compiler/issues/866>.
+
+
 ### mis-spelled property names and `@struct`
 
 (This is not related to NTI, but falls in category of "wanting the compiler to find bugs in your code".)
@@ -67,6 +79,5 @@ The fix is to annotate the constructor with `@struct`.
 prevent accidental property creation by assignment, you should annotate the constructor with @struct
 
 See <https://github.com/google/closure-compiler/issues/861>
-
 
 
