@@ -42,10 +42,12 @@ and the path back to the source directory from `closure-library/closure/bin`.
 Setting `goog.LOCALE` (seen in the script above) is optional, if you leave that out then
 the default `LOCALE` will be used.  Similarly with `goog.DEBUG`.
 
-In the **compiled case**, the HTML file simply runs the compiled script which has boiled
+In contrast, for **compiled code**, the HTML file simply runs the compiled script which has boiled
 together everything needed for the application into a single script:
 
 ```html
 <script src="myProject.js">
 </script>
 ```
+
+When running from source code, it's always a good idea to compile first.  The compiler has excellent checks that catches lots of errors.
