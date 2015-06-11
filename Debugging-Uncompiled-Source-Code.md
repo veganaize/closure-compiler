@@ -1,9 +1,9 @@
 When you need to debug code that uses Closure Compiler and Closure Library, consider **debugging uncompiled source code**. This is useful because names are not obfuscated, source code line numbers are intact, so it is easy to interpret error messages or stack traces and use the browser's debugger.
 However, some people find that [debugging compiled code](https://github.com/google/closure-compiler/wiki/Debugging-Compiled-Code) works quite well.
 
-> **Code Must Work Without Compilation** Although the Compiler provides many beneficial transformations to its input, the code for the Closure Library is also expected to be able to be run without being processed by the Compiler. This not only ensures that the input language is pure JavaScript, but also makes debugging easier, as it is always possible to use the deobfuscated code.
+From [*Closure: The Definitive Guide*](http://www.amazon.com/Closure-Definitive-Guide-Michael-Bolin/dp/1449381871/) by Michael Bolin, Chapter 1:
 
---from Chapter 1 of *Closure: The Definitive Guide* by Michael Bolin
+> **Code Must Work Without Compilation** Although the Compiler provides many beneficial transformations to its input, the code for the Closure Library is also expected to be able to be run without being processed by the Compiler. This not only ensures that the input language is pure JavaScript, but also makes debugging easier, as it is always possible to use the deobfuscated code.
 
 Running from uncompiled source code requires a different way of loading the
 Closure Library. The HTML file that loads and runs the application is different
