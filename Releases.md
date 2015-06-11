@@ -6,7 +6,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### June 10, 2015 (v20150609)
+### June 9, 2015 (v20150609)
 *   AMBIGUOUS\_FUNCTION\_DECL is now an error by default.
 *   New lint check: Extended interfaces should be goog.require'd
 *   --generate_exports generates goog.exportProperty calls instead
