@@ -52,21 +52,19 @@ myNamespace.myClass = function(inputElem) {
 
 You can also use `goog.isDefAndNotNull()` to test if the variable is `null`.
 
-### warning "Property hasOwnProperty never defined on type Object"
+### warning "dangerous use of the global `this` object"
 
-To eliminate this warning you need to remove all four of these compiler options:
-```
---jscomp_warning=newCheckTypes
---warning_level=VERBOSE
---jscomp_error=missingProperties
---jscomp_error=checkTypes
-```
-This may be fixed soon, see <https://github.com/google/closure-compiler/issues/866>.
+You might see this warning if you use functions like `goog.array.forEach` which have an argument for `this` to apply to a passed in function.  There are a couple of issues about this:
+
+1. <https://github.com/google/closure-compiler/issues/834>
+2. <https://github.com/google/closure-compiler/issues/994>
+
+It is possible to avoid this warning by not passing the `this` argument to `goog.array.forEach`, see issue #994 for an example.
 
 
 ### mis-spelled property names and `@struct`
 
-(This is not related to NTI, but falls in category of "wanting the compiler to find bugs in your code".)
+*This is not related to NTI, but falls in category of "wanting the compiler to find bugs in your code".*
 
 Suppose an object has a property named `address`.  If you misspell that property by doing:
 ```javascript
@@ -79,5 +77,4 @@ The fix is to annotate the constructor with `@struct`.
 prevent accidental property creation by assignment, you should annotate the constructor with @struct
 
 See <https://github.com/google/closure-compiler/issues/861>
-
 
