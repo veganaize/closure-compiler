@@ -114,6 +114,7 @@ js/html part:
 - put all your closure js code in ```src/main/js```
 - put all your test js code in ```src/main/js```
 - in your ```www/index.html``` include a script tag ```<script src="your-app.js">``` (if not explicitly set the name is  **{project-folder-name}.js**)
+
 ###Run
 
 ####Developmenet
