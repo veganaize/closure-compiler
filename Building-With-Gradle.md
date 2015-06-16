@@ -1,7 +1,7 @@
-#Closure Compiler with Gradle
-To setup a project you must have Gradle installed https://gradle.org
 ##Initial Setup
-Init the project
+To setup a project you must have Gradle installed https://gradle.org
+
+Init the project:
 ```
 /some/path$> mkdir my-project && cd my-project
 /some/path/my-project$> gradle init
