@@ -115,14 +115,19 @@ js/html part:
 - put all your test js code in ```src/main/js```
 - in your ```www/index.html``` include a script tag ```<script src="your-app.js">``` (if not explicitly set the name is  **{project-folder-name}.js**)
 ###Run
+
 ####Developmenet
 ```./gradlew server```
+
 Then open http://localhost:101010
+
 ####Test
 ```./gradlew testJS```
 Executes the tests in FireFox (must be installed)
+
 ####Build
 ```./gradlew closureCompileJS```
+
 Runs the closure compiler against your sources (output ```build/compiled/web/your-app.js```)
 
 See this runnning mini todo app https://github.com/silksmith/silksmith-todo-sample
