@@ -120,7 +120,7 @@ js/html part:
 ####Developmenet
 ```./gradlew server```
 
-Then open http://localhost:101010
+Then open http://localhost:10101
 
 ####Test
 ```./gradlew testJS```
