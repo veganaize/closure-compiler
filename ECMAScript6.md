@@ -28,7 +28,7 @@ We support transpilation of the following ES6 features down to ES5/3.
 * The spread ("...") operator in function calls and array literals
 * Classes (ES6 classes will be @struct by default. You can add @unrestricted to override that behavior. See the 'JSDoc Tag Reference' section of the [Google JS style guide](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) for information about the @struct annotation.)
 * Computed properties and short properties in object literals.
-* Method declarations in object literals (though the 'super' keyword will not work, currently)
+* Method declarations in object literals
 * "for of" loops
 * generator functions
 * template strings
