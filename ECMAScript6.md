@@ -33,8 +33,6 @@ We support transpilation of the following ES6 features down to ES5/3.
 * generator functions
 * template strings
 * Better unicode escapes in string literals (e.g. "\u{1F436}" == "🐶")
-
-Transpilation of these features will be supported soon:
 * destructuring assignment
 * modules
 
