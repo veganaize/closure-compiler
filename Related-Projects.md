@@ -20,6 +20,8 @@
 
 [Web Resource Optimizer for Java](http://code.google.com/p/wro4j/) - A Java API that makes it easier to serve and minimize resources. Supports many different tools, including Closure Compiler, UglifyJs, YUI, CoffeeScript, and more.
 
+[silksmith](https://github.com/silksmith/silksmith) - A Gradle Plugin that manages dependencies via Maven, configures the compile task and comes with a buildin development server and a Mocha based test runner.
+
 ### Other Languages that Compile to JavaScript
 
 [ClojureScript](https://github.com/clojure/clojurescript) - An implementation of Lisp that compiles down to JavaScript compatible with Closure Compiler's advanced mode. 
