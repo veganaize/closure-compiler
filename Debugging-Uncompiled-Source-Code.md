@@ -55,4 +55,4 @@ together everything needed for the application into a single script:
 </script>
 ```
 
-When running from source code, it's always a good idea to compile first, even if you are not running compiled code.  The compiler has excellent checks that catches lots of errors.
+When running from source code, it's always a good idea to compile first, even if you are not running compiled code.  The compiler has excellent checks that catch lots of errors.
