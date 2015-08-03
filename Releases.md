@@ -6,6 +6,13 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### July 29, 2015 (v20150729)
+* Aggressive variable checks are now on by default, and the setAggressiveVarCheck flag has become a no-op.
+* Duplicate license comments will be omitted in the output.
+* Stringifiable object keys check is on by default.
+* Removed double-bar syntax (||) for declaring unions in type annotations.
+* Removed --accept_const_keyword flag. Use --language_in=ES6_STRICT instead.
+
 ### June 9, 2015 (v20150609)
 *   AMBIGUOUS\_FUNCTION\_DECL is now an error by default.
 *   New lint check: Extended interfaces should be goog.require'd
