@@ -9,7 +9,7 @@ The compiler is also available on [[Maven]] or [NPM](https://www.npmjs.com/packa
 -------------------------------------------------------------------------------
 ## Specific Versions
 
-### **v20150609**
+### **v20150729**
 
 - http://dl.google.com/closure-compiler/compiler-20150729.zip
 - http://dl.google.com/closure-compiler/compiler-20150729.tar.gz
