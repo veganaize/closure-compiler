@@ -7,7 +7,7 @@
 
 ### Compiler Options
 
-* [Experimental Type Based Property Renaming](https://github.com/google/closure-compiler/wiki/Experimental-Type-Based-Property-Renaming)
+* [Type Based Property Renaming](https://github.com/google/closure-compiler/wiki/Type-Based-Property-Renaming)
 * [JS Conformance](https://github.com/google/closure-compiler/wiki/JS-Conformance)
 * [Manage Closure Dependencies](https://github.com/google/closure-compiler/wiki/Manage-Closure-Dependencies)
 * [Using NTI (new type inference)](https://github.com/google/closure-compiler/wiki/Using-NTI-(new-type-inference))
