@@ -6,6 +6,12 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### September 1, 2015 (v20150901)
+* Support for different externs sets via the --env flag.
+* Improved handling of type aliases, including types exported across modules.
+* Use ES6 module ordering when in ES6 mode.
+* Remove checkStructDictInheritance diagnostic group (it no longer did anything)
+
 ### July 29, 2015 (v20150729)
 * Aggressive variable checks are now on by default, and the setAggressiveVarCheck flag has become a no-op.
 * Duplicate license comments will be omitted in the output.
