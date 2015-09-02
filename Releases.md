@@ -8,6 +8,8 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### September 1, 2015 (v20150901)
 * Support for different externs sets via the --env flag.
+    + `--env=CUSTOM` replaces the `--use_only_custom_externs` flag.
+    + Core language externs are always loaded - even for custom environments.
 * Improved handling of type aliases, including types exported across modules.
 * Use ES6 module ordering when in ES6 mode.
 * Remove checkStructDictInheritance diagnostic group (it no longer did anything)
