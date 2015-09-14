@@ -94,9 +94,9 @@ Closure Compiler assumes that you are using gzip compression. If you do not, you
 
 If you know your client doesn't support gzip, the Java API has an `aliasAllStrings` option on the [CompilerOptions](http://code.google.com/p/closure-compiler/source/browse/src/com/google/javascript/jscomp/CompilerOptions.java) class. Turning this on will make the compiler alias all your strings in the global scope.
 
-### JSC_VAR_MULTIPLY_DECLARED_ERROR occur using the standalone compiler jar but not with the webservice
+### JSC_VAR_MULTIPLY_DECLARED_ERROR occur using the standalone compiler jar but not with the web service
 
-The [uses slightly different defaults than the standalone compiler. By default, the web service is more permissive. If the code you are using assumes that it's OK to redeclare global variables, then you will need to using the --third_party flag to let the compiler know you don't want these to be treated as errors.
+The [web service](http://closure-compiler.appspot.com/#webservice) uses slightly different defaults than the standalone compiler. By default, the web service is more permissive. If the code you are using assumes that it's OK to redeclare global variables, then you will need to using the `--third_party` flag to let the compiler know you don't want these to be treated as errors.
 
 ### My code broke when using advanced optimizations! How do I figure out what's wrong?
 
@@ -150,6 +150,7 @@ We probably will never implement a 'may not be defined' check, because many JS A
 ### What are the recommended Java VM command-line options?
 
 While the compiler will correctly run with `java -jar compiler.jar` there are two ways to significantly improve the compilation time for most jobs. Try one of these command-lines:
+
 1. `java -client -d32 -jar compiler.jar`
 1. `java -server -XX:+TieredCompilation -jar compiler.jar`
 
@@ -237,7 +238,7 @@ Adding the sourceMappingUrl comment can be done with the `--output_wrapper` flag
 
 ### How do I submit a patch?
 
-Check out our [guide for contributors](Contributors).
+Check out our [[guide for contributors|Contributors]].
 
 ### How do I submit a bug report?
 
@@ -257,7 +258,7 @@ A few years ago, Kevin Bourrillion wrote [a thoughtful explanation](https://plus
 
 ### How do I find out more about how Closure Compiler works?
 
-See our [Design Documents](DesignDocuments).
+See our [[Design Documents|Design-Documents]].
 
 ### Is there a specification for the JSDoc type language?
 
