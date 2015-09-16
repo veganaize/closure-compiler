@@ -32,10 +32,11 @@ function MapStringToFoo() {}
  * @template VALUE
  */
 function IArrayLike() {}
-```
 
 /** @type {number} */
 IArrayLike.prototype.length;
+```
+
 IArrayLike extends IObject, such that the "key" is number and the "value" is the content type of the Array-like structure. IArrayLike is an improvement on the `{length:number}` type that is traditional used to signal array like in that the content type of the object can be supplied.
 
 ```javascript
