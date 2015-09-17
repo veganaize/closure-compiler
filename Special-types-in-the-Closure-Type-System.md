@@ -41,7 +41,7 @@ IArrayLike extends IObject, such that the "key" is number and the "value" is the
 
 ```javascript
 /** @constructor @implements IArrayLike<Foo> */
-function ArrayLikeOfFoo() {}
+function ArrayLikeOfFoo() { this.length = 0; }
 
 (new ArrayLikeOfFoo())['bar']  // type warning here.
 (new ArrayLikeOfFoo())[0]  // OK, the expression is of type Foo
