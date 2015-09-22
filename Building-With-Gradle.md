@@ -30,6 +30,7 @@ task compileJS(type: JavaExec){
 
   def closureArgs = []
   //append all your command line options here
+  closureArgs << "--compilation_level=SIMPLE_OPTIMIZATIONS"
   closureArgs << "--js_output_file=app.js"
   closureArgs << "input1.js"
   closureArgs << "input2.js"
