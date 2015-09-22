@@ -34,7 +34,7 @@ For now, we use the `@record` annotation to denote structural interfaces, but we
 
 ## Covariant Records
 
-Since record types are already matched structurally, they are similar to structural interfaces. In order to align them more, we have also converted record types from being invariant to being covariant.  Thus programs like the following will now be allowed:
+Since record types are already matched structurally, they are similar to structural interfaces. In order to align them more, we have also converted record types from being invariant to being covariant.  Thus, using records in was programs like the following are now allowed by Closure Compiler:
 ````javascript
 function f(/** { p : number } */ x) {
   var /** { p : (number|string) } */ y = x;
