@@ -32,9 +32,24 @@ var /** !PNum */ y = { p: 5 }; // OK with structural interfaces
 
 For now, we use the `@record` annotation to denote structural interfaces, but we hope to convert all interfaces to structural since it's simpler to have only one style of interfaces.
 
-## Covariant Records
+### Records vs. Structural Interfaces
 
-Since record types are already matched structurally, they are similar to structural interfaces. In order to align them more, we have also converted record types from being invariant to being covariant.  Thus, programs like the following are now allowed by Closure Compiler:
+Since record types are already matched structurally, they are similar to structural interfaces. 
+Note that unlike with traditional records, though, structural interfaces have names, and can be used
+with @implements, @extends, etc.
+
+Also, since structural types have a name, they can
+be used recursively, as in:
+````javascript
+/** @record */
+function Recursive(){};
+/** @type {?Recursive} */
+Recursive.prototype.next;
+````
+
+### Covariant Records
+
+In order to align records better with structural interfaces, we have also converted record types from being invariant to being covariant.  Thus, programs like the following are now allowed by Closure Compiler:
 ````javascript
 function f(/** { p : number } */ x) {
   var /** { p : (number|string) } */ y = x;
