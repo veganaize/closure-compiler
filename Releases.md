@@ -6,7 +6,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### September 1, 2015 (v20150920)
+### September 20, 2015 (v20150920)
 * Better support for IArrayLike, which checks usages of []
 * Improved handling for arguments array
 * Support structural typing for interfaces with @record.
