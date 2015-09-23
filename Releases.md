@@ -6,6 +6,11 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### September 1, 2015 (v20150920)
+* Better support for IArrayLike, which checks usages of []
+* Improved handling for arguments array
+* Support structural typing for interfaces with @record.
+
 ### September 1, 2015 (v20150901)
 * Support for different externs sets via the --env flag.
     + `--env=CUSTOM` replaces the `--use_only_custom_externs` flag.
