@@ -114,10 +114,10 @@ When you use these flags, Closure Compiler looks at the dependencies and drops l
 
 If you're writing a library and you're primarily using Closure Compiler to do syntax checking on that library, then you should not use `--manage_closure_dependencies` or `--only_closure_dependencies`. You should create separate build rules for syntax checking and for compiling just what's needed in your app.
 
-** I was sick of typing `goog.require`, so I aliased it to `var r = goog.require;`. Now dependency sorting doesn't work. Why? **
+**I was sick of typing `goog.require`, so I aliased it to `var r = goog.require;`. Now dependency sorting doesn't work. Why?**
 
 Closure Compiler does not even parse the code to determine its dependencies. It just does a regular expression search. If your provide and require statements are not at the top of the file in the form that the compiler expects, then it will fail to find them.
 
-** Regular expressions? ew. Can I send you a patch to use a proper parser instead? **
+**Regular expressions? ew. Can I send you a patch to use a proper parser instead?**
 
 No. There's a reason we did it this way. It wasn't 100% laziness....just 80-90% laziness. As it turns out, loading thousands of files from disk and building parse trees for them takes some time and memory. If you only need a few files, but you're passing in hundreds of library files that will get dropped anyway, we didn't want to slow down your compilation by an order of magnitude by trying to grok all those files.
