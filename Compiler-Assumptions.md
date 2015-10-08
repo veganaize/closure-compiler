@@ -12,7 +12,7 @@ The most important assumptions are described in
 - Property reads are assumed to be side effect free, as described [here](http://code.google.com/p/closure-compiler/issues/detail?id=398). We support getters only if they are side-effect free
 - In ADVANCED mode, property sets do not have arbitrary side-effects (it is ok to remove property writes if the property is never read), as described [here](http://code.google.com/p/closure-compiler/issues/detail?id=705)
 - The original value of Function.length may not be preserved, as described [here](http://code.google.com/p/closure-compiler/issues/detail?id=253).
-- [[To String And Value Of|toString and valueOf]] are assumed to be side-effect free.
+- [[toString And valueOf|toString and valueOf]] are assumed to be side-effect free.
 - ~~Math object methods are side-effect free.~~
 - instanceof is assumed to never throw
 
