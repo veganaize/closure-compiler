@@ -18,7 +18,7 @@ Closure Compiler has an API for configuring the errors and warnings that you wou
 
 In the examples above, `<group>` is a pre-defined category of warnings.
 
-Run the compiler with the --help flag to get a comprehensive up-to-date list.
+Run the compiler with the --help flag to get a comprehensive up-to-date list. This may be out of date. Or consult [ParserConfig.properties source](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/ParserConfig.properties#L131). 
 
 The following table describes the available diagnostic groups.
 
