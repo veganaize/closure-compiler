@@ -18,7 +18,7 @@ Closure Compiler has an API for configuring the errors and warnings that you wou
 
 In the examples above, `<group>` is a pre-defined category of warnings.
 
-Run the compiler with the --help flag to get a comprehensive up-to-date list. This may be out of date. Or consult [ParserConfig.properties source](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/ParserConfig.properties#L131). 
+Run the compiler with the --help flag to get a comprehensive up-to-date list. This may be out of date. Or consult [DiagnosticGroups.java](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/DiagnosticGroups.java#L87). 
 
 The following table describes the available diagnostic groups.
 
@@ -83,7 +83,9 @@ This is how we "canary" new warnings until we feel they're stable.
 
 ## @suppress Tags
     
-You can also silence warnings by adding JSDoc annotations to your code. All of the warnings categories above can be used in a @suppress tag in a @fileoverview JSDoc comment or a function JSDoc comment. For example,
+You can also silence warnings by adding JSDoc annotations to your code. All of the warnings categories above should be available for use in a @suppress tag in a @fileoverview JSDoc comment or a function JSDoc comment. However check [ParserConfig.properties](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/ParserConfig.properties#L131) for a comprehensive list of suppressible warnings.
+
+For example,
 
     /**
      * @fileoverview This is a file where deprecation checks are disabled.
