@@ -155,6 +155,116 @@ and by the signature provided by the rule.
 A restricted call to an instance property. As with RESTRICTED\_NAME\_CALL, the <strong>value </strong>for this rule provides an alternative type signature.  The property is declared
 as with BANNED\_PROPERTY.
 
+### CUSTOM
+
+A requirement enforced with code an external java class. Before implementing a
+custom rule please email js-compiler@ to confirm such a rule is necessary and
+is not appropriate as standard rule.
+
+An example of a custom conformance rule:
+
+requirement: {
+  type: CUSTOM
+  java_class: 'com.google.javascript.jscomp.ConformanceRules$BanExpose'
+  error_message: '@expose is not allowed.'
+}
+
+#### Predefined Custom Rules
+
+Some rules are difficult to express with the standard rules and difficult to
+generalize into a standard rule (or haven’t been yet) but are common enough to
+include in the standard framework.
+
+##### BanExpose
+
+Ban’s @expose which can lead to unexpected problems with property collapsing
+problems as all properties of the same name are exposed regardless of type.
+
+class: com.google.javascript.jscomp.ConformanceRules$BanExpose
+
+reason for custom rule: There is not yet a standard action to inspect jsdoc
+annotations directly
+
+##### BanThrowOfNonErrorTypes
+
+Only Error (or subtype) objects will consistently have stack traces attached.
+Ban’s other types (strings are the most common)
+
+class: com.google.javascript.jscomp.ConformanceRules$BanThrowOfNonErrorTypes
+
+reason for custom rule: It is common to catch and rethrow unknown types, the
+custom rule excludes rethrows in catch blocks.
+
+##### BanUnresolvedType
+
+Ban’s types that are referenced and known via forward declarations but not
+included in the compilation jobs dependencies. For legacy and code size
+reasons, this is normally allowed but it  can result in confusing type errors
+and missing type information as the type details of the type and its
+relationship to other types is unknown.
+
+class: com.google.javascript.jscomp.ConformanceRules$BanUnresolvedType
+
+reason for custom rule: There is no type name or relationship that can be used
+to look for these unresolved types.
+
+##### BanGlobalVars
+
+Global variables are code smell: a source of subtle bugs and incompatibilities
+and are often enough introduced accidentally. This rule requires that the only
+global declarations are goog.provide’d namespaces or equivalent. Note: other
+uses can we whitelisted in the standard ways.
+
+class: com.google.javascript.jscomp.ConformanceRules$BanGlobalVars
+
+reason for custom rule: There is no concept of “scope” in the standard rules.
+
+##### BanNullDeref
+
+Dereferencing null or undefined is a prevalent problem and something the
+compiler can check for but loose declarations in common code and generated
+files can make this impractical for many projects. However, as conformance rule
+can be enforced selectively, this rule allow projects to get null safety where
+it is practical.
+
+class: com.google.javascript.jscomp.ConformanceRules$BanNullDeref
+
+reason for custom rule: Selective enforcement.
+
+##### BanUnknownThis
+
+“this” values that are typed as “unknown” are a common way to unintentionally
+escape type checking.  Banning these allows for a sanity check on type checking
+in a relatively low noise and fairly straightforward and unobtrusive way. This
+is similar to the warnings seen in critique. Common reason for unknown this
+values and possible solutions are discussed here:
+
+[http://go/unknownthis](http://go/unknownthis)
+
+class: com.google.javascript.jscomp.ConformanceRules$BanUnknownThis
+
+reason for custom rule: There is not a standard way to check for the type of a
+particular kind of AST node, and particular allowed uses (casts and asserts),
+make this better as a standard rule.
+
+##### BanUnknownTypedClassPropsReferences
+
+Property references that are typed as “unknown” are a common way to
+unintentionally escape type checking.  Banning these allows for a sanity check
+on type checking.  Common reason for unknown property types and possible
+solutions are discussed here:
+
+[http://go/unknownprops](http://go/unknownprops)
+
+<strong>class</strong>:
+com.google.javascript.jscomp.ConformanceRules$BanUnknownTypedClassPropsReferences
+
+<strong>value</strong>: this rules accepts “value” entries that can be used to whitelist types that
+are expected to produce references to unknown properties.
+
+<strong>reason for custom rule</strong>: There is not a standard way to check for the type of a particular kind of AST
+node, and particular allowed uses (casts and asserts), make this better as a
+standard rule.
 # Testing Conformance Checks
 
 The [http://closure-compiler-debugger.appspot.com/](http://closure-compiler-debugger.appspot.com/) service contains a spot to write a conformance configuration and test it on
