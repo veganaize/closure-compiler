@@ -6,6 +6,23 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### October 15, 2015 (v20151015)
+*   ECMAScript 6 is officially supported.
+*   CollapseProperties will now collapse in more cases, possibly resulting
+    in fewer warnings and smaller code size.
+*   Destructuring is supported for goog.require()s in ES6 modules.
+*  ` @struct` is now supported for `@interface` and `@record` declarations in
+    the "old" type inference (The NTI has this behavior by default).
+    `goog.defineClass` `@interface`s are `@struct` by default (like
+    `@constructor`)
+*   "unknown property" conformance check now checks `@interface` and `@record`
+    types.
+*   Improved performance for parsing arrays, objects, and
+    parenthesized expressions.
+*   Typechecking improvements affecting module code.
+*   Inline type annotations on function parameters with `@type` will now be
+    respected.
+
 ### September 20, 2015 (v20150920)
 * Better support for IArrayLike, which checks usages of []
 * Improved handling for arguments array
