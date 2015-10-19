@@ -61,6 +61,7 @@ You might see this warning if you use functions like `goog.array.forEach` which 
 
 It is possible to avoid this warning by not passing the `this` argument to `goog.array.forEach`, see issue #994 for an example.
 
+In some cases adding the annotation `@this {myType.Foo}` can solve this warning. See [an email on the closure compiler list of Oct 19, 2015](https://groups.google.com/d/msg/closure-compiler-discuss/22FsLdUCWbs/t1dq0-nWAgAJ) for an example of this.  That example involves defining a function operating on `this` inside a constructor.
 
 ### mis-spelled property names and `@struct`
 
@@ -77,4 +78,3 @@ The fix is to annotate the constructor with `@struct`.
 prevent accidental property creation by assignment, you should annotate the constructor with @struct
 
 See <https://github.com/google/closure-compiler/issues/861>
-
