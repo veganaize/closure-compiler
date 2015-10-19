@@ -79,7 +79,7 @@ prevent accidental property creation by assignment, you should annotate the cons
 
 See <https://github.com/google/closure-compiler/issues/861>
 
-See also the following [note from compiler release v20151015](https://groups.google.com/d/msg/closure-compiler-discuss/IcQfig9Bd1M/lwERBi4DAgAJ) about using `@struct`
+Note that `@constructor` implies `@struct` in recent versions of the compiler. See the following [note from compiler release v20151015](https://groups.google.com/d/msg/closure-compiler-discuss/IcQfig9Bd1M/lwERBi4DAgAJ) about using `@struct`
 
 > ` @struct` is now supported for `@interface` and `@record` declarations in
 the "old" type inference (The NTI has this behavior by default).
