@@ -141,9 +141,9 @@ This has some interesting corollaries. The one that gotchas people the most is w
 
     element.contentWindow.focus();
 
-Not all elements have "contentWindow" defined on them. Only HTMLIframeElements do. Closure Compiler will not complain about this, because it only warns about missing properties if it knows that property 'cannot possibly' be defined. (The java compiler will do the reverse, and warn about missing properties if it knows that the property 'may not' be defined).
+Not all elements have "contentWindow" defined on them. Only HTMLIframeElements do. Closure Compiler will not complain about this, because it only warns about missing properties if it knows that property 'cannot possibly' be defined. (The java compiler will do the reverse, and warn about missing properties if it knows that the property 'may not' be defined).  This approach was chosen as many JS APIs (like the DOM) are designed so that the properties on an object are only truly knowable at run-time.
 
-We probably will never implement a 'may not be defined' check, because many JS APIs (like the DOM) are designed so that the properties on an object are only truly knowable at run-time.
+It is possible to get stricter property check on specific types by annotating them with [`@struct`](https://github.com/google/closure-compiler/wiki/@struct-and-@dict-Annotations).   The experimental [New Type Inferrence](https://github.com/google/closure-compiler/wiki/Using-NTI-(new-type-inference)) implements a 'may not be defined' check.
 
 ## Using Closure Compiler
 
