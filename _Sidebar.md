@@ -1,4 +1,4 @@
-## Common wiki pages
+### Common wiki pages
 
 * [FAQ](https://github.com/google/closure-compiler/wiki/FAQ)
 * [Binary Downloads](https://github.com/google/closure-compiler/wiki/Binary-Downloads)
@@ -18,6 +18,8 @@
 * [Annotating Types](https://github.com/google/closure-compiler/wiki/Annotating-Types)
 * [Externs for Common Libraries](https://github.com/google/closure-compiler/wiki/Externs-For-Common-Libraries)
 * [Special Types In the Closure Type System] (https://github.com/google/closure-compiler/wiki/Special-types-in-the-Closure-Type-System)
+* [[@struct and @dict Annotations]]
+* [[A word about the type Object]]
 
 ### Refactoring
 
