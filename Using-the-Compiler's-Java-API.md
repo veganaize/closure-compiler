@@ -1,8 +1,6 @@
 # Calling the compiler from Java to have more control
 
-# Details
-
-Topics:
+### Details
 
 - Setting default options
      `CompilationLevel.SIMPLE_OPTIMIZATIONS.setOptionsForCompilationLevel(options);`
@@ -11,6 +9,6 @@ Topics:
      See [CommandLineRunner.java](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/CommandLineRunner.java) getDefaultExterns
 
 
-References:
+### References
 
 http://blog.bolinfest.com/2009/11/calling-closure-compiler-from-java.html
