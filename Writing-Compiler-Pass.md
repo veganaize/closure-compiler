@@ -12,7 +12,7 @@ TODO: Add / Link instructions on how to check out / compile the compiler.
 
 # Adding Your Pass
 
-Fire up your favorite editor and type (paste) the following code in com/google/javascript/jscomp/HelloWorld.java (is this path right?)
+Fire up your favorite editor and type (paste) the following code in src/com/google/javascript/jscomp/HelloWorld.java (is this path right?)
 
     package com.google.javascript.jscomp;
     
@@ -32,11 +32,11 @@ Fire up your favorite editor and type (paste) the following code in com/google/j
       }
     }
 
-Any compiler passes should implement com.google.javascript.jscomp.CompilerPass providing the process() method. The compiler will execute this method when the pass is scheduled to run. The Abstract Syntax Tree (AST) will be passed into our new pass. The externs tree contains all the extern definition provided by the user with --externs. The root tree contains all the source code for the compilation.
+Any compiler passes should implement `com.google.javascript.jscomp.CompilerPass` providing the `process()` method. The compiler will execute this method when the pass is scheduled to run. The Abstract Syntax Tree (AST) will be passed into our new pass. The externs tree contains all the extern definition provided by the user with --externs. The root tree contains all the source code for the compilation.
 
 # Traversing the AST
 
-We can traverse the tree with our own recursion with the Node's getFirstChild() getLastChild() and getNext() functions. However the compiler has serveral traversal tools that simplify this process. We will use 
+We can traverse the tree with our own recursion with the Node's `getFirstChild()`, `getLastChild()` and `getNext()` functions. However, the compiler has several traversal tools that simplify this process. We will use 
 
     package com.google.javascript.jscomp;
     
@@ -143,7 +143,7 @@ We construct a subtree for the code that calls print() with the argument "Hello 
 
 # Building
 
-TODO: Add info on how to add this to the Ant build.
+TODO: Add info on how to add this to the ant/mvn build.
 
 # Executing the Pass
 
@@ -192,3 +192,7 @@ Let's load up our editor and write a quick some_script.js Javascript to see if i
 
     var print;
     var x;
+
+# Next steps
+
+If you want your pass to do some more complicated analysis, it might need access to the control-flow-graph of the overall program, or of a particular function. [TODO: Add a page showing how to get and use the CFG] Or, you might want to write a pass that takes advantage of type information. [TODO: Add a page showing how to get the type of a Node]
