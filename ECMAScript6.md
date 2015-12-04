@@ -2,7 +2,7 @@
 
 # Introduction
 
-There are major changes in store for EcmaScript 6 and will require major changes to Closure Compiler to support it.
+ECMAScript 6 is now officially supported as an input language for the Closure Compiler. You cannot use it as an output language yet; for now you need to transpile down to ES5 or ES3. If you find that the Closure Compiler does not support your favorite ES6 feature, you can file an issue, but please be aware that supporting the entire ES6 specification is a non-goal for the Closure Compiler. We currently avoid features that cannot be transpiled cleanly to ES5, and features that tend to lead to code which is difficult to analyze and typecheck. 
 
 This is a place to collect changes that will need to be made to the compiler.
 
