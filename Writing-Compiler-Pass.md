@@ -190,11 +190,9 @@ Alternatively, you may want to paste this code snippet in the check() method in 
 
 # Building
 
-Now you can run
+Adding this new compiler pass breaks some tests. So build the compiler again but skip running tests this time:
 
-    mvn install
-
-as before and the compiler, with your new pass, will be built.
+    mvn install -DskipTests
 
 # Running
 
@@ -209,10 +207,10 @@ Run the compiler:
 
 and you should see
 
-    var print;print("hello world");var x;
+    var print;print("Hello World!");var x;print("Hello World!");
 
-in the output!
+in the output. Your new pass has added a `print` call after each var statement.
 
 # Next steps
 
-If you want your pass to do some more complicated analysis, it might need access to the control-flow-graph of the overall program, or of a particular function. [TODO: Add a page showing how to get and use the CFG] Or, you might want to write a pass that takes advantage of type information. [TODO: Add a page showing how to get the type of a Node]
+If you want your pass to do some more complicated analysis, it might need access to the control-flow-graph of the overall program, or of a particular function. [TODO: Add information on how to get and use the CFG] Or, you might want to write a pass that takes advantage of type information. [TODO: Add a page showing how to get the types of Nodes and do something interesting with them]
