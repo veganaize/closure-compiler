@@ -145,7 +145,7 @@ Now that we know found our node we would like to insert our "Hello World"
       }
     }
 
-We construct a subtree for the code that calls print() with the argument "Hello World!". A call nodes first child is the function being called (in this case, `print`) and the rest of the children (if any) are the arguments to the function. On top of that we wrap it in an "expr result" node to make the AST valid, and finally insert it after the variable declaration. The AST can be built up using `new Node()`, `Node#addChildToBack`, etc. but it is often easier to use the [`IR`](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/rhino/IR.java) methods as the code is easier to read and many of them do some extra checking to catch incorrect usage.
+We construct a subtree for the code that calls print() with the argument "Hello World!". A call node's first child is the function being called (in this case, `print`) and the rest of the children (if any) are the arguments to the function. On top of that we wrap it in an "expr result" node to make the AST valid, and finally insert it after the variable declaration. The AST can be built up using `new Node()`, `Node#addChildToBack`, etc. but it is often easier to use the [`IR`](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/rhino/IR.java) methods as the code is easier to read and many of them do some extra checking to catch incorrect usage. To see what the AST for a given snippet of JavaScript looks like the [Closure Compiler Debugger](https://closure-compiler-debugger.appspot.com/) is often helpful.
 
 # Executing the Pass
 
