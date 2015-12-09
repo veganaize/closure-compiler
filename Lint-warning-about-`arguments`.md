@@ -1,4 +1,4 @@
-# What's up with the `arguments` object?
+#### What's up with the `arguments` object?
 
 `arguments` is a variable that is in scope in every function, which
 more or less acts like an array, but unfortunately is not an array.
