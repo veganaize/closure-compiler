@@ -52,9 +52,9 @@ Different browsers may parse array literals with trailing commas successfully, b
     => 1 (on Firefox)
     => 2 (on IE)
 
-This difference is highly likely to lead to bugs, so by default we just forbid it outright.  
+This difference is highly likely to lead to bugs, so we forbid it outright if you specify `--language_in=ECMASCRIPT3`.  
 
-EcmaScript 5 standardized the behavior to allow trailing commas, and the latest releases of the major browser vendors support it.  The Closure Compiler can accept and generate EcmaScript 5 code (with `--language_in=ES5` or `--language_in=ES5_STRICT`), however as significant number of older browsers are still in use, it is not the default.
+ECMAScript 5 standardized the behavior to allow trailing commas, and the latest releases of the major browsers support it.  The Closure Compiler can accept and generate ECMAScript 5 or 6 code (with `--language_in=ES5` or `--language_in=ES5_STRICT`, etc.), and 6 will be the Closure Compiler's default input language soon (late 2015 or early 2016). In the meantime you can pass `--language_in=ES5_STRICT` explicitly.
 
 ### I get "invalid property id" errors. But it works on Firefox!
 
