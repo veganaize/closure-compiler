@@ -130,7 +130,7 @@ A.prototype.method = function(t) { ... };
 B = function() { ... };
 ```
 
-By extending `A<string>`, `B` will have a method method that takes a parameter of type string.
+By extending `A<string>`, `B` will have a method that takes a parameter of type string.
 
 Here is an example of an inheriting type propagating the template type of its supertype:
 
@@ -144,7 +144,7 @@ Here is an example of an inheriting type propagating the template type of its su
 C = function() { ... };
 ```
 
-By extending `A<U>`, templated instances of C will have a method method that takes a parameter of the template type `U`.
+By extending `A<U>`, templated instances of C will have a method that takes a parameter of the template type `U`.
 
 Interfaces can be implemented and extended in a similar fashion, but a single type cannot implement the same interface multiple times with different template types. For example:
 
@@ -181,3 +181,5 @@ identity = function(a) { return a; };
 /** @type {number} */ var sum = identity(2) + identity(2); // OK
 /** @type {number} */ var sum = identity(2) + identity("2"); // Type mismatch
 ```
+
+We do not currently support bounded generics (e.g. `Foo<T extends Bar>`) though we may in the future.
