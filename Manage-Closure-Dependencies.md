@@ -1,10 +1,6 @@
 ### Documents the --manage_closure_dependencies and --only_closure_dependencies options
 
-The browser processes JavaScript files serially. So if you have a lot of JavaScript files you'll need some way to make sure they get executed in the right order.
-
-Closure Library offers [a few python scripts](http://code.google.com/closure/library/docs/calcdeps.html) that help you manage dependencies between files. In the Closure Library world, each JavaScript file has a `goog.provide` call at the top for each major symbol it defines, and a `goog.require` call at the top for each symbol it needs. Closure Library's scripts use that information to determine an ordering.
-
-Now, Closure Compiler has this feature built-in! Read on to find out more.
+The browser processes JavaScript files serially. So if you have a lot of JavaScript files you'll need some way to make sure they get executed in the right order. Closure Compiler has this feature built-in! Read on to find out more.
 
 ### Using Closure Compiler to auto-sort files
 
