@@ -264,7 +264,7 @@ See our [[Design Documents|Design-Documents]].
 
 ### Is there a specification for the JSDoc type language?
 
-The Closure Compiler type language tries to adhere as closely as possible to the [EcmaScript 4 draft spec](http://wiki.ecmascript.org/doku.php?id=spec:spec), which contains a rigorous grammar for the type language, and a description of the intended semantics.
+The Closure Compiler type language was originally based on the [EcmaScript 4 draft spec](http://wiki.ecmascript.org/doku.php?id=spec:spec), which contains a rigorous grammar for the type language, and a description of the intended semantics. It has since evolved somewhat so there are several places where it does not match ES4.
 
 We also have a more informal tutorial on [how to write type annotations](http://code.google.com/closure/compiler/docs/js-for-compiler.html#types).
 
