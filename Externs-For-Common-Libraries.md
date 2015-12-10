@@ -2,7 +2,7 @@
 
 # Introduction
 
-If you know of a public externs file for a library you use not listed here, please add a comment.  And it will  be added.
+If you know of a public externs file for a library you use not listed here, please go ahead and add it.
 
 A variety of API are supported here:
 https://github.com/google/closure-compiler/tree/master/contrib/externs
