@@ -8,7 +8,7 @@ We currently do not have an official plugin for compiling your JS with Maven, bu
 
 # Usage
 
-To include closure-compiler in your project add the following to your build configuration:
+To include closure-compiler in your project add the following to your build configuration (replacing v20141023 with the latest version. See https://github.com/google/closure-compiler/wiki/Releases).
 
 ## Maven
 
