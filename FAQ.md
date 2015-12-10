@@ -175,11 +175,11 @@ For common JS libraries, it's likely that someone has already written an externs
 
 ### Do I need to write type annotations to take advantage of Advanced Optimizations?
 
-No. 
+No, but it helps.
 
-The advanced optimizations don't really use type information at all.
+Many of the advanced optimizations don't really use type information at all. The big wins in advanced optimizations come from [externs and exports](http://code.google.com/closure/compiler/docs/api-tutorial3.html#removal). Closure Compiler will remove code that isn't used or exported.
 
-The big wins in advanced optimizations come from [externs and exports](http://code.google.com/closure/compiler/docs/api-tutorial3.html#removal). Closure Compiler will remove code that isn't used or exported.
+If you do use types, then the compiler can optimize your code even more. See https://github.com/google/closure-compiler/wiki/Type-Based-Property-Renaming for more details.
 
 ### When using Advanced Optimizations, Closure Compiler adds new variables to the global scope. How do I make sure my variables don't collide with other scripts on the page?
 
