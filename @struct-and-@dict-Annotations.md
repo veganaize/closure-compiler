@@ -35,6 +35,8 @@ When you annotate a constructor C with @dict, the compiler checks that you only 
 
 By using @struct, you know that the compiler will rename all properties safely, because you can't use bracket access. By using @dict, you know that the properties will have the same name after compilation.
 
+ES6 classes (classes defined using the `class` keyword) and classes defined using `goog.defineClass` are considered @struct by default, but they can be annotated @unrestricted to allow properties to be added later, or to use a mix of dot and bracket access.
+
 You can also use @struct and @dict on object literals directly.
 
     var s = /** @struct */ { x: 1 }, d = /** @dict */ { y: 321 };
