@@ -20,6 +20,7 @@
 * [Special Types In the Closure Type System] (https://github.com/google/closure-compiler/wiki/Special-types-in-the-Closure-Type-System)
 * [[@struct and @dict Annotations]]
 * [[A word about the type Object]]
+* [[Structural Interfaces in Closure Compiler]]
 
 ### Refactoring
 
