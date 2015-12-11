@@ -5,27 +5,32 @@ As of the r20150729 Closure Compiler release, we've been working toward having s
 Currently, Closure Compiler has nominal interfaces. For example, for:
 ````javascript
 /** @interface */
-function PNum() {};
+function PNumI() {};
 /** @type {number} */
-PNum.prototype.p;
+PNumI.prototype.p;
 
 /** @constructor */
 function Foo() {};
 /** @type {number} */
 Foo.prototype.p = 5;
 ````
-since Foo doesn't explicitly @implement PNum, it isn't considered a subtype, even though it has all of the required properties for implementations of PNum.
+since Foo doesn't explicitly @implement PNumI, it isn't considered a subtype, even though it has all of the required properties for implementations of PNumI.
 ````
 WARNING - initializing variable
 found   : Foo
-required: PNum
-var /** !PNum */ x = new Foo;
+required: PNumI
+var /** !PNumI */ x = new Foo;
                      ^
 ````
 
-With structural interfaces, Foo would be considered to match PNum. Since structural interfaces are very similar to the existing record types, it also makes sense to let records match 
+With structural interfaces (declared with the `@record` annotation), Foo would be considered to match. Since structural interfaces are very similar to the existing record types, it records also match: 
 
 ````javascript
+/** @record */
+function PNum() {};
+/** @type {number} */
+PNum.prototype.p;
+
 var /** !PNum */ x = new Foo;  // OK with structural interfaces
 var /** !PNum */ y = { p: 5 }; // OK with structural interfaces
 ````
