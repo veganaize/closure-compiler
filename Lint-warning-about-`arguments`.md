@@ -49,3 +49,6 @@ These usages are discouraged for the following reasons:
 
 We make an exception for `Function.prototype.apply` so there is no warning for
 `f.apply(obj, arguments);`.
+
+In most other cases, simply iterating over `arguments` with a `for` loop is
+actually more performant and should generally be preferred.
