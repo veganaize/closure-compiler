@@ -6,6 +6,17 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### December 16, 2015 (v20151216)
+* Allow input and output as JSON streams to support the gulp and
+  grunt workflows. See: <https://github.com/ChadKillingsworth/closure-compiler-npm/blob/master/README.md>
+* Compiler web service and CommandLineRunner now default to
+  transpiling from ES6-ES3 (instead of assuming input is ES3).
+* Pretty print record types in error messages to make it easier
+  to find the source of type mismatches.
+* HEURISTIC renaming has been removed.
+* Don't warn if the root of a namespace is defined twice in the externs.
+* Some optimization passes now understand Object.defineProperties
+
 ### October 15, 2015 (v20151015)
 *   ECMAScript 6 is officially supported.
 *   CollapseProperties will now collapse in more cases, possibly resulting
