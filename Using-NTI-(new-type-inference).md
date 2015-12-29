@@ -16,19 +16,13 @@ NTI is still under development, and it may produce some warnings that are wrong 
 
 You can help move the NTI compiler project along by reporting bugs you find in the compiler (as long as the bug is not a duplicate of an already reported issue).
 
+### Warning "dangerous use of the global `this` object"
 
-### warning "dangerous use of the global `this` object"
-
-You might see this warning if you use functions like `goog.array.forEach` which have an argument for `this` to apply to a passed in function.  There are a couple of issues about this:
-
-1. <https://github.com/google/closure-compiler/issues/834>
-2. <https://github.com/google/closure-compiler/issues/994>
-
-It is possible to avoid this warning by not passing the `this` argument to `goog.array.forEach`, see issue #994 for an example.
+You might see this warning if you use functions like `goog.array.forEach` which have an argument for `this` to apply to a passed in function.  Relevant issue: <https://github.com/google/closure-compiler/issues/994>. It is possible to avoid this warning by not passing the `this` argument to `goog.array.forEach`.
 
 In some cases adding the annotation `@this {myType.Foo}` can solve this warning. See [an email on the closure compiler list of Oct 19, 2015](https://groups.google.com/d/msg/closure-compiler-discuss/22FsLdUCWbs/t1dq0-nWAgAJ) for an example of this.  That example involves defining a function operating on `this` inside a constructor.
 
-### misspelled property names and `@struct`
+### Misspelled property names and `@struct`
 
 *This is not related to NTI, but falls in category of "wanting the compiler to find bugs in your code".*
 
