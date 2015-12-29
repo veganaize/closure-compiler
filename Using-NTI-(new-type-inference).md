@@ -6,9 +6,9 @@ It may be puzzling what to do to get rid of a warning.  You can ask on the [clos
 
 ### Common warnings when you first start using NTI.
 
-1) Stricter property checks. The current type checker is very loose about missing properties; with NTI you will see many more missing-property warnings.
-2) NTI warns when the operands of primitive operators (such as -, <, etc) have the wrong type.
-3) NTI is stricter about typing generics.
+1. Stricter property checks. The current type checker is very loose about missing properties; with NTI you will see many more missing-property warnings.
+2. NTI warns when the operands of primitive operators (such as -, <, etc) have the wrong type.
+3. NTI is stricter about typing generics.
 
 ### Compiler bugs
 
