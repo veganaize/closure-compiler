@@ -20,7 +20,8 @@ You can help move the NTI compiler project along by reporting bugs you find in t
 
 A function does not specify a receiver type, a method does. In NTI, you cannot pass a method to a context that expects a function, because it can then be called without a receiver type. For example, the current type checker doesn't warn about the following program, but NTI (correctly) does.
 
-`class Foo {
+```
+class Foo {
   constructor() {
     /** @type {number} */
     this.prop = 123;
@@ -34,7 +35,8 @@ function f(/** function(number) */ fun) {
   fun(123);
 }
 
-f((new Foo).setX); // Warning here`
+f((new Foo).setX); // Warning here
+```
 
 ### Warning "dangerous use of the global `this` object"
 
