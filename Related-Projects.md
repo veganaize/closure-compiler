@@ -8,8 +8,6 @@
 
 [Closure Javascript Framework](https://github.com/jlgrock/ClosureJavascriptFramework) - A Maven plugin for running Closure Compiler on JavaScript code.
 
-[Closure Script](https://github.com/dturnbull/closure-script) - Build tools for recompiling JavaScript on refresh and showing warnings in the browser's console. Provides good Ruby bindings.
-
 [este](https://github.com/Steida/este) - JavaScript Framework and Dev Stack build on Google Closure Tools with CoffeeScript support
 
 [JSlim](https://github.com/zgrossbart/jslim) - Builds optimized versions of common library code.
@@ -24,8 +22,8 @@
 
 ### Other Languages that Compile to JavaScript
 
-[ClojureScript](https://github.com/clojure/clojurescript) - An implementation of Lisp that compiles down to JavaScript compatible with Closure Compiler's advanced mode. 
+[ClojureScript](https://github.com/clojure/clojurescript) - An implementation of Lisp that compiles down to JavaScript compatible with Closure Compiler's advanced mode.
 
 [emscripten](https://github.com/kripken/emscripten) - A LLVM to JavaScript cross compiler that optionally uses Closure Compiler's advanced mode to reduce code size.
 
-[Google Web Toolkit](https://developers.google.com/web-toolkit/) - A Java to JavaScript tool set that optionally uses the Closure Compiler to further reduce code size.  
+[Google Web Toolkit](https://developers.google.com/web-toolkit/) - A Java to JavaScript tool set that optionally uses the Closure Compiler to further reduce code size.

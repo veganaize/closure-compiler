@@ -404,7 +404,7 @@ Major changes in this release:
 - Fixes for [issue 588](https://github.com/google/closure-compiler/issues#issue/588), [issue 586](https://github.com/google/closure-compiler/issues#issue/586), [issue 581](https://github.com/google/closure-compiler/issues#issue/581), [issue 569](https://github.com/google/closure-compiler/issues#issue/569), [issue 567](https://github.com/google/closure-compiler/issues#issue/567), [issue 566](https://github.com/google/closure-compiler/issues#issue/566), [issue 558](https://github.com/google/closure-compiler/issues#issue/558), [issue 550](https://github.com/google/closure-compiler/issues#issue/550), [issue 544](https://github.com/google/closure-compiler/issues#issue/544), [issue 539](https://github.com/google/closure-compiler/issues#issue/539), [issue 531](https://github.com/google/closure-compiler/issues#issue/531),
 - New jQuery 1.7 and Gadget API externs
 - Internal AST cleanup, removed unused Token and annotation IDs, unused legacy Rhino classes.
-- Added experimental [RescopeGlobalSymbols](http://code.google.com/p/closure-compiler/source/detail?r=1541) pass.
+- Added experimental [RescopeGlobalSymbols](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/RescopeGlobalSymbols.java) pass.
 - Add `checkDebuggerStatement` diagnostic group to enable checks for `debugger` statements
 - Minor type checking improvements
 - Minor optimization improvements

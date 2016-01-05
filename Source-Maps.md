@@ -14,7 +14,7 @@ Design docs for deprecated versions:
 
 Implementation here:
 
-[com.google.debugging.sourcemap](http://code.google.com/p/closure-compiler/source/browse/#git%2Fsrc%2Fcom%2Fgoogle%2Fdebugging%2Fsourcemap)
+[com.google.debugging.sourcemap](https://github.com/google/closure-compiler/blob/master/src/com/google/debugging/sourcemap)
 
 Mozilla's JS Implementation here:
 

@@ -47,7 +47,7 @@ There's one subtle point we should point out: Closure Compiler will rearrange th
 
 Yes. But Closure Compiler considers them magic primitives. The compiler automatically expands them into variable and property declarations. Even if the JS files you give it do not define `goog.provide`/`goog.require` anywhere, the compiler expands these symbols. Even if your JS files define completely bizarre implementations for these functions, the compiler still expands them according to the Closure Library implementation. The logic is hard-coded. 
 
-If you want the code to work uncompiled, you should either include Closure Library's [base.js](http://code.google.com/p/closure-library/source/browse/closure/goog/base.js) with your code, or you should copy and paste the reference implementation.
+If you want the code to work uncompiled, you should either include Closure Library's [base.js](https://github.com/google/closure-library/blob/master/closure/goog/base.js) with your code, or you should copy and paste the reference implementation.
 
 ### Using --only_closure_dependencies to drop files that you don't need
 
