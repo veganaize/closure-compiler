@@ -16,6 +16,26 @@ NTI is still under development, and it may produce some warnings that are wrong 
 
 You can help move the NTI compiler project along by reporting bugs you find in the compiler (as long as the bug is not a duplicate of an already reported issue).
 
+### Function vs method types
+
+A function does not specify a receiver type, a method does. In NTI, you cannot pass a method to a context that expects a function, because it can then be called without a receiver type. For example, the current type checker doesn't warn about the following program, but NTI (correctly) does.
+
+`class Foo {
+  constructor() {
+    /** @type {number} */
+    this.prop = 123;
+  }
+  setX(/** number */ x) {
+    this.prop = x;
+  }
+}
+
+function f(/** function(number) */ fun) {
+  fun(123);
+}
+
+f((new Foo).setX); // Warning here`
+
 ### Warning "dangerous use of the global `this` object"
 
 You might see this warning if you use functions like `goog.array.forEach` which have an argument for `this` to apply to a passed in function.  Relevant issue: <https://github.com/google/closure-compiler/issues/994>. It is possible to avoid this warning by not passing the `this` argument to `goog.array.forEach`.
