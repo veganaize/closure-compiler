@@ -22,7 +22,11 @@ https://github.com/mozilla/source-map
 
 Webkit JS Implementation here:
 
-http://code.google.com/codesearch#OAMlx_jo-ck/src/third_party/WebKit/Source/WebCore/inspector/front-end/CompilerSourceMapping.js
+http://trac.webkit.org/browser/trunk/Source/WebInspectorUI/UserInterface/Models/SourceMap.js#L158
+
+Blink JS Implementation here:
+
+https://code.google.com/p/chromium/codesearch#chromium/src/third_party/WebKit/Source/devtools/front_end/sdk/SourceMap.js&type=cs&l=282
 
 Discussions:
 
