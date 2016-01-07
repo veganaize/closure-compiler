@@ -38,6 +38,18 @@ function f(/** function(number) */ fun) {
 f((new Foo).setX); // Warning here
 ```
 
+### Typedefs are not namespaces
+
+A typedef is supposed to create a new type name for an existing type. The main use is to avoid retyping long names over and over. However, the old type checker was loose about typedefs and did not warn about cases that were not meant to be supported. Specifically, people would use the typedef name as a value, and assign properties to it. This is not supported, a typedef name is meant to be used in type annotations only.
+
+```
+/** @typedef {number} */
+var N;
+
+/** @type {string} */
+N.prop = 'asdf'; // warning, adding properties to typedefs is not allowed.
+```
+
 ### Warning "dangerous use of the global `this` object"
 
 You might see this warning if you use functions like `goog.array.forEach` which have an argument for `this` to apply to a passed in function.  Relevant issue: <https://github.com/google/closure-compiler/issues/994>. It is possible to avoid this warning by not passing the `this` argument to `goog.array.forEach`.
