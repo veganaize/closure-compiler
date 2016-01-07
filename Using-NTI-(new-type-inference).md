@@ -40,7 +40,7 @@ f((new Foo).setX); // Warning here
 
 ### Typedefs are not namespaces
 
-A typedef is supposed to create a new type name for an existing type. The main use is to avoid retyping long names over and over. However, the old type checker was loose about typedefs and did not warn about cases that were not meant to be supported. Specifically, people would use the typedef name as a value, and assign properties to it. This is not supported, a typedef name is meant to be used in type annotations only.
+A typedef is supposed to create a new type name for an existing type. The main use is to avoid retyping long names over and over. However, the old type checker was loose about typedefs and did not warn about cases that were not meant to be supported. Specifically, people would use the typedef name as a value, and assign properties to it. This is not supported; a typedef name is meant to be used in type annotations only.
 
 ```
 /** @typedef {number} */
