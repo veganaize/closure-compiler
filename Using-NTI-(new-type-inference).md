@@ -18,7 +18,7 @@ You can help move the NTI compiler project along by reporting bugs you find in t
 
 ### Stricter property checks
 
-Suppose you see a property access `x.prop1`, and the type of `x` is A. In the old type checker, A may not have `prop1`, but if the property exists on any subtype of A you will not get a warning. As a consequence, you will never get a missing-property warning on `Object` (unless the property is not defined anywhere) because it is a supertype of all object types. This is too loose, and many people have asked us for stricter checks. In NTI, if `prop1` is not defined on A, you get a warning, even if it is defined on a subtype.
+Suppose you see a property access `x.prop1`, and the type of `x` is *A*. In the old type checker, *A* may not have `prop1`, but if the property exists on any subtype of *A* you will not get a warning. As a consequence, you will never get a missing-property warning on *Object* (unless the property is not defined anywhere) because it is a supertype of all object types. This is too loose, and many people have asked us for stricter checks. In NTI, if `prop1` is not defined on *A*, you get a warning, even if it is defined on a subtype.
 
 ### Function vs method types
 
