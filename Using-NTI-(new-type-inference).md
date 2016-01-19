@@ -56,6 +56,8 @@ var N;
 N.prop = 'asdf'; // warning, adding properties to typedefs is not allowed.
 ```
 
+Also, NTI warns about recursive typedefs. (Again, because a typedef cannot create a new type, just an alias for an already existing type.) Recursive typedefs were never supported, but were silently unchecked by the old type checker.
+
 ### Warning "dangerous use of the global `this` object"
 
 You might see this warning if you use functions like `goog.array.forEach` which have an argument for `this` to apply to a passed in function.  Relevant issue: <https://github.com/google/closure-compiler/issues/994>. It is possible to avoid this warning by not passing the `this` argument to `goog.array.forEach`.
