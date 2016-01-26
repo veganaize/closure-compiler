@@ -79,3 +79,7 @@ module identifier? If so, we should find a better way to do this.
 ## Dependency Management
 
 The compiler can utilize import and export statements from any of the module systems to sort files and drop unreferenced files. See [Managing Dependencies](https://github.com/google/closure-compiler/wiki/Managing-Dependencies).
+
+## Output Modules
+
+Closure Compiler can split the output of a compilation into multiple files to support dynamic loading. This process uses the `--module` flag, but is not related to the above JS modules as the output does not specify the type of module. See [how do I split my javascript into modules](http://stackoverflow.com/questions/10395810/how-do-i-split-my-javascript-into-modules-using-googles-closure-compiler/10401030#10401030)
