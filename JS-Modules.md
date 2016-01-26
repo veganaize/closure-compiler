@@ -8,8 +8,8 @@ During compilation, the compiler normalizes and inlines all of these disparate m
 
 CommonJS and ES6 Modules are file based and a module is imported by it's path. Paths must be absolute or relative and omit the file extension:
 
- * `import foo from './folder/source'
- * `import foo from '/folder/source'
+ * `import foo from './folder/source'`
+ * `import foo from '/folder/source'`
  * `require('./folder/source')`
  * `require('/folder/source')`
 
@@ -34,7 +34,8 @@ export MySymbol;
 
 ```JavaScript
 // CommonJS modules have a single export and are therefore imported as namespaces.
-// In this case we assume that the commonjs module has a "module.exports = { MySymbol: foo }" statement
+// In this case we assume that the commonjs module has a
+// "module.exports = { MySymbol: foo }" statement
 import * as myModule from 'path/to/commonjs/module';
 console.log(myModule.MySymbol);
 ```
