@@ -54,8 +54,10 @@ CommonJS module support is enabled in the compiler when the `--process_common_js
 ### Importing ES6 modules from a CommonJS Module
 
 ```JavaScript
-// ES6 modules have have multiple export properties. You must reference the desired property.
-// In this case we assume that the ES6 module has a "export default MySymbol;" statement
+// ES6 modules have have multiple export properties.
+// You must reference the desired property.
+// In this case we assume that the ES6 module has an
+// "export default MySymbol;" statement
 var MySymbol = require('path/to/es6/module').default;
 console.log(MySymbol);
 ```
