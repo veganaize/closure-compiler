@@ -1,3 +1,5 @@
+*Note: These flags were redesigned in the 20160125 release. This document describes that release and newer.*
+
 The browser processes JavaScript files serially. So if you have a lot of JavaScript files you'll need some way to make sure they get executed in the right order. Closure Compiler has similar restrictions in that compilations must process files in the correct order so that types are defined before they are used.
 
 ## Specifying Dependencies Between Files
@@ -7,7 +9,7 @@ Closure Compiler can use dependency information from the following sources:
  * ES6 Module `import` and `export` statements
  * CommonJS `require` and `module.export` or `exports` statements when the `--process_common_js_modules` flag is specified
 
-For any of the above cases, internally the compiler normalizes the dependency information to always be the Closure Library style `goog.provide` for exporting and `goog.require` for importing. See Module Systems for more information on the different module types and how they interact.
+For any of the above cases, internally the compiler normalizes the dependency information to always be the Closure Library style `goog.provide` for exporting and `goog.require` for importing. See [JS Modules](https://github.com/google/closure-compiler/wiki/JS-Modules) for more information on the different module types and how they interact.
 
 The remaining portions of this document uses the Closure Library style `goog.provide` and `goog.require` statements, but apply to any of the module systems.
 
