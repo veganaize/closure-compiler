@@ -1,3 +1,5 @@
+*Note: These flags were redesigned in the 20160125 release. This document describes that release and newer.*
+
 Closure Compiler recognizes and several JS module systems, including:
 
  * [ES6 Modules](https://github.com/nzakas/understandinges6/blob/master/manuscript/14-Modules.md)
