@@ -1,4 +1,4 @@
-*Note: These flags were redesigned in the 20160125 release. This document describes that release and newer.*
+*Note: CommonJS module interop requires the 20160125 release or newer.*
 
 Closure Compiler recognizes and several JS module systems, including:
 
