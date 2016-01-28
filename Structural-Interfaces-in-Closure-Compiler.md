@@ -23,7 +23,7 @@ var /** !PNumI */ x = new Foo;
                      ^
 ````
 
-With structural interfaces (declared with the `@record` annotation), Foo would be considered to match. Since structural interfaces are very similar to the existing record types, it records also match: 
+With structural interfaces (declared with the `@record` annotation), Foo would be considered to match. Since structural interfaces are very similar to the existing record types, records also match: 
 
 ````javascript
 /** @record */
