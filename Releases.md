@@ -7,6 +7,11 @@ For complete list of changes refer to the [change log](https://github.com/google
 ## Details
 
 ### January 25, 2016 (v20160125)
+* Reorganization of the dependency management flags. `--manage_closure_dependencies` and
+   `--only_closure_dependencies` are deprecated and replaced by `--dependency_mode`.
+   See https://github.com/google/closure-compiler/wiki/Managing-Dependencies 
+* CommonJS Modules now interoperate with ES6 modules with improved type inference.
+    See https://github.com/google/closure-compiler/wiki/JS-Modules
 * Minor improvements to constant folding. For example, "new Date == null"
   becomes "false".  Number(x) to +x, Boolean(x) to !!x
 * Allow inlining of uncollapsed constructor properties if type based
