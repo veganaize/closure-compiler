@@ -6,6 +6,24 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### January 25, 2016 (v20160125)
+* Minor improvements to constant folding. For example, "new Date == null"
+  becomes "false".  Number(x) to +x, Boolean(x) to !!x
+* Allow inlining of uncollapsed constructor properties if type based
+  optimization are enabled and the value is immutable.
+* The coverage instrumentation pass will no longer crash on arrow functions.
+* New flag for the command-line runner: assume_function_wrapper.
+  This flag is used to indicate that "global" declaration will not actually
+  be global but instead isolated to the compilation unit.
+* Passing a "..." to a constructor should now work correctly. The output
+  involves Function.prototype.bind so you'll need to set --language_out=ES5 to
+  make this work.
+* Improved exit minimization in switch statements
+* The inferredConstCheck diagnostic group is deprecated, and will soon be
+  replaced by the
+  `com.google.javascript.jscomp.ConformanceRules$InferredConstCheck`
+  conformance check.
+
 ### December 16, 2015 (v20151216)
 * Allow input and output as JSON streams to support the gulp and
   grunt workflows. See: <https://github.com/ChadKillingsworth/closure-compiler-npm/blob/master/README.md>
