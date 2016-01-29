@@ -79,7 +79,7 @@ If you want the code to work uncompiled, you should either include Closure Libra
 Suppose you don't need the ice cream shop. You just want the ice cream. If you have a lot of files, it is difficult to manually figure out if your ice cream had any dependencies. `--dependency_mode` helps with that. When you use `--dependency_mode=STRICT`, you must specify to the compiler what the entry points of your application are. Beginning at those entry points, it will trace through the files to discover what sources are actually referenced and will drop all other files.
 
     $ java -jar compiler.jar --js shop.js --js icecream.js --js cone.js \
-      --dependency_mode=STRICT --entry_point=ice.cream
+      --dependency_mode=STRICT --entry_point=goog:ice.cream
     
     var ice={};ice.cream={};
 
