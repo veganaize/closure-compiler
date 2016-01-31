@@ -6,7 +6,7 @@ Closure Compiler recognizes and several JS module systems, including:
  * Common JS
  * [Closure-Library (goog.module)](https://google.github.io/closure-library/api/namespace_goog.html#module)
 
-During compilation, the compiler normalizes and inlines all of these disparate module by rewriting them into a form where the remaining passes can understand and optimize them fully. You can use multiple versions is possible to work with multiple module systems in a single compilation.
+During compilation, the compiler normalizes and inlines all of these disparate module by rewriting them into a form where the remaining passes can understand and optimize them fully. You can use multiple modules types in a single compilation.
 
 CommonJS and ES6 Modules are file based and a module is imported by it's path. Paths must be absolute or relative and omit the file extension:
 
