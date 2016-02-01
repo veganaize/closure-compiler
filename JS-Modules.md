@@ -67,16 +67,27 @@ console.log(MySymbol);
 ### Importing goog.module code from a CommonJS Module
 
 ```JavaScript
-// For goog.module, fall back go using goog.require
-// ??
+const m = goog.require("my.ns.Thing"); // goog.modules can always be require'd
+// (but not goog.provide'd scripts).
 ```
 
 ## goog.module
 
 goog.module support is always enabled in the compiler.
 
-> How do we import other modules within a Closure-Library style file? Must we resort to using the normalized
-module identifier? If so, we should find a better way to do this.
+### Importing CommonJS Module code from a goog.module
+
+```JavaScript
+const m = require('path/to/cjs/module');
+```
+> To be confirmed
+
+### Importing ES6 Module code from a goog.module
+
+```JavaScript
+var MySymbol = require('path/to/es6/module').default; // as above
+```
+> To be confirmed
 
 ## Dependency Management
 
