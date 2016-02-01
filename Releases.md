@@ -6,7 +6,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### January 25, 2016 (v20160125)
+### February 1, 2016 (v20160201)
 * Reorganization of the dependency management flags. `--manage_closure_dependencies` and
    `--only_closure_dependencies` are deprecated and replaced by `--dependency_mode`.
    See https://github.com/google/closure-compiler/wiki/Managing-Dependencies 
@@ -28,6 +28,8 @@ For complete list of changes refer to the [change log](https://github.com/google
   replaced by the
   `com.google.javascript.jscomp.ConformanceRules$InferredConstCheck`
   conformance check.
+
+### January 25, 2016 (v20160125) [rolled-back]
 
 ### December 16, 2015 (v20151216)
 * Allow input and output as JSON streams to support the gulp and
