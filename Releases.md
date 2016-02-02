@@ -6,7 +6,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### February 1, 2016 (v20160201)
+### Upcoming Release
 * Reorganization of the dependency management flags. `--manage_closure_dependencies` and
    `--only_closure_dependencies` are deprecated and replaced by `--dependency_mode`.
    See https://github.com/google/closure-compiler/wiki/Managing-Dependencies 
