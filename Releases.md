@@ -6,14 +6,20 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### Upcoming Release
+### February 08, 2016 (v20160208)
 * Reorganization of the dependency management flags. `--manage_closure_dependencies` and
    `--only_closure_dependencies` are deprecated and replaced by `--dependency_mode`.
    See https://github.com/google/closure-compiler/wiki/Managing-Dependencies 
 * CommonJS Modules now interoperate with ES6 modules with improved type inference.
     See https://github.com/google/closure-compiler/wiki/JS-Modules
+* Improved handling of templated types for IObject and Array to make it
+  possible for Array to implement IArrayLike.
+* Removed the ability to use `,` for union types as it led to confusing
+  situations. You will need to rewrite types like `{number,string}` as
+  `{number|string}` and you may find some new type errors because types such as
+  `Object<number|string, X>` were previously not parsed as intended.
 * Minor improvements to constant folding. For example, "new Date == null"
-  becomes "false".  Number(x) to +x, Boolean(x) to !!x
+  becomes "false", Boolean(x) to !!x
 * Allow inlining of uncollapsed constructor properties if type based
   optimization are enabled and the value is immutable.
 * The coverage instrumentation pass will no longer crash on arrow functions.
