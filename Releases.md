@@ -36,18 +36,18 @@ For complete list of changes refer to the [change log](https://github.com/google
   `com.google.javascript.jscomp.ConformanceRules$InferredConstCheck`
   conformance check.
 * New lint check: Warn about useless blocks like
-```javascript
-return
-    {foo: 'bar'};
-```
-or
-```javascript
-if (denied) {
-  showAccessDenied();
-} {
-  grantAccess();
-}
-```
+  ```javascript
+  return
+      {foo: 'bar'};
+  ```
+  or
+  ```javascript
+  if (denied) {
+    showAccessDenied();
+  } {
+    grantAccess();
+  }
+  ```
 
 ### January 25, 2016 (v20160125) [rolled-back]
 
