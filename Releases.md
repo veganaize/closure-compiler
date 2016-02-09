@@ -38,13 +38,13 @@ For complete list of changes refer to the [change log](https://github.com/google
 * New lint check: Warn about useless blocks like
 ```javascript
 return
-    {foo: 'bar'};
+    {foo: 'bar'}; // Useless block
 ```
-  or
+or
 ```javascript
 if (denied) {
   showAccessDenied();
-} {
+} { // Useless block
   grantAccess();
 }
 ```
