@@ -25,13 +25,12 @@ The naming conventions for types of Polymer elements used by the compiler follow
 
 1. If there's an explicit LHS target of the Polymer call, that's used as the type.
 ```js
-    1. foo.Bar = Polymer({ is: 'foo-thing'...}); // Type is foo.Bar
-
-    2. var Foo = Polymer({ is: 'foo-thing'...}); // Type is Foo
+foo.Bar = Polymer({ is: 'foo-thing'...}); // Type is foo.Bar
+var Foo = Polymer({ is: 'foo-thing'...}); // Type is Foo
 ```
 2. Otherwise, the generated type is what you said - FooThingElement. This matches the convention for JS types of native HTML elements.
-```
-    3. Polymer({ is: 'foo-thing'...}); // Type is FooThingElement
+```js
+Polymer({ is: 'foo-thing'...}); // Type is FooThingElement
 ```
 ### [Bespoke Constructor](https://github.com/Polymer/polymer/blob/0.8-preview/PRIMER.md#bespoke-constructor-support)
 
