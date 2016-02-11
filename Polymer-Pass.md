@@ -23,12 +23,12 @@ There are several features of the Polymer element registration descriptor which 
 
 The naming conventions for types of Polymer elements used by the compiler follow the following rules:
 
-1. If there's an explicit LHS target of the Polymer call, that's used as the type.
+If there's an explicit LHS target of the Polymer call, that's used as the type.
 ```js
 foo.Bar = Polymer({ is: 'foo-thing'...}); // Type is foo.Bar
 var Foo = Polymer({ is: 'foo-thing'...}); // Type is Foo
 ```
-2. Otherwise, the generated type is what you said - FooThingElement. This matches the convention for JS types of native HTML elements.
+Otherwise, the generated type is what you said - FooThingElement. This matches the convention for JS types of native HTML elements.
 ```js
 Polymer({ is: 'foo-thing'...}); // Type is FooThingElement
 ```
