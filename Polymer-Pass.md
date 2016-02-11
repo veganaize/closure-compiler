@@ -24,7 +24,7 @@ There are several features of the Polymer element registration descriptor which 
 The naming conventions for types of Polymer elements used by the compiler follow the following rules:
 
 1. If there's an explicit LHS target of the Polymer call, that's used as the type.
-```
+```js
     1. foo.Bar = Polymer({ is: 'foo-thing'...}); // Type is foo.Bar
 
     2. var Foo = Polymer({ is: 'foo-thing'...}); // Type is Foo
@@ -311,7 +311,7 @@ var FunBehavior = {
     }
   },
 
-  /** @param {string} funAmount */",
+  /** @param {string} funAmount */
   doSomethingFun: function(funAmount) { alert('Something fun!'); },
 };
 
@@ -341,7 +341,7 @@ var FunBehavior = {
     },
   },
 
-  /** @suppress {checkTypes} */",
+  /** @suppress {checkTypes} */
   doSomethingFun: function(funAmount) { alert('Something fun!'); },
 };
 
