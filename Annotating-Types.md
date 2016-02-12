@@ -8,55 +8,54 @@ Variable and functions can be declared with either traditional declarations, or 
 
 ### Function declarations
 
-```javascript
-    /** @type {function(number):string} */
-    function f(x) {return x + ' apples'}
+```js
+/** @type {function(number):string} */
+function f(x) {return x + ' apples'}
 ```
 or the more concise inline function declaration:
-```javascript
-    function /** string */ f(/** number */ x) {return x + ' apples'}
+```js
+function /** string */ f(/** number */ x) {return x + ' apples'}
 ```
 
 ### Variable declarations
 
-```javascript
-    /** @type {string} */
-    var x = 'fruit';
+```js
+/** @type {string} */
+var x = 'fruit';
 ```
 or the more concise inline var declaration:
-```javascript
-    var /** string */ x = 'fruit';
+```js
+var /** string */ x = 'fruit';
 ```
 
 ### Property declarations
-```javascript
-    /** @type {string} */
-    x.prop = 'fruit';
+```js
+/** @type {string} */
+x.prop = 'fruit';
 ```
 or
 
-```javascript
-    var x = {
-      /** @type {string} */
-      prop : 'fruit'
-    };
+```js
+var x = {
+  /** @type {string} */
+  prop : 'fruit'
+};
 ```
 
 ### Catch declarations
 
-```javascript
-    try { 
-      ... 
-    } catch (/** @type {string} */ e) {
-      ...
-    }
+```js
+try { 
+  ... 
+} catch (/** @type {string} */ e) {
+  ...
+}
 ```
-
 
 ### Type Casts
 
 Type cast precede a parenthesized expression.
 
-```javascript
-    var x = /** @type {string} */ (fruit);
+```js
+var x = /** @type {string} */ (fruit);
 ```
