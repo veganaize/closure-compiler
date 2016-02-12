@@ -19,5 +19,5 @@ Closure type system:
 
 
 Other references: <br>
-AnnotatingTypes<br>
-StructDictAnnotations<br>
+[Annotating Types](https://github.com/google/closure-compiler/wiki/Annotating-Types)<br>
+[@struct and @dict Annotations](https://github.com/google/closure-compiler/wiki/@struct-and-@dict-Annotations)<br>
