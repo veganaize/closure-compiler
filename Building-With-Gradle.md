@@ -2,7 +2,7 @@
 To setup a project you must have Gradle installed https://gradle.org
 
 Init the project:
-```bash
+```
 /some/path$> mkdir my-project && cd my-project
 /some/path/my-project$> gradle init
 ```
