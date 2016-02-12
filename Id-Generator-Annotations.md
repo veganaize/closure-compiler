@@ -6,25 +6,29 @@ ID generator annotations indicate that a function of type `{function(string):str
 
 An example:
 
-    /**
-     * Gets an ID for the passed name.
-     * @idGenerator
-     * @param {string} myLongName The name to get an ID for.
-     * @return {string} A short, unique ID that is consistent per input name.
-     */
-    foo.getId = function(myLongName) {
-      return myLongName;
-    };
-    
-    foo.myElement.id = foo.getId('my-super-duper-element');
-    foo.myOtherElement.id = foo.getId('my-other-element');
-    foo.mainId = foo.getId('my-super-duper-element');
+```js
+/**
+ * Gets an ID for the passed name.
+ * @idGenerator
+ * @param {string} myLongName The name to get an ID for.
+ * @return {string} A short, unique ID that is consistent per input name.
+ */
+foo.getId = function(myLongName) {
+  return myLongName;
+};
+
+foo.myElement.id = foo.getId('my-super-duper-element');
+foo.myOtherElement.id = foo.getId('my-other-element');
+foo.mainId = foo.getId('my-super-duper-element');
+```
 
 When uncompiled, the bare long name is used as the ID.  When compiled though, the compiler replaces `getId` invocations with a string literal.  For example:
 
-    foo.myElement.id = 'x0';
-    foo.myOtherElement.id = 'x1';
-    foo.mainId = 'x0';
+```js
+foo.myElement.id = 'x0';
+foo.myOtherElement.id = 'x1';
+foo.mainId = 'x0';
+```
 
 ## ID Generator Strategies
 
