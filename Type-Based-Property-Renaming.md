@@ -6,7 +6,7 @@ _As of the 20150315 release, these passes are enabled by default and therefore n
 
 The two compiler passes DisambiguateProperties and AmbiguateProperties improve property renaming, dead code removal and other optimization using type information.  
 
-AmbiguateProperties and DisambiguateProperties may be enabled individually through the Java API or together by using the `use_types_for_optimization` flag on the command line or in the web service.
+AmbiguateProperties and DisambiguateProperties may be enabled individually through the Java API or together by using the `--use_types_for_optimization` flag on the command line or in the web service.
 
 # Details
 
