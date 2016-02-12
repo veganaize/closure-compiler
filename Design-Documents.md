@@ -11,7 +11,7 @@ Everything else that Closure Compiler does is implemented as a "**CompilerPass**
 
 In all cases, the syntax tree is the source of truth. Every compiler pass should leave the syntax tree in a consistent state (so that if we generated JavaScript from that syntax tree, the code would still run correctly). 
 
-If you are a developer on Closure Compiler, you can install "sanity check" passes to ensure that the syntax tree is always valid between each pass. Some of these sanity checks are run all the time, even for non-developers. For example, the !VarCheck pass is run at the end of every compiler job to ensure that all variables are declared in the syntax tree.
+If you are a developer on Closure Compiler, you can install "sanity check" passes to ensure that the syntax tree is always valid between each pass. Some of these sanity checks are run all the time, even for non-developers. For example, the **VarCheck** pass is run at the end of every compiler job to ensure that all variables are declared in the syntax tree.
 
 ### Designs for specific passes
 
