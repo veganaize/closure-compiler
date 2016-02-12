@@ -18,7 +18,7 @@ AmbiguateProperties does the opposite of DisambiguateProperties:  it tries to re
 
 These two passes are intended to be used together.  However, they should also be usable separately.
 
-Both of these passes depend on correct type information in order to work properly.  For example, if the compiler does not know that one class extends from another, it may rename their properties to the same names, so one value overrides the other.  (In the particular case where @extends does not match the goog.inherits call, the compiler will issue a warning.)
+Both of these passes depend on correct type information in order to work properly.  For example, if the compiler does not know that one class extends from another, it may rename their properties to the same names, so one value overrides the other.  (In the particular case where @extends does not match the `goog.inherits` call, the compiler will issue a warning.)
 
 That does not mean that these passes cannot be used unless the type information is 100% accurate.  Both passes are designed to degrade gracefully in the presence of missing or incorrect type information.  Specifically, if a property reference `x.prop` is found anywhere in the code where the type of `x` is unknown, these passes will leave the name `prop` unchanged throughout the code.  Also, if a type warning involving class `Foo` is encountered, these passes may choose to leave all properties of those classes unchanged.
 
