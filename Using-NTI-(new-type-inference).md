@@ -26,7 +26,7 @@ Also, the current type checker does not warn about property accesses on _*_, bec
 
 A function does not specify a receiver type, a method does. In NTI, you cannot pass a method to a context that expects a function, because it can then be called without a receiver type. For example, the current type checker doesn't warn about the following program, but NTI (correctly) does.
 
-```
+```js
 class Foo {
   constructor() {
     /** @type {number} */
@@ -48,7 +48,7 @@ f((new Foo).setX); // Warning here
 
 A typedef is supposed to create a new type name for an existing type. The main use is to avoid retyping long names over and over. However, the old type checker was loose about typedefs and did not warn about cases that were not meant to be supported. Specifically, people would use the typedef name as a value, and assign properties to it. This is not supported; a typedef name is meant to be used in type annotations only.
 
-```
+```js
 /** @typedef {number} */
 var N;
 
@@ -69,7 +69,7 @@ In some cases adding the annotation `@this {myType.Foo}` can solve this warning.
 *This is not related to NTI, but falls in category of "wanting the compiler to find bugs in your code".*
 
 Suppose an object has a property named `address`.  If you misspell that property by doing:
-```javascript
+```js
 this.adress = "10 Main St.";
 ```
 the compiler will NOT complain.  It assumes you are adding a new property to `this`.
