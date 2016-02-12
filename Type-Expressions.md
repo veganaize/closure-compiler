@@ -12,7 +12,7 @@ The compiler uses these annotations to type-check your program. Note that the Cl
 
 Specifies the name of a type.
 
-```
+```js
 {boolean}
 {Window}
 {goog.ui.Menu}	
@@ -22,7 +22,7 @@ Specifies the name of a type.
 
 Parameterizes a type with a set of type arguments. Similar to Java generics.
 
-```
+```js
 // An array of strings.
 @type {Array<string>}
 
@@ -36,7 +36,7 @@ Parameterizes a type with a set of type arguments. Similar to Java generics.
 
 Indicates that a value might have type A OR type B. Note the parentheses, which are required.
 
-```
+```js
 // A number or a boolean. 
 {(number|boolean)}
 ```
@@ -47,7 +47,7 @@ Indicates that the value has the specified members with values of the specified 
 
 Braces are part of the type syntax. For example, to denote an Array of objects that have a length property, you might write: `Array<{length}>`. In the example below, the outer braces indicate that this is a type expression and the inner braces indicate that this is a record type.
 
-```
+```js
 // An anonymous type with both a property named myNum 
 // that has a value of type number 
 // and a property named myObject that has a value of any type.
@@ -60,7 +60,7 @@ Indicates that a value is type A or null.
 
 > All object types are nullable by default whether or not they are declared with the Nullable operator. An object type is defined as anything except a function, string, number, or boolean. To make an object type non-nullable, use the Non-nullable operator.
 
-```
+```js
 // A number or null.	
 {?number}
 ```
@@ -71,7 +71,7 @@ Indicates that a value is type A and not null.
 
 > Functions and all value types (boolean, number, and string) are non-nullable by default whether or not they are declared with the Non-nullable operator. To make a value or function type nullable, use the Nullable operator.
 
-```
+```js
 // An Object, but never the null value.	
 {!Object}
 ```
@@ -80,7 +80,7 @@ Indicates that a value is type A and not null.
 
 Specifies a function and the types of the function's parameters and/or return value.
 
-```
+```js
 // A function that takes two parameters (a string and a boolean), and has an unknown return value.
 {function(string, boolean)}
 
@@ -111,7 +111,7 @@ Specifies a function and the types of the function's parameters and/or return va
 
 Indicates that the argument described by a @param annotation is optional. A function call can omit an optional argument. An optional parameter cannot precede a non-optional parameter in the parameter list.
 
-```
+```js
 // An optional parameter of type number.
 @param {number=} opt_argument
 
@@ -121,7 +121,7 @@ Indicates that the argument described by a @param annotation is optional. A func
 
 If a method call omits an optional parameter, that argument will have a value of undefined. Therefore if the method stores the parameter's value in a class property, the type declaration of that property must include a possible value of undefined, as in the following example:
 
-```
+```js
 /**
  * Some class, initialized with an optional value.
  * @param {Object=} opt_value Some value (optional).
@@ -137,14 +137,14 @@ function MyClass(opt_value) {
 ```
 
 ### The ALL type
-```
+```js
 // Indicates that the variable can take on any type.
 {*}
 ```
 
 ### The UNKNOWN type	
 
-```
+```js
 // Indicates that the variable can take on any type, and the compiler should not type-check any uses of it.
 {?}	
 ```
