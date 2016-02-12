@@ -2,7 +2,7 @@
 To setup a project you must have Gradle installed https://gradle.org
 
 Init the project:
-```
+```bash
 /some/path$> mkdir my-project && cd my-project
 /some/path/my-project$> gradle init
 ```
@@ -13,7 +13,7 @@ Gradle inits a _build.gradle_ where the main configuration is happening, further
 
 *build.gradle*
 
-```
+```gradle
 repositories {
   mavenCentral() //or jcenter()
 }
@@ -46,7 +46,7 @@ task compileJS(type: JavaExec){
 Combines JavaScript sources and minifies it with the [closure compiler](https://github.com/eriwen/gradle-js-plugin#minifyjs-uses-the-google-closure-compiler)
 ###Setup
 *build.gradle*
-```
+```gradle
 plugins {
   id "com.eriwen.gradle.js" version "1.12.1"
 }
@@ -84,7 +84,7 @@ The silksmith plugin contains similar to plovr a development server that serves 
 Currently requires Java 8
 
 *build.gradle*
-```
+```gradle
 
 plugins {
   id "io.silksmith.plugin" version "0.5.0"
