@@ -32,6 +32,7 @@ To include closure-compiler in your project add the following to your build conf
 @Grapes(
   @Grab(group='com.google.javascript', module='closure-compiler', version='v20141023')
 )
+```
 
 ## Apache Buildr
 
