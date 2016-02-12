@@ -69,7 +69,7 @@ project: https://github.com/lukeasrodgers/underscore-js-externs
 
 https://raw.github.com/lukeasrodgers/underscore-js-externs/master/underscore-1.4.4.js test
 
-## You Tube
+## YouTube
 
 project: https://github.com/google/closure-compiler/tree/master/contrib/externs
 
