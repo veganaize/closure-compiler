@@ -87,25 +87,33 @@ You can also silence warnings by adding JSDoc annotations to your code. All of t
 
 For example,
 
-    /**
-     * @fileoverview This is a file where deprecation checks are disabled.
-     * @suppress {deprecated}
-     */
-    
-    /**
-     * This is a function where type checking is disabled.
-     * @suppress {checkTypes}
-     */
-    function f() { /** ... */ }
+```js
+/**
+ * @fileoverview This is a file where deprecation checks are disabled.
+ * @suppress {deprecated}
+ */
+
+/**
+ * This is a function where type checking is disabled.
+ * @suppress {checkTypes}
+ */
+function f() { /** ... */ }
+```
 
 There is also one warning category that you can suppress with @suppress tags, but is not available from the command-line.
 
-    /** @suppress {duplicate} */ foo.prop = ...
+```js
+/** @suppress {duplicate} */ foo.prop = ...
+```
 Suppresses warnings about a declaration of the same method or property twice in the global scope.
 
 If you want to suppress many warnings at once, you can write
 
-    /** @suppress {duplicate, accessControls} */ function f() { ... }
+```js
+/** @suppress {duplicate, accessControls} */ function f() { ... }
+```
 or
 
-    /** @suppress {duplicate|accessControls} */ function f() { ... }
+```js
+/** @suppress {duplicate|accessControls} */ function f() { ... }
+```
