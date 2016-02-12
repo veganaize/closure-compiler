@@ -127,6 +127,7 @@ Foo.prototype = /** @struct */ {
   id: function(x) { return x; },
   add1: function(x) { return x+1; }
 };
+```
 
 ## Subtyping and unsoundness
 
