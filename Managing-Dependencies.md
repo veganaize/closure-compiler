@@ -17,17 +17,23 @@ The remaining portions of this document uses the Closure Library style `goog.pro
 
 Suppose you have three files.
 
-    // File 1 - icecream.js
-    goog.provide('ice.cream');    
+```js
+// File 1 - icecream.js
+goog.provide('ice.cream');
+```
 ----
-    // File 2 - cone.js
-    goog.provide('waffle.cone');
+```js
+// File 2 - cone.js
+goog.provide('waffle.cone');
+```
 ----
-    // File 3 - shop.js
-    goog.provide('ice.cream.Shop');
-    
-    goog.require('ice.cream');
-    goog.require('waffle.cone');
+```js
+// File 3 - shop.js
+goog.provide('ice.cream.Shop');
+
+goog.require('ice.cream');
+goog.require('waffle.cone');
+```
 ----
 
 You want to compile your ice cream shop, so you pass it to the compiler.
@@ -35,7 +41,9 @@ You want to compile your ice cream shop, so you pass it to the compiler.
     $ java -jar compiler.jar --js shop.js
     
     shop.js:4: ERROR - required "ice.cream" namespace never provided
-    goog.require('ice.cream');
+```js
+goog.require('ice.cream');
+```
                 ^
     
     shop.js:5: ERROR - required "waffle.cone" namespace never provided
