@@ -26,10 +26,10 @@ A few pointers on how to get your pull request accepted:
 
 ### Coding Conventions
 
-For the most part, we try to follow [Sun's Coding Conventions for the Java Programming Language](http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html), with a few exceptions.
+For the most part, we try to follow [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html). Please note:
 
 - We use 2 space indents for blocks. We never use tabs.
 - All files must begin with the standard Apache License 2.0 header.
-- Lines of code may not exceed 80 characters. There are a few exceptions to this rule, mostly due to syntax that can't be broken across lines (imports, URLs, etc.)
+- Lines of code may not exceed 100 characters. There are a few exceptions to this rule, mostly due to syntax that can't be broken across lines (imports, URLs, etc.)
 
 When in doubt, please be consistent with the other code in the codebase. We realize that style rules are largely arbitrary, and are not necessarily better or worse than what you may be used to. We have style rules mostly because consistently formatted code is easier to read, not because we favor one particular style over another.
