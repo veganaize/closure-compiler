@@ -5,11 +5,11 @@
 ### Build Tools that use Closure Compiler
 [google-closure-compiler](https://github.com/ChadKillingsworth/closure-compiler-npm) - The official npm package for Closure Compiler, also includes build tool plugins for Grunt and Gulp.
 
-[ClosureCompiler.js](https://github.com/dcodeIO/ClosureCompiler.js) - A package for running Closure Compiler under Node.js
+[ClosureCompiler.js](https://github.com/dcodeIO/ClosureCompiler.js) - A package for running Closure Compiler under Node.js.
 
 [Closure Javascript Framework](https://github.com/jlgrock/ClosureJavascriptFramework) - A Maven plugin for running Closure Compiler on JavaScript code.
 
-[este](https://github.com/Steida/este) - JavaScript Framework and Dev Stack build on Google Closure Tools with CoffeeScript support
+[este](https://github.com/Steida/este) - JavaScript Framework and Dev Stack build on Google Closure Tools with CoffeeScript support.
 
 [JSlim](https://github.com/zgrossbart/jslim) - Builds optimized versions of common library code.
 
