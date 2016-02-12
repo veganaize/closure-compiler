@@ -3,11 +3,11 @@
 ### Architecture
 
 Closure Compiler consists of 3 essential mechanisms:
-- A "!ParserRunner" that uses [Rhino](http://www.mozilla.org/rhino/) to parse JavaScript, and converts it into an abstract syntax tree.
-- A "!PassConfig" that chooses compiler passes to transform this syntax tree.
-- A "!CommandLineRunner" that translates user-specified options into a "!PassConfig", runs the passes, and then serializes the syntax tree back to JavaScript.
+- A "**ParserRunner**" that uses [Rhino](http://www.mozilla.org/rhino/) to parse JavaScript, and converts it into an abstract syntax tree.
+- A "**PassConfig**" that chooses compiler passes to transform this syntax tree.
+- A "**CommandLineRunner**" that translates user-specified options into a "**PassConfig**", runs the passes, and then serializes the syntax tree back to JavaScript.
 
-Everything else that Closure Compiler does is implemented as a "!CompilerPass". Compiler passes do many things. Some do type-checking. Some do optimizations. Some check the output of other compiler passes. Some create more complicated symbol tables, which are then fed into other compiler passes.
+Everything else that Closure Compiler does is implemented as a "**CompilerPass**". Compiler passes do many things. Some do type-checking. Some do optimizations. Some check the output of other compiler passes. Some create more complicated symbol tables, which are then fed into other compiler passes.
 
 In all cases, the syntax tree is the source of truth. Every compiler pass should leave the syntax tree in a consistent state (so that if we generated JavaScript from that syntax tree, the code would still run correctly). 
 
