@@ -41,9 +41,7 @@ You want to compile your ice cream shop, so you pass it to the compiler.
     $ java -jar compiler.jar --js shop.js
     
     shop.js:4: ERROR - required "ice.cream" namespace never provided
-```js
-goog.require('ice.cream');
-```
+    goog.require('ice.cream');
                 ^
     
     shop.js:5: ERROR - required "waffle.cone" namespace never provided
@@ -105,8 +103,10 @@ Suppose you want to compile a file that doesn't contain dependency information, 
 For example, you would define a new file:
 
 ----
-    // File 4 - shop-app.js
-    goog.require('ice.cream.Shop');
+```js
+// File 4 - shop-app.js
+goog.require('ice.cream.Shop');
+```
 ----
 
 Because this file does not `goog.provide` a symbol, `--dependency_mode=LOOSE` will always keep it and all of its dependencies.
