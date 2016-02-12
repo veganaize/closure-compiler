@@ -62,7 +62,9 @@ TODO(tbreisacher): After the next compiler release, update this answer as well a
 
 As an example, this code:
 
-     ({float:"left"});
+```js
+ ({float:"left"});
+```
 
 will cause a parse error like:
 
@@ -74,7 +76,9 @@ EcmaScript 3 (the JavaScript standard prior to Dec 2009) did not allow keywords 
 
 If you are only concerned with WHITESPACE or SIMPLE optimization modes, you can fix this without changing the language mode by quoting the property:
 
-     ({"float":"left"});
+```js
+({"float":"left"});
+```
 
 In ADVANCED mode you need to be sure to quote the property references consistently, be sure to read the [https://developers.google.com/closure/compiler/docs/api-tutorial3 documentation](1,]`). 
 
