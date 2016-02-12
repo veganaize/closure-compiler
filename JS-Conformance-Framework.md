@@ -43,7 +43,7 @@ violate the requirement.
 An example conformance configuration looks like:
 
 
-```
+```protobuf
 requirement: {
   type: BANNED_PROPERTY_WRITE
   value: 'Location.prototype.href'
@@ -71,13 +71,13 @@ avoid missing variations.
 This <strong>value </strong>would ban throwing the text “error”:
 
 
-```
+```js
 function template() { throw ‘error’ }
 ```
 This <strong>value </strong>would ban throwing a string value or a string object:
 
 
-```
+```js
 /** @param {string|String} str */
 function template(str) { throw str }
 ```
