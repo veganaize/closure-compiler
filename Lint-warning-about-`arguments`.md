@@ -22,7 +22,7 @@ These usages are discouraged for the following reasons:
    destructuring, or use the object in a for/of loop, the compiler's ES6-to-ES3
    transpilation will not handle it correctly. For example,
 
-   ```
+   ```js
    function f(x) {
      return [...x];
    }
@@ -34,7 +34,7 @@ These usages are discouraged for the following reasons:
 
    will transpile to
 
-   ```
+   ```js
    function f(x) {
      return [].concat($jscomp.arrayFromIterable(x));
    }
