@@ -18,34 +18,34 @@ Here is a summary of changes needed to adapt a closure-compiler based project to
 
 * To deal with `goog.scope`, use `@alias` to tell JSDoc what's happening.  The `@ignore` tells JSDoc to not produce separate docs for the short-name variable.  Here is the pattern:
 
-```javascript
-    goog.scope(function() {
+```js
+goog.scope(function() {
 
-        /**
-        * @constructor
-        */
-        myproject.packageA.Foo = function() {
-        };
+  /**
+   * @constructor
+   */
+  myproject.packageA.Foo = function() {
+  };
 
-        /**
-        * @alias myproject.packageA.Foo
-        * @ignore
-        */
-        var Foo = myproject.packageA.Foo;
+  /**
+   * @alias myproject.packageA.Foo
+   * @ignore
+   */
+  var Foo = myproject.packageA.Foo;
 
-        /**
-        * @return {number}
-        */
-        Foo.prototype.makeBar = function() {
-          return 0;
-        };
+  /**
+   * @return {number}
+   */
+  Foo.prototype.makeBar = function() {
+    return 0;
+  };
 
-    }); // goog.scope
+}); // goog.scope
 ```
 
 * When compiling with closure compiler, add this compiler option:
 ```
-    --extra_annotation_name=alias
+--extra_annotation_name=alias
 ```
 
 * All types in `@param` and `@return` statements should be full path names. Don't use a `goog.scope` short-name there.
@@ -54,27 +54,27 @@ Here is a summary of changes needed to adapt a closure-compiler based project to
 * Specify "closure" in the `tags.dictionaries` config property.  See http://usejsdoc.org/about-configuring-jsdoc.html.  Here is a sample `jsdoc_configure.json` file showing this
 
 ```json
-    {
-        "tags": {
-            "allowUnknownTags": true,
-            "dictionaries": ["jsdoc","closure"]
-        },
-        "source": {
-            "include": [
-                "src/"
-            ],
-            "includePattern": ".+\\.js(doc)?$"
-        },
-        "plugins": ["plugins/markdown"],
-        "templates": {
-            "cleverLinks": true,
-            "monospaceLinks": false,
-            "default": {
-                "outputSourceFiles": true,
-                "layoutFile": "src/docs/layout.tmpl"
-            }
-        }
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc","closure"]
+  },
+  "source": {
+    "include": [
+      "src/"
+    ],
+    "includePattern": ".+\\.js(doc)?$"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true,
+      "layoutFile": "src/docs/layout.tmpl"
     }
+  }
+}
 ```
 
 * You can modify the CSS used with the default template by specifying a  `templates.default.layoutFile` config property to be a custom `layout.tmpl` document.  See https://github.com/jsdoc3/jsdoc/issues/480 and https://github.com/jsdoc3/jsdoc3.github.com/issues/47.  The sample `jsdoc_configure.json` file shown above uses this option.
