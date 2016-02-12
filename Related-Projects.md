@@ -3,6 +3,7 @@
 [Rhino](http://www.mozilla.org/rhino/) - An implementation of JavaScript written in Java. Closure Compiler uses an fork of an old version of Rhino as our AST.
 
 ### Build Tools that use Closure Compiler
+[google-closure-compiler](https://github.com/ChadKillingsworth/closure-compiler-npm) - The official npm package for Closure Compiler, also includes build tool plugins for Grunt and Gulp.
 
 [ClosureCompiler.js](https://github.com/dcodeIO/ClosureCompiler.js) - A package for running Closure Compiler under Node.js
 
