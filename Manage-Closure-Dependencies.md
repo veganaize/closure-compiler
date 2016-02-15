@@ -1,0 +1,1 @@
+This page has moved to [Managing Dependencies](https://github.com/google/closure-compiler/wiki/Managing-Dependencies)
