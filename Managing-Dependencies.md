@@ -112,7 +112,7 @@ goog.require('ice.cream.Shop');
 Because this file does not `goog.provide` a symbol, `--dependency_mode=LOOSE` will always keep it and all of its dependencies.
 
     $ java -jar compiler.jar --js shop-app.js --js shop.js --js icecream.js --js cone.js \
-      --manage_closure_dependencies true
+      --dependency_mode=LOOSE
     
     var ice={};ice.cream={};var waffle={};waffle.cone={};ice.cream.Shop={};
 
