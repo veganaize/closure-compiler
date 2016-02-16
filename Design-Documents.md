@@ -23,7 +23,7 @@ If you are a developer on Closure Compiler, you can install "sanity check" passe
 
 Property Renaming [Part 1](http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-1.html), [Part 2](http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-2.html), and [Part 3](http://closuretools.blogspot.com/2011/01/property-by-any-other-name-part-3.html)
 
-[[Experimental Type Based Property Renaming|Type-based Renaming]]
+[[Type Based Property Renaming|Type-based Renaming](https://github.com/google/closure-compiler/wiki/Type-Based-Property-Renaming)]
 
 [EcmaScript 4 Draft Spec](https://docs.google.com/viewer?a=v&pid=explorer&chrome=true&srcid=0B4ovp2kaZSwWM2Q4ZmI3MjgtMGZhZi00NDEwLTk0N2MtZTEzYjE3YTI4ZjY3) - Our type system semantics are based on this spec.
 
