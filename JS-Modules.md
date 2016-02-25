@@ -32,7 +32,7 @@ import MySymbol from 'path/to/module';
 export MySymbol;
 ```
 
-### Importing CommonJS Modules from an ES6 Module
+### Importing CommonJS Modules into an ES6 Module
 
 ```JavaScript
 // CommonJS modules have a single export and are therefore imported as namespaces.
@@ -42,7 +42,7 @@ import * as myModule from 'path/to/commonjs/module';
 console.log(myModule.MySymbol);
 ```
 
-### Importing goog.module code from an ES6 Module
+### Importing goog.module code into an ES6 Module
 
 ```JavaScript
 // The compiler recognizes a special syntax to identify goog.module paths
@@ -53,7 +53,7 @@ import Event from 'goog:goog.events';
 
 CommonJS module support is enabled in the compiler when the `--process_common_js_modules` flag is specified.
 
-### Importing ES6 modules from a CommonJS Module
+### Importing ES6 modules into a CommonJS Module
 
 ```JavaScript
 // ES6 modules have have multiple export properties.
@@ -64,7 +64,7 @@ var MySymbol = require('path/to/es6/module').default;
 console.log(MySymbol);
 ```
 
-### Importing goog.module code from a CommonJS Module
+### Importing goog.module code into a CommonJS Module
 
 ```JavaScript
 const m = goog.require("my.ns.Thing"); // goog.modules can always be require'd
@@ -75,14 +75,14 @@ const m = goog.require("my.ns.Thing"); // goog.modules can always be require'd
 
 goog.module support is always enabled in the compiler.
 
-### Importing CommonJS Module code from a goog.module
+### Importing CommonJS Module code into a goog.module
 
 ```JavaScript
 const m = require('path/to/cjs/module');
 ```
 > To be confirmed
 
-### Importing ES6 Module code from a goog.module
+### Importing ES6 Module code into a goog.module
 
 ```JavaScript
 var MySymbol = require('path/to/es6/module').default; // as above
