@@ -2,7 +2,7 @@
 
 Closure Compiler recognizes and several JS module systems, including:
 
- * [ES6 Modules](https://github.com/nzakas/understandinges6/blob/master/manuscript/14-Modules.md)
+ * [ES6 Modules](https://github.com/nzakas/understandinges6/blob/master/manuscript/13-Modules.md)
  * Common JS
  * [Closure-Library (goog.module)](https://google.github.io/closure-library/api/namespace_goog.html#module)
 
