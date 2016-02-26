@@ -45,7 +45,7 @@ These usages are discouraged for the following reasons:
    ```
 
    and `$jscomp.arrayFromIterable` will not successfully convert the Arguments
-   object into an Iterable in pre-ES6 browsers.
+   object into an Iterable in pre-ES6 browsers. This is tracked at [#1303](https://github.com/google/closure-compiler/issues/1303).
 
 We make an exception for `Function.prototype.apply` so there is no warning for
 `f.apply(obj, arguments);`.
