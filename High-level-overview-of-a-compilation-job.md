@@ -6,7 +6,7 @@ The [CommandLineRunner](https://github.com/google/closure-compiler/blob/master/s
 
 Before running the checks, the compiler parses the code and creates an abstract-syntax tree (AST). The structure of the AST is described in [Node.java](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/rhino/Node.java) and [Token.java](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/rhino/Token.java).
 
-[PhaseOptimizer](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/PhaseOptimizer.java) takes the list of passes created in the pass config, and runs them. Running the checks is simple, we just go through the list of checks and run each check once. Some optimization passes run once, and others run in a loop until they can no longer make changes. During an optimization loop, the compiler tries to avoid running passes that are no longer making changes. If you are experimenting with the compiler and want to see code before each pass, add
+[PhaseOptimizer](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/PhaseOptimizer.java) takes the list of passes created in the pass config and runs them. Running the checks is simple, we just go through the list of checks and run each check once. Some optimization passes run once, and others run in a loop until they can no longer make changes. During an optimization loop, the compiler tries to avoid running passes that are no longer making changes. If you are experimenting with the compiler and want to see code before each pass, add
 ```java
 System.out.println("Before pass: " + this.name + "\n" + compiler.toSource(root));
 ```
