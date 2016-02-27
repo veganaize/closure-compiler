@@ -8,7 +8,7 @@ Before running the checks, the compiler parses the code and creates an abstract-
 
 [PhaseOptimizer](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/PhaseOptimizer.java) takes the list of passes created in the pass config, and runs them. Running the checks is simple, we just go through the list of checks and run each check once. Some optimization passes run once, and others run in a loop until they can no longer make changes. During an optimization loop, the compiler tries to avoid running passes that are no longer making changes. If you are experimenting with the compiler and want to see code before each pass, add
 ```java
-System.out.println("Starting pass: " + this.name + "\n" + compiler.toSource(root));
+System.out.println("Before pass: " + this.name + "\n" + compiler.toSource(root));
 ```
 at the beginning of the `process` method of [`NamedPass`](https://github.com/google/closure-compiler/search?utf8=%E2%9C%93&q=%22class+NamedPass+implements+CompilerPass%22). If you want to see how long each pass takes, and how each pass changes code size, pass the flag `--tracer_mode=ALL` to the compiler.
 
