@@ -1,6 +1,6 @@
 # Introduction
 
-This is a quick tutorial for anyone who's interested in developing a pass for the Closure Compiler. It can be optimization or other Javascript analysis for educational purpose or just self amusement.
+This is a quick tutorial for anyone who is interested in developing a pass for the Closure Compiler. It can be an optimization or other Javascript analysis for educational purpose or just self amusement.
 
 # Scope
 
@@ -40,7 +40,7 @@ class HelloWorld implements CompilerPass {
 }
 ```
 
-Any compiler passes should implement [`CompilerPass`](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/CompilerPass.java) providing the `process()` method. The compiler will execute this method when the pass is scheduled to run. The Abstract Syntax Tree (AST) will be passed into our new pass. The externs tree contains all the externs definition provided by the user with `--externs`. The root tree contains all the source code for the compilation.
+Any compiler passes should implement [`CompilerPass`](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/CompilerPass.java) providing the `process()` method. The compiler will execute this method when the pass is scheduled to run. The Abstract Syntax Tree (AST) will be passed into our new pass. The externs tree contains all the externs definitions provided by the user with `--externs`. The root tree contains all the source code for the compilation.
 
 # Traversing the AST
 
@@ -74,7 +74,7 @@ class HelloWorld implements CompilerPass {
 }
 ```
 
-The NodeTraversal traverses the AST in a left-to-right post order manner. Within the visit method we can specify what to do with each node as we visit it.
+The NodeTraversal traverses the AST in a left-to-right post-order manner. Within the visit method we can specify what to do with each node as we visit it.
 
 # Recognizing Code Patterns
 
@@ -112,7 +112,7 @@ class HelloWorld implements CompilerPass {
 
 # Code Transformations
 
-Now that we know found our node we would like to insert our "Hello World"
+Now that we found our node we would like to insert our "Hello World"
 
 ```java
 package com.google.javascript.jscomp;
@@ -224,4 +224,4 @@ in the output. Your new pass has added a `print` call after each var statement.
 
 # Next steps
 
-If you want your pass to do some more complicated analysis, it might need access to the control-flow-graph of the overall program, or of a particular function. [TODO: Add information on how to get and use the CFG] Or, you might want to write a pass that takes advantage of type information. [TODO: Add a page showing how to get the types of Nodes and do something interesting with them]
+If you want your pass to do some more complicated analysis, it might need access to the control-flow-graph of a particular function. [TODO: Add information on how to get and use the CFG] Or, you might want to write a pass that takes advantage of type information. [TODO: Add a page showing how to get the types of Nodes and do something interesting with them]
