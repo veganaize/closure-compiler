@@ -160,18 +160,6 @@ We construct a subtree for the code that calls print() with the argument "Hello 
 Let's say we want to execute our pass just before some optimization passes. To do so, we insert the following code in java/com/google/javascript/jscomp/DefaultPassConfig.java.
 
 ```java
-    // Optimizes references to the arguments variable.
-    if (options.optimizeArgumentsArray) {
-      passes.add(optimizeArgumentsArray);
-    }
-
-    // Abstract method removal works best on minimally modified code, and also
-    // only needs to run once.
-    if (options.closurePass &&
-        (options.removeAbstractMethods || options.removeClosureAsserts)) {
-      passes.add(closureCodeRemoval);
-    }
-
     // Collapsing properties can undo constant inlining, so we do this before
     // the main optimization loop.
     if (options.collapseProperties) {
@@ -195,7 +183,7 @@ Let's say we want to execute our pass just before some optimization passes. To d
     }
 ```
 
-Alternatively, you may want to paste this code snippet in the check() method in Compiler.java
+If your pass is a check and not an optimization, you can paste this code snippet in the getChecks() method in DefaultPassConfig.java
 
 # Building
 
