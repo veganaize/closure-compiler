@@ -178,6 +178,7 @@ Let's say we want to execute our pass just before some optimization passes. To d
       passes.add(collapseProperties);
     }
    
+    ///////////////////  NEW CODE STARTS  //////////////////////////
     passes.add(
         new PassFactory("helloWorld", true) {
           @Override
@@ -185,6 +186,7 @@ Let's say we want to execute our pass just before some optimization passes. To d
             return new HelloWorld(compiler);
           }
         });
+    ///////////////////  NEW CODE ENDS  ////////////////////////////
     
     // ReplaceStrings runs after CollapseProperties in order to simplify
     // pulling in values of constants defined in enums structures.
