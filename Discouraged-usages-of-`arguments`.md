@@ -1,3 +1,5 @@
+_Note: The lint check about `arguments` has been removed in https://github.com/google/closure-compiler/commit/3734b26b1215693d5c46636d91b7a5bb2715f690, but the following patterns are still discouraged._
+
 #### What's up with the `arguments` object?
 
 `arguments` is a variable that is in scope in every function, which
