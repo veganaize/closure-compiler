@@ -21,6 +21,8 @@
 
 [silksmith](https://github.com/silksmith/silksmith) - A Gradle Plugin that manages dependencies via Maven, configures the compile task and comes with a buildin development server and a Mocha based test runner.
 
+[ph-jscompress-maven-plugin](https://github.com/phax/ph-jscompress-maven-plugin) - A simple Apache Maven 3 plugin that compresses all JS files in a certain directory (or recursive). Useful for static JS files.
+
 ### Other Languages that Compile to JavaScript
 
 [ClojureScript](https://github.com/clojure/clojurescript) - An implementation of Lisp that compiles down to JavaScript compatible with Closure Compiler's advanced mode.
