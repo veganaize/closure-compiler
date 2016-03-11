@@ -28,7 +28,7 @@ A few pointers on how to get your pull request accepted:
 
 For the most part, we try to follow [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html). Please note:
 
-- We use 2 space indents for blocks. We never use tabs.
+- We have found the [`google-java-format`](https://github.com/google/google-java-format) tool very helpful for fixing up formatting when it's too tedious to fix by hand. We recommend only reformatting the lines you've changed, so that your pull request isn't filled with lots of unrelated formatting changes. See the [`google-java-format-diff`](https://github.com/google/google-java-format/blob/master/scripts/google-java-format-diff.py) script
 - All files must begin with the standard Apache License 2.0 header.
 - Lines of code may not exceed 100 characters. There are a few exceptions to this rule, mostly due to syntax that can't be broken across lines (imports, URLs, etc.)
 
