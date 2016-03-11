@@ -3,3 +3,4 @@ Where `@suppress` annotations are allowed.
 * In the JSDoc of a `function`
 * For `@suppress {const}` and `@suppress {duplicate}` only, you can place them on an assignment in statement position
 * `@suppress {extraRequire}` is valid just before a `goog.require(...);` statement.
+* `@suppress {missingRequire}` is valid on any statement.
