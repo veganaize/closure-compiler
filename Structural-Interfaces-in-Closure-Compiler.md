@@ -1,4 +1,4 @@
-As of the r20150729 Closure Compiler release, we've been working toward having structural interfaces and covariant record types. Here's an overview of what changes that means for users of the Closure Compiler type system.
+As of the v20150729 Closure Compiler release, we've been working toward having structural interfaces and covariant record types. Here's an overview of what changes that means for users of the Closure Compiler type system.
 
 ## Structural Interfaces
 
