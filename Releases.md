@@ -6,6 +6,23 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### March 15, 2016 (v20160315)
+* Improved code removal of Object.defineProperties calls
+* Compiler support for goog.reflect.cache, which allows functions with
+  internal caches to be considered side-effect free for optimizations.
+* Linter now finds missing/extra ES6 import statements.
+* The `inferredConstCheck` diagnostic group is a no-op. Use the
+  `com.google.javascript.jscomp.ConformanceRules$InferredConstCheck`
+  conformance check instead.
+* The new type inference handles IObject/IArrayLike.
+* Run FlowSensitiveInlineVariables before function inlining to improve code
+  size.
+* Allow entry points that don't provide any symbols (like ES6 or CommonJS)
+* New lint checks:
+  - Duplicate case statements in a switch
+  - Check for the `for (!x in obj)` pattern, which is usually a mistake
+  - Check for missing @return JSDoc
+
 ### February 08, 2016 (v20160208)
 * Fixes the bug about file globs that was in the rolled-back January release.
 * Reorganization of the dependency management flags. `--manage_closure_dependencies` and
