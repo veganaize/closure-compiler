@@ -18,6 +18,8 @@ For complete list of changes refer to the [change log](https://github.com/google
 * Run FlowSensitiveInlineVariables before function inlining to improve code
   size.
 * Allow entry points that don't provide any symbols (like ES6 or CommonJS)
+* CommonJS module rewriting is now only triggered by the presensce of an export.
+    Previously `require` calls also triggered a rewrite.
 * New lint checks:
   - Duplicate case statements in a switch
   - Check for the `for (!x in obj)` pattern, which is usually a mistake
