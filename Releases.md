@@ -17,6 +17,8 @@ For complete list of changes refer to the [change log](https://github.com/google
 * The new type inference handles IObject/IArrayLike.
 * Run FlowSensitiveInlineVariables before function inlining to improve code
   size.
+* `--use_types_for_optimization true` now enables additional opportunities
+  in constant folding.
 * Allow entry points that don't provide any symbols (like ES6 or CommonJS)
 * CommonJS module rewriting is now only triggered by the presensce of an export.
     Previously `require` calls also triggered a rewrite.
