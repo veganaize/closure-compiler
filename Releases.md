@@ -20,7 +20,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 * `--use_types_for_optimization true` now enables additional constant folding
   opportunities.
 * Allow entry points that don't provide any symbols (like ES6 or CommonJS)
-* CommonJS module rewriting is now only triggered by the presensce of an export.
+* CommonJS module rewriting is now only triggered by the presence of an export.
     Previously `require` calls also triggered a rewrite.
 * New lint checks:
   - Duplicate case statements in a switch
