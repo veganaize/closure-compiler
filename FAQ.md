@@ -217,7 +217,7 @@ It is also possible to automatically generate externs for a common library by ru
 
 http://blog.dotnetwise.com/2009/11/closure-compiler-externs-extractor.html
 
-Notice that automatically-generated externs files lack type annotations. They will also miss out on parameters and return values of the external API.
+Notice that automatically-generated externs files lack type annotations. They will also miss out on parameters and return values of the external API.  They also sometimes use strings to refer to property names, which can run aground of one of the [global renaming features](https://developers.google.com/closure/compiler/docs/limitations#implications-of-global-variable-function-and-property-renaming) of the compiler.
 
 You can find more information about externs files in [the official documentation](http://code.google.com/closure/compiler/docs/api-tutorial3.html#externs).
 
