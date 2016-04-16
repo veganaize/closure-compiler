@@ -96,3 +96,17 @@ The compiler can utilize import and export statements from any of the module sys
 ## Output Modules
 
 Closure Compiler can split the output of a compilation into multiple files to support dynamic loading. This process uses the `--module` flag, but is not related to the above JS modules as the output does not specify the type of module. See [how do I split my javascript into modules](http://stackoverflow.com/questions/10395810/how-do-i-split-my-javascript-into-modules-using-googles-closure-compiler/10401030#10401030)
+
+## Restrictions of Google modules
+
+Note this is an incomplete summary(by trial and error) of restrictions of goog module system
+
+1. Google module does not allow toplevel throw, Closure Compiler will spit out an error instead of a warning
+
+```js
+// file xx.js
+goog.module('my.module')
+throw 3 ;
+``` 
+
+Like code above, Closure compiler will refuse to bundle it
