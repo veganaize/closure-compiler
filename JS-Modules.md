@@ -107,6 +107,18 @@ Note this is an incomplete summary(by trial and error) of restrictions of goog m
 // file xx.js
 goog.module('my.module')
 throw 3 ;
+// Closure compiler will not bundle it
 ``` 
+
+A more real world case:
+
+```js
+// file yy.js
+goog.module('my.module')
+var f = function(){..}
+try { f x}
+catch(e){throw 'impossible'}
+// Closure compiler still refuse to bundle such code
+```
 
 Like code above, Closure compiler will refuse to bundle it
