@@ -239,7 +239,7 @@ in a relatively low noise and fairly straightforward and unobtrusive way. This
 is similar to the warnings seen in critique. Common reason for unknown this
 values and possible solutions are discussed here:
 
-[http://go/unknownthis](http://go/unknownthis)
+[unknownthis](https://github.com/google/closure-compiler/wiki/Conformance:-Unknown-type-of-%E2%80%9Cthis%E2%80%9D)
 
 class: com.google.javascript.jscomp.ConformanceRules$BanUnknownThis
 
