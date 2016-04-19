@@ -63,7 +63,7 @@ class.
 
 A forbidden code pattern. Provides a way of banning code patterns.
 
-The <strong>value</strong> for is a [RefasterJS](https://docs.google.com/document/d/14-rsX1-VoTN2lpFalbwr4_yupxXYW-qNYn2XGVvhLwE/edit) style template function.  The function template is a literal AST match, where
+The <strong>value</strong> for is a [RefasterJS](https://github.com/google/closure-compiler/wiki/RefasterJS) style template function.  The function template is a literal AST match, where
 the function parameters are used to perform type matches.  Due to the literal
 nature of the pattern comparison, patterns should be as simple as possible to
 avoid missing variations.
