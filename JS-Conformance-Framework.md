@@ -81,7 +81,7 @@ This <strong>value </strong>would ban throwing a string value or a string object
 /** @param {string|String} str */
 function template(str) { throw str }
 ```
-See the [RefasterJS documentation](https://docs.google.com/document/d/14-rsX1-VoTN2lpFalbwr4_yupxXYW-qNYn2XGVvhLwE/edit) for details.
+See the [RefasterJS documentation](https://github.com/google/closure-compiler/wiki/RefasterJS) for details.
 
 ### BANNED\_NAME
 
