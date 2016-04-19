@@ -254,7 +254,7 @@ unintentionally escape type checking.  Banning these allows for a sanity check
 on type checking.  Common reason for unknown property types and possible
 solutions are discussed here:
 
-[http://go/unknownprops](http://go/unknownprops)
+[unknownprops](https://github.com/google/closure-compiler/wiki/Conformance:-Sources-of-%22unknown%22)
 
 <strong>class</strong>:
 com.google.javascript.jscomp.ConformanceRules$BanUnknownTypedClassPropsReferences
