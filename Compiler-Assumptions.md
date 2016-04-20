@@ -6,12 +6,12 @@ To allow for better optimizations in the general case, the compiler makes variou
 # Details
 
 The most important assumptions are described in 
-[Understanding the Restrictions Imposed by the Closure Compiler](http://code.google.com/closure/compiler/docs/limitations.html), however there are some additional assumptions.
+[Understanding the Restrictions Imposed by the Closure Compiler](https://developers.google.com/closure/compiler/docs/limitations), however there are some additional assumptions.
 
-- Name references are assumed to never throw, as described [here](http://code.google.com/p/closure-compiler/issues/detail?id=64)
-- Property reads are assumed to be side effect free, as described [here](http://code.google.com/p/closure-compiler/issues/detail?id=398). We support getters only if they are side-effect free
-- In ADVANCED mode, property sets do not have arbitrary side-effects (it is ok to remove property writes if the property is never read), as described [here](http://code.google.com/p/closure-compiler/issues/detail?id=705)
-- The original value of Function.length may not be preserved, as described [here](http://code.google.com/p/closure-compiler/issues/detail?id=253).
+- Name references are assumed to never throw, as described [here](https://blickly.github.io/closure-compiler-issues/#64)
+- Property reads are assumed to be side effect free, as described [here](http://blickly.github.io/closure-compiler-issues/#398). We support getters only if they are side-effect free
+- In ADVANCED mode, property sets do not have arbitrary side-effects (it is ok to remove property writes if the property is never read), as described [here](https://blickly.github.io/closure-compiler-issues/#705)
+- The original value of Function.length may not be preserved, as described [here](https://blickly.github.io/closure-compiler-issues/#253).
 - [[toString And valueOf]] are assumed to be side-effect free.
 - ~~Math object methods are side-effect free.~~
 - instanceof is assumed to never throw
