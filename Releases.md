@@ -6,6 +6,14 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### Unreleased Changes
+*These changes have been completed in the master branch of the compiler and will be part of the next release*
+
+ * CommonJS module processing now rewrites `require.ensure` calls.
+ * Command line flag output is now grouped by category for greater readability
+ * Module processing now properly recognizes absolute paths
+ * Modules which are imported, but have no exports are now properly rewritten
+
 ### March 15, 2016 (v20160315)
 * Improved code removal of Object.defineProperties calls
 * Compiler support for goog.reflect.cache, which allows functions with
