@@ -1,4 +1,4 @@
-# @idGenerator {unique|consistent|stable|mapped} documentation
+# @idGenerator {unique|consistent|stable|mapped}
 
 ## Introduction
 
