@@ -50,6 +50,6 @@ ID generator replacement is on by default, but may be toggled using the Java API
 
 For debugging support, `CompilerOptions#setGeneratePseudoNames` may be set to make the transformed IDs human readable.
 
-To improve stability across builds it is possible to supply name maps for use by the `ReplaceIdGenerators` compiler pass, the map is used as a hint for the renaming and the compiler is free to pick a different name.  If cross build stability is required `@IdGenerator {stable}` should be used. Setting the renaming map is done via `CompilerOptions#setIdGeneratorsMap`.
+To improve stability across builds it is possible to supply name maps for use by the `ReplaceIdGenerators` compiler pass, the map is used as a hint for the renaming and the compiler is free to pick a different name.  If cross build stability is required `@idGenerator {stable}` should be used. Setting the renaming map is done via `CompilerOptions#setIdGeneratorsMap`.
 
-NOTE: There are three deprecated variants: `@idGenerator`, `@consistentIdGenerator`, and `@stableIdGenerator`.  These map to `@idGenerator {unique}`, `@idGenerator {consistent}`, and `@idGenerator {stable}`.  Support for these will be removed in a future compiler release.
+**NOTE:** There are three deprecated variants: `@idGenerator`, `@consistentIdGenerator`, and `@stableIdGenerator`.  These map to `@idGenerator {unique}`, `@idGenerator {consistent}`, and `@idGenerator {stable}`.  Support for these will be removed in a future compiler release.
