@@ -9,10 +9,27 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
 *These changes have been completed in the master branch of the compiler and will be part of the next release*
 
- * CommonJS module processing now rewrites `require.ensure` calls.
- * Command line flag output is now grouped by category for greater readability
- * Module processing now properly recognizes absolute paths
- * Modules which are imported, but have no exports are now properly rewritten
+### May 17, 2016 (v20160517)
+* ES6 library polyfills (e.g. `Map`, etc) are on by default. They
+  can be disabled with `--norewrite_polyfills`.
+* Improve the rewriting of goog.modules. As a result, we now disallow accessing
+  (non-legacy) goog.modules by their fully qualified name. Also, includes a few
+  new checks of goog.module misuse.
+* Allow destructuring imports inside goog.module
+  (e.g. `const {assert} = goog.require('goog.asserts');)
+* Switch to ES6 module ordering
+* Fix parsing of very deeply nested binary operators to avoid stack overflows.
+* Check for missing/incorrect usages of ES6 super statement.
+* Remove the "unnnecessary cast" check.
+* Modules which are imported, but have no exports are now properly rewritten
+* Updated dead assignment elimination to eliminate assignments in var/let/const
+  statements, saving a few hundred bytes for some projects (contribution from
+  kevinoconnor@)
+* Better optimization of switch statements that contain a default case.
+* More aggressive constant folding.
+* CommonJS module processing now rewrites `require.ensure` calls.
+* Command line flag output is now grouped by category for greater readability
+* Module processing now properly recognizes absolute paths
 
 ### March 15, 2016 (v20160315)
 * Improved code removal of Object.defineProperties calls
