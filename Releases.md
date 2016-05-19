@@ -23,8 +23,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 * Remove the "unnnecessary cast" check.
 * Modules which are imported, but have no exports are now properly rewritten
 * Updated dead assignment elimination to eliminate assignments in var/let/const
-  statements, saving a few hundred bytes for some projects (contribution from
-  kevinoconnor@)
+  statements, saving a few hundred bytes for some projects.
 * Better optimization of switch statements that contain a default case.
 * More aggressive constant folding.
 * CommonJS module processing now rewrites `require.ensure` calls.
