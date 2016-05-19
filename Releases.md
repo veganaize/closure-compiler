@@ -11,7 +11,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### May 17, 2016 (v20160517)
 * ES6 library polyfills (e.g. `Map`, etc) are on by default. They
-  can be disabled with `--norewrite_polyfills`.
+  can be disabled with `--rewrite_polyfills=false`.
 * Improve the rewriting of goog.modules. As a result, we now disallow accessing
   (non-legacy) goog.modules by their fully qualified name. Also, includes a few
   new checks of goog.module misuse.
