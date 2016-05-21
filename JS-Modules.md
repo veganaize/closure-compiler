@@ -94,6 +94,26 @@ It is possible to mix import statements, however this method is not generally re
 
 The compiler can utilize import and export statements from any of the module systems to sort files and drop unreferenced files. See [Managing Dependencies](https://github.com/google/closure-compiler/wiki/Managing-Dependencies).
 
+## Type References
+
+The preferred method to reference a type from another module is to import it and utilize the imported alias as a type reference:
+
+```
+const foo = require('./foo')';
+
+/** @param {foo.Foo} Foo */
+function(Foo) {}
+```
+
+This type of reference only works in the module root or global scope. Inside a nested scope, the alias will not be dereferenced by the compiler. In these cases, type annotations may specify a module path:
+
+```
+/** @param {./foo.Foo} Foo */
+function(Foo) {}
+```
+
+Using the rewritten module name is highly discouraged. This name is an internal representation by the compiler and may be changed at any time.
+
 ## Code Splitting (Output Modules)
 
 Closure Compiler can split the output of a compilation into multiple files to support dynamic loading. This process uses the `--module` flag, but is not related to the above JS modules as the output does not specify the type of module. See [how do I split my javascript into modules](http://stackoverflow.com/questions/10395810/how-do-i-split-my-javascript-into-modules-using-googles-closure-compiler/10401030#10401030)
