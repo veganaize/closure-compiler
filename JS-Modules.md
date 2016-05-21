@@ -25,6 +25,8 @@ A module is recognized by its export mechanism. A single file can only use one t
  * CommonJS export: `module.exports = Foo` and `export.Foo = Foo`;
  * goog.module: `goog.module('foo'); export.Foo = Foo;`
 
+Module exports are also treated as constants in the compiler. This enables many existing optimizations.
+
 ## ES6 Modules
 
 ES6 Module support is enabled when the `--language_in` flag is used to specify an input language of ECMASCRIPT6 or higher.
