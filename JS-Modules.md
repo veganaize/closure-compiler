@@ -8,7 +8,7 @@ Closure Compiler recognizes and several JS module systems, including:
 
 During compilation, the compiler normalizes and inlines all of these disparate module by rewriting them into a form where the remaining passes can understand and optimize them fully. This is equivalent functionality to other module bundlers. You can use multiple modules types in a single compilation.
 
-CommonJS and ES6 Modules are file based and a module is imported by it's path. Paths must be absolute or relative and omit the file extension:
+CommonJS and ES6 Modules are file based and a module is imported by its path. Paths must be absolute or relative and omit the file extension:
 
  * `import foo from './folder/source'`
  * `import foo from '/folder/source'`
