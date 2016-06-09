@@ -199,7 +199,7 @@ Square.prototype.draw = function() {
 
 ### `@inheritDoc`
 
-Indicates that a method or property of a subclass intentionally hides a method or property of the superclass, and has exactly the same documentation. Note that the `@inheritDoc` tag implies the `@override` tag.
+Indicates that a method or property of a subclass intentionally hides a method or property of the superclass, and has exactly the same documentation. Note that the `@inheritDoc` tag implies the `@override` tag, @override is preferred.
 
 ```javascript
 /** @inheritDoc */
