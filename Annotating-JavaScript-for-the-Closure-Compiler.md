@@ -154,6 +154,16 @@ goog.ds.EmptyNodeList = function() {
 };
 ```
 
+### `@fileoverview Description`
+
+Makes the comment block provide file level information including suppressions.
+
+For example:
+/**
+ * @fileoverview Utilities for doing things 
+ */
+
+
 ### `@final`
 
 Indicates that this class is not allowed to be extended. For methods, indicates that no subclass is allowed to override that method.
