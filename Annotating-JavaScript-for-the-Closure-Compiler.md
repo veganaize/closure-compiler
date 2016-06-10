@@ -154,6 +154,24 @@ goog.ds.EmptyNodeList = function() {
 };
 ```
 
+### `@externs`
+
+Declares an externs file.
+
+Files annotated with @externs in the @fileoverview block are treated as externs files even if they appear compilation units regular srcs.
+
+For example:
+```javascript
+/**
+ * @fileoverview This is an externs file.
+ * @externs
+ */
+
+var document;
+```
+
+
+
 ### `@fileoverview Description`
 
 Makes the comment block provide file level information including suppressions.
