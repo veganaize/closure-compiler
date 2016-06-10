@@ -291,9 +291,15 @@ foo.bar = 42;
 window['foobar'] = foo.bar;
 ```
 
-### `@nosideeffects`
+### `@nosideeffects` `@modifies {this|arguments}`
 
-Indicates that a call to the declared function has no side effects. This annotation allows the compiler to remove calls to the function if the return value is not used. The annotation is only allowed in extern files.
+`@nosideeffects` indicates that a call to the declared function has no side effects. This annotation allows the compiler to remove calls to the function if the return value is not used.  This is not a signal that the function is "pure", it may still read mutable global state.  
+
+`@modifies {this}` signals that only direct properties of the provided `this` are modified.  Calls to these functions maybe be removed if the "this" object is known to be otherwise unused.
+
+`@modifies {arguments}` signals that only direct properties of the provided arguments are modified.  Calls to these functions maybe be removed if the parameters provided to the function are otherwise known to be otherwise unused.
+
+Theses annotation is only allowed in extern files.
 
 ```javascript
 /** @nosideeffects */
