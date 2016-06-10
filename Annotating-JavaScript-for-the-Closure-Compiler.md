@@ -218,11 +218,13 @@ project.SubClass.prototype.toString = function() {
 };
 ```
 
-### `@interface`
+### `@interface` `@record`
 
 Marks a function as an interface. An interface specifies the required members of a type. Any class that implements an interface must implement all of the methods and properties defined on the interface's prototype. See `@implements`.
 
 The compiler verifies that interfaces are not instantiated. If the `new` keyword is used with an interface function, the compiler produces a warning.
+
+For the differences between @record and @interface, see https://github.com/google/closure-compiler/wiki/Structural-Interfaces-in-Closure-Compiler
 
 ```javascript
 /**
@@ -242,7 +244,7 @@ function Polygon() {};
 Polygon.prototype.getSides = function() {};
 ```
 
-### `lends {objectName}`
+### `@lends {objectName}`
 
 Indicates that the keys of an object literal should be treated as properties of some other object. This annotation should only appear on object literals.
 
