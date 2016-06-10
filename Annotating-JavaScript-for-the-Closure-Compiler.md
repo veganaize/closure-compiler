@@ -34,7 +34,7 @@ mynamespace.MY_BEER = 'stout';
 
 ### `@constructor`
 
-Marks a function as a constructor.  The compiler requires a `@constructor` annotation for any function that is used with the `new` keyword
+Marks a function as a constructor.  The compiler requires a `@constructor` annotation for any function that is used with the `new` keyword.  @constructor should be omitted from EcmaScript `class` constructor methods and `goog.defineClass` constructor methods.
 
 ```javascript
 /**
