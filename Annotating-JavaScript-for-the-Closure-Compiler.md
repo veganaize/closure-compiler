@@ -468,6 +468,19 @@ var obj2 = /** @struct */ { x: 321 };
 obj2['x'] = 123;  // warning
 ```
 
+
+### `@suppress {warningGroup1,warningGroup2}`
+Suppresses warnings. Warning categories are separated by | or ,.
+For a list of warning names, take a look at http://go/jscompiler-warnings.
+
+For example:
+/**
+ * @suppress {deprecated}
+ */
+function f() {
+  deprecatedVersionOfF();
+}
+
 ### `@template T`
 
 See Generic Types.
