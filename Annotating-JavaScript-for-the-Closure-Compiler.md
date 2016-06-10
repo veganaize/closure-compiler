@@ -534,3 +534,27 @@ obj1.x = "qwerty";  // OK
 obj1['x'] = "asdf";  // OK
 obj1.y = 5;  // OK
 ```
+
+## Special purpose annotations
+
+### `@noalias`
+
+Used in an externs file to indicate to the compiler that the variable or function should not be aliased as part of the "alias externals" pass of the compiler, is not enabled by default and only available through the Java API.
+
+For example:
+```javascript
+/** @noalias */
+function Range() {}
+```
+
+### `@nocompile`
+
+For example:
+```javascript
+/** @nocompile */
+```
+
+Used at the top of a file to tell the compiler to parse this file but not compile it. Code that is not meant for compilation and should be omitted from compilation tests (such as bootstrap code) uses this annotation.  Most code should use other means such as a `@define` to change behavior.
+
+
+
