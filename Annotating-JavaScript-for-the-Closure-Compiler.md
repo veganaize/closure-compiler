@@ -409,6 +409,19 @@ goog.ui.Component.prototype.setElementInternal = function(element) {
 };
 ```
 
+### `@public`
+
+Indicates that a member or property is public. A property marked `@public` is accessible to all code in the any file.  This is the implicit default and rarely used.  This is not used to indicate that name should be preserved in obfuscating builds see `@export`.
+
+```javascript
+/**
+ * @public
+ */
+goog.ui.Component.prototype.setElementInternal = function(element) {
+  // ...
+};
+```
+
 ### `@return {Type}` _Description_
 
 Specifies the return types of method and function definitions. The `@return` tag must be followed by a type expression.
