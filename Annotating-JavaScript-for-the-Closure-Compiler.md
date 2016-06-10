@@ -224,7 +224,7 @@ Marks a function as an interface. An interface specifies the required members of
 
 The compiler verifies that interfaces are not instantiated. If the `new` keyword is used with an interface function, the compiler produces a warning.
 
-For the differences between @record and @interface, see https://github.com/google/closure-compiler/wiki/Structural-Interfaces-in-Closure-Compiler
+For the differences between @record and @interface, see [[Structural Interfaces|Structural-Interfaces-in-Closure-Compiler]]
 
 ```javascript
 /**
@@ -471,7 +471,7 @@ obj2['x'] = 123;  // warning
 
 ### `@suppress {warningGroup1,warningGroup2}`
 Suppresses warnings. Warning categories are separated by | or ,.
-For a list of warning names, take a look at http://go/jscompiler-warnings.
+For a list of warning names, take a look at [[Warnings|Warnings]].
 
 For example:
 /**
