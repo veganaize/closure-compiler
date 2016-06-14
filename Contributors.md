@@ -6,22 +6,21 @@ Getting pull requests into Closure Compiler should be relatively pain-free. We a
 
 This page should help guide you through the submitting process. We assume the reader already knows how to complain.
 
-### Lifecycle of a Patch
+### Lifecycle of a Pull Request
 
 To submit a pull request, you will need to sign a [Contributor License Agreement](https://github.com/google/closure-compiler#submitting-patches) if you haven't done so. 
 
-One of our committers may ask you additional questions about the change, or request improvements. Once the first committer is satisfied, he or she will ask a second committer to review the change and sign off on it.
+One of our committers may ask you additional questions about the change, or request improvements. Rather than putting those improvements in a separate commit, please "squash" them into a single commit. This will make it easier for us to mirror the change into Google's internal repository. Once the first committer is satisfied, they may ask a second committer to review the change and sign off on it.
 
 Some changes, particularly changes that add new optimizations, may require extensive integration testing to ensure they don't break under unforeseen edge cases. Fortunately, most of our committers work on large, proprietary JavaScript codebases with lots of integration tests. We may test your change against a few of those projects before we commit it. So if takes a day or two for us to commit your change after it has been reviewed, we may just be running integration tests on it first.
 
-Changes are automatically mirrored between github, and Google's internal Perforce repository. The committer may submit your change to either Git or perforce.
-
+Changes are automatically mirrored between Github, and Google's internal repository. Once your change is ready to be merged, the committer will generally submit it to Google's internal repository first, and then it will be mirrored to the master branch on Github, usually within a day or two.
 
 ### How to Get Your Pull Request Accepted
 
 A few pointers on how to get your pull request accepted:
-- Run `ant test` and ensure your patch passes all unit tests.
-- Write a unit test that demonstrates your patch. Tests are the best way to ensure that future contributors do not break your code accidentally.
+- Run `mvn test` and ensure your patch passes all unit tests.
+- Write a unit test, or possibly an integration test, that demonstrates your patch. Tests are the best way to ensure that future contributors do not break your code accidentally.
 - Follow the coding conventions (below)
 
 ### Coding Conventions
