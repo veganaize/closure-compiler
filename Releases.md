@@ -9,6 +9,13 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
 *These changes have been completed in the master branch of the compiler and will be part of the next release*
 
+### June 21, 2016 (v20160619)
+* Improved module rewriting for destructured imports.
+* New --checks_only flag that causes the compiler to not run any optimizations.
+* Allow prevention of property renaming based on the coding convention.
+* Removed support for the `var name = goog.require(...).name;` import pattern. The suggested alternative is `const {name} = goog.require(...);`
+* Added support for @abstract on methods as an ES6-compatible alternative to goog.abstractMethod.
+
 ### May 17, 2016 (v20160517)
 * ES6 library polyfills (e.g. `Map`, etc) are on by default. They
   can be disabled with `--rewrite_polyfills=false`.
