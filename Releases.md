@@ -15,6 +15,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 * Allow prevention of property renaming based on the coding convention.
 * Removed support for the `var name = goog.require(...).name;` import pattern. The suggested alternative is `const {name} = goog.require(...);`
 * Added support for @abstract on methods as an ES6-compatible alternative to goog.abstractMethod.
+* Type based renaming now supports Object.defineProperties and thus ES6 getters and setters.
 
 ### May 17, 2016 (v20160517)
 * ES6 library polyfills (e.g. `Map`, etc) are on by default. They
