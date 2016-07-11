@@ -22,6 +22,13 @@ Suppose you see a property access `x.prop1`, and the type of `x` is *A*. In the 
 
 Also, the current type checker does not warn about property accesses on _*_, because it is a supertype of all types, including *Object*. But NTI warns on a property access when the receiver is not an object, so it warns here.
 
+### Warnings about uninferred constants
+
+If you define a constant variable or property, NTI will attempt to infer the constant's type and use that type in any scope that references the constant. If NTI cannot infer the type, it will warn. Since each function scope is typechecked in isolation, const inference must happen early, with limited type information. So, if you think a const should have been inferred but you are getting a warning, keep in mind that a limited inference is used. 
+
+The old type checker would not warn about this, but it would silently type the constant as unknown when it cannot infer the type. Moreover, the const inference in the old type checker is dependent on the order of type checking the function scopes, which is error prone. In this [example](https://closure-compiler-debugger.appspot.com/#input0%3D%252F**%2520%2540const%2520*%252F%250Avar%2520ns%2520%253D%2520%257B%257D%253B%250A%250Afunction%2520g()%2520%257B%250A%2520%2520var%2520%252F**%2520null%2520*%252F%2520n1%2520%253D%2520ns.myconst%253B%250A%257D%250A%250Afunction%2520f()%2520%257B%250A%2520%2520%252F**%2520%2540constructor%2520*%252F%250A%2520%2520ns.Foo%2520%253D%2520function()%2520%257B%257D%253B%250A%250A%2520%2520%252F**%2520%2540const%2520*%252F%250A%2520%2520ns.myconst%2520%253D%2520goog.asserts.assert(new%2520ns.Foo)%253B%250A%257D%250A%250Afunction%2520h()%2520%257B%250A%2520%2520var%2520%252F**%2520null%2520*%252F%2520n2%2520%253D%2520ns.myconst%253B%250A%257D%26input1%26conformanceConfig%26externs%3Dvar%2520goog%253B%250Agoog.asserts%253B%250Agoog.asserts.assert%253B%26refasterjs-template%26includeDefaultExterns%3D1%26CHECK_SYMBOLS%3D1%26CHECK_TYPES%3D1%26CLOSURE_PASS%3D1%26LANG_IN_IS_ES6%3D1%26MISSING_PROPERTIES%3D1%26PRESERVE_TYPE_ANNOTATIONS%3D1%26PRETTY_PRINT%3D1%26TRANSPILE%3D1),
+`ns.myconst` is inferred in scope `h` but not in scope `g`.
+
 ### Function vs method types
 
 A function does not specify a receiver type, a method does. In NTI, you cannot pass a method to a context that expects a function, because it can then be called without a receiver type. For example, the current type checker doesn't warn about the following program, but NTI (correctly) does.
