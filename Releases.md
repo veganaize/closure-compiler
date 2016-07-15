@@ -6,8 +6,11 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### Unreleased Changes
-*These changes have been completed in the master branch of the compiler and will be part of the next release*
+### July 13, 2016 (v20160713)
+* Internal change to the way the AST is represented, which results in much
+  faster compilation, especially for projects with large files. (https://github.com/google/closure-compiler/commit/90ac054be8d735c5b5530cf87923bd3d99697335)
+* The jar downloaded from dl.google.com now includes the version
+  number in its filename (`closure-compiler-v20160713.jar`)
 
 ### June 21, 2016 (v20160619)
 * Improved module rewriting for destructured imports.
