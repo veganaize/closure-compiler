@@ -6,6 +6,9 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### Upcoming
+* `--rewrite_polyfills` is now on by default.
+
 ### July 13, 2016 (v20160713)
 * Internal change to the way the AST is represented, which results in much
   faster compilation, especially for projects with large files. (https://github.com/google/closure-compiler/commit/90ac054be8d735c5b5530cf87923bd3d99697335)
