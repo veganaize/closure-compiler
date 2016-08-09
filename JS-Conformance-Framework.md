@@ -127,6 +127,12 @@ property are allowed. The <strong>value</strong> for this rule follows the same 
   * An 'instance' property: "namespace.Foo.prototype.banned = 1"
   * All properties of a given name "Object.prototype.banned++"
 
+### BANNED\_PROPERTY\_NON\_CONSTANT\_WRITE
+
+A banned write of a non-constant value to an instance property.
+Unlike BANNED\_PROPERTY\_WRITE, this only bans assignments of a
+non-constant value.
+
 ### BANNED\_PROPERTY\_CALL
 
 A banned function call. For example:
