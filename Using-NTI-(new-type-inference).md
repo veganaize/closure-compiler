@@ -78,5 +78,5 @@ In some cases adding the annotation `@this {myType.Foo}` can solve this warning.
 
 ### Compatibility mode in NTI
 
-Because NTI finds many more warnings, it can be a bit daunting to start using it, because you have to fix all warnings in your project first. For this reason, we are currently working on a "compatibility mode" for NTI. When enabling this mode, NTI relaxes a few checks, to match what the old type checker does. For example, NTI performs looser property-existence checks in compatibility mode.
+NTI finds many more warnings than the old type checker, so it can be a bit daunting to start using it, because you have to fix all warnings in your project first. For this reason, we are currently working on a "compatibility mode" for NTI. When enabling this mode, NTI relaxes a few checks, to match what the old type checker does. For example, NTI performs looser property-existence checks in compatibility mode. You can try it out with `--jscomp_off=newCheckTypesExtraChecks`.
 
