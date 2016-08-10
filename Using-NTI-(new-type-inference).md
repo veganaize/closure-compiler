@@ -76,20 +76,7 @@ You might see this warning if you use functions like `goog.array.forEach` which 
 
 In some cases adding the annotation `@this {myType.Foo}` can solve this warning. See [an email on the closure compiler list of Oct 19, 2015](https://groups.google.com/d/msg/closure-compiler-discuss/22FsLdUCWbs/t1dq0-nWAgAJ) for an example of this.  That example involves defining a function operating on `this` inside a constructor.
 
-### Misspelled property names and `@struct`
+### Compatibility mode in NTI
 
-*This is not related to NTI, but falls in category of "wanting the compiler to find bugs in your code".*
+Because NTI finds many more warnings, it can be a bit daunting to start using it, because you have to fix all warnings in your project first. For this reason, we are currently working on a "compatibility mode" for NTI. When enabling this mode, NTI relaxes a few checks, to match what the old type checker does. For example, NTI performs looser property-existence checks in compatibility mode.
 
-Suppose an object has a property named `address`.  If you misspell that property by doing:
-```js
-this.adress = "10 Main St.";
-```
-the compiler will NOT complain.  It assumes you are adding a new property to `this`.
-The fix is to annotate the constructor with `@struct`.
-
->Assigning has different behavior than property access, because it creates a property. If you want to 
-prevent accidental property creation by assignment, you should annotate the constructor with @struct
-
-See <https://github.com/google/closure-compiler/issues/861>
-
-Note that classes defined with `goog.defineClass` or the `class` keyword should automatically imply `@struct`.
