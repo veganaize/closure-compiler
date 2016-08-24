@@ -6,8 +6,26 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### Upcoming
-* `--rewrite_polyfills` is now on by default.
+### August 22, 2016 (v20160722)
+*   Improved support for refactoring arrow functions containing 'this' or
+    'arguments'
+*   Improve branch coverage instrumentation
+*   Improvements for NTI compatibility mode
+    *   Don't warn when passing a method where a function is expected
+    *   type variables in body of a function are unknown.
+*   Improvements for NTI
+    *   Recognize namespace aliasing in goog.module exports
+    *   Don't mistake specialized versions of inherited properties for own
+        properties. (Fixes #1943 on Github.)
+*   Added externs for fetchapi Headers: keys, values, entries, based on:
+    https://developer.mozilla.org/en-US/docs/Web/API/Headers
+*   Add a distinction between `@const` and `@final`. Only @final means a class
+    or constructor is not subclassible.
+*   Warn if an ES5 class extends an ES6 class.
+*   The exponentiation operator `**` is now supported.
+*   More compile-time checks for @abstract classes and methods
+*   New optimization: RemoveSuperMethods, which deletes methods that only make
+    a super call with no change in arguments
 
 ### July 13, 2016 (v20160713)
 * Internal change to the way the AST is represented, which results in much
