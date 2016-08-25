@@ -22,7 +22,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 *   Add a distinction between `@const` and `@final`. Only @final means a class
     or constructor is not subclassible.
 *   Warn if an ES5 class extends an ES6 class.
-*   The exponentiation operator `**` is now supported.
+*   The exponentiation operator `**` is now supported for --language_in=ECMASCRIPT7
 *   More compile-time checks for @abstract classes and methods
 *   New optimization: RemoveSuperMethods, which deletes methods that only make
     a super call with no change in arguments
