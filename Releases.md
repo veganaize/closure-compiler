@@ -6,7 +6,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### August 22, 2016 (v20160722)
+### August 22, 2016 (v20160822)
 *   Improved support for refactoring arrow functions containing 'this' or
     'arguments'
 *   Improve branch coverage instrumentation
