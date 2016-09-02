@@ -10,11 +10,11 @@ by doing `f(Promise.resolve(new Foo()));` -- why isn't this working?
     to get rid of the warning.
 
 
-## Covariant Parameter Types
+## Contravariant Parameter Types
 
 A function `f` expects a callback of type `function(Foo)` (i.e. a function
-that takes a `Foo` or null) and I'm passing a `function(!Foo)`. Why doesn't
-this work?
+that takes a `Foo` or null) and I'm passing a `function(!Foo)`. `!Foo` is a subtype
+of `Foo`, so why doesn't this work?
 
    * If `f` expects a callback of type `function(Foo)` then it may in fact pass
      a null to that callback. The function you're providing as a callback does
