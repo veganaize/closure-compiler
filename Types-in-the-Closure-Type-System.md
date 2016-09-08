@@ -168,7 +168,9 @@ Deprecated syntax:<br>
                     with instance types, which are nullable by default.</p>
 <p>Note that the following are already non-nullable, and thus
                     prepending<code>!</code> is redundant:
-<PRE class="badcode">!number, !string, !boolean, !{foo: string}, !function()</PRE></p>
+<PRE class="badcode">!number, !string, !boolean
+!{foo: string}, !function()</PRE>
+</p>
 </td>
 <td>No.</td>
 </tr>
