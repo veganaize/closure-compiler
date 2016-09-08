@@ -1,7 +1,5 @@
-<DIV class="">
+
 <H3><A name="JavaScript_Types" id="JavaScript_Types">JavaScript Types</A></H3>
-<DIV style="display:inline;" class="">Encouraged and enforced by the compiler.</DIV>
-<DIV class=""><DIV class="stylepoint_body" name="JavaScript_Types__body" id="JavaScript_Types__body" style="display: none">
 <a name="JsTypes"></a>
 <p>When documenting a type in JSDoc, be as specific and accurate as
           possible. The types we support are based on the
@@ -13,13 +11,13 @@
             types. We use this language in JsDoc to express the types.</p>
 
 <p></p>
-<table border="1" style="border-collapse:collapse" cellpadding="4">
+<table cellpadding="4">
             
 <tr>
 <th>Syntax Name</th>
 <th>Syntax</th>
 <th>Description</th>
-<th style="min-width: 100px">Allows null?</th>
+<th>Allows null?</th>
 <th>Deprecated Syntaxes</th>
 </tr>
             
@@ -152,7 +150,8 @@
 <p>Note that the following are already nullable, and thus
                     prepending<code>?</code> is redundant, but is recommended
                     so that the intent is clear and explicit:
-<DIV class=""><PRE>?Object, ?Array, ?Function</PRE></DIV></p>
+<PRE>?Object, ?Array, ?Function</PRE>
+</p>
 </td>
 <td>Yes.</td>
 <td>
@@ -171,7 +170,7 @@
                     with instance types, which are nullable by default.</p>
 <p>Note that the following are already non-nullable, and thus
                     prepending<code>!</code> is redundant:
-<DIV class=""><PRE class="badcode">!number, !string, !boolean, !{foo: string}, !function()</PRE></DIV></p>
+<PRE class="badcode">!number, !string, !boolean, !{foo: string}, !function()</PRE></p>
 </td>
 <td>No.</td>
 <td>
@@ -349,7 +348,7 @@
 <P class="">
 <SPAN class="stylepoint_subsection">Types in JavaScript</SPAN>
 <p></p>
-<table border="1" style="border-collapse:collapse" cellpadding="4">
+<table cellpadding="4">
             
 <tr>
 <th>Type Example</th>
@@ -362,11 +361,11 @@
 <tr>
 <td>number</td>
 <td>
-<DIV class=""><PRE>1
+<PRE>1
 1.0
 -5
 1e5
-Math.PI</PRE></DIV>
+Math.PI</PRE>
 </td>
 <td></td>
 </tr>
@@ -374,7 +373,7 @@ Math.PI</PRE></DIV>
 <tr>
 <td>Number</td>
 <td>
-<DIV class=""><PRE>new Number(true)</PRE></DIV>
+<PRE>new Number(true)</PRE>
 </td>
 <td>
 <a href="#Wrapper_objects_for_primitive_types">
@@ -386,9 +385,9 @@ Math.PI</PRE></DIV>
 <tr>
 <td>string</td>
 <td>
-<DIV class=""><PRE>'Hello'
+<PRE>'Hello'
 "World"
-String(42)</PRE></DIV>
+String(42)</PRE>
 </td>
 <td>
                   String value
@@ -398,8 +397,8 @@ String(42)</PRE></DIV>
 <tr>
 <td>String</td>
 <td>
-<DIV class=""><PRE>new String('Hello')
-new String(42)</PRE></DIV>
+<PRE>new String('Hello')
+new String(42)</PRE>
 </td>
 <td>
 <a href="#Wrapper_objects_for_primitive_types">
@@ -411,9 +410,9 @@ new String(42)</PRE></DIV>
 <tr>
 <td>boolean</td>
 <td>
-<DIV class=""><PRE>true
+<PRE>true
 false
-Boolean(0)</PRE></DIV>
+Boolean(0)</PRE>
 </td>
 <td>
                   Boolean value
@@ -423,7 +422,7 @@ Boolean(0)</PRE></DIV>
 <tr>
 <td>Boolean</td>
 <td>
-<DIV class=""><PRE>new Boolean(true)</PRE></DIV>
+<PRE>new Boolean(true)</PRE>
 </td>
 <td>
 <a href="#Wrapper_objects_for_primitive_types">
@@ -435,8 +434,8 @@ Boolean(0)</PRE></DIV>
 <tr>
 <td>RegExp</td>
 <td>
-<DIV class=""><PRE>new RegExp('hello')
-/world/g</PRE></DIV>
+<PRE>new RegExp('hello')
+/world/g</PRE>
 </td>
 <td>
 </td>
@@ -445,8 +444,8 @@ Boolean(0)</PRE></DIV>
 <tr>
 <td>Date</td>
 <td>
-<DIV class=""><PRE>new Date
-new Date()</PRE></DIV>
+<PRE>new Date
+new Date()</PRE>
 </td>
 <td></td>
 </tr>
@@ -462,7 +461,7 @@ new Date()</PRE></DIV>
 </span>
 </td>
 <td>
-<DIV class=""><PRE>null</PRE></DIV>
+<PRE>null</PRE>
 </td>
 <td></td>
 </tr>
@@ -478,7 +477,7 @@ new Date()</PRE></DIV>
 </span>
 </td>
 <td>
-<DIV class=""><PRE>undefined</PRE></DIV>
+<PRE>undefined</PRE>
 </td>
 <td></td>
 </tr>
@@ -486,9 +485,9 @@ new Date()</PRE></DIV>
 <tr>
 <td>void</td>
 <td>
-<DIV class=""><PRE>function f() {
+<PRE>function f() {
   return;
-}</PRE></DIV>
+}</PRE>
 </td>
 <td>No return value</td>
 </tr>
@@ -496,8 +495,8 @@ new Date()</PRE></DIV>
 <tr>
 <td>Array</td>
 <td>
-<DIV class=""><PRE>['foo', 0.3, null]
-[]</PRE></DIV>
+<PRE>['foo', 0.3, null]
+[]</PRE>
 </td>
 <td>Untyped Array</td>
 </tr>
@@ -505,7 +504,7 @@ new Date()</PRE></DIV>
 <tr>
 <td>Array&lt;number&gt;</td>
 <td>
-<DIV class=""><PRE>[11, 22, 33]</PRE></DIV>
+<PRE>[11, 22, 33]</PRE>
 </td>
 <td>
                   An Array of numbers
@@ -515,7 +514,7 @@ new Date()</PRE></DIV>
 <tr>
 <td>Array&lt;Array&lt;string&gt;&gt;</td>
 <td>
-<DIV class=""><PRE>[['one', 'two', 'three'], ['foo', 'bar']]</PRE></DIV>
+<PRE>[['one', 'two', 'three'], ['foo', 'bar']]</PRE>
 </td>
 <td>Array of Arrays of strings</td>
 </tr>
@@ -523,8 +522,8 @@ new Date()</PRE></DIV>
 <tr>
 <td>Object</td>
 <td>
-<DIV class=""><PRE>{}
-{foo: 'abc', bar: 123, baz: null}</PRE></DIV>
+<PRE>{}
+{foo: 'abc', bar: 123, baz: null}</PRE>
 </td>
 <td></td>
 </tr>
@@ -532,7 +531,7 @@ new Date()</PRE></DIV>
 <tr>
 <td>Object&lt;string&gt;</td>
 <td>
-<DIV class=""><PRE>{'foo': 'bar'}</PRE></DIV>
+<PRE>{'foo': 'bar'}</PRE>
 </td>
 <td>
                   An Object in which the values are strings.
@@ -542,8 +541,8 @@ new Date()</PRE></DIV>
 <tr>
 <td>Object&lt;number, string&gt;</td>
 <td>
-<DIV class=""><PRE>var obj = {};
-obj[1] = 'bar';</PRE></DIV>
+<PRE>var obj = {};
+obj[1] = 'bar';</PRE>
 </td>
 <td>
                   An Object in which the keys are numbers and the values are
@@ -559,9 +558,9 @@ obj[1] = 'bar';</PRE></DIV>
 <tr>
 <td>Function</td>
 <td>
-<DIV class=""><PRE>function(x, y) {
+<PRE>function(x, y) {
   return x * y;
-}</PRE></DIV>
+}</PRE>
 </td>
 <td>
 <a href="#Wrapper_objects_for_primitive_types">
@@ -573,9 +572,9 @@ obj[1] = 'bar';</PRE></DIV>
 <tr>
 <td>function(number, number): number</td>
 <td>
-<DIV class=""><PRE>function(x, y) {
+<PRE>function(x, y) {
   return x * y;
-}</PRE></DIV>
+}</PRE>
 </td>
 <td>function value</td>
 </tr>
@@ -583,10 +582,10 @@ obj[1] = 'bar';</PRE></DIV>
 <tr>
 <td><a name="constructor-tag">SomeClass</a></td>
 <td>
-<DIV class=""><PRE>/** @constructor */
+<PRE>/** @constructor */
 function SomeClass() {}
 
-new SomeClass();</PRE></DIV>
+new SomeClass();</PRE>
 </td>
 <td></td>
 </tr>
@@ -594,10 +593,10 @@ new SomeClass();</PRE></DIV>
 <tr>
 <td>SomeInterface</td>
 <td>
-<DIV class=""><PRE>/** @interface */
+<PRE>/** @interface */
 function SomeInterface() {}
 
-SomeInterface.prototype.draw = function() {};</PRE></DIV>
+SomeInterface.prototype.draw = function() {};</PRE>
 </td>
 <td></td>
 </tr>
@@ -605,10 +604,10 @@ SomeInterface.prototype.draw = function() {};</PRE></DIV>
 <tr>
 <td>SomeRecord</td>
 <td>
-<DIV class=""><PRE>/** @record */
+<PRE>/** @record */
 function SomeInterface() {}
 
-SomeInterface.prototype.draw = function() {};</PRE></DIV>
+SomeInterface.prototype.draw = function() {};</PRE>
 </td>
 <td>
                   Like an interface, but is checked using structural equality
@@ -620,10 +619,10 @@ SomeInterface.prototype.draw = function() {};</PRE></DIV>
 <tr>
 <td>project.MyClass</td>
 <td>
-<DIV class=""><PRE>/** @constructor */
+<PRE>/** @constructor */
 project.MyClass = function () {}
 
-new project.MyClass()</PRE></DIV>
+new project.MyClass()</PRE>
 </td>
 <td></td>
 </tr>
@@ -631,13 +630,13 @@ new project.MyClass()</PRE></DIV>
 <tr>
 <td>project.MyEnum</td>
 <td>
-<DIV class=""><PRE>/** @enum {string} */
+<PRE>/** @enum {string} */
 project.MyEnum = {
   /** The color blue. */
   BLUE: '#0000dd',
   /** The color red. */
   RED: '#dd0000'
-};</PRE></DIV>
+};</PRE>
 </td>
 <td>
 <a name="enums">Enumeration</a><p></p>
@@ -648,7 +647,7 @@ project.MyEnum = {
 <tr>
 <td>Element</td>
 <td>
-<DIV class=""><PRE>document.createElement('div')</PRE></DIV>
+<PRE>document.createElement('div')</PRE>
 </td>
 <td>Elements in the DOM.</td>
 </tr>
@@ -656,7 +655,7 @@ project.MyEnum = {
 <tr>
 <td>Node</td>
 <td>
-<DIV class=""><PRE>document.body.firstChild</PRE></DIV>
+<PRE>document.body.firstChild</PRE>
 </td>
 <td>Nodes in the DOM.</td>
 </tr>
@@ -664,7 +663,7 @@ project.MyEnum = {
 <tr>
 <td>HTMLInputElement</td>
 <td>
-<DIV class=""><PRE>htmlDocument.getElementsByTagName('input')[0]</PRE></DIV>
+<PRE>htmlDocument.getElementsByTagName('input')[0]</PRE>
 </td>
 <td>A specific type of DOM element.</td>
 </tr>
@@ -679,7 +678,7 @@ project.MyEnum = {
             type annotation comment and enclosing the expression in
             parentheses. The parentheses are required.</p>
 
-<DIV class=""><PRE>/** @type {number} */ (x)</PRE></DIV>
+<PRE>/** @type {number} */ (x)</PRE>
 </P>
 
 <P class="">
@@ -693,7 +692,7 @@ project.MyEnum = {
 <p>Instances of classes and interfaces are nullable by default.
           For example, the following declaration</p>
 
-<DIV class=""><PRE>/**
+<PRE>/**
  * Some class, initialized with a value.
  * @param {Object} value Some value.
  * @constructor
@@ -704,13 +703,13 @@ function MyClass(value) {
    * @private {Object}
    */
   this.myValue_ = value;
-}</PRE></DIV>
+}</PRE>
 
 <p>tells the compiler that the<code>myValue_</code> property holds
             either an Object or null.  If<code>myValue_</code> must never be
             null, it should be declared like this:</p>
 
-<DIV class=""><PRE>/**
+<PRE>/**
  * Some class, initialized with a non-null value.
  * @param {!Object} value Some value.
  * @constructor
@@ -721,23 +720,22 @@ function MyClass(value) {
    * @private {!Object}
    */
   this.myValue_ = value;
-}</PRE></DIV>
+}</PRE>
 
 <p>This way, if the compiler can determine that somewhere in the code
 <code>MyClass</code> is initialized with a null value, it will issue
             a warning.</p>
 
-<div class="internal">
-<p>You may see type declarations like these in legacy code:</p>
-<DIV class=""><PRE>@type {Object?}
-@type {Object|null}</PRE></DIV>
-</div>
+
+<p>You may see type declarations like these in older code:</p>
+<PRE>@type {Object?}
+@type {Object|null}</PRE>
 
 <p>Optional parameters to functions may be undefined at runtime, so if
           they are assigned to class properties, those properties must be
           declared accordingly:</p>
 
-<DIV class=""><PRE>/**
+<PRE>/**
  * Some class, initialized with an optional value.
  * @param {!Object=} opt_value Some value (optional).
  * @constructor
@@ -748,7 +746,7 @@ function MyClass(opt_value) {
    * @private {!Object|undefined}
    */
   this.myValue_ = opt_value;
-}</PRE></DIV>
+}</PRE>
 
 <p>This tells the compiler that<code>myValue_</code> may hold an
             Object, or remain undefined.</p>
@@ -763,7 +761,7 @@ function MyClass(opt_value) {
 <p>Finally, note that being nullable and being optional are orthogonal
             properties.  The following four declarations are all different:</p>
 
-<DIV class=""><PRE>/**
+<PRE>/**
  * Takes four arguments, two of which are nullable, and two of which are
  * optional.
  * @param {!Object} nonNull Mandatory (must not be undefined), must not be null.
@@ -776,28 +774,28 @@ function MyClass(opt_value) {
  */
 function strangeButTrue(nonNull, mayBeNull, opt_nonNull, opt_mayBeNull) {
   // ...
-};</PRE></DIV>
+};</PRE>
 </P>
 
-<P class="">
+<P>
 <SPAN class="stylepoint_subsection">Typedefs</SPAN>
 <a name="Typedefs"></a>
 <p>Sometimes types can get complicated. A function that accepts
             content for an Element might look like:</p>
 
-<DIV class=""><PRE>/**
+<PRE>/**
  * @param {string} tagName
  * @param {(string|Element|Text|Array&lt;Element&gt;|Array&lt;Text&gt;)} contents
  * @return {!Element}
  */
 goog.createElement = function(tagName, contents) {
   ...
-};</PRE></DIV>
+};</PRE>
 
 <p>You can define commonly used type expressions with a
 <code>@typedef</code> tag. For example,</p>
 
-<DIV class=""><PRE>/** @typedef {(string|Element|Text|Array&lt;Element&gt;|Array&lt;Text&gt;)} */
+<PRE>/** @typedef {(string|Element|Text|Array&lt;Element&gt;|Array&lt;Text&gt;)} */
 goog.ElementContent;
 
 /**
@@ -807,7 +805,7 @@ goog.ElementContent;
  */
 goog.createElement = function(tagName, contents) {
 ...
-};</PRE></DIV>
+};</PRE>
 </P>
 
 <P class="">
@@ -818,7 +816,7 @@ goog.createElement = function(tagName, contents) {
             literal from the type of the<code>this</code> argument and whether the
 <code>this</code> argument is missing.</p>
 
-<DIV class=""><PRE>/**
+<PRE>/**
  * @param {function(this:T, ...)} fn
  * @param {T} thisObj
  * @param {...*} var_args
@@ -830,7 +828,6 @@ goog.bind = function(fn, thisObj, var_args) {
 // Possibly generates a missing property warning.
 goog.bind(function() { this.someProperty; }, new SomeClass());
 // Generates an undefined this warning.
-goog.bind(function() { this.someProperty; });</PRE></DIV>
+goog.bind(function() { this.someProperty; });</PRE>
 </P>
-</DIV></DIV>
-</DIV>
+
