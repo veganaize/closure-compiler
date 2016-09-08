@@ -17,7 +17,6 @@
 <th>Syntax</th>
 <th>Description</th>
 <th>Allows null?</th>
-<th>Deprecated Syntaxes</th>
 </tr>
             
             
@@ -34,7 +33,6 @@
 <td>Simply the name of a type.</td>
 <td>Only<code>{null}</code>.<br>
                   The other primitive types are not nullable.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -66,7 +64,6 @@
                   more specific<code>function(...): ...</code>.</p>
 </td>
 <td>Yes.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -88,7 +85,6 @@
 <td>Depends on the referenced type.<code>@enum {string}</code>
                   or<code>@enum {number}</code> is not nullable by default,
                   while<code>@enum {Object}</code> is.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -114,13 +110,16 @@
 <code>!YourType</code>,<code>number</code> vs.
 <code>?number</code>).
 </td>
-<td></td>
 </tr>
 
 <tr>
 <td>Type Union</td>
 <td>
-<code>{(number|boolean)}</code><br>A number or a boolean.
+<code>{(number|boolean)}</code><br>A number or a boolean.<br>
+<br>
+Deprecated syntax:<br>
+<code>{(number,boolean)}</code>,<br>
+<code>{(number||boolean)}</code>
 </td>
 <td>Indicates that a value might have type A OR type B.<p></p>
 
@@ -130,18 +129,18 @@
 <code>{number|boolean}</code><br>
 <code>{function(): (number|boolean)}</code>
 </td>
-<td>Only when any of the types in the union is already
-                  nullable.</td>
 <td>
-<code>{(number,boolean)}</code>,<br>
-<code>{(number||boolean)}</code>
+Only when any of the types in the union is already  nullable.
 </td>
 </tr>
 
 <tr>
 <td>Nullable type</td>
 <td>
-<code>{?number}</code><br> A number or null.
+<code>{?number}</code><br> A number or null.<br>
+<br>
+Deprecated syntax:<br>
+<code>{number?}</code>
 </td>
 <td>
 <p>Shorthand for the union of the null type with any
@@ -153,16 +152,16 @@
 </p>
 </td>
 <td>Yes.</td>
-<td>
-<code>{number?}</code>
-</td>
 </tr>
 
 <tr>
 <td>Non-nullable type</td>
 <td>
 <code>{!Object}</code><br> An Object, but never the
-<code>null</code> value.
+<code>null</code> value.<br>
+<br>
+Deprecated syntax:<br>
+<code>{Object!}</code>
 </td>
 <td>
 <p>Filters null out of nullable types. Most often used
@@ -172,9 +171,6 @@
 <PRE class="badcode">!number, !string, !boolean, !{foo: string}, !function()</PRE></p>
 </td>
 <td>No.</td>
-<td>
-<code>{Object!}</code>
-</td>
 </tr>
 
 <tr>
@@ -194,7 +190,6 @@
 <code>Array&lt;{length}&gt;</code>.</p>
 </td>
 <td>No.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -214,7 +209,6 @@
                     parameters and return value.</p>
 </td>
 <td>No.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -227,7 +221,6 @@
 <td>
 <code>function(...)</code> is not nullable. Nullability
                   of the return type is determined by the type itself.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -241,7 +234,6 @@
 <td>
 <code>function(...)</code> is not nullable.
 <code>this</code> can be null.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -255,7 +247,6 @@
 <td>Specifies the constructed type of a constructor.</td>
 <td>
 <code>function(...)</code> is not nullable.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -271,7 +262,6 @@
                   of the arguments is determined by the type annotation
                   after the<code>...</code>
 </td>
-<td></td>
 </tr>
 
 <tr>
@@ -288,7 +278,6 @@
                   number of arguments.
 </td>
 <td>Determined by the type annotation after the ellipsis.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -306,7 +295,6 @@
                   arguments is determined by the unadorned type annotation.
                   See<a href="#optional">nullable vs. optional</a> for more
                   information.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -322,7 +310,6 @@
 <td>Specifies that the annotated function accepts an optional
                   argument.</td>
 <td>Same as above.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -330,7 +317,6 @@
 <td><code>{*}</code></td>
 <td>Indicates that the variable can take on any type.</td>
 <td>Yes.</td>
-<td></td>
 </tr>
 
 <tr>
@@ -339,7 +325,6 @@
 <td>Indicates that the variable can take on any type,
                     and the compiler should not type-check any uses of it.</td>
 <td>Yes.</td>
-<td></td>
 </tr>
             
 </table>
