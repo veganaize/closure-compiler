@@ -500,7 +500,10 @@ new Date()</PRE>
 <tr>
 <td>Array&lt;Array&lt;string&gt;&gt;</td>
 <td>
-<PRE>[['one', 'two', 'three'], ['foo', 'bar']]</PRE>
+<PRE>[
+  ['one', 'two', 'three'], 
+  ['foo', 'bar']
+]</PRE>
 </td>
 <td>Array of Arrays of strings</td>
 </tr>
@@ -509,7 +512,11 @@ new Date()</PRE>
 <td>Object</td>
 <td>
 <PRE>{}
-{foo: 'abc', bar: 123, baz: null}</PRE>
+{
+  foo: 'abc', 
+  bar: 123, 
+  baz: null
+}</PRE>
 </td>
 <td></td>
 </tr>
@@ -566,34 +573,34 @@ obj[1] = 'bar';</PRE>
 </tr>
 
 <tr>
-<td><a name="constructor-tag">SomeClass</a></td>
+<td><a name="constructor-tag">constructor</a></td>
 <td>
 <PRE>/** @constructor */
-function SomeClass() {}
+function C() {}
 
-new SomeClass();</PRE>
+new C();</PRE>
 </td>
 <td></td>
 </tr>
 
 <tr>
-<td>SomeInterface</td>
+<td>interface</td>
 <td>
 <PRE>/** @interface */
-function SomeInterface() {}
+function I() {}
 
-SomeInterface.prototype.draw = function() {};</PRE>
+I.prototype.draw = function() {};</PRE>
 </td>
 <td></td>
 </tr>
 
 <tr>
-<td>SomeRecord</td>
+<td>record</td>
 <td>
 <PRE>/** @record */
-function SomeInterface() {}
+function R() {}
 
-SomeInterface.prototype.draw = function() {};</PRE>
+R.prototype.draw = function() {};</PRE>
 </td>
 <td>
                   Like an interface, but is checked using structural equality
@@ -644,14 +651,6 @@ project.MyEnum = {
 <PRE>document.body.firstChild</PRE>
 </td>
 <td>Nodes in the DOM.</td>
-</tr>
-
-<tr>
-<td>HTMLInputElement</td>
-<td>
-<PRE>htmlDocument.getElementsByTagName('input')[0]</PRE>
-</td>
-<td>A specific type of DOM element.</td>
 </tr>
             
 </table>
