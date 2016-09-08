@@ -1,5 +1,4 @@
-
-<H3><A name="JavaScript_Types" id="JavaScript_Types">JavaScript Types</A></H3>
+<H1><A name="JavaScript_Types" id="JavaScript_Types">JavaScript Types</A></H1>
 <a name="JsTypes"></a>
 <p>When documenting a type in JSDoc, be as specific and accurate as
           possible. The types we support are based on the
