@@ -5,7 +5,7 @@
 <a href="http://www.google.com/url?sa=D&amp;q=http://wiki.ecmascript.org/doku.php?id=spec:spec">
             EcmaScript 4 spec</a>.</p>
 <P class="">
-<SPAN class="stylepoint_subsection">The JavaScript Type Language</SPAN>
+<H2><A name="The_JavaScript_Type_Language" id="The_JavaScript_Type_Language">The JavaScript Type Language</A></H2>
 <p>The ES4 proposal contained a language for specifying JavaScript
             types. We use this language in JsDoc to express the types.</p>
 
@@ -345,7 +345,7 @@
 </table>
 </P>
 <P class="">
-<SPAN class="stylepoint_subsection">Types in JavaScript</SPAN>
+<H2><A name="Types_in_JavaScript" id="Types_in_JavaScript">Types in JavaScript</A></H2>
 <p></p>
 <table cellpadding="4">
             
@@ -671,7 +671,7 @@ project.MyEnum = {
 </P>
 
 <P class="">
-<SPAN class="stylepoint_subsection">Type Casts</SPAN>
+<H2><A name="Type_Casts" id="Type_Casts">Type Casts</A></H2>
 <p>In cases where type-checking doesn't accurately infer the type of
             an expression, it is possible to add a type cast comment by adding a
             type annotation comment and enclosing the expression in
@@ -681,7 +681,7 @@ project.MyEnum = {
 </P>
 
 <P class="">
-<SPAN class="stylepoint_subsection">Nullable vs. Optional Parameters and Properties</SPAN>
+<H2><A name="Nullable_vs_Optional" id="Nullable_vs_Optional">Nullable vs. Optional Parameters and Properties</A></H2>
 <a name="optional"></a>
 <p>Because JavaScript is a loosely-typed language, it is very
             important to understand the subtle differences between optional,
@@ -777,7 +777,7 @@ function strangeButTrue(nonNull, mayBeNull, opt_nonNull, opt_mayBeNull) {
 </P>
 
 <P>
-<SPAN class="stylepoint_subsection">Typedefs</SPAN>
+<H2><A name="Typedefs" id="Typedefs">Typedefs</A></H2>
 <a name="Typedefs"></a>
 <p>Sometimes types can get complicated. A function that accepts
             content for an Element might look like:</p>
@@ -808,7 +808,7 @@ goog.createElement = function(tagName, contents) {
 </P>
 
 <P class="">
-<SPAN class="stylepoint_subsection">Template types</SPAN>
+<H2><A name="Template_types" id="Template_types">Template types</A></H2>
 <a name="Template_types"></a>
 <p>The compiler has limited support for template types. It can only
             infer the type of<code>this</code> inside an anonymous function
