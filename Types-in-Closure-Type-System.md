@@ -1,10 +1,5 @@
 <DIV class="">
 <H3><A name="JavaScript_Types" id="JavaScript_Types">JavaScript Types</A></H3>
-<SPAN class="link_button" id="link-JavaScript_Types__button" name="link-JavaScript_Types__button"><A class="internal" href="?showone=JavaScript_Types#JavaScript_Types">
-          link
-</A><A class="external" href="?external=y&amp;showone=JavaScript_Types#JavaScript_Types">
-          link
-</A></SPAN><SPAN class="showhide_button" onclick="javascript:ShowHideByName('JavaScript_Types')" name="JavaScript_Types__button" id="JavaScript_Types__button">▶</SPAN>
 <DIV style="display:inline;" class="">Encouraged and enforced by the compiler.</DIV>
 <DIV class=""><DIV class="stylepoint_body" name="JavaScript_Types__body" id="JavaScript_Types__body" style="display: none">
 <a name="JsTypes"></a>
@@ -24,7 +19,7 @@
 <th>Syntax Name</th>
 <th>Syntax</th>
 <th>Description</th>
-<th style="min-width: 200px">Allows null?</th>
+<th style="min-width: 100px">Allows null?</th>
 <th>Deprecated Syntaxes</th>
 </tr>
             
