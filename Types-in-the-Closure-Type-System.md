@@ -1,29 +1,27 @@
 <H1><A name="JavaScript_Types" id="JavaScript_Types">JavaScript Types</A></H1>
 <a name="JsTypes"></a>
-<p>When documenting a type in JSDoc, be as specific and accurate as
-          possible. The types we support are based on the
+<p>When documenting a type in JSDoc, be as specific and accurate as possible.
+  The types we support are based on the
 <a href="http://www.google.com/url?sa=D&amp;q=http://wiki.ecmascript.org/doku.php?id=spec:spec">
-            EcmaScript 4 spec</a>.</p>
-<P class="">
+  EcmaScript 4 spec</a>.</p>
+<P>
 <H2><A name="The_JavaScript_Type_Language" id="The_JavaScript_Type_Language">The JavaScript Type Language</A></H2>
 <p>The ES4 proposal contained a language for specifying JavaScript
-            types. We use this language in JsDoc to express the types.</p>
-
+  types. We use this language in JsDoc to express the types.</p>
 <p></p>
 <table cellpadding="4">
-            
+
 <tr>
 <th>Syntax Name</th>
 <th>Syntax</th>
 <th>Description</th>
 <th>Allows null?</th>
 </tr>
-            
-            
+     
 <tr>
 <td>Primitive Type</td>
 <td>
-                  There are 5 primitive types in JavaScript:
+There are 5 primitive types in JavaScript:
 <code>{null}</code>,
 <code>{undefined}</code>,
 <code>{boolean}</code>,
@@ -32,25 +30,24 @@
 </td>
 <td>Simply the name of a type.</td>
 <td>Only<code>{null}</code>.<br>
-                  The other primitive types are not nullable.</td>
+The other primitive types are not nullable.</td>
 </tr>
 
 <tr>
 <td>Instance Type</td>
 <td>
 <code>{Object}</code><br>
-                  An instance of Object, or null.<p></p>
+An instance of Object, or null.<p></p>
 <code>{Function}</code><br>
-                  An instance of Function, or null.<p></p>
+An instance of Function, or null.<p></p>
 <code>{EventTarget}</code><br>
-                  An instance of a constructor that implements the EventTarget
-                  interface, or null.
+An instance of a constructor that implements the EventTarget
+interface, or null.
 </td>
 <td>An instance of a constructor or interface function.<p></p>
-
-                Constructor functions are functions defined with the
+Constructor functions are functions defined with the
 <code>@constructor</code> JSDoc tag.
-                Interface functions are functions defined with the
+Interface functions are functions defined with the
 <code>@interface</code> JSDoc tag.<p></p>
 
 <p>By default, instance types will accept null, but including the
@@ -58,10 +55,10 @@
 </p>
 
 <p>Whenever possible, avoid using<code>Object</code> in favor
-                  of a more specific existing type or a newly defined record
-                  type.<br>
-                  Also avoid using<code>Function</code> in favor of the
-                  more specific<code>function(...): ...</code>.</p>
+of a more specific existing type or a newly defined record
+type.<br>
+Also avoid using<code>Function</code> in favor of the
+more specific<code>function(...): ...</code>.</p>
 </td>
 <td>Yes.</td>
 </tr>
@@ -70,17 +67,17 @@
 <td>Enum Type</td>
 <td>
 <code>{goog.events.EventType}</code><br>
-                  One of the properties of the object literal initializer
-                  of<code>goog.events.EventType</code>.
+One of the properties of the object literal initializer
+of<code>goog.events.EventType</code>.
 </td>
 <td>
 <p>An enum must be initialized as an object literal, or as an
-                    alias of another enum, annotated with the<code>@enum</code>
-                    JSDoc tag. The properties of this literal are the instances
-                    of the enum. The syntax of the enum is defined
+alias of another enum, annotated with the<code>@enum</code>
+JSDoc tag. The properties of this literal are the instances
+of the enum. The syntax of the enum is defined
 <a href="#enums">below</a>.</p>
 <p>Note that this is one of the few things in our type system
-                    that were not in the ES4 spec.</p>
+that were not in the ES4 spec.</p>
 </td>
 <td>Depends on the referenced type.<code>@enum {string}</code>
                   or<code>@enum {number}</code> is not nullable by default,
@@ -283,34 +280,33 @@ Deprecated syntax:<br>
 </tr>
 
 <tr>
-<td>Function<a href="#optional">optional arguments</a>
+<td>Function <a href="#optional">optional arguments</a>
 </td>
 <td>
 <code>{function(?string=, number=)}</code><br>
-                  A function that takes one optional, nullable string and one
-                  optional number as arguments. The<code>=</code> syntax is
-                  only for<code>function</code> type declarations.
+  A function that takes one optional, nullable string and one
+  optional number as arguments. The<code>=</code> syntax is
+  only for<code>function</code> type declarations.
 </td>
 <td>Specifies optional arguments to a function.</td>
 <td>
 <code>function(...)</code> is not nullable. Nullability of
-                  arguments is determined by the unadorned type annotation.
-                  See<a href="#optional">nullable vs. optional</a> for more
-                  information.</td>
+  arguments is determined by the unadorned type annotation.
+  See <a href="#optional">nullable vs. optional</a> for more
+  information.</td>
 </tr>
 
 <tr>
 <td>
 <a name="optional-arg-annotation"></a>
-                  Function<a href="#optional">optional arguments</a>
-                  (in<code>@param</code> annotations)
+  Function <a href="#optional">optional arguments</a>
+  (in<code>@param</code> annotations)
 </td>
 <td>
 <code>@param {number=} opt_argument</code><br>
                   An optional parameter of type<code>number</code>.
 </td>
-<td>Specifies that the annotated function accepts an optional
-                  argument.</td>
+<td>Specifies that the annotated function accepts an optional argument.</td>
 <td>Same as above.</td>
 </tr>
 
