@@ -95,7 +95,7 @@
 <code>{!Object&lt;string, number&gt;}</code><br>A non-null
                   object in which the keys are strings and the values are
                   numbers.<p></p>
-<code>{!goog.structs.Set&lt;!YourType&gt;}</code><br>A non-null
+<code>{!Set&lt;!YourType&gt;}</code><br>A non-null
                   Set of non-null instances of YourType.
 </td>
 <td>Parameterizes a type, by applying a set of type arguments
