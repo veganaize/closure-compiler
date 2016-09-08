@@ -60,7 +60,7 @@ type.<br>
 Also avoid using<code>Function</code> in favor of the
 more specific<code>function(...): ...</code>.</p>
 </td>
-<td>Yes.</td>
+<td>Yes</td>
 </tr>
 
 <tr>
@@ -148,7 +148,7 @@ Deprecated syntax:<br>
 <PRE>?Object, ?Array, ?Function</PRE>
 </p>
 </td>
-<td>Yes.</td>
+<td>Yes</td>
 </tr>
 
 <tr>
@@ -169,7 +169,7 @@ Deprecated syntax:<br>
 !{foo: string}, !function()</PRE>
 </p>
 </td>
-<td>No.</td>
+<td>No</td>
 </tr>
 
 <tr>
@@ -188,7 +188,7 @@ Deprecated syntax:<br>
                     have a<code>length</code> property, you might write
 <code>Array&lt;{length}&gt;</code>.</p>
 </td>
-<td>No.</td>
+<td>No</td>
 </tr>
 
 <tr>
@@ -207,7 +207,7 @@ Deprecated syntax:<br>
                     possible because it provides more type information about its
                     parameters and return value.</p>
 </td>
-<td>No.</td>
+<td>No</td>
 </tr>
 
 <tr>
@@ -314,7 +314,7 @@ Deprecated syntax:<br>
 <td>The ALL type</td>
 <td><code>{*}</code></td>
 <td>Indicates that the variable can take on any type.</td>
-<td>Yes.</td>
+<td>Yes</td>
 </tr>
 
 <tr>
@@ -322,7 +322,7 @@ Deprecated syntax:<br>
 <td><code>{?}</code></td>
 <td>Indicates that the variable can take on any type,
                     and the compiler should not type-check any uses of it.</td>
-<td>Yes.</td>
+<td>Yes</td>
 </tr>
             
 </table>
