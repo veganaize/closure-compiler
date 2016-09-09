@@ -177,10 +177,11 @@ var document;
 Makes the comment block provide file level information including suppressions.
 
 For example:
+```javascript
 /**
  * @fileoverview Utilities for doing things 
  */
-
+```
 
 ### `@final`
 
