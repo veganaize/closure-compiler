@@ -6,6 +6,7 @@
 * [Contributors](https://github.com/google/closure-compiler/wiki/Contributors)
 * [Compiler Assumptions](https://github.com/google/closure-compiler/wiki/Compiler-Assumptions)
 * [Modules](https://github.com/google/closure-compiler/wiki/JS-Modules)
+* [Types in the Closure Type System](https://github.com/google/closure-compiler/wiki/Types-in-the-Closure-Type-System)
 
 ### Compiler Options
 
