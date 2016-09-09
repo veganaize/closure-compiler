@@ -62,7 +62,7 @@ more specific<code>function(...): ...</code>.</p>
 <tr>
 <td>Enum Type</td>
 <td>
-<code>{goog.events.EventType}</code><br>
+<code>goog.events.EventType</code><br>
 One of the properties of the object literal initializer
 of<code>goog.events.EventType</code>.
 </td>
@@ -111,8 +111,8 @@ Deprecated syntax:<br>
                   The parentheses may be omitted at the top-level
                   expression, but the parentheses should be included in
                   sub-expressions to avoid ambiguity.<br>
-<code>{number|boolean}</code><br>
-<code>{function(): (number|boolean)}</code>
+<code>(number|boolean)</code><br>
+<code>function(): (number|boolean)</code>
 <br>
 Unions are accept <code>null</code> if any component type is nullable.
 </td>
@@ -121,10 +121,10 @@ Unions are accept <code>null</code> if any component type is nullable.
 <tr>
 <td>Nullable type</td>
 <td>
-<code>{?number}</code><br> A number or null.<br>
+<code>?number</code><br> A number or null.<br>
 <br>
 Deprecated syntax:<br>
-<code>{number?}</code>
+<code>number?</code>
 </td>
 <td>
 <p>Shorthand for the union of the null type with any
@@ -140,11 +140,11 @@ Deprecated syntax:<br>
 <tr>
 <td>Non-nullable type</td>
 <td>
-<code>{!Object}</code><br> An Object, but never the
+<code>!Object</code><br> An Object, but never the
 <code>null</code> value.<br>
 <br>
 Deprecated syntax:<br>
-<code>{Object!}</code>
+<code>Object!</code>
 </td>
 <td>
 <p>Filters null out of nullable types. Most often used
@@ -160,7 +160,7 @@ Deprecated syntax:<br>
 <tr>
 <td>Record Type</td>
 <td>
-<code>{{myNum: number, myObject}}</code>
+<code>{myNum: number, myObject}</code>
 <br>An anonymous type with the given type members.
 </td>
 <td>
@@ -179,14 +179,14 @@ Record types are not nullable.
 <tr>
 <td>Function Type</td>
 <td>
-<code>{function(string, boolean)}</code><br>
+<code>function(string, boolean)</code><br>
                   A function that takes two arguments (a string and a boolean),
                   and has an unknown return value.<br>
 </td>
 <td>
 <p>Specifies a function.</p>
-<p>Also note the difference between<code>{function()}</code>
-                    and<code>{Function}</code>. The latter is an instance type
+<p>Also note the difference between<code>function()</code>
+                    and<code>Function</code>. The latter is an instance type
                     and is nullable by default.<code>function(...)</code>
                     should be used instead of<code>Function</code> whenever
                     possible because it provides more type information about its
@@ -197,7 +197,7 @@ Record types are not nullable.
 <tr>
 <td>Function Return Type</td>
 <td>
-<code>{function(): number}</code><br>
+<code>function(): number</code><br>
                   A function that takes no arguments and returns a number.<br>
 </td>
 <td>Specifies a function return type.</td>
@@ -206,7 +206,7 @@ Record types are not nullable.
 <tr>
 <td>Function<code>this</code> Type</td>
 <td>
-<code>{function(this:goog.ui.Menu, string)}</code><br>
+<code>function(this:goog.ui.Menu, string)</code><br>
                   A function that takes one argument (a string), and executes
                   in the context of a goog.ui.Menu.
 </td>
@@ -216,7 +216,7 @@ Record types are not nullable.
 <tr>
 <td>Function<code>new</code> Type</td>
 <td>
-<code>{function(new:goog.ui.Menu, string)}</code><br>
+<code>function(new:goog.ui.Menu, string)</code><br>
                   A constructor that takes one argument (a string), and
                   creates a new instance of goog.ui.Menu when called
                   with the 'new' keyword.
@@ -227,7 +227,7 @@ Record types are not nullable.
 <tr>
 <td>Variable arguments</td>
 <td>
-<code>{function(string, ...number): number}</code><br>
+<code>function(string, ...number): number</code><br>
                   A function that takes one argument (a string), and then a
                   variable number of arguments that must be numbers.
 </td>
@@ -260,7 +260,7 @@ Record types are not nullable.
 <td>Function <a href="#optional">optional arguments</a>
 </td>
 <td>
-<code>{function(?string=, number=)}</code><br>
+<code>function(?string=, number=)</code><br>
   A function that takes one optional, nullable string and one
   optional number as arguments. The<code>=</code> syntax is
   only for<code>function</code> type declarations.<br>
@@ -287,13 +287,13 @@ Record types are not nullable.
 
 <tr>
 <td>The ALL type</td>
-<td><code>{*}</code></td>
+<td><code>*</code></td>
 <td>Indicates that the variable can take on any type.</td>
 </tr>
 
 <tr>
 <td>The UNKNOWN type</td>
-<td><code>{?}</code></td>
+<td><code>?</code></td>
 <td>Indicates that the variable can take on any type,
                     and the compiler should not type-check any uses of it.</td>
 </tr>
