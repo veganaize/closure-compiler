@@ -15,52 +15,48 @@
 <th>Syntax Name</th>
 <th>Syntax</th>
 <th>Description</th>
-<th>Allows null?</th>
 </tr>
      
 <tr>
 <td>Primitive Type</td>
 <td>
 There are 5 primitive types in JavaScript:
-<code>{null}</code>,
-<code>{undefined}</code>,
-<code>{boolean}</code>,
-<code>{number}</code>, and
-<code>{string}</code>.
+<code>null</code>,
+<code>undefined</code>,
+<code>boolean</code>,
+<code>number</code>, and
+<code>string</code>.
 </td>
-<td>Simply the name of a type.</td>
-<td>Only<code>{null}</code>.<br>
-The other primitive types are not nullable.</td>
+<td>Simply the name of a type.<br><br>
+The primitive type other than <code>null</code> are not nullable.</td>
 </tr>
 
 <tr>
 <td>Instance Type</td>
 <td>
-<code>{Object}</code><br>
+<code>Object</code><br>
 An instance of Object, or null.<p></p>
-<code>{Function}</code><br>
+<code>Function</code><br>
 An instance of Function, or null.<p></p>
-<code>{EventTarget}</code><br>
+<code>EventTarget</code><br>
 An instance of a constructor that implements the EventTarget
 interface, or null.
 </td>
 <td>An instance of a constructor or interface function.<p></p>
 Constructor functions are functions defined with the
 <code>@constructor</code> JSDoc tag.
-Interface functions are functions defined with the
-<code>@interface</code> JSDoc tag.<p></p>
+Interface functions are functions annotated with
+<code>@interface</code>.<p></p>
 
 <p>By default, instance types will accept null, but including the
 <code>?</code> is recommended because it is more explicit.
 </p>
 
 <p>Whenever possible, avoid using<code>Object</code> in favor
-of a more specific existing type or a newly defined record
-type.<br>
+of a more specific existing type.<br>
 Also avoid using<code>Function</code> in favor of the
 more specific<code>function(...): ...</code>.</p>
 </td>
-<td>Yes</td>
 </tr>
 
 <tr>
@@ -76,47 +72,39 @@ alias of another enum, annotated with the<code>@enum</code>
 JSDoc tag. The properties of this literal are the instances
 of the enum. The syntax of the enum is defined
 <a href="#enums">below</a>.</p>
-<p>Note that this is one of the few things in our type system
-that were not in the ES4 spec.</p>
+
+Nullablity of the enum value depends on the referenced type.<code>@enum {string}</code>
+or<code>@enum {number}</code> is not nullable by default,
+while<code>@enum {Object}</code> is.
 </td>
-<td>Depends on the referenced type.<code>@enum {string}</code>
-                  or<code>@enum {number}</code> is not nullable by default,
-                  while<code>@enum {Object}</code> is.</td>
 </tr>
 
 <tr>
 <td>Type Application</td>
 <td>
-<code>{?Array&lt;string&gt;}</code><br>A nullable array of
+<code>?Array&lt;string&gt;</code><br>A nullable array of
                   strings.<p></p>
-<code>{!Object&lt;string, number&gt;}</code><br>A non-null
+<code>!Object&lt;string, number&gt;</code><br>A non-null
                   object in which the keys are strings and the values are
                   numbers.<p></p>
-<code>{!Set&lt;!YourType&gt;}</code><br>A non-null
+<code>!Set&lt;!YourType&gt;</code><br>A non-null
                   Set of non-null instances of YourType.
 </td>
 <td>Parameterizes a type, by applying a set of type arguments
                   to that type. The idea is analogous to generics in Java. The
                   dot before the<code>&lt;</code> (e.g.
-<code>{!Array.&lt;string&gt;}</code>) is optional.
-</td>
-<td>
-                  Depends on the type being parameterized (<code>?Object</code>
-                  vs.<code>!Object</code>) and on the type arguments used to
-                  parameterize it (<code>?YourType</code> vs.
-<code>!YourType</code>,<code>number</code> vs.
-<code>?number</code>).
+<code>!Array.&lt;string&gt;</code>) is optional.
 </td>
 </tr>
 
 <tr>
 <td>Type Union</td>
 <td>
-<code>{(number|boolean)}</code><br>A number or a boolean.<br>
+<code>(number|boolean)</code><br>A number or a boolean.<br>
 <br>
 Deprecated syntax:<br>
-<code>{(number,boolean)}</code>,<br>
-<code>{(number||boolean)}</code>
+<code>(number,boolean)</code>,<br>
+<code>(number||boolean)</code>
 </td>
 <td>Indicates that a value might have type A OR type B.<p></p>
 
@@ -125,9 +113,8 @@ Deprecated syntax:<br>
                   sub-expressions to avoid ambiguity.<br>
 <code>{number|boolean}</code><br>
 <code>{function(): (number|boolean)}</code>
-</td>
-<td>
-Only when any of the types in the union is already  nullable.
+<br>
+Unions are accept <code>null</code> if any component type is nullable.
 </td>
 </tr>
 
@@ -148,7 +135,6 @@ Deprecated syntax:<br>
 <PRE>?Object, ?Array, ?Function</PRE>
 </p>
 </td>
-<td>Yes</td>
 </tr>
 
 <tr>
@@ -169,7 +155,6 @@ Deprecated syntax:<br>
 !{foo: string}, !function()</PRE>
 </p>
 </td>
-<td>No</td>
 </tr>
 
 <tr>
@@ -187,8 +172,8 @@ Deprecated syntax:<br>
                     example, to denote an<code>Array</code> of objects that
                     have a<code>length</code> property, you might write
 <code>Array&lt;{length}&gt;</code>.</p>
+Record types are not nullable.
 </td>
-<td>No</td>
 </tr>
 
 <tr>
@@ -207,7 +192,6 @@ Deprecated syntax:<br>
                     possible because it provides more type information about its
                     parameters and return value.</p>
 </td>
-<td>No</td>
 </tr>
 
 <tr>
@@ -217,9 +201,6 @@ Deprecated syntax:<br>
                   A function that takes no arguments and returns a number.<br>
 </td>
 <td>Specifies a function return type.</td>
-<td>
-<code>function(...)</code> is not nullable. Nullability
-                  of the return type is determined by the type itself.</td>
 </tr>
 
 <tr>
@@ -230,9 +211,6 @@ Deprecated syntax:<br>
                   in the context of a goog.ui.Menu.
 </td>
 <td>Specifies the context type of a function type.</td>
-<td>
-<code>function(...)</code> is not nullable.
-<code>this</code> can be null.</td>
 </tr>
 
 <tr>
@@ -244,8 +222,6 @@ Deprecated syntax:<br>
                   with the 'new' keyword.
 </td>
 <td>Specifies the constructed type of a constructor.</td>
-<td>
-<code>function(...)</code> is not nullable.</td>
 </tr>
 
 <tr>
@@ -255,9 +231,8 @@ Deprecated syntax:<br>
                   A function that takes one argument (a string), and then a
                   variable number of arguments that must be numbers.
 </td>
-<td>Specifies variable arguments to a function.</td>
-<td>
-<code>function(...)</code> is not nullable. Nullability
+<td>Specifies variable arguments to a function.<br>
+<code>Nullability
                   of the arguments is determined by the type annotation
                   after the<code>...</code>
 </td>
@@ -274,9 +249,11 @@ Deprecated syntax:<br>
 </td>
 <td>
                   Specifies that the annotated function accepts a variable
-                  number of arguments.
+                  number of arguments.<br>
+<code>Nullability
+                  of the arguments is determined by the type annotation
+                  after the<code>...</code>
 </td>
-<td>Determined by the type annotation after the ellipsis.</td>
 </tr>
 
 <tr>
@@ -286,14 +263,13 @@ Deprecated syntax:<br>
 <code>{function(?string=, number=)}</code><br>
   A function that takes one optional, nullable string and one
   optional number as arguments. The<code>=</code> syntax is
-  only for<code>function</code> type declarations.
-</td>
-<td>Specifies optional arguments to a function.</td>
-<td>
+  only for<code>function</code> type declarations.<br>
 <code>function(...)</code> is not nullable. Nullability of
   arguments is determined by the unadorned type annotation.
   See <a href="#optional">nullable vs. optional</a> for more
-  information.</td>
+  information.
+</td>
+<td>Specifies optional arguments to a function.</td>
 </tr>
 
 <tr>
@@ -307,14 +283,12 @@ Deprecated syntax:<br>
                   An optional parameter of type<code>number</code>.
 </td>
 <td>Specifies that the annotated function accepts an optional argument.</td>
-<td>Same as above.</td>
 </tr>
 
 <tr>
 <td>The ALL type</td>
 <td><code>{*}</code></td>
 <td>Indicates that the variable can take on any type.</td>
-<td>Yes</td>
 </tr>
 
 <tr>
@@ -322,7 +296,6 @@ Deprecated syntax:<br>
 <td><code>{?}</code></td>
 <td>Indicates that the variable can take on any type,
                     and the compiler should not type-check any uses of it.</td>
-<td>Yes</td>
 </tr>
             
 </table>
