@@ -4,6 +4,9 @@ The compiler recognizes `@type` and function declarations (`@param`, `@return`, 
 
 Variable and functions can be declared with either traditional declarations, or inline declarations, which are more concise.
 
+For more information about specific types that can be used in @type annotations see:
+[Types in the Closure Type System](https://github.com/google/closure-compiler/wiki/Types-in-the-Closure-Type-System)
+
 ## Examples
 
 ### Function declarations
