@@ -14,6 +14,8 @@ The Closure Compiler looks for type information in JSDoc tags. Use the JSDoc tag
 
 This table includes only tags that affect on the behavior of the Closure Compiler. For information about other JSDoc tags see the JSDoc Toolkit documentation.
 
+---
+
 ### `@const`, `@const {type}`
 
 Marks a variable as read-only. The compiler can inline `@const` variables, which optimizes the JavaScript code.
@@ -32,6 +34,8 @@ The compiler produces a warning if a variable marked with `@const` is assigned a
 mynamespace.MY_BEER = 'stout';
 ```
 
+---
+
 ### `@constructor`
 
 Marks a function as a constructor.  The compiler requires a `@constructor` annotation for any function that is used with the `new` keyword.  @constructor should be omitted from EcmaScript `class` constructor methods and `goog.defineClass` constructor methods.
@@ -46,6 +50,8 @@ function GM_Rect() {
 }
 ```
 
+---
+
 ### `@define {Type}` _description_
 
 Indicates a constant that can be overridden by the compiler at compile-time. With the example on the left, you can pass the flag `--define='ENABLE_DEBUG=false'` to the compiler to change the value of `ENABLE_DEBUG` to false. The type of a defined constant can be `number`, `string` or `boolean`. Defines are only allowed in the global scope.
@@ -57,6 +63,8 @@ var ENABLE_DEBUG = true;
 /** @define {boolean} */
 goog.userAgent.ASSUME_IE = false;
 ```
+
+---
 
 ### `@deprecated` _Description_
 
@@ -74,6 +82,8 @@ BN_EditUtil.isTopEditableField = function(node) {
   ...
 };
 ```
+
+---
 
 ### `@dict`
 
@@ -93,6 +103,8 @@ var obj2 = /** @dict */ { 'x': 321 };
 obj2.x = 123;  // warning
 ```
 
+---
+
 ### `@enum {Type}`
 
 Specifies the type of an enum. An enum is an object whose properties constitute a set of related constants. The `@enum` tag must be followed by a type expression.  If the type of an enum is omitted, number is assumed.
@@ -110,6 +122,8 @@ project.TriState = {
   MAYBE: 0
 };
 ```
+
+---
 
 ### `@export`, `@export {SomeType}`
 
@@ -134,6 +148,7 @@ Code that uses the @export annotation must either:
 1. include `closure/base.js`, or
 1. define both `goog.exportSymbol` and `goog.exportProperty` with the same method signature in their own codebase.
 
+---
 
 ### `@extends {Type}`
 
@@ -154,6 +169,8 @@ goog.ds.EmptyNodeList = function() {
 };
 ```
 
+---
+
 ### `@externs`
 
 Declares an externs file.
@@ -170,7 +187,7 @@ For example:
 var document;
 ```
 
-
+---
 
 ### `@fileoverview Description`
 
@@ -182,6 +199,8 @@ For example:
  * @fileoverview Utilities for doing things 
  */
 ```
+
+---
 
 ### `@final`
 
@@ -201,6 +220,8 @@ sloth.MyFinalClass = function() { ... }
  */
 sloth.MyFinalClass.prototype.method = function() { ... };
 ```
+
+---
 
 ### `@implements {Type}`
 
@@ -226,6 +247,8 @@ Square.prototype.draw = function() {
 };
 ```
 
+---
+
 ### `@inheritDoc`
 
 Indicates that a method or property of a subclass intentionally hides a method or property of the superclass, and has exactly the same documentation. Note that the `@inheritDoc` tag implies the `@override` tag, @override is preferred.
@@ -236,6 +259,8 @@ project.SubClass.prototype.toString = function() {
   ...
 };
 ```
+
+---
 
 ### `@interface` `@record`
 
@@ -263,6 +288,8 @@ function Polygon() {};
 Polygon.prototype.getSides = function() {};
 ```
 
+---
+
 ### `@lends {objectName}`
 
 Indicates that the keys of an object literal should be treated as properties of some other object. This annotation should only appear on object literals.
@@ -279,6 +306,7 @@ goog.object.extend(
     }));
 ```
 
+---
 
 ### `@license`, `@preserve` _Description_
 
@@ -292,6 +320,8 @@ Tells the compiler to insert the associated comment before the compiled code for
  * lines and is only terminated by the closing star and slash:
  */
 ```
+
+---
 
 ### `@nocollapse`
 
@@ -311,6 +341,8 @@ foo.bar = 42;
 
 window['foobar'] = foo.bar;
 ```
+
+---
 
 ### `@nosideeffects` `@modifies {this|arguments}`
 
@@ -339,6 +371,8 @@ a.prototype.noSideEffectsFn3 = function() {
 };
 ```
 
+---
+
 ### `@override`
 
 ```javascript
@@ -353,6 +387,8 @@ project.SubClass.prototype.toString = function() {
 ```
 
 Indicates that a method or property of a subclass intentionally hides a method or property of the superclass. If no other annotations are included, the method or property automatically inherits annotations from its superclass.
+
+---
 
 ### `@package`
 
@@ -371,6 +407,8 @@ goog.net.xpc.CrossPageChannel.prototype.getPeerWindowObject = function() {
   // ...
 };
 ```
+
+---
 
 ### `@param {Type} varname` _Description_
 
@@ -396,6 +434,8 @@ function foo(/** number */ a, /** number */ b) {
 }
 ```
 
+---
+
 ### `@private`
 
 Marks a member as private. Only code in the same file can access global variables and functions marked `@private`. Constructors marked `@private` can only be instantiated by code in the same file and by their static and instance members.
@@ -410,6 +450,7 @@ The public static properties of constructors marked `@private` may also be acces
 this.handlers_ = [];
 ```
 
+---
 
 ### `@protected`
 
@@ -430,6 +471,8 @@ goog.ui.Component.prototype.setElementInternal = function(element) {
 };
 ```
 
+---
+
 ### `@public`
 
 Indicates that a member or property is public. A property marked `@public` is accessible to all code in the any file.  This is the implicit default and rarely used.  This is not used to indicate that name should be preserved in obfuscating builds see `@export`.
@@ -442,6 +485,8 @@ goog.ui.Component.prototype.setElementInternal = function(element) {
   // ...
 };
 ```
+
+---
 
 ### `@return {Type}` _Description_
 
@@ -463,6 +508,8 @@ goog.Baz.prototype.getLastId = function() {
 
 function /** number */ foo(x) { return x - 1; }
 ```
+
+---
 
 ### `@struct`
 
@@ -487,6 +534,7 @@ var obj2 = /** @struct */ { x: 321 };
 obj2['x'] = 123;  // warning
 ```
 
+---
 
 ### `@suppress {warningGroup1,warningGroup2}`
 Suppresses warnings. Warning categories are separated by | or ,.
@@ -500,6 +548,8 @@ function f() {
   deprecatedVersionOfF();
 }
 
+---
+
 ### `@template T`
 
 See Generic Types.
@@ -512,6 +562,8 @@ See Generic Types.
  */
 Container = function(t) { ... };
 ```
+
+---
 
 ### `@this {Type}`
 
@@ -530,6 +582,8 @@ To prevent compiler warnings, you must use a `@this` annotation whenever this ap
     });
 ```
 
+---
+
 ### `@throws {Type}`
 
 Used to document the exceptions thrown by a function. The type checker does not currently use this information. It is only used to figure out if a function declared in an externs file has side effects.
@@ -540,6 +594,8 @@ Used to document the exceptions thrown by a function. The type checker does not 
  */
 DOMApplicationCache.prototype.swapCache = function() { ... };
 ```
+
+---
 
 ### `@type {Type}`
 
@@ -554,6 +610,8 @@ var hexId = hexId;
 var /** string */ name = 'Jamie';
 ```
 
+---
+
 ### `@typedef {Type}`
 
 Declares an alias for a more complex type.
@@ -567,6 +625,8 @@ goog.readNumber = function(x) {
   ...
 }
 ```
+
+---
 
 ### `@unrestricted`
 
@@ -590,6 +650,8 @@ obj1.y = 5;  // OK
 
 ## Special purpose annotations
 
+---
+
 ### `@noalias`
 
 Used in an externs file to indicate to the compiler that the variable or function should not be aliased as part of the "alias externals" pass of the compiler, is not enabled by default and only available through the Java API.
@@ -599,6 +661,8 @@ For example:
 /** @noalias */
 function Range() {}
 ```
+
+---
 
 ### `@nocompile`
 
