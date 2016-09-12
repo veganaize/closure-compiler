@@ -552,7 +552,7 @@ function f() {
 
 ### `@template T`
 
-See Generic Types.
+See [Generic Types](https://github.com/google/closure-compiler/wiki/Generic-Types).
 
 ```javascript
 /**
@@ -672,6 +672,5 @@ For example:
 ```
 
 Used at the top of a file to tell the compiler to parse this file but not compile it. Code that is not meant for compilation and should be omitted from compilation tests (such as bootstrap code) uses this annotation.  Most code should use other means such as a `@define` to change behavior.
-
 
 
