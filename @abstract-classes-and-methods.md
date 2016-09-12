@@ -2,7 +2,7 @@
 Historically, Closure Library has provided limited support for abstract methods via `goog.abstractMethod`, which throws an error at runtime if an abstract prototype method is called. However, because Closure Compiler did not have any notion of abstract classes and methods, it could not perform compile-time checks to enforce that abstract classes were not instantiated or abstract methods were not called. Supporting the `@abstract` JsDoc and using that to aid compile-time checks on the semantics of abstract classes and methods has been a feature request to Closure Compiler for a long time. This feature is also present in some other JavaScript optional type systems, such as TypeScript. Recently, Closure Compiler has added support for `@abstract` on classes and methods at the type system level. For new JavaScript code, the `@abstract` JsDoc should be used in favor of `goog.abstractMethod`.
 
 # Examples
-1. An abstract ES6 class
+* An abstract ES6 class
 ```js
 /** @abstract */
 class Foo {
@@ -10,7 +10,7 @@ class Foo {
   /** @abstract */ bar() {}
 }
 ```
-2. An abstract Closure style class 
+* An abstract Closure style class 
 ```js
 /** @abstract @constructor */
 var Foo = function() {};
@@ -18,13 +18,13 @@ var Foo = function() {};
 Foo.prototype.bar = function() {};
 ```
 # Rules
-1. Abstract classes cannot be instantiated with `new`.
+* Abstract classes cannot be instantiated with `new`.
 ```js
 /** @abstract */
 class Foo {}
 let f = new Foo; // WARNING - cannot instantiate abstract class
 ```
-2. Abstract methods cannot have implementations.
+* Abstract methods cannot have implementations.
 ```js
 /** @abstract */
 class Foo {
@@ -36,7 +36,7 @@ class Foo {
   }
 }
 ```
-3. If a method is marked abstract, the class it resides in needs to be abstract.
+* If a method is marked abstract, the class it resides in needs to be abstract.
 ```js
 class Foo {
   /** @abstract */ bar() {}
@@ -44,7 +44,7 @@ class Foo {
   // Please declare the class as @abstract
 }
 ```
-4. Concrete subclasses of an abstract class must implement all the abstract methods.
+* Concrete subclasses of an abstract class must implement all the abstract methods.
 ```js
 class Foo {
   /** @abstract */ bar() {}
@@ -54,7 +54,7 @@ class Bar extends Foo {
   // by type Bar
 }
 ```
-5. Currently, abstract classes that implement interfaces must still declare the methods on those interfaces.
+* Currently, abstract classes that implement interfaces must still declare the methods on those interfaces.
 ```js
 /** @interface */
 class I {
@@ -66,7 +66,7 @@ class Foo {
   // Foo
 }
 ```
-6. `@private` and `@abstract` are incompatible.
+* `@private` and `@abstract` are incompatible.
 ```js
 /** @abstract */
 class Foo {
@@ -75,7 +75,7 @@ class Foo {
   // other annotations
 }
 ```
-7. Static methods cannot be `@abstract`.
+* Static methods cannot be `@abstract`.
 ```js
 /** @abstract */
 class Foo {}
@@ -83,7 +83,7 @@ Foo.bar = function() {};
 // WARNING - Misplaced @abstract annotation. only functions or
 // non-static methods can be abstract
 ```
-8. Abstract methods cannot be called via call or apply. However, constructors for abstract classes are allowed to be called via call or apply. Note that the constructor method in an ES6 class is not allowed to be marked abstract.
+* Abstract methods cannot be called via call or apply. However, constructors for abstract classes are allowed to be called via call or apply. Note that the constructor method in an ES6 class is not allowed to be marked abstract.
 ```js
 /** @abstract */
 class Foo {}
@@ -102,7 +102,7 @@ class Baz {
   // abstract
 }
 ```
-9. Abstract methods cannot be called within a class member function body via `super.foo()` where `foo` is an abstract method belonging to the parent class. However, they may be called within a class member function body via `this.foo()` where `fo`o is an abstract method belonging to that class.
+* Abstract methods cannot be called within a class member function body via `super.foo()` where `foo` is an abstract method belonging to the parent class. However, they may be called within a class member function body via `this.foo()` where `fo`o is an abstract method belonging to that class.
 ```js
 /** @abstract */
 class Foo {
