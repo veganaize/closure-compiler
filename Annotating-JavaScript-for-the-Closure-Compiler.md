@@ -249,20 +249,6 @@ Square.prototype.draw = function() {
 
 ---
 
-### `@inheritDoc`
-
-Indicates that a method or property of a subclass intentionally hides a method or property of the superclass, and has exactly the same documentation. Note that the `@inheritDoc` tag implies the `@override` tag, @override is preferred.
-
-```javascript
-/** @inheritDoc */
-project.SubClass.prototype.toString = function() {
-  ...
-};
-```
-
-
----
-
 ### `@implicitCast`
 
 This annotation can only appear in externs property declarations. The property has a declared type, but you can assign any type to it without a warning. When accessing the property, you get back a value of the declared type. For example, `element.innerHTML` can be assigned any type, but will always return a string.
@@ -276,6 +262,17 @@ Element.prototype.innerHTML;
 ```
 
 ---
+
+### `@inheritDoc`
+
+Indicates that a method or property of a subclass intentionally hides a method or property of the superclass, and has exactly the same documentation. Note that the `@inheritDoc` tag implies the `@override` tag, @override is preferred.
+
+```javascript
+/** @inheritDoc */
+project.SubClass.prototype.toString = function() {
+  ...
+};
+```
 
 ---
 
