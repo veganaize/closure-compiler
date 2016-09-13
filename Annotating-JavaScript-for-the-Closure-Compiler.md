@@ -506,9 +506,9 @@ goog.ui.Component.prototype.setElementInternal = function(element) {
 
 Specifies the return types of method and function definitions. The `@return` tag must be followed by a type expression.
 
-If there is no return value, do not use a `@return` tag.
-
 Alternatively, you can annotate the return type inline (see function `foo` in the example).
+
+If a function that is not in externs has no return value, you can omit the `@return` tag, and the compiler will assume that the function returns `undefined`.
 
 ```javascript
 /**
