@@ -20,6 +20,7 @@ The Closure Compiler is a tool for making JavaScript download and run faster. It
 
 ### Typing
 
+* [Annotating JavaScript for the Closure Compiler](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler)
 * [Annotating Types](https://github.com/google/closure-compiler/wiki/Annotating-Types)
 * [Externs for Common Libraries](https://github.com/google/closure-compiler/wiki/Externs-For-Common-Libraries)
 * [Special Types In the Closure Type System] (https://github.com/google/closure-compiler/wiki/Special-types-in-the-Closure-Type-System)
