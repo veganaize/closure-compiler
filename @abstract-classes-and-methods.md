@@ -102,7 +102,7 @@ class Baz {
   // abstract
 }
 ```
-* Abstract methods cannot be called within a class member function body via `super.foo()` where `foo` is an abstract method belonging to the parent class. However, they may be called within a class member function body via `this.foo()` where `fo`o is an abstract method belonging to that class.
+* Abstract methods cannot be called within a class member function body via `super.foo()` where `foo` is an abstract method belonging to the parent class. However, they may be called within a class member function body via `this.foo()` where `foo` is an abstract method belonging to that class.
 ```js
 /** @abstract */
 class Foo {
