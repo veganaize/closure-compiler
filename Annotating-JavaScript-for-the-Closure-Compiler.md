@@ -260,6 +260,23 @@ project.SubClass.prototype.toString = function() {
 };
 ```
 
+
+---
+
+### `@implicitCast`
+
+This annotation can only appear in externs property declarations. The property has a declared type, but you can assign any type to it without a warning. When accessing the property, you get back a value of the declared type. For example, `element.innerHTML` can be assigned any type, but will always return a string.
+
+```javascript
+/**
+ * @type {string}
+ * @implicitCast
+ */
+Element.prototype.innerHTML;
+```
+
+---
+
 ---
 
 ### `@interface` `@record`
