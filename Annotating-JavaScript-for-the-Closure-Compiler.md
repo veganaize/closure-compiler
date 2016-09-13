@@ -629,6 +629,8 @@ var /** string */ name = 'Jamie';
 ### `@typedef {Type}`
 
 Declares an alias for a more complex type.
+Currently, typedefs can only be defined at the top level, not inside functions.
+We have fixed this limitation in the [new type inference](https://github.com/google/closure-compiler/wiki/Using-NTI-(new-type-inference)).
 
 ```javascript
 /** @typedef {(string|number)} */
