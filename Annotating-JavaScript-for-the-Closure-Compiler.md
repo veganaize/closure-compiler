@@ -703,6 +703,24 @@ Then, it uses a number of heuristics to figure out the type of as many expressio
 Some of these heuristics are straightforward ("if `x` is a number, and we see `y = x;`, then `y` is a number").
 Some are more indirect ("if `f`'s first parameter is documented as a callback that must take a number, and we see `f(function(x) { /** ... */ });`, then `x` must be a number").
 
+The possible type expressions are listed below.
+
+---
+
+### Type Name
+
+Examples: `boolean`, `Window`, `goog.ui.Menu`
+
+Specifies the name of a type.
+
+---
+
+### Type Application
+
+Examples: `Array<string>` (an array of strings), `Object<string, number>` (an object whose keys are strings and the values are numbers)
+
+Parameterizes a type with a set of type arguments. Similar to Java generics.
+
 ---
 
 # Type Casting
