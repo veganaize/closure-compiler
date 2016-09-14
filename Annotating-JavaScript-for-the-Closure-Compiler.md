@@ -666,8 +666,6 @@ obj1.y = 5;  // OK
 
 ## Special purpose annotations
 
----
-
 ### `@noalias`
 
 Used in an externs file to indicate to the compiler that the variable or function should not be aliased as part of the "alias externals" pass of the compiler, is not enabled by default and only available through the Java API.
@@ -698,3 +696,36 @@ To cast a value to a specific type use this syntax
 `/** @type {!MyType} */ (valueExpression)`
 
 The parentheses around the expression are always required.
+
+---
+
+# Generic Types
+
+Much like Java, the Closure Compiler supports generic types, functions, and methods.
+Generics operate on objects of various types while preserving compile-time type safety.
+
+You can use generics to implement generalized collections that hold references to objects of a particular type, and generalized algorithms that operate over objects of a particular type.
+
+## Declaring a Generic Type
+
+A type can be made generic by adding a @template annotation to the type's constructor (for classes) or interface declaration (for interfaces). For example:
+
+```javascript
+/**
+ * @constructor
+ * @template T
+ */
+Foo = function() { ... };
+```
+
+The annotation `@template T` indicates that `Foo` is a generic type with one template type, `T`. The template type `T` can be used as a type within the scope of the definition of `Foo`. For example:
+
+```javascript
+/** @return {T} */
+Foo.prototype.get = function() { ... };
+
+/** @param {T} t */
+Foo.prototype.set = function(t) { ... };
+```
+
+The method `get` will return an object of type `T`, and the method `set` will only accept objects of type `T`.
