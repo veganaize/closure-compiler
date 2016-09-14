@@ -725,7 +725,7 @@ Parameterizes a type with a set of type arguments. Similar to Java generics.
 
 ### Type Union
 
-Example: `(number|boolean)`
+Example: `(number|boolean)`  
 A number or a boolean.
 Note the parentheses, which are required.
 
@@ -735,52 +735,45 @@ Indicates that a value might have type `A` OR type `B`.
 
 ### Record Type
 
-Example: `{myNum: number, myObject}`
-An anonymous type with both a property named `myNum` that has a value of type
-`number` and a property named `myObject` that has a value of any type.
+Example: `{myNum: number, myObject}`  
+An anonymous type with both a property named `myNum` that has a value of type `number` and a property named `myObject` that has a value of any type.
 
-Indicates that the value has the specified members with values of the specified
-types.
+Indicates that the value has the specified members with values of the specified types.
 
 Braces are part of the record type's syntax.
-For example, to denote an Array of objects that have a length property,
-you might write: `Array<{length}>`.
+For example, to denote an Array of objects that have a length property, you might write: `Array<{length}>`.
 
 ---
 
 ### Nullable type
 
-Example: `?number`
+Example: `?number`  
 A number or null.
 	
 Indicates that a value is type `A` or `null`.
 
-All object types are nullable by default whether or not they are declared with
-the Nullable operator.
-An object type is defined as anything except a function, string, number,
-or boolean.
+All object types are nullable by default whether or not they are declared with the Nullable operator.
+An object type is defined as anything except a function, string, number, or boolean.
 To make an object type non-nullable, use the Non-nullable operator.
 
 ---
 
 ### Non-nullable type
 
-Example: `!Object`
+Example: `!Object`  
 An `Object`, but never the `null` value.
 
 Indicates that a value is type `A` and not `null`.
 
-Functions and all scalar types (boolean, number, and string) are non-nullable by
-default whether or not they are declared with the Non-nullable operator.
+Functions and all scalar types (boolean, number, and string) are non-nullable by default whether or not they are declared with the Non-nullable operator.
 To make a scalar or function type nullable, use the Nullable operator.
 
 ---
 
 ### Function Type
 
-Example: `function(string, boolean)`
-A function that takes two parameters (a string and a boolean),
-and has an unknown return value.
+Example: `function(string, boolean)`  
+A function that takes two parameters (a string and a boolean), and has an unknown return value.
 
 Specifies a function and the types of the function's parameters.
 
@@ -788,7 +781,7 @@ Specifies a function and the types of the function's parameters.
 
 ### Function Return Type
 
-Example: `function(): number`
+Example: `function(): number`  
 A function that takes no parameters and returns a number.
 
 Specifies the type of a function's return value.
@@ -797,9 +790,8 @@ Specifies the type of a function's return value.
 
 ### Function `this` Type
 
-Example: `function(this:goog.ui.Menu, string)`
-A function that takes one parameter (a string), and executes in the context of a
-`goog.ui.Menu`.
+Example: `function(this:goog.ui.Menu, string)`  
+A function that takes one parameter (a string), and executes in the context of a `goog.ui.Menu`.
 
 Specifies the type of the value of `this` within the function.
 
@@ -807,9 +799,8 @@ Specifies the type of the value of `this` within the function.
 
 ### Function `new` Type
 
-Example: `function(new:goog.ui.Menu, string)`
-A function that takes one parameter (a string), and creates a new instance of
-`goog.ui.Menu` when called with the 'new' keyword.
+Example: `function(new:goog.ui.Menu, string)`  
+A function that takes one parameter (a string), and creates a new instance of `goog.ui.Menu` when called with the 'new' keyword.
 
 Specifies the constructed type of a constructor.
 
@@ -817,40 +808,33 @@ Specifies the constructed type of a constructor.
 
 ### Variable parameters
 
-Example: `function(string, ...number): number`
-A function that takes one parameter (a string), and then a variable number of
-parameters that must be numbers.
+Example: `function(string, ...number): number`  
+A function that takes one parameter (a string), and then a variable number of parameters that must be numbers.
 
-Indicates that a function type takes a variable number of parameters, and
-specifies a type for the variable parameters.
+Indicates that a function type takes a variable number of parameters, and specifies a type for the variable parameters.
 
 ---
 
 ### Variable parameters (in `@param` annotations)
 
-Example: `@param {...number} var_args`
+Example: `@param {...number} var_args`  
 A variable number of parameters to an annotated function.
 
-Indicates that the annotated function accepts a variable number of parameters,
-and specifies a type for the variable parameters.
+Indicates that the annotated function accepts a variable number of parameters, and specifies a type for the variable parameters.
 
 ---
 
 ### Optional parameter in a `@param` annotation
 
-Example: `@param {number=} opt_argument`
+Example: `@param {number=} opt_argument`  
 An optional parameter of type number.
 
 Indicates that the argument described by a `@param` annotation is optional.
 A function call can omit an optional argument.
-An optional parameter cannot precede a non-optional parameter in the parameter
-list.
+An optional parameter cannot precede a non-optional parameter in the parameter list.
 
-If a method call omits an optional parameter, that argument will have a value of
-undefined.
-Therefore if the method stores the parameter's value in a class property, the
-type declaration of that property must include a possible value of undefined,
-as in the following example:
+If a method call omits an optional parameter, that argument will have a value of undefined.
+Therefore if the method stores the parameter's value in a class property, the type declaration of that property must include a possible value of undefined, as in the following example:
 
 ```javascript
 /**
@@ -871,14 +855,12 @@ function MyClass(opt_value) {
 
 ### Optional argument in a function type
 
-Example: `function(?string=, number=)`
-A function that takes one optional, nullable string and one optional number as
-arguments.
+Example: `function(?string=, number=)`  
+A function that takes one optional, nullable string and one optional number as arguments.
 
 Indicates that an argument in a function type is optional.
 An optional argument can be omitted from the function call.
-An optional argument cannot precede a non-optional argument in the argument
-list.
+An optional argument cannot precede a non-optional argument in the argument list.
 
 ---
 
@@ -888,8 +870,7 @@ Example: `*`
 
 Indicates that the variable can take on any type.
 The ALL type is a supertype of every other type.
-To use a value of type ALL as a more specific type, you need to downcast it
-first.
+To use a value of type ALL as a more specific type, you need to downcast it first.
 
 ---
 
@@ -897,8 +878,7 @@ first.
 
 Example: `?`
 
-Indicates that the variable can take on any type, and the compiler should not
-type-check any uses of it.
+Indicates that the variable can take on any type, and the compiler should not type-check any uses of it.
 
 ---
 
@@ -908,4 +888,4 @@ To cast a value to a specific type use this syntax
 
 `/** @type {!MyType} */ (valueExpression)`
 
-The parentheses around the expression are always required.
+The parentheses around the expression are required.
