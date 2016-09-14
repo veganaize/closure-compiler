@@ -689,4 +689,12 @@ For example:
 
 Used at the top of a file to tell the compiler to parse this file but not compile it. Code that is not meant for compilation and should be omitted from compilation tests (such as bootstrap code) uses this annotation.  Most code should use other means such as a `@define` to change behavior.
 
+---
 
+# Type Casting
+
+To cast a value to a specific type use this syntax
+
+`/** @type {!MyType} */ (valueExpression)`
+
+The parentheses around the expression are always required.
