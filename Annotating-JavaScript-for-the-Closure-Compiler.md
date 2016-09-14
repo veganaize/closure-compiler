@@ -772,7 +772,7 @@ Indicates that a value is type `A` and not `null`.
 
 Functions and all scalar types (boolean, number, and string) are non-nullable by
 default whether or not they are declared with the Non-nullable operator.
-To make a value or function type nullable, use the Nullable operator.
+To make a scalar or function type nullable, use the Nullable operator.
 
 ---
 
