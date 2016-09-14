@@ -735,7 +735,7 @@ Indicates that a value might have type `A` OR type `B`.
 
 ### Record Type
 
-Example: {myNum: number, myObject}
+Example: `{myNum: number, myObject}`
 An anonymous type with both a property named `myNum` that has a value of type
 `number` and a property named `myObject` that has a value of any type.
 
@@ -765,7 +765,7 @@ To make an object type non-nullable, use the Non-nullable operator.
 
 ### Non-nullable type
 
-Example: !Object
+Example: `!Object`
 An `Object`, but never the `null` value.
 
 Indicates that a value is type `A` and not `null`.
