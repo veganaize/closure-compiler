@@ -1,6 +1,6 @@
 *Note: Full module interop requires the 20160517 release or newer.*
 
-Closure Compiler recognizes and several JS module systems, including:
+Closure Compiler recognizes several JS module systems, including:
 
  * [ES6 Modules](https://github.com/nzakas/understandinges6/blob/master/manuscript/13-Modules.md)
  * Common JS
