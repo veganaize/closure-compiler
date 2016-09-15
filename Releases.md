@@ -6,6 +6,14 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### September 11, 2016 (v20160911)
+* Various compile time performance improvements to the optimization passes.
+* Allow applying input source maps to the generated source map
+* Better support/fixes for @abstract classes and methods
+* Add externs for jQuery 1.12 & 2.2
+* Add Boolean.prototype.valueOf to externs
+* Externs for Google Maps API 3.26
+
 ### August 22, 2016 (v20160822)
 *   Improved support for refactoring arrow functions containing 'this' or
     'arguments'
