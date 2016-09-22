@@ -1,5 +1,21 @@
 If you cannot easily fix a JsCompiler warning, you can suppress it using the `@suppress` annotation in the function's JSDoc block or the `@fileoverview` block.
 
+## Example
+```js
+/**
+ * ...
+ * Good; suppresses within the entire function.
+ * Also, this suppresses multiple warnings.
+ * @suppress {visibility|underscore} 
+ */
+function blah() {
+  /** @suppress {visiblity} */ // Bad; doesn't work.
+  otherClass.privateField_ = blah;
+
+  /** @suppress {const} */  // Good; this is an exception (see below).
+  SOME_CONSTANT = blah;
+}
+```
 
 ## Other locations
 Some specific `@suppress` annotations are allowed elsewhere:
@@ -10,20 +26,6 @@ Some specific `@suppress` annotations are allowed elsewhere:
 
 All other annotations can only be suppressed for a function or file.  You cannot suppress most warnings for a single line within a function.
 
-## Example
-```js
-/**
- * ...
- * @suppress {visibility} // Good; suppresses within the entire funciton
- */
-function blah() {
-  /** @suppress {visiblity} */ // Bad; doesn't work.
-  otherClass.privateField_ = blah;
-
-  /** @suppress {const} */  // Good; this is an exception.
-  SOME_CONSTANT = blah;
-}
-```
 
 ## Suppression tags
 The full list of suppressions accepted by the parser can be found in the `jsdoc.suppressions` list [here](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/ParserConfig.properties#L147).
