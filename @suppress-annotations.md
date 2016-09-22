@@ -1,11 +1,29 @@
-Where `@suppress` annotations are allowed.
-* At the top of a file, in a `@fileoverview` jsdoc
-* In the JSDoc of a `function`
-* For `@suppress {const}` and `@suppress {duplicate}` only, you can place them on an assignment in statement position
+If you cannot easily fix a JsCompiler warning, you can suppress it using the `@suppress` annotation in the function's JSDoc block or the `@fileoverview` block.
+
+
+## Other locations
+Some specific `@suppress` annotations are allowed elsewhere:
+
+* `@suppress {const}` and `@suppress {duplicate}` are valid on an assignment in statement position.
 * `@suppress {extraRequire}` is valid just before a `goog.require(...);` statement.
 * `@suppress {missingRequire}` is valid on any statement.
 
-In particular, you cannot suppress most warnings for a single line within a function.
+All other annotations can only be suppressed for a function or file.  You cannot suppress most warnings for a single line within a function.
+
+## Example
+```js
+/**
+ * ...
+ * @suppress {visibility} // Good; suppresses within the entire funciton
+ */
+function blah() {
+  /** @suppress {visiblity} */ // Bad; doesn't work.
+  otherClass.privateField_ = blah;
+
+  /** @suppress {const} */  // Good; this is an exception.
+  SOME_CONSTANT = blah;
+}
+```
 
 ## Suppression tags
 The full list of suppressions accepted by the parser can be found in the `jsdoc.suppressions` list [here](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/ParserConfig.properties#L147).
