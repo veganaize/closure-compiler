@@ -4,7 +4,11 @@ The Closure Compiler will report an error for types referenced that it does not 
 
 ## Typo
 
-The first reason that this error could happen is that there is a typo in the referenced type. Check that the type is correct and it matches a type defined in file that exists in your project.
+The first reason that this error could happen is that there is a typo in the referenced type. Check that the [type is correct](https://github.com/google/closure-compiler/wiki/Types-in-the-Closure-Type-System) and it matches a type defined in file that exists in your project.
+
+## Code is not compatible with closure compiler
+
+Some projects use [JSDoc](http://usejsdoc.org/tags-type.html) annotations which are similar to [closure compiler annotations](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler) but not entirely the same.  Additionally, there are [assumptions used by the compiler](https://github.com/google/closure-compiler/wiki/Compiler-Assumptions) which code that was not designed with closure compiler in mind might not follow.
 
 ## File is not included in the compilation unit
 
