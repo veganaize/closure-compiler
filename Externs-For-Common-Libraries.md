@@ -91,3 +91,9 @@ https://github.com/steida/react-externs/blob/master/externs.js
 project: https://github.com/isabo/firebase-externs
 
 https://github.com/isabo/firebase-externs/blob/master/firebase-externs.js
+
+## Polymer
+
+project: https://www.polymer-project.org/
+
+https://github.com/google/closure-compiler/blob/master/contrib/externs/polymer-1.0.js
