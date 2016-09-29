@@ -16,6 +16,7 @@ If you don't see the externs here, be sure to start with the FAQ:
 
 - To generate externs from a IDL file see this project: https://closureidl.googlecode.com
 - To auto-generate externs from a library try: http://blog.dotnetwise.com/2009/11/closure-compiler-externs-extractor.html
+- To auto-generate externs for Polymer elements try: https://github.com/PolymerLabs/extern-generator
 
 **NOTE THAT MILEAGE MAY VARY WITH THESE TOOLS AND AUTOMATICALLY GENERATED EXTERNS MAY NOT BE A FUNCTIONAL SUBSTITUTE FOR CORRECT HAND WRITTEN ONES**
 
