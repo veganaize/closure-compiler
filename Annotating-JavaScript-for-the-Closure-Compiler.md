@@ -703,7 +703,7 @@ Then, it uses a number of heuristics to figure out the type of as many expressio
 Some of these heuristics are straightforward ("if `x` is a number, and we see `y = x;`, then `y` is a number").
 Some are more indirect ("if `f`'s first parameter is documented as a callback that must take a number, and we see `f(function(x) { /** ... */ });`, then `x` must be a number").
 
-The possible type expressions are listed below.
+The possible type expressions are listed below. For more information about specific types that can be used in @type annotations see: [Types in the Closure Type System](https://github.com/google/closure-compiler/wiki/Types-in-the-Closure-Type-System).
 
 ---
 
