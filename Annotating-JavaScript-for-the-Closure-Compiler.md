@@ -555,7 +555,8 @@ Suppresses warnings. Warning categories are separated by | or ,.
 For a list of warning names, take a look at [[Warnings|Warnings]].
 
 For example:
-```/**
+```javascript
+/**
  * @suppress {deprecated}
  */
 function f() {
