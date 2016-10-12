@@ -169,11 +169,13 @@ is not appropriate as standard rule.
 
 An example of a custom conformance rule:
 
+```protobuf
 requirement: {
   type: CUSTOM
   java_class: 'com.google.javascript.jscomp.ConformanceRules$BanExpose'
   error_message: '@expose is not allowed.'
 }
+```
 
 #### Predefined Custom Rules
 
