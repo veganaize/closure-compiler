@@ -1,6 +1,8 @@
 ## Introduction
 
-Here's a list of recent releases of Closure Compiler.  We update the source distribution and the compile service (at http://closure-compiler.appspot.com) every couple weeks, depending on the changes that have been made.
+Here's a list of recent releases of Closure Compiler.
+To download a binary version of any release, see [[Binary Downloads]].
+We also update the source distribution and the compile service (at http://closure-compiler.appspot.com) at each release.
 
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
