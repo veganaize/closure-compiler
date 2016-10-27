@@ -8,6 +8,13 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### October 24, 2016 (v20161024)
+* Polyfills for Promises.
+* Support for async/await by transpiling to generators.
+* Improvements to CommonJS module rewriting.
+* New flag for strict-mode output: --emit_use_strict.
+* Duplicate keys in an object literal are always an error, even if strict mode is not explicitly enabled.
+
 ### September 11, 2016 (v20160911)
 * Various compile time performance improvements to the optimization passes.
 * Allow applying input source maps to the generated source map
