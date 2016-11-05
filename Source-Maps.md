@@ -2,7 +2,7 @@
 
 Closure Compiler can produce source maps to aid in debugging. These are created when the `--create_source_map` flag is used. While the compiler also has the `--souce_map_input` flag which allows the compilation to be aware of previous transformations, input source maps are only utilized to display error messages and do not affect the output source map.
 
-To obtain a full composed source map, [3rd party tools](https://github.com/mozilla/source-map) must be used. The [gulp plugin](https://github.com/chadkillingsworth/closure-compiler-npm) automatically creates fully composed source maps since that is standard behavior in that build tool. 
+You can pass source maps for input files to the compiler with the `--source_map_input` flag. The npm gulp plugins utilize the gulp-sourcemaps plugin.
 
 ### Notes regarding source map generation and consumption.
 
