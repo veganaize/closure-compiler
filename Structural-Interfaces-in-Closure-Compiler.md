@@ -14,7 +14,7 @@ function Foo() {};
 /** @type {number} */
 Foo.prototype.p = 5;
 ````
-since Foo doesn't explicitly @implement PNumI, it isn't considered a subtype, even though it has all of the required properties for implementations of PNumI.
+since Foo doesn't explicitly `@implement` PNumI, it isn't considered a subtype, even though it has all of the required properties for implementations of PNumI.
 ````
 WARNING - initializing variable
 found   : Foo
