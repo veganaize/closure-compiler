@@ -41,7 +41,7 @@ For now, we use the `@record` annotation to denote structural interfaces, but we
 
 Since record types are already matched structurally, they are similar to structural interfaces. 
 Note that unlike with traditional records, though, structural interfaces have names, and can be used
-with @implements, @extends, etc.
+with `@implements`, `@extends`, etc.
 
 Also, since structural types have a name, they can
 be used recursively, as in:
