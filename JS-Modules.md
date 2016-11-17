@@ -19,9 +19,9 @@ When using the grunt/gulp plugins, the root folder is the current working direct
 
 ## Restrictions
 
-A module is recognized by its export mechanism. A single file can only use one type of export. The following statements must not be mixed in the same file:
+CommonJS and Goog modules are recognized by its export mechanism. ES6 modules are recognized be either the `import` or `export` keyword. A single file can only use one type of export. The following statements must not be mixed in the same file:
 
- * ES6 export: `export default Foo // and variants`
+ * ES6 export: `export default Foo // and variants` or `import foo from '/path/to/module'`
  * CommonJS export: `module.exports = Foo` and `export.Foo = Foo`;
  * goog.module: `goog.module('foo'); export.Foo = Foo;`
 
@@ -88,9 +88,16 @@ Closure-Library has support for loading Closure dependencies (including goog.mod
 
 ## Module Interoperation
 
-While modules may only contain one type of export, they may freely mix import statements. It is recommended that a module is imported using the method native to it's type. CommonJS modules should be imported using `require` calls, ES6 modules should be imported with `import` statements. goog.module should be imported with `goog.require` calls.
+A file can only be recognized as one type of module, however you may use CommonJS or Goog module imports in any file type (including scripts). ES6 'import' statements are restricted by spec to an ES6 module.
 
-It is possible to mix import statements, however this method is not generally recommended except for the case where importing an ES6 module would require transpilation of the importer as well.
+It is recommended that a module is imported using the method native to it's type. CommonJS modules should be imported using `require` calls, goog.module should be imported with `goog.require` calls. However since ES6 `import` statements can only be used in ES6 modules, scripts and other module types can't use the `import` keyword.
+
+It is possible to mix import statements, however this method is not generally recommended except for the case where importing an ES6 module into another script or module type.
+
+```js
+// CommonJS import of ES6 module
+var Foo = require('/path/to/es6/module/foo').default;
+```
 
 ## Dependency Management
 
