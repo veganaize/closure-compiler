@@ -88,7 +88,7 @@ Closure-Library has support for loading Closure dependencies (including goog.mod
 
 A file can only be recognized as one type of module, however you may use CommonJS or Goog module imports in any file type (including scripts). ES6 'import' statements are restricted by spec to an ES6 module.
 
-It is recommended that a module is imported using the method native to it's type. CommonJS modules should be imported using `require` calls, goog.module should be imported with `goog.require` calls. However since ES6 `import` statements can only be used in ES6 modules, scripts and other module types can't use the `import` keyword.
+It is recommended that a module is imported using the method native to its type. CommonJS modules should be imported using `require` calls, goog.module should be imported with `goog.require` calls. However since ES6 `import` statements can only be used in ES6 modules, scripts and other module types can't use the `import` keyword.
 
 It is possible to mix import statements, however this method is not generally recommended except for the case where importing an ES6 module into another script or module type.
 
