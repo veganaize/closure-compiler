@@ -75,6 +75,15 @@ class Foo {
   // other annotations
 }
 ```
+* `@final` and `@abstract` are incompatible.
+```js
+/** @abstract */
+class Foo {
+  /** @final @abstract */ bar() {}
+  // WARNING - Bad type annotation. type annotation incompatible with 
+  // other annotations
+}
+```
 * Static methods cannot be `@abstract`.
 ```js
 /** @abstract */
