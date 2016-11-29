@@ -840,7 +840,7 @@ Therefore if the method stores the parameter's value in a class property, the ty
 ```javascript
 /**
  * Some class, initialized with an optional value.
- * @param {Object= opt_value Some value (optional).
+ * @param {Object=} opt_value Some value (optional).
  * @constructor
  */
 function MyClass(opt_value) {
