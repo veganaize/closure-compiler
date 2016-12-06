@@ -10,6 +10,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### December 1, 2016 (v20161201)
 * New type inference supports `@abstract`.
+* CommonJS modules now use the node module resolution algorithm and support using JSON files as module source.
 * Bugfixes in DisambiguateProperties for interface inheritance and implicit use of interfaces.
 
 ### October 24, 2016 (v20161024)
