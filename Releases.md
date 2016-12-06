@@ -8,6 +8,10 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### December 1, 2016 (v20161201)
+* New type inference supports `@abstract`.
+* Bugfixes in DisambiguateProperties for interface inheritance and implicit use of interfaces.
+
 ### October 24, 2016 (v20161024)
 * Polyfills for Promises.
 * Support for async/await by transpiling to generators.
