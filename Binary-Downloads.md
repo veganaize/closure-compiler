@@ -15,7 +15,7 @@ Release notes for each release can be found at [[Releases]]
 - http://dl.google.com/closure-compiler/compiler-20161201.zip
 - http://dl.google.com/closure-compiler/compiler-20161201.tar.gz
 
-### **v20161201**
+### ** 20161024**
 - http://dl.google.com/closure-compiler/compiler-20161024.zip
 - http://dl.google.com/closure-compiler/compiler-20161024.tar.gz
 
