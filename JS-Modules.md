@@ -8,10 +8,10 @@ Closure Compiler recognizes several JS module systems, including:
 
 During compilation, the compiler normalizes and inlines all of these disparate module by rewriting them into a form where the remaining passes can understand and optimize them fully. This is equivalent functionality to other module bundlers. You can use multiple modules types in a single compilation.
 
-CommonJS and ES6 Modules are file based and a module is imported by its path. Paths must be absolute or relative and omit the file extension:
+CommonJS and ES6 Modules are file based and a module is imported by its path. Paths must be absolute or relative:
 
- * `import foo from './folder/source'`
- * `import foo from '/folder/source'`
+ * `import foo from './folder/source.js'`
+ * `import foo from '/folder/source.js'`
  * `require('./folder/source')`
  * `require('/folder/source')`
 
@@ -21,7 +21,7 @@ When using the grunt/gulp plugins, the root folder is the current working direct
 
 CommonJS and Goog modules are recognized by its export mechanism. ES6 modules are recognized be either the `import` or `export` keyword. A single file can only use one type of export. The following statements must not be mixed in the same file:
 
- * ES6 export: `export default Foo // and variants` or `import foo from '/path/to/module'`
+ * ES6 export: `export default Foo // and variants` or `import foo from '/path/to/module.js'`
  * CommonJS export: `module.exports = Foo` and `export.Foo = Foo`;
  * goog.module: `goog.module('foo'); export.Foo = Foo;`
 
@@ -32,7 +32,7 @@ ES6 Module support is enabled when the `--language_in` flag is used to specify a
 ES6 modules use `import` and `export` statements to include and expose symbols.
 
 ```JavaScript
-import MySymbol from 'path/to/module';
+import MySymbol from 'path/to/module.js';
 export MySymbol;
 ```
 
