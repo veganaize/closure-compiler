@@ -1,0 +1,1 @@
+Bugs that were filed on Google Code and were still open at the time we migrated to Github, are mirrored to Github issues. Bugs that were filed on Google Code but were already closed at the time we migrated, are available at https://github.com/blickly/closure-compiler-issues
