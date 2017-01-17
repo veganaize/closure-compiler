@@ -1,8 +1,8 @@
 # Source Map documentation
 
-Closure Compiler can produce source maps to aid in debugging. These are created when the `--create_source_map` argument is used. While the compiler also has the `--source_map_input` argument which allows the compilation to be aware of previous transformations, input source maps are only utilized to display error messages and do not affect the output source map.
+Closure Compiler can produce source maps to aid in debugging. These are created when the `--create_source_map` flag is used. While the compiler also has the `--source_map_input` flag which allows the compilation to be aware of previous transformations, input source maps are only utilized to display error messages and do not affect the output source map.
 
-You can pass source maps for input files to the compiler with the `--source_map_input` argument. The npm gulp plugins utilize the gulp-sourcemaps plugin.
+You can pass source maps for input files to the compiler with the `--source_map_input` flag. The npm gulp plugins utilize the gulp-sourcemaps plugin.
 
 ### Notes regarding source map generation and consumption.
 
