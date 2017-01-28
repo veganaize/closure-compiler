@@ -1,4 +1,4 @@
-*Note: Full module interop requires the 20160517 release or newer.*
+*Note: Full module interop requires the 20160517 release or newer. The --module_resolution flag requires releases newer than 20161201.*
 
 Closure Compiler recognizes several JS module systems, including:
 
@@ -8,14 +8,64 @@ Closure Compiler recognizes several JS module systems, including:
 
 During compilation, the compiler normalizes and inlines all of these disparate module by rewriting them into a form where the remaining passes can understand and optimize them fully. This is equivalent functionality to other module bundlers. You can use multiple modules types in a single compilation.
 
-CommonJS and ES6 Modules are file based and a module is imported by its path. Paths must be absolute or relative:
+When using the grunt/gulp plugins, the root folder is the current working directory of the compiler when executed. Otherwise, the root directory is the root of the filesystem.
+
+## Module Resolution Mode
+
+CommonJS and ES6 Modules are file based and a module is imported by its path. How the path is interpreted depends on the resolution mode specified.
+
+The resolution mode is controlled by the `--module_resolution` flag. This flag was introduced after the 20161201 release.
+
+### LEGACY Resolution Mode
+*This is the only mode available for releases prior to Feb 2017*
+
+Module paths which do not start with either a '.' or '/' character are assumed to be relative to the compilation root. Module source files must have a '.js' file extension. If the import statement does not specify a '.js' extension, it is automatically added by the compiler.
+
+Example import statements for LEGACY mode:
 
  * `import foo from './folder/source.js'`
- * `import foo from '/folder/source.js'`
+ * `import foo from '../folder/source.js'`
+ * `import foo from '/folder/source'`
+ * `import foo from 'folder/source'` - this import is relative to the compilation root
  * `require('./folder/source')`
  * `require('/folder/source')`
 
-When using the grunt/gulp plugins, the root folder is the current working directory of the compiler when executed. Otherwise, the root directory is the root of the filesystem.
+### NODE Resolution Mode
+*This is the only mode available for releases after Feb 2017*
+
+Modules which do not begin with a "." or "/" character are looked up from the appropriate node_modules folder. This mode supports importing a directory as well as treating a JSON file as a module. See the [node module resolution algorithm](https://nodejs.org/api/modules.html#modules_all_together) for full details.
+
+The compiler does not discover and add source files. Users must pass the full set of possible source files to the compiler. In addition, any package.json files should also be provided as source files via the `--js` flag.
+
+Projects which fully make use of modules should make use of the [dependency management flags](https://github.com/google/closure-compiler/wiki/Managing-Dependencies).
+
+Example import statements for NODE mode:
+
+ * `import foo from './folder/source.js'`
+ * `import foo from '../folder/source.js'`
+ * `import foo from '/folder/source'`
+ * `import foo from 'folder/source'` - this import would be looked for in the appropriate node_modules folder
+ * `require('./folder/source')`
+ * `require('/folder/source')`
+ * `require('folder/source')`
+
+### BROWSER Resolution Mode
+*This is the only mode available for releases after Feb 2017*
+
+Modules which do not begin with a "." or "/" character are not supported. Module import statements must always specify the file extension.
+
+The compiler does not discover and add source files. Users must pass the full set of possible source files to the compiler. 
+
+Projects which fully make use of modules should make use of the [dependency management flags](https://github.com/google/closure-compiler/wiki/Managing-Dependencies).
+
+Example import statements for BROWSER mode:
+
+ * `import foo from './folder/source.js'`
+ * `import foo from '../folder/source.js'`
+ * `import foo from '/folder/source.js'`
+ * `require('./folder/source.js')`
+ * `require('/folder/source.js')`
+ * `require('../folder/source.js')`
 
 ## Restrictions
 
