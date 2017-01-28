@@ -8,6 +8,18 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### Unreleased Changes
+ * Add a `--module_resolution` flag to specify which algorithm the compiler should use to lookup modules. The flag has 3 options:
+   + `LEGACY` (default) - the same behavior the compiler has used historically. Users are recommended to begin migrating away from this behavior.
+     * Module paths which do not begin with a "." or "/" character are assumed to be relative to the compilation root.
+     * Modules files can only have ".js" file extensions. The extension is auto-added if the import omits them.
+   + `NODE` - uses the node module resolution algorithm.
+     * Modules which do not begin with a "." or "/" character are looked up from the appropriate node_modules folder. Includes the ability to require directories and .json files.
+     * Files may be any extension. The compiler searches for an exact match, then ".js", then ".json".
+   + `BROWSER` - mimics the behavior of native module loading in browsers (browser support for this is close, but not yet generally available). The behavior of this mode will be adjusted to match the behavior of browsers as they release.
+     * Modules must begin with a "." or "/" character.
+     * Modules import statements must include the file extension.
+
 ### December 1, 2016 (v20161201)
 * New type inference supports `@abstract`.
 * CommonJS modules now use the node module resolution algorithm and support using JSON files as module source.
