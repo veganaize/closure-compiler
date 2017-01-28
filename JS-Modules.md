@@ -31,7 +31,7 @@ Example import statements for LEGACY mode:
  * `require('/folder/source')`
 
 ### NODE Resolution Mode
-*This is the only mode available for releases after Feb 2017*
+*This mode is only available for releases after Feb 2017*
 
 Modules which do not begin with a "." or "/" character are looked up from the appropriate node_modules folder. This mode supports importing a directory as well as treating a JSON file as a module. See the [node module resolution algorithm](https://nodejs.org/api/modules.html#modules_all_together) for full details.
 
@@ -50,7 +50,7 @@ Example import statements for NODE mode:
  * `require('folder/source')`
 
 ### BROWSER Resolution Mode
-*This is the only mode available for releases after Feb 2017*
+*This mode is only available for releases after Feb 2017*
 
 Modules which do not begin with a "." or "/" character are not supported. Module import statements must always specify the file extension.
 
