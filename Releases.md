@@ -20,6 +20,14 @@ For complete list of changes refer to the [change log](https://github.com/google
      * Modules must begin with a "." or "/" character.
      * Modules import statements must include the file extension.
 
+### January 24, 2017 (v20170124)
+* Improved optimization of modules with named exports.
+* Several small improvements to compile-time performance.
+* Add a check that super() is called before accessing this.
+* Make type-based optimizations safer about null/undefined.
+* Improved handling of parameterized object types in NTI (Object).
+* In NTI, allow any IArrayLike to be used with .apply function calls.
+
 ### December 1, 2016 (v20161201)
 * New type inference supports `@abstract`.
 * CommonJS modules now use the node module resolution algorithm and support using JSON files as module source.
