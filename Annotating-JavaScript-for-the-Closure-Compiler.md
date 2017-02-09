@@ -389,6 +389,8 @@ a.prototype.noSideEffectsFn3 = function() {
 
 ### `@override`
 
+Indicates that a method or property of a subclass intentionally hides a method or property of the superclass. If no other annotations are included, the method or property automatically inherits annotations from its superclass.
+
 ```javascript
 /**
  * @return {string} Human-readable representation of
@@ -399,8 +401,6 @@ project.SubClass.prototype.toString = function() {
   ...
 };
 ```
-
-Indicates that a method or property of a subclass intentionally hides a method or property of the superclass. If no other annotations are included, the method or property automatically inherits annotations from its superclass.
 
 ---
 
