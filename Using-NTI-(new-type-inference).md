@@ -4,9 +4,7 @@ Note that the closure library has not yet been tuned to work with NTI, so you ma
 
 It may be puzzling what to do to get rid of a warning.  You can ask on the [closure-compiler email list](https://groups.google.com/forum/#!forum/closure-compiler-discuss) if you are stumped.
 
-Another way to turn on NTI is with the compiler option `--jscomp_error=newCheckTypes`.
-
-For now it is best to use NTI in "compatibility mode" which means passing the flag `--jscomp_off=newCheckTypesExtraChecks`.
+Another way to turn on NTI is with the compiler option `--jscomp_error=newCheckTypes`.  See also the section below about Compatibility Mode.
 
 ### Common warnings when you first start using NTI.
 
