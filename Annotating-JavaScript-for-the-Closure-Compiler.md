@@ -265,7 +265,7 @@ Element.prototype.innerHTML;
 
 ### `@inheritDoc`
 
-Indicates that a method or property of a subclass intentionally hides a method or property of the superclass, and has exactly the same documentation. Note that the `@inheritDoc` tag implies the `@override` tag, @override is preferred.
+Indicates that a method or property of a subclass intentionally hides a method or property of the superclass, and has exactly the same documentation. Note that the `@inheritDoc` tag implies the `@override` tag, `@override` is preferred.
 
 ```javascript
 /** @inheritDoc */
@@ -273,6 +273,8 @@ project.SubClass.prototype.toString = function() {
   ...
 };
 ```
+
+This tag is not required when a class extends a superclass or implements an interface - in those cases the documentation is automatically inherited. This tag is mainly useful to catch typos such as a method named `foobar1` in the superclass and mistakenly named `foobar2` in the subclass.
 
 ---
 
@@ -401,6 +403,8 @@ project.SubClass.prototype.toString = function() {
   ...
 };
 ```
+
+This tag is not required when a class extends a superclass or implements an interface - in those cases the documentation is automatically inherited. This tag is mainly useful to catch typos such as a method named `foobar1` in the superclass and mistakenly named `foobar2` in the subclass.
 
 ---
 
