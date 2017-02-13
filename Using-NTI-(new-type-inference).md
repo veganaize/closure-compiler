@@ -68,9 +68,9 @@ N.prop = 'asdf'; // warning, adding properties to typedefs is not allowed.
 
 Also, NTI warns about recursive typedefs. (Again, because a typedef cannot create a new type, just an alias for an already existing type.) Recursive typedefs were never supported, but were silently unchecked by the old type checker.
 
-### No support for parameterized `Object<K,V>`
+### Parameterized `Object<K,V>`
 
-The old type checker supports type parameters for the *Object* type, even though its definition is not generic. This is a hack to support map-like objects. Now, with *IObject* and ES6 maps, special-casing *Object* to be generic is not necessary, and NTI does not support it.
+The old type checker supports type parameters for the *Object* type, even though its definition is not generic. This is a hack to support map-like objects. Now, with *IObject* and ES6 maps, using parameterized Object is discouraged. NTI considers `Object<K,V>` to be an alias of `IObject<K,V>`.
 
 ### Warning "dangerous use of the global `this` object"
 
