@@ -18,7 +18,7 @@ For complete list of changes refer to the [change log](https://github.com/google
      * Modules files can only have ".js" file extensions. The extension is auto-added if the import omits them.
    + `NODE` - uses the node module resolution algorithm.
      * Modules which do not begin with a "." or "/" character are looked up from the appropriate node_modules folder. Includes the ability to require directories and .json files.
-     * Files may be any extension. The compiler searches for an exact match, then ".js", then ".json".
+     * Files may be any extension. The compiler searches for an exact match, then ".js", then ".json". `package.json` files should be supplied as source to the compiler.
    + `BROWSER` - mimics the behavior of native module loading in browsers (browser support for this is close, but not yet generally available). The behavior of this mode will be adjusted to match the behavior of browsers as they release.
      * Modules must begin with a "." or "/" character.
      * Modules import statements must include the file extension.
