@@ -9,6 +9,9 @@ For complete list of changes refer to the [change log](https://github.com/google
 ## Details
 
 ### Unreleased Changes
+
+### February 18, 2017 (v20170218)
+ * --polymer_pass flag is deprecated in anticipation of Polymer 2 support. Use --polymer_version=1 instead.
  * Add a `--module_resolution` flag to specify which algorithm the compiler should use to lookup modules. The flag has 3 options:
    + `LEGACY` (default) - the same behavior the compiler has used historically. Users are recommended to begin migrating away from this behavior.
      * Module paths which do not begin with a "." or "/" character are assumed to be relative to the compilation root.
