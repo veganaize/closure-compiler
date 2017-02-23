@@ -1,4 +1,4 @@
-*Note: Full module interop requires the 20160517 release or newer. The --module_resolution flag requires releases newer than 20161201.*
+*Note: Full module interop requires the 20160517 release or newer. The --module_resolution flag requires the 20170218 release or newer.*
 
 Closure Compiler recognizes several JS module systems, including:
 
@@ -17,7 +17,7 @@ CommonJS and ES6 Modules are file based and a module is imported by its path. Ho
 The resolution mode is controlled by the `--module_resolution` flag. This flag was introduced after the 20161201 release.
 
 ### LEGACY Resolution Mode
-*This is the only mode available for releases prior to Feb 2017*
+*This is the only mode available for the 20170218 release or later*
 
 Module paths which do not start with either a '.' or '/' character are assumed to be relative to the compilation root. Module source files must have a '.js' file extension. If the import statement does not specify a '.js' extension, it is automatically added by the compiler.
 
@@ -31,7 +31,7 @@ Example import statements for LEGACY mode:
  * `require('/folder/source')`
 
 ### NODE Resolution Mode
-*This mode is only available for releases after Feb 2017*
+*This mode is only available for the 20170218 release or later*
 
 Modules which do not begin with a "." or "/" character are looked up from the appropriate node_modules folder. This mode supports importing a directory as well as treating a JSON file as a module. See the [node module resolution algorithm](https://nodejs.org/api/modules.html#modules_all_together) for full details.
 
@@ -50,7 +50,7 @@ Example import statements for NODE mode:
  * `require('folder/source')`
 
 ### BROWSER Resolution Mode
-*This mode is only available for releases after Feb 2017*
+*This mode is only available for the 20170218 release or later*
 
 Modules which do not begin with a "." or "/" character are not supported. Module import statements must always specify the file extension.
 
