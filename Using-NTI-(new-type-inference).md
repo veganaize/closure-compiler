@@ -1,10 +1,8 @@
-The compiler option `--new_type_inf` activates the "new type inference" version of the compiler.  NTI is still under development (as of February 2017), but is already useful.  It catches more error conditions, which can help find bugs in your code.  See [issue #826](https://github.com/google/closure-compiler/issues/826) for an example of a situation that NTI compiles correctly where the old compiler did not. But you will probably need to make a fair number of changes to eliminate the warnings that NTI generates.
-
-Note that the closure library has not yet been tuned to work with NTI, so you may get a large number of warnings  from closure library code that you use.  
+The compiler options `--new_type_inf` or `--jscomp_error=newCheckTypes` activate the "new type inference" version of the compiler.  NTI is still under development (as of March 2017), but is already useful.  It catches more error conditions, which can help find bugs in your code.  See [issue #826](https://github.com/google/closure-compiler/issues/826) for an example of a situation that NTI compiles correctly where the old compiler did not. But you will probably need to make a fair number of changes to eliminate the warnings that NTI generates.
 
 It may be puzzling what to do to get rid of a warning.  You can ask on the [closure-compiler email list](https://groups.google.com/forum/#!forum/closure-compiler-discuss) if you are stumped.
 
-Another way to turn on NTI is with the compiler option `--jscomp_error=newCheckTypes`.  See also the section below about Compatibility Mode.
+Note that the [closure library](https://github.com/google/closure-library) has not yet been tuned to work with NTI, so you may get a large number of warnings  from closure library code that you use.  There is a workaround for this, see the section below about Compatibility Mode.
 
 ### Common warnings when you first start using NTI.
 
@@ -81,3 +79,16 @@ In some cases adding the annotation `@this {myType.Foo}` can solve this warning.
 ### Compatibility mode in NTI
 
 NTI finds many more warnings than the old type checker, so it can be a bit daunting to start using it, because you have to fix all warnings in your project first. For this reason, we are currently working on a "compatibility mode" for NTI. When enabling this mode, NTI relaxes a few checks, to match what the old type checker does. For example, NTI performs looser property-existence checks in compatibility mode. You can try it out with `--jscomp_off=newCheckTypesExtraChecks`.
+
+To avoid seeing many NTI warnings on Google Closure Library code, use the compiler option
+
+    --hide_warnings_for=<closure-library-location>
+
+The following set of options makes it possible to use NTI today (as of March 2017):
+
+    --new_type_inf \
+    --jscomp_warning=newCheckTypes \
+    --jscomp_off=newCheckTypesExtraChecks \
+    --hide_warnings_for=<closure-library-location> \
+
+
