@@ -212,6 +212,15 @@ var print;print("Hello World!");var x;print("Hello World!");
 
 in the output. Your new pass has added a `print` call after each var statement.
 
-# Next steps
+# Advanced features
 
 If you want your pass to do some more complicated analysis, it might need access to the control-flow-graph of a particular function. [TODO: Add information on how to get and use the CFG] Or, you might want to write a pass that takes advantage of type information. [TODO: Add a page showing how to get the types of Nodes and do something interesting with them]
+
+# Example passes
+
+This wiki page showed you a relatively simple compiler pass. Here are some examples of passes that are a bit more complex but we hope will be relatively easy to follow even if you're new to the Closure Compiler code base. Reading the unit tests for a pass (or writing your own, to see what the pass does with various snippets of JS) is a good way to understand what a pass is doing, so check out [the unit tests](https://github.com/google/closure-compiler/tree/master/test/com/google/javascript/jscomp) as well.
+
+ * [CheckPrototypeProperties](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/lint/CheckPrototypeProperties.java)
+ * [PeepholeFoldConstants](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/PeepholeFoldConstants.java)
+ * [CheckSuspiciousCode](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/CheckSuspiciousCode.java)
+ * [Es6RewriteDestructuring](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/Es6RewriteDestructuring.java)
