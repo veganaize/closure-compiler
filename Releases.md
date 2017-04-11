@@ -12,6 +12,16 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### April 9, 2017 (v20170409)
  * Added diagnostic group `tooManyTypeParams` to check for invalid templatized types such as `Array<string, number>`.
+ * Use a size heuristic to stop the optimizations early when they are not making enough changes. Improves compile time by about 10%.
+ * Added BanCreateDom conformance check.
+ * Fixed a bug preventing definition of @record properties in the constructor when collapse properties is enabled.
+ * Bugfix related to unions of unresolved types in the old type checker.
+ * NTI: improve type checking of unannotated callbacks.
+ * NTI: handle .call and .apply during @const inference.
+ * The call to goog.module() must be the first statement in a goog.module. For instance, if you had goog.setTestOnly() before goog.module() the order must be reversed.
+ * Check for temporal dead zone violation in for (let x of [x]);
+ * Don't warn when an alias inside a goog.module is only used in type annotations.
+ * Performance improvements to the new type inference and to InlineSimpleMethods.
 
 ### February 18, 2017 (v20170218)
  * --polymer_pass flag is deprecated in anticipation of Polymer 2 support. Use --polymer_version=1 instead.
