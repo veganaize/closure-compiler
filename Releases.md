@@ -10,6 +10,9 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### Unreleased Changes
 
+### April 9, 2017 (v20170409)
+ * Added diagnostic group `tooManyTypeParams` to check for invalid templatized types such as `Array<string, number>`.
+
 ### February 18, 2017 (v20170218)
  * --polymer_pass flag is deprecated in anticipation of Polymer 2 support. Use --polymer_version=1 instead.
  * Add a `--module_resolution` flag to specify which algorithm the compiler should use to lookup modules. The flag has 3 options:
