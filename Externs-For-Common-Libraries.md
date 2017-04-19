@@ -32,7 +32,7 @@ https://closureidl.googlecode.com/files/svg.js
 
 # Libraries and Frameworks
 
-jQuery, then alphabetical
+jQuery, then **alphabetical**.
 
 ## jQuery
 
@@ -58,13 +58,39 @@ project: https://github.com/lukeasrodgers/backbone-js-externs
 
 https://raw.github.com/lukeasrodgers/backbone-js-externs/master/backbone-0.9.10-externs.js
 
+## Facebook React
+
+project: https://github.com/steida/react-externs
+
+https://github.com/steida/react-externs/blob/master/externs.js
+
+## Firebase
+
+project: https://github.com/isabo/firebase-externs
+
+https://github.com/isabo/firebase-externs/blob/master/firebase-externs.js
+
 ## Google Maps
 
 project: https://github.com/google/closure-compiler/tree/master/contrib/externs/maps
 
 https://github.com/google/closure-compiler/tree/master/contrib/externs/maps/google_maps_api_v3_11.js
 
+## hls.js
 
+project: https://github.com/IvanRF/hls.js-externs
+
+https://github.com/IvanRF/hls.js-externs/blob/master/hls.js
+
+## node.js
+
+project: https://github.com/dcodeIO/node.js-closure-compiler-externs
+
+## Polymer
+
+project: https://www.polymer-project.org/
+
+https://github.com/google/closure-compiler/blob/master/contrib/externs/polymer-1.0.js
 
 ## Underscore
 
@@ -77,23 +103,3 @@ https://raw.github.com/lukeasrodgers/underscore-js-externs/master/underscore-1.4
 project: https://github.com/google/closure-compiler/tree/master/contrib/externs
 
 https://github.com/google/closure-compiler/tree/master/contrib/externs/youtubeplayer.js
-
-## node.js
-
-project: https://github.com/dcodeIO/node.js-closure-compiler-externs
-
-## Facebook React
-
-https://github.com/steida/react-externs/blob/master/externs.js
-
-## Firebase
-
-project: https://github.com/isabo/firebase-externs
-
-https://github.com/isabo/firebase-externs/blob/master/firebase-externs.js
-
-## Polymer
-
-project: https://www.polymer-project.org/
-
-https://github.com/google/closure-compiler/blob/master/contrib/externs/polymer-1.0.js
