@@ -16,6 +16,9 @@ For complete list of changes refer to the [change log](https://github.com/google
  * Symbol polyfill uses quoted properties to access members of $jscomp.global.
  * NTI: improve typing of .call/.apply on methods of generic classes.
  * Support compilation of programs with missing definitions.
+ * Absolute path imports now resolve when combined with `--js_module_root` flags.
+
+
 
 ### April 9, 2017 (v20170409)
  * Added diagnostic group `tooManyTypeParams` to check for invalid templatized types such as `Array<string, number>`.
