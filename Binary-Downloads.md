@@ -11,8 +11,9 @@ The compiler is also available on [[Maven]] or [NPM](https://www.npmjs.com/packa
 
 Release notes for each release can be found at [[Releases]]
 
-### Unreleased Changes
- - Absolute path imports now resolve when combined with `--js_module_root` flags.
+### **v20170409**
+- http://dl.google.com/closure-compiler/compiler-20170423.zip
+- http://dl.google.com/closure-compiler/compiler-20170423.tar.gz
 
 ### **v20170409**
 - http://dl.google.com/closure-compiler/compiler-20170409.zip
