@@ -9,6 +9,13 @@ For complete list of changes refer to the [change log](https://github.com/google
 ## Details
 
 ### Unreleased Changes
+ * TBD
+
+### April 23, 2017 (v20170423)
+ * In RescopeGlobalSymbols, handle the case where a variable is defined both in the externs and in the source.
+ * Symbol polyfill uses quoted properties to access members of $jscomp.global.
+ * NTI: improve typing of .call/.apply on methods of generic classes.
+ * Support compilation of programs with missing definitions.
 
 ### April 9, 2017 (v20170409)
  * Added diagnostic group `tooManyTypeParams` to check for invalid templatized types such as `Array<string, number>`.
