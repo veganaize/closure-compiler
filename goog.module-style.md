@@ -22,7 +22,7 @@ exports = Foo;
 ## Named exports
 
 Named exports from a goog.module can be defined in one of two ways, the first way is
-to make the exported name clear at the declaration site, like the following:
+to assign to fields of `exports`:
 ```javascript
 goog.module('d.e.f');
 
@@ -33,8 +33,8 @@ exports.Foo = Foo;
 
 ```
 
-The other way to list all the exports at the end of the module, with a style
-similar to the _revealing module pattern_, like the following:
+The other way is to assign a struct of predefined symbols to `exports`, with a style
+similar to the _revealing module pattern_:
 ```javascript
 goog.module('d.e.f');
 
@@ -45,8 +45,7 @@ class Foo {}
 exports = {Foo, value};
 ```
 
-Note that only object literals that contain only names can be used for named
-exports in this way, as that is the restriction for the similar syntax
+Note that this style closely mirrors the the similar syntax
 in ES6 module exports.
 
 #### Destructuring imports
