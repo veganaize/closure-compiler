@@ -11,6 +11,14 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
  * TBD
 
+### May 21, 2017 (v20170521)
+* Fixed a bug that caused the polyfill versions of Promise.all() and Promise.race() to be renamed when disambiguate properties was enabled.
+* Fixed a bug in CrossModuleCodeMotion that caused some global variable definitions to become pinned to a module, when they should be allowed to move.
+* Allow --emit_use_strict flag to work in all language modes, including ES3.
+* NTI: handle record/interface properties declared on THIS inside the constructor.
+* Make Reflect.construct polyfill compatible with ES3.
+* New BANNED_NAME_CALL conformance check
+
 ### April 23, 2017 (v20170423)
  * In RescopeGlobalSymbols, handle the case where a variable is defined both in the externs and in the source.
  * Symbol polyfill uses quoted properties to access members of $jscomp.global.
