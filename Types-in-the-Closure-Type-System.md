@@ -108,9 +108,9 @@ Deprecated syntax:<br>
 </td>
 <td>Indicates that a value might have type A OR type B.<p></p>
 
-                  The parentheses may be omitted at the top-level
-                  expression, but the parentheses should be included in
-                  sub-expressions to avoid ambiguity.<br>
+The parentheses may be omitted at the top-level
+expression, but the parentheses should be included in
+sub-expressions to avoid ambiguity:<br>
 <code>(number|boolean)</code><br>
 <code>function(): (number|boolean)</code>
 <br>
