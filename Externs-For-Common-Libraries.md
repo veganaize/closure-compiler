@@ -14,7 +14,7 @@ If you don't see the externs here, be sure to start with the FAQ:
 
 # Extern generation utilities
 
-- To generate externs from a IDL file see this project: https://closureidl.googlecode.com
+- To generate externs from a IDL file see this project: https://code.google.com/archive/p/closureidl
 - To auto-generate externs from a library try: http://blog.dotnetwise.com/2009/11/closure-compiler-externs-extractor.html
 - To auto-generate externs for Polymer elements try: https://github.com/PolymerLabs/extern-generator
 
@@ -26,9 +26,9 @@ If you don't see the externs here, be sure to start with the FAQ:
 
 ## SVG
 
-project: https://closureidl.googlecode.com
+project: https://code.google.com/archive/p/closureidl
 
-https://closureidl.googlecode.com/files/svg.js
+https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/closureidl/svg.js
 
 # Libraries and Frameworks
 
