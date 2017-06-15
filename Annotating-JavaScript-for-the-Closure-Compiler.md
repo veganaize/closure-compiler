@@ -458,7 +458,7 @@ function foo(/** number */ a, /** number */ b) {
 
 Marks a member as private. Only code in the same file can access global variables and functions marked `@private`. Constructors marked `@private` can only be instantiated by code in the same file and by their static and instance members.
 
-The public static properties of constructors marked `@private` may also be accessed anywhere, and the `instanceof` operator can always access `@private` members.
+The public static properties of constructors marked `@private` may also be accessed anywhere.
 
 ```javascript
 /**
