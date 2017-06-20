@@ -22,6 +22,11 @@ Suppose you see a property access `x.prop1`, and the type of `x` is *A*. In the 
 
 Also, the current type checker does not warn about property accesses on _*_, because it is a supertype of all types, including *Object*. But NTI warns on a property access when the receiver is not an object, so it warns here.
 
+### Properties typed as unknown are not optional by default
+
+In the old type checker, type `{a: ?}` means that property `a` has the unknown type, and is also optional. With NTI, you need to explicitly add `|undefined` to declare an optional property.
+So, you would write that object type as `{a: (?|undefined)}`.
+
 ### Warnings about uninferred constants
 
 If you define a constant variable or property, NTI will attempt to infer the constant's type and use that type in any scope that references the constant. If NTI cannot infer the type, it will warn. Since each function scope is typechecked in isolation, const inference must happen early, with limited type information. So, if you think a const should have been inferred but you are getting a warning, keep in mind that a limited inference is used. For example, take a look at this [snippet](https://closure-compiler-debugger.appspot.com/#input0%3Dfunction%2520f()%2520%257B%250A%2520%2520var%2520x%2520%253D%2520123%253B%250A%2520%2520%252F**%2520%2540const%2520*%252F%250A%2520%2520var%2520c%2520%253D%2520x%253B%250A%2520%2520var%2520%252F**%2520string%2520*%252F%2520s%2520%253D%2520c%253B%250A%2520%2520return%2520function%2520()%2520%257B%2520return%2520c%253B%2520%257D%250A%257D%26input1%26conformanceConfig%26externs%26refasterjs-template%26includeDefaultExterns%3D1%26CHECK_SYMBOLS%3D1%26CHECK_TYPES%3D1%26CHECK_TYPES_NEW_INFERENCE%3D1%26CLOSURE_PASS%3D1%26LANG_IN_IS_ES6%3D1%26MISSING_PROPERTIES%3D1%26PRESERVE_TYPE_ANNOTATIONS%3D1%26PRETTY_PRINT%3D1%26TRANSPILE%3D1):
