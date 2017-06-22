@@ -4,7 +4,7 @@ Closure Compiler recognizes several JS module systems, including:
 
  * [ES6 Modules](https://github.com/nzakas/understandinges6/blob/master/manuscript/13-Modules.md)
  * Common JS
- * [Closure-Library (goog.module)](https://google.github.io/closure-library/api/namespace_goog.html#module)
+ * [Closure-Library (goog.module)](https://github.com/google/closure-library/wiki/goog.module:-an-ES6-module-like-alternative-to-goog.provide)
 
 During compilation, the compiler normalizes and inlines all of these disparate module by rewriting them into a form where the remaining passes can understand and optimize them fully. This is equivalent functionality to other module bundlers. You can use multiple modules types in a single compilation.
 
