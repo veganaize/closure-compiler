@@ -9,5 +9,5 @@ Closure works around a number of browser ES6+ implementation issues.
 
 ## Safari
 
-* Safari 10 Object.seal(class C{}) throws an exception stating that the properties are not configurable, but not 10.2 so no bug was reported
-* [Webkit #167328](https://bugs.webkit.org/show_bug.cgi?id=167328) Safari 10 incorrectly scopes functions in eval.
+* Safari 10 Object.seal(class C{}) throws an exception stating that the properties are not configurable, but not 10.2 so no bug was reported.  Closure Library avoids calling Object.seal on functions for goog.module exports.
+* [Webkit #167328](https://bugs.webkit.org/show_bug.cgi?id=167328) Safari 10 incorrectly scopes functions in eval.  Closure Library, when this is detected, avoid the problem when loading goog.modules by wrapping code the code in an IIFE which has the correct scoping.
