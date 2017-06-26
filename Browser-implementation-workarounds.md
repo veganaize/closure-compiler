@@ -9,4 +9,5 @@ Closure works around a number of browser implementation issues.
 
 ## Safari
 
-* TODO(@concavelenz): eval scope issues, etc
+* Safari 10 Object.seal(class C{}) throws an exception stating that the properties are not configurable, but not 10.2 so no bug was reported
+* [Webkit #167328](https://bugs.webkit.org/show_bug.cgi?id=167328) Safari 10 incorrectly scopes functions in eval.
