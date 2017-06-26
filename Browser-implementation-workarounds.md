@@ -1,6 +1,6 @@
 # Workarounds
 
-Closure works around a number of browser implementation issues.
+Closure works around a number of browser ES6+ implementation issues.
 
 ## Edge
 
