@@ -5,7 +5,7 @@ As of the v20150729 Closure Compiler release, we've been working toward having s
 Currently, Closure Compiler has nominal interfaces. For example, for:
 ````javascript
 /** @interface */
-function PNumI() {}
+function PNumI() {};
 /** @type {number} */
 PNumI.prototype.p;
 
@@ -27,7 +27,7 @@ With structural interfaces (declared with the `@record` annotation), Foo would b
 
 ````javascript
 /** @record */
-function PNum() {}
+function PNum() {};
 /** @type {number} */
 PNum.prototype.p;
 
