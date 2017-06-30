@@ -107,7 +107,7 @@ obj2.x = 123;  // warning
 
 ### `@enum {Type}`
 
-Specifies the type of an enum. An enum is an object whose properties constitute a set of related constants. The `@enum` tag must be followed by a type expression.  If the type of an enum is omitted, number is assumed.
+Specifies an enum, which is a type with a specific finite number of possible values, often strings or numbers. `@enum` tag must be followed by a type expression.  If the type of an enum is omitted, number is assumed.
 
 The type label of an enum applies to each property of the enum. For example if an enum has type number, each of its enumerated properties must be a number.
 
