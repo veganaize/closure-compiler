@@ -11,6 +11,26 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
  * TBD
 
+### June 26, 2017 (v20170626)
+* `--language_out` now allows ES2015 and higher. Passes which don't yet know
+  how to handle ES2015 (including typechecking, and most optimization passes)
+  will be skipped, so this is not recommended for production builds.
+* Several passes updated to work with ES2015+ code.
+* Read access to super class properties via `super.someProperty` is now
+  allowed.
+* Fixed a bug that broke access to `this` within an async arrow function
+  nested in another async function.
+* Changed the default ES6 module resolution mode to match that used in
+  browsers.
+* Tools that call the compiler via its Java API and provide their own PassConfig
+  may need to include a featureSet() method in each PassFactory.
+* CrossModuleCodeMotion now always picks the module with the smallest number
+  of dependents when moving definitions. This will reduce the amount of code
+  that must be loaded for some modules.
+* Now ES6 language mode defaults to strict mode. If you don't want
+  strict mode checks, use the --strict_mode_input=false flag.
+* Allow --strict_mode_input flag to work in all language modes, including ES3.
+
 ### May 21, 2017 (v20170521)
 * Fixed a bug that caused the polyfill versions of Promise.all() and Promise.race() to be renamed when disambiguate properties was enabled.
 * Fixed a bug in CrossModuleCodeMotion that caused some global variable definitions to become pinned to a module, when they should be allowed to move.
