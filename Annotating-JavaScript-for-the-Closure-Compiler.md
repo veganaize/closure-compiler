@@ -454,6 +454,38 @@ function foo(/** number */ a, /** number */ b) {
 
 ---
 
+### `@polymer`
+
+Indicates that a `class` has Polymer semantics. Only affects the compiler when the `--polymer_pass=2` flag is specified. Allows the [Polymer Pass](https://github.com/google/closure-compiler/wiki/Polymer-Pass) to recognize Polymer classes and add appropriate type information.
+
+```javascript
+/**
+ * A Polymer class
+ * @polymer
+ */
+class MyElement extends Polymer.Element {}
+```
+---
+
+### `@polymerBehavior`
+
+Indicates that a global object is usable as a Polymer behavior. Allows the [Polymer Pass](https://github.com/google/closure-compiler/wiki/Polymer-Pass) to recognize behaviors and copy type information over to the using Polymer definition. Behavior objects must be global.
+
+```javascript
+/** @polymerBehavior */
+var FunBehavior = {
+  /** @param {string} funAmount */
+  doSomethingFun: function(funAmount) { alert('Something fun!'); },
+};
+
+var A = Polymer({
+  is: 'x-custom',
+  behaviors: [ FunBehavior ],
+});
+```
+
+---
+
 ### `@private`
 
 Marks a member as private. Only code in the same file can access global variables and functions marked `@private`. Constructors marked `@private` can only be instantiated by code in the same file and by their static and instance members.
