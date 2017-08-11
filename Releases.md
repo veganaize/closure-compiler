@@ -11,6 +11,30 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
  * TBD
 
+### August 6, 2017 (v20170806)
+*   Several improvements to optimization of output modes > ES5.
+    Type checking and optimizations that depend on that don't work yet, though.
+*   `CrossModuleCodeMotion` now moves all symbols to the current best possible
+    module in a single run of the pass, greatly reducing execution time for this
+    pass. It also does a much better job of selecting the best module, leading
+    to significant transitive module size improvement.
+*   ES6 static method inheritance improved where possible.
+    ES6 classes are supposed to inherit static methods by prototype inheritance
+    between the 2 constructor functions. This is now implemented for all browsers
+    that can support it, falling back to copying properties on those that don't.
+*   `ECMASCRIPT_2017` is now the default language mode.
+*   The `.throw()` method for a generator now works correctly when its argument
+    is undefined. Previously it behaved as if `.next()` had been called.
+    This also fixed a bug with async functions that caused promises rejected
+    with `undefined` to be treated as if they were completed successfully.
+*   The output language defaults to ES5 instead of to the input language.
+*   Promoted a couple of useful diagnostics to their own diagnostic group:
+    -   `jsdocMissingType`: Uses of `@param`/`@return` without a type (was lint-only).
+    -   `unnecessaryEscape`: Backslashes in string literals that are ignored
+        (was lint-only).
+    -   `misplacedMsgAnnotation`: Warnings about misplaced `@desc`/`@hidden`/`@meaning`
+        JSDoc annotations (was only available as part of `misplacedTypeAnnotation`).
+
 ### June 26, 2017 (v20170626)
 * `--language_out` now allows ES2015 and higher. Passes which don't yet know
   how to handle ES2015 (including typechecking, and most optimization passes)
