@@ -185,7 +185,7 @@ include in the standard framework.
 
 ##### BanExpose
 
-Ban’s @expose which can lead to unexpected problems with property collapsing
+Bans @expose which can lead to unexpected problems with property collapsing
 problems as all properties of the same name are exposed regardless of type.
 
 class: com.google.javascript.jscomp.ConformanceRules$BanExpose
@@ -196,7 +196,7 @@ annotations directly
 ##### BanThrowOfNonErrorTypes
 
 Only Error (or subtype) objects will consistently have stack traces attached.
-Ban’s other types (strings are the most common)
+Bans other types (strings are the most common)
 
 class: com.google.javascript.jscomp.ConformanceRules$BanThrowOfNonErrorTypes
 
@@ -205,7 +205,7 @@ custom rule excludes rethrows in catch blocks.
 
 ##### BanUnresolvedType
 
-Ban’s types that are referenced and known via forward declarations but not
+Bans types that are referenced and known via forward declarations but not
 included in the compilation jobs dependencies. For legacy and code size
 reasons, this is normally allowed but it  can result in confusing type errors
 and missing type information as the type details of the type and its
