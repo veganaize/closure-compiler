@@ -45,7 +45,6 @@ externsValidation|Warnings about malformed externs files|WARNING
 extraRequire|Warnings about unnecessary goog.require calls|OFF
 fileoverviewTags|Warnings about duplicate @fileoverview tags|WARNING
 globalThis|Warnings about [improper use of the global this](http://closuretools.blogspot.com/2010/10/this-this-is-your-this.html).|WARNING
-inferredConstCheck|Warnings if a @const declaration contains no declared type and the compiler cannot infer one|OFF
 internetExplorerChecks|Warnings about syntax error on Internet Explorer.|ERROR
 invalidCasts|Warnings about invalid type casts.|WARNING
 misplacedTypeAnnotation|Warnings about jsdoc type annotations that are misplaced|WARNING
