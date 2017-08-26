@@ -1,25 +1,173 @@
 # Polymer Pass for the Closure Compiler
 
-*__Status:__ Draft*&nbsp;&nbsp;&nbsp;__|__&nbsp;&nbsp;&nbsp;*__Author:__ @jklein24*&nbsp;&nbsp;&nbsp;__|__&nbsp;&nbsp;&nbsp;&nbsp;*__Last Updated:__ 2015/04/02*
-
-
-## Objective
-
-Write a new JSCompiler pass for calls to the Polymer({}) function for custom element registration. This pass will provide better type information to the compiler and allow for some basic compile-time checks on Polymer custom elements.
-
 ## Overview
 
-*TODO (jklein24): Give a high level overview of transformations.*
+Polymer elements need some transformations and custom type information to make them compatible with Closure-compiler.
+The Polymer Pass recognizes elements and adds the needed type information and stub declarations so that the compiler
+can effectively analyze and optimize them.
 
-## Using with property renaming
+## Versions
 
-*TODO (jklein24): Describe usage with [PolymerRenamer](https://github.com/PolymerLabs/PolymerRenamer).*
+The transformations performed vary by the version of Polymer used. The version is indicated by the `--polymer_version` flag.
 
-## Detailed Design
+Polymer 2 versions require new type inference `--new_type_inf`. The compiler's old type inference system does not
+recognize the version 2 mixin constructs.
 
-There are several features of the Polymer element registration descriptor which have implications for compilation. In writing this document, I have used the [Polymer 0.8 primer](https://github.com/Polymer/polymer/blob/0.8-preview/PRIMER.md) and [polymer-project.org](https://www.polymer-project.org/1.0/docs/devguide/feature-overview.html) as the canonical reference for these features and will note the most relevant ones and how they are addressed by this design.
+## Recognizing a Polymer Element
 
-### Element Type Names
+In either version 1 or 2, all calls to the `Polymer()` factory are properly recognized.
+
+In version 2, the compiler recognizes a class as having Polymer symantics when it either directly extends
+`Polymer.Element` or is annotated with `@polymer`.
+
+```js
+Polymer({}) // always recognized
+class FooElement extends Polymer.Element {} // automatically recognized
+/** @polymer */
+class BarElement extends SomeOtherThing {} // recognized by the @polymer annotation
+```
+
+## Declared Property Typing
+
+Declared property definitions should be annotated for the created property - not the object literal definition.
+
+```js
+class FooElement extends Polymer.Element {
+  static get is() { return 'foo-element'; }
+  static get properties() {
+    return {
+      /** @type {string} */
+      bar: {
+        type: String,
+        value: 'bar'
+      }
+    };
+  }
+}
+```
+
+The compiler can infer the type of boolean, string and number typed declared properties without annotation.
+
+The Polymer Pass will add stub property definitions so that the compiler recognizes that these
+properties are created on the class prototype.
+
+## Observers and Computed Properties
+
+Polymer observers and computed properties rely on a string reference to a method. The compiler 
+will rename the methods and properties, and thereby break these references.
+
+The compiler recognizes some intrinsic definitions to rename a string in the same manner as an
+unquoted property.
+
+```js
+// Use reflection intrinsics to get a string renamed consistently
+// with the `barChanged` property method
+const barChangedName = goog.reflect.objectProperty('barChanged',
+    /** @type {!FooElement} */ (/** @type {?} */ ({})));
+
+class FooElement extends Polymer.Element {
+  static get is() { return 'foo-element'; }
+  static get properties() {
+    return {
+      bar: {
+        type: String,
+        observer: barChangedName
+      }
+    };
+  }
+
+  barChanged(bar) {}
+}
+```
+
+### Protecting Observer and Computed Property Methods from Dead Code Elimination
+Property reflection intrinsics will not prevent a method from being eliminated as dead code.
+The following snippet may be added for the compiler to recognize that such methods must not
+be eliminated:
+
+```js
+/** @suppress {uselessCode} */
+(() => {
+  FooElement.prototype.barChanged; 
+})();
+```
+
+### Advanced Mode Property Renaming
+
+Argument names to computed property functions and complex observer methods must also be renamed
+using the property reflection primitives.
+
+```js
+const fooElement = /** @type {!FooElement} */ (/** @type {?} */ ({}));
+const barChangedName = goog.reflect.objectProperty('barChanged', fooElement);
+const barName = goog.reflect.objectProperty('bar', fooElement);
+
+class FooElement extends Polymer.Element {
+  static get is() { return 'foo-element'; }
+  static get properties() {
+    return {
+      bar: String
+    };
+  }
+
+  static get observers() {
+    return [
+      `${barChangedName}(${barName})` // Both method and argument name require reflection
+    ]
+  }
+
+  barChanged(bar) {}
+}
+```
+
+## Class Mixins
+
+Polymer 2 mixin functions dynamically create a class based off the provided super class argument.
+The compiler requires that an interface be created to describe the class and the proper annotations
+added.
+
+```js
+/** @interface */
+function SomeMixinInterface() {}
+
+/** @return {string} */
+SomeMixinInterface.prototype.bar = function() {};
+
+/**
+ * @param {function(new:Polymer.Element)} Superclass
+ * 
+ * The return annotation should not be added to this function,
+ * or if present should be the unknown types
+ */
+function addSomeMixin(Superclass)  {
+  /**
+   * @polymer
+   * @implements {SomeMixinInterface}
+   */
+  class SomeMixin extends Superclass {
+    /** @return {string} */
+    bar() {}
+  }
+
+  return SomeMixin;
+}
+
+/**
+ * @constructor
+ * @extends {Polymer.Element}
+ * @implements {SomeMixinInterface}
+ */
+const SomeMixinElement = addSomeMixin(Polymer.Element);
+
+/** @polymer */
+class MyMixedEleement extends SomeMixinElement {}
+```
+
+**WARNING** For use with ADVANCED mode and property renaming, the mixin interface must be complete.
+Any properties (even private ones) provided by the mixed class must be represented in the interface or renaming
+collisions could occur.
+
+## Element Type Names for 1.x/Hybrid Call Syntax
 
 The naming conventions for types of Polymer elements used by the compiler follow the following rules:
 
@@ -28,278 +176,47 @@ If there's an explicit LHS target of the Polymer call, that's used as the type.
 foo.Bar = Polymer({ is: 'foo-thing'...}); // Type is foo.Bar
 var Foo = Polymer({ is: 'foo-thing'...}); // Type is Foo
 ```
+
 Otherwise, the generated type is what you said - FooThingElement. This matches the convention for JS types of native HTML elements.
+
 ```js
 Polymer({ is: 'foo-thing'...}); // Type is FooThingElement
 ```
-### [Bespoke Constructor](https://github.com/Polymer/polymer/blob/0.8-preview/PRIMER.md#bespoke-constructor-support)
 
-Polymer allows for the following syntax to construct custom elements:
+## Class Annotations for 1.x/Hybrid Call Syntax
 
-Original Code:
+A class level annotation may be added to a 1.x/Hybrid element on the `factoryImpl` method.
+
 ```js
 Polymer({
   is: ‘my-foo’,
 
-  /**
-   * @param {string} bar
-   */
-  factoryImpl: function(bar) {
-    this.bar = bar;
-  },
+  /** @implements {MyExternalInterface} */
+  factoryImpl: function() {}
 });
 ```
-Generated Code:
+
+## 1.x/Hybrid Behaviors
+
+Behaviors in Polymer are traditional JS mixins and are not well supported nor understood by the compiler. It
+is highly advised to migrate to 2.0 style class mixins instead.
+
+Behaviors must:
+
+ * Be defined on a global namespace
+ * Be an object literal or or array literal
+ * Be annotated with `@polymerBehavior`
+
+In addition, only very weak type checking is enabled by the compiler.
+
 ```js
+const myNs = {};
+
 /**
- * @param {string} bar
- * @constructor @extends {PolymerElement}
+ * @const
+ * @polymerBehavior
  */
-var MyFooElement = function(bar) {
-  this.bar = bar;
-};
-Polymer(/** @lends {XCustomElement.prototype} */ {
-  is: ‘my-foo’,
-  factoryImpl: function(bar) {
-    this.bar = bar;
-  },
-});
-```
-### [Native Element Extension](https://github.com/Polymer/polymer/blob/0.8-preview/PRIMER.md#native-html-element-extension)
-
-Polymer elements cannot extend other custom elements, but they can extend native HTML elements like input, select, etc. If a custom element, foo-bar, does not extend any native HTML element, its prototype chain is "foo-bar  ->  PolymerElement  ->  HTMLElement". For an element which extends an input, the prototype chain should be “foo-bar -> PolymerElement -> HTMLInputElement”. However, conditionally inheriting different elements in the externs is not really possible. The solution is to make new copies of the PolymerElement externs which extend the right native element.
-
-Original Externs:
-```js
-/** @constructor @extends {HTMLElement} */
-var PolymerElement = function() {};
-
-/** @type {Object.<string, !HTMLElement>} */
-PolymerElement.prototype.$;
-PolymerElement.prototype.created = function() {};
-
-etc….
-```
-
-Original Code:
-```js
-MyInput = Polymer({
-  is: 'my-input',
-  extends: 'input',
-  created: function() {
-    this.style.border = '1px solid red';
-  }
-});
-```
-
-Generated Externs:
-```js
-/** @constructor @extends {HTMLElement} */
-var PolymerElement = function() {};
-
-/** @type {Object.<string, !HTMLElement>} */
-PolymerElement.prototype.$;
-PolymerElement.prototype.created = function() {};
-
-etc….
-
-/** @constructor @extends {HTMLInputElement} */
-var PolymerInputElement = function() {};
-/** @type {Object.<string, !HTMLElement>} */
-PolymerInputElement.prototype.$;
-PolymerInputElement.prototype.created = function() {};
-
-etc….
-```
-
-Generated Code:
-```js
-/** @constructor @extends {PolymerInputElement} */
-MyInput = function() {};
-MyInput = Polymer(/** @lends {XCustomElement.prototype} */ {
-  is: 'my-input',
-  extends: 'input',
-  created: function() {
-    this.style.border = '1px solid red';
-  }
-});
-```
-
-### [Properties Block](https://github.com/Polymer/polymer/blob/0.8-preview/PRIMER.md#configuring-properties)
-
-For properties blocks, keys must be pulled onto the prototype of the Element. The type is determined first by any existing JSDocInfo on the property. If no type is specified, the type will be inferred from the value in the properties block. Original docs in the object literal are removed.
-
-Original Code:
-```js
-Polymer({
-  is: 'x-custom',
-  properties: {
-    /**
-     * The user of the thing.
-     * @type {!foo.bar.User}
-     */
-    user: Object,
-    isHappy: Boolean,
-    count: {
-      type: Number,
-      notify: true
-    }
-  },
-});
-```
-
-Generated code:
-```js
-/** @constructor @extends {PolymerElement} */
-var XCustomElement = function() {};
-/** @type {!foo.bar.User} */
-XCustomElement.prototype.user;
-/** @type {boolean} */
-XCustomElement.prototype.isHappy;
-/** @type {number} */
-XCustomElement.prototype.count;
-Polymer(/** @lends {XCustomElement.prototype} */{
-  is: 'x-custom',
-  properties: {
-    user: Object,
-    isHappy: Boolean,
-    count: {
-      type: Number,
-      notify: true
-    }
-  },
-});
-```
-
-### [this.$.innerElement](https://www.polymer-project.org/1.0/docs/devguide/local-dom.html#node-finding)
-
-Polymer allows for automatic local node finding using this.$.elementID. However, there is no great way to annotate this.$ in the Polymer externs because the PolymerPass doesn’t know the list of ids or the type of elements they refer to at compile time. The pass also needs to avoid renaming of these ids. Therefore, the easiest thing to do is to make the pass automatically switch from this.$.foo to this.$[‘foo’].
-
-Original Code:
-```js
-/** @constructor */
-var SomeType = function() {};
-SomeType.prototype.toggle = function() {};
-SomeType.prototype.switch = function() {};
-SomeType.prototype.touch = function() {};
-
-var X = Polymer({
-  is: 'x-element',
-  sayHi: function() {
-    this.$.checkbox.toggle();
-  },
-  /** @override */
-  created: function() {
-    this.sayHi();
-    this.$.radioButton.switch();
-  },
-  /**
-   * @param {string} name
-   * @private
-   */
-  sayHelloTo_: function(name) {
-    this.$.otherThing.touch();
-  },
-})
-```
-
-Generated code:
-```js
-/** @constructor */
-var SomeType = function() {};
-SomeType.prototype.toggle = function() {};
-SomeType.prototype.switch = function() {};
-SomeType.prototype.touch = function() {};
-/** @constructor @extends {PolymerElement} @implements {PolymerXInterface} */
-var X = function() {};
-X = Polymer(/** @lends {X.prototype} */ {
-  is: 'x-element',
-
-  /** @this {X} */
-  sayHi: function() {
-    this.$['checkbox'].toggle();
-  },
-
-  /** @override @this {X} */
-  created: function() {
-    this.sayHi();
-    this.$['radioButton'].switch();
-  },
-
-  /**
-   * @param {string} name
-   * @private
-   * @this {X}
-   */
-  sayHelloTo_: function(name) {
-    this.$['otherThing'].touch();
-  },
-})
-```
-
-### [Readonly _set<Prop> functions](https://www.polymer-project.org/0.8/docs/devguide/properties.html#read-only)
-
-These setter functions are generated by polymer at runtime for readOnly properties. They are private and cannot be renamed at all. To completely avoid renaming, the pass generates an interface for the element at compile time and adds any required _set* functions to that interface. It then puts the whole interface into externs.
-
-Original Code:
-```js
-Polymer({
-  is: 'x-custom',
-  properties: {
-    isHappy: Boolean,
-    count: {
-      type: Number,
-      readOnly: true
-    }
-  },
-});
-```
-
-Generated Externs:
-```js
-/** @interface */
-var PolymerXCustomElementInterface = function() {};
-/** @param {number} count **/
-PolymerXCustomElementInterface.prototype._setCount;
-```
-
-Generated code:
-```js
-/**
- * @constructor
- * @implements {PolymerXCustomElementInterface}
- * @extends {PolymerElement}
- */
-var XCustomElement = function() {};
-/** @type {boolean} */
-XCustomElement.prototype.isHappy;
-/** @type {number} */
-XCustomElement.prototype.count;
-/** @override */
-XCustomElement.prototype._setCount;
-Polymer(/** @lends {XCustomElement.prototype} */{
-  is: 'x-custom',
-  properties: {
-    isHappy: Boolean,
-    count: {
-      type: Number,
-      readOnly: true,
-      notify: true
-    }
-  },
-});
-```
-
-### [Behaviors](https://github.com/Polymer/polymer/blob/0.8-preview/PRIMER.md#behaviors)
-
-For now, the goal is to simply avoid compiler errors with behaviors. Type checking won’t be quite as strong as possible because we don’t have a good solution yet to determine the "this" scope inside lifecycle functions for behaviors. The current implementation simply copies all behavior properties and non-lifecycle functions over to the prototype of the element definition. Array behaviors are parsed recursively. Behaviors must be fully qualified names in the global scope.
-
-In order to avoid type errors for behavior definitions, type annotations on properties are stripped and checkTypes suppressions are added to every function in the definition. Note that the types will still be checked for any behavior which is actually used by an element because the functions will be copied over to the element’s prototype before adding any suppressions. Once caveat to this is that if a behavior is declared in non-global scope (like an iife), it is not possible to copy the entire scope so that variables inside behavior functions are valid in the context of the Element using this behavior. Therefore, for these behaviors, only a function stub is created and types cannot be checked. The team is still exploring better solutions to this problem.
-
-Original Code:
-```js
-/** @polymerBehavior */
-var FunBehavior = {
+myNs.FunBehavior = {
   properties: {
     isHappy: Boolean,
 
@@ -314,50 +231,39 @@ var FunBehavior = {
   doSomethingFun: function(funAmount) { alert('Something fun!'); },
 };
 
-var A = Polymer({
+Polymer({
   is: 'x-custom',
-  behaviors: [ FunBehavior ],
+  behaviors: [ myNs.FunBehavior ],
 });
 ```
 
-Generated Externs:
-```js
-/** @interface */
-var PolymerAInterface = function() {};
-/** @param {number} count **/
-PolymerAInterface.prototype._setCount;
-```
+## Advanced Mode Property Renaming Implications
 
-Generated code:
-```js
-/** @polymerBehavior @nocollapse */
-var FunBehavior = {
-  properties: {
-    isHappy: Boolean,
-    count: {
-      type: Number,
-      readOnly: true
-    },
-  },
+As polymer html templates contain references to JS code, any JS symbol referenced in
+HTMl must properly accounted for. Either:
 
-  /** @suppress {checkTypes} */
-  doSomethingFun: function(funAmount) { alert('Something fun!'); },
-};
+ 1. All referenced properties be quoted or exported
+ 2. A tool must be used to update the HTML templates after compilation
 
-/**
- * @constructor
- * @implements {PolymerAInterface}
- * @extends {PolymerElement}
- */
-var A = function() {};
-/** @type {boolean} */
-A.prototype.isHappy;
-/** @type {number} */
-A.prototype.count;
-/** @override */
-A.prototype._setCount;
-A = Polymer({
-  is: 'x-custom',
-  behaviors: [ FunBehavior ],
-});
-```
+### Renaming Tools
+
+ * [PolymerRenamer](https://github.com/PolymerLabs/PolymerRenamer) - not compatible with type-based optimizations
+ * [Polymer-Rename](https://github.com/Banno/polymer-rename)
+
+
+### Declared Property Renaming
+
+The Polymer Pass enforces the ALL_UNQUOTED property renaming policy of the compiler. Properties should be
+consistently quoted. If the declaration is quoted, all references to the property should also be quoted.
+
+#### Version 2
+Most declared properties are renamed. The compiler will consistently rename the returned properties object literal keys
+with the class prototype properties.
+
+Properties marked as `readOnly` or with `reflectToAttribute` are not renamed. `readOnly` properties have synthetic
+setters generated for them which are based on their renamed version. Properties marked as `reflectToAttribute` are
+typically used to style or locate an element.
+
+#### Version 1
+**All** declared properties are blocked from renaming. The compiler generates external interfaces to block renaming
+of these properties.
