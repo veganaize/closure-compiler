@@ -2,7 +2,7 @@
 
 ## Overview
 
-Polymer elements need some transformations and custom type information to make them compatible with Closure-compiler.
+Polymer elements require transformations and custom type information to make them compatible with Closure-compiler.
 The Polymer Pass recognizes elements and adds the needed type information and stub declarations so that the compiler
 can effectively analyze and optimize them.
 
