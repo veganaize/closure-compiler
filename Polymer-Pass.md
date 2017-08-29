@@ -255,7 +255,7 @@ Polymer({
 ## Advanced Mode Property Renaming Implications
 
 As polymer html templates contain references to JS code, any JS symbol referenced in
-HTMl must properly accounted for. Either:
+HTML must properly accounted for. Either:
 
  1. All referenced properties be quoted or exported
  2. A tool must be used to update the HTML templates after compilation
