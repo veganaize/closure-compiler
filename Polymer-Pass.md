@@ -51,6 +51,8 @@ class FooElement extends Polymer.Element {
 ```
 
 The compiler can infer the type of boolean, string and number typed declared properties without annotation.
+The compiler will also infer `Object` and `Array` types, but these are usually not precise enough. It's
+recommended to add generic type indicators for Objects and Arrays.
 
 The Polymer Pass will add stub property definitions so that the compiler recognizes that these
 properties are created on the class prototype.
