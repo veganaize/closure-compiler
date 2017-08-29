@@ -17,8 +17,9 @@ recognize the version 2 mixin constructs.
 
 In either version 1 or 2, all calls to the `Polymer()` factory are properly recognized.
 
-In version 2, the compiler recognizes a class as having Polymer symantics when it either directly extends
-`Polymer.Element` or is annotated with `@polymer`.
+In version 2, you **must** annotate your class with `@polymer` if it does not directly extend
+`Polymer.Element`. The compiler does not automatically recognize classes as having Polymer
+symantics unless it either directly extends `Polymer.Element` or is annotated with `@polymer`.
 
 ```js
 Polymer({}) // always recognized
@@ -26,6 +27,8 @@ class FooElement extends Polymer.Element {} // automatically recognized
 /** @polymer */
 class BarElement extends SomeOtherThing {} // recognized by the @polymer annotation
 ```
+
+
 
 ## Declared Property Typing
 
@@ -36,11 +39,12 @@ class FooElement extends Polymer.Element {
   static get is() { return 'foo-element'; }
   static get properties() {
     return {
-      /** @type {string} */
+      /** @type {Array<number>} */
       bar: {
-        type: String,
-        value: 'bar'
-      }
+        type: Array,
+        value: () => []
+      },
+      foo: Boolean // type automatically inferred
     };
   }
 }
@@ -79,6 +83,15 @@ class FooElement extends Polymer.Element {
   barChanged(bar) {}
 }
 ```
+
+Property reflection intrinsics:
+
+ * [goog.reflect.objectProperty](https://google.github.io/closure-library/api/goog.reflect.html#objectProperty)
+ * [goog.reflect.object](https://google.github.io/closure-library/api/goog.reflect.html#object)
+
+ **Note:** It's not nesseccary to bring in all of closure-library to use these intrinsics.
+ They are simply identity functions. Defining methods with these names in your code base
+ is all that is required.
 
 ### Protecting Observer and Computed Property Methods from Dead Code Elimination
 Property reflection intrinsics will not prevent a method from being eliminated as dead code.
@@ -189,7 +202,7 @@ A class level annotation may be added to a 1.x/Hybrid element on the `factoryImp
 
 ```js
 Polymer({
-  is: ‘my-foo’,
+  is: 'my-foo',
 
   /** @implements {MyExternalInterface} */
   factoryImpl: function() {}
