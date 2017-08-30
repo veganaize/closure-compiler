@@ -32,7 +32,7 @@ class BarElement extends SomeOtherThing {} // recognized by the @polymer annotat
 
 ## Declared Property Typing
 
-Declared property definitions should be annotated for the created property - not the object literal definition.
+Properties should be annotated at their top-level definition, and not at Polymer's `type` field (which can only be one of String, Boolean, Number, Array or Object).
 
 ```js
 class FooElement extends Polymer.Element {
