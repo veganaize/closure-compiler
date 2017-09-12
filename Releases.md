@@ -11,6 +11,12 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
  * TBD
 
+### September 10, 2017 (v20170910)
+* Improvements to performance of optimization passes.
+* Improved support for goog.modules with object literal exports style (e.g. exports = {Foo, Bar})
+* Disallow 'is' property in a Polymer behavior.
+* Continuing improvements to experimental ES6 output mode.
+
 ### August 6, 2017 (v20170806)
 *   Several improvements to optimization of output modes > ES5.
     Type checking and optimizations that depend on that don't work yet, though.
