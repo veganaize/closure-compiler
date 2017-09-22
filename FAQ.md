@@ -153,6 +153,55 @@ Not all elements have "contentWindow" defined on them. Only HTMLIframeElements d
 
 It is possible to get stricter property check on specific types by annotating them with [`@struct`](https://github.com/google/closure-compiler/wiki/@struct-and-@dict-Annotations).   The experimental [New Type Inferrence](https://github.com/google/closure-compiler/wiki/Using-NTI-(new-type-inference)) implements a 'may not be defined' check.
 
+### I get an error saying "undecomposable expression" for my statement containing `yield` (or `await`). What do I do?
+
+e.g.
+```javascript
+function *f(x) {
+  x.someMethod(yield 1);
+}
+```
+```
+input0:2: ERROR - This code cannot be converted from ES6. Undecomposable expression
+  x.someMethod(yield 1);
+               ^^^^^^^
+```
+
+#### The short answer
+
+Rewrite your code so that the result of the `yield` or `await` is stored in a temporary variable.
+
+```javascript
+function *f(x) {
+  const tmp = yield 1;
+  x.someMethod(tmp);
+}
+```
+
+#### What is the issue here?
+
+1.  Async functions are implemented using generator functions, so an `await` is transpiled to a `yield`.
+2.  In order to interrupt execution at the `yield`, the compiler must first decompose the expression
+    containing it into multiple statements.
+
+    The the `x.someMethod(yield 1);` statement from the example above becomes something like this.
+
+    ```javascript
+    const tmpX = x;
+    const tmpFunc = x.someMethod;
+    const tmpYieldResult = yield 1;
+    tmpFunc.call(tmpX, tmpYieldResult);
+    ```
+
+    This preserves expression evaluation order and avoids evaluating any expression more than once.
+    
+3.  That **should** work fine, but unfortunately some older browsers (definitely IE8, possibly IE9)
+    don't actually add a `.call()` method on the methods of objects they create internally, like DOM objects.
+    Rather than generate code that will fail on some browsers, the compiler chooses to generate an error
+    message.
+
+Babel and other transpilers typically just ignore this problem and generate the `.call()` anyway.
+
 ## Using Closure Compiler
 
 ### What are the recommended Java VM command-line options?
