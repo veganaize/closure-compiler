@@ -11,6 +11,7 @@
  * [My code broke when using advanced optimizations! How do I figure out what's wrong?](#my-code-broke-when-using-advanced-optimizations-how-do-i-figure-out-whats-wrong)
  * [Some of my properties are getting renamed, but some aren't. Why?](#some-of-my-properties-are-getting-renamed-but-some-arent-why)
  * [When using type-checking, sometimes Closure Compiler doesn't warn me about missing properties. Why not?](#when-using-type-checking-sometimes-closure-compiler-doesnt-warn-me-about-missing-properties-why-not)
+ * [I get an "undecomposable expression" error for my `yield` or `await` expression. What do I do?](#i-get-an-undecomposable-expression-error-for-my-yield-or-await-expression-what-do-i-do)
 
 ### Using Closure Compiler
  * [What are the recommended Java VM command-line options?](#what-are-the-recommended-java-vm-command-line-options)
@@ -153,9 +154,8 @@ Not all elements have "contentWindow" defined on them. Only HTMLIframeElements d
 
 It is possible to get stricter property check on specific types by annotating them with [`@struct`](https://github.com/google/closure-compiler/wiki/@struct-and-@dict-Annotations).   The experimental [New Type Inferrence](https://github.com/google/closure-compiler/wiki/Using-NTI-(new-type-inference)) implements a 'may not be defined' check.
 
-### I get an error saying "undecomposable expression" for my statement containing `yield` (or `await`). What do I do?
+### I get an "undecomposable expression" error for my `yield` or `await` expression. What do I do?
 
-e.g.
 ```javascript
 function *f(x) {
   x.someMethod(yield 1);
@@ -180,7 +180,7 @@ function *f(x) {
 
 #### What is the issue here?
 
-1.  Async functions are implemented using generator functions, so an `await` is transpiled to a `yield`.
+1.  The compiler implements async functions with generator functions, so an `await` is transpiled to a `yield`.
 2.  In order to interrupt execution at the `yield`, the compiler must first decompose the expression
     containing it into multiple statements.
 
