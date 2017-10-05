@@ -16,6 +16,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 * Improved support for goog.modules with object literal exports style (e.g. exports = {Foo, Bar})
 * Disallow 'is' property in a Polymer behavior.
 * Continuing improvements to experimental ES6 output mode.
+* Building the compiler and its tests now requires Java 8.
 
 ### August 6, 2017 (v20170806)
 *   Several improvements to optimization of output modes > ES5.
