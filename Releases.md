@@ -11,6 +11,10 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
  * TBD
 
+### October 23, 2017 (v20171023)
+* When using the compiler to manage dependencies, made the dependency ordering match that of ES6 modules. In particular, this means that dependencies are processed depth first in the order of the imports in the file, starting from the entry points. For more details, see https://github.com/google/closure-compiler/pull/2641
+* "use types for optimizations" no longer triggers optimizations of comparisons with null and undefined.
+
 ### September 10, 2017 (v20170910)
 * Improvements to performance of optimization passes.
 * Improved support for goog.modules with object literal exports style (e.g. exports = {Foo, Bar})
