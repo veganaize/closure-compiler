@@ -11,6 +11,10 @@ The compiler is also available on [[Maven]] or [NPM](https://www.npmjs.com/packa
 
 Release notes for each release can be found at [[Releases]]
 
+### **v20171023**
+- http://dl.google.com/closure-compiler/compiler-20171023.zip
+- http://dl.google.com/closure-compiler/compiler-20171023.tar.gz
+
 ### **v20170910**
 - http://dl.google.com/closure-compiler/compiler-20170910.zip
 - http://dl.google.com/closure-compiler/compiler-20170910.tar.gz
