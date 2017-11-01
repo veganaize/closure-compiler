@@ -1,5 +1,3 @@
-*Note: Full module interop requires the 20160517 release or newer. The --module_resolution flag requires the 20170218 release or newer.*
-
 Closure Compiler recognizes several JS module systems, including:
 
  * [ES6 Modules](https://github.com/nzakas/understandinges6/blob/master/manuscript/13-Modules.md)
@@ -8,31 +6,13 @@ Closure Compiler recognizes several JS module systems, including:
 
 During compilation, the compiler normalizes and inlines all of these disparate module by rewriting them into a form where the remaining passes can understand and optimize them fully. This is equivalent functionality to other module bundlers. You can use multiple modules types in a single compilation.
 
-When using the grunt/gulp plugins, the root folder is the current working directory of the compiler when executed. Otherwise, the root directory is the root of the filesystem.
-
 ## Module Resolution Mode
 
 CommonJS and ES6 Modules are file based and a module is imported by its path. How the path is interpreted depends on the resolution mode specified.
 
 The resolution mode is controlled by the `--module_resolution` flag. This flag was introduced after the 20161201 release.
 
-### LEGACY Resolution Mode
-*This is the only mode available before the 20170218 release*
-
-Module paths which do not start with either a '.' or '/' character are assumed to be relative to the compilation root. Module source files must have a '.js' file extension. If the import statement does not specify a '.js' extension, it is automatically added by the compiler.
-
-Example import statements for LEGACY mode:
-
- * `import foo from './folder/source.js'`
- * `import foo from '../folder/source.js'`
- * `import foo from '/folder/source'`
- * `import foo from 'folder/source'` - this import is relative to the compilation root
- * `require('./folder/source')`
- * `require('/folder/source')`
-
 ### NODE Resolution Mode
-*This mode is only available for the 20170218 release or later*
-
 Modules which do not begin with a "." or "/" character are looked up from the appropriate node_modules folder. This mode supports importing a directory as well as treating a JSON file as a module. See the [node module resolution algorithm](https://nodejs.org/api/modules.html#modules_all_together) for full details.
 
 The compiler does not discover and add source files. Users must pass the full set of possible source files to the compiler. In addition, any package.json files should also be provided as source files via the `--js` flag.
@@ -71,7 +51,7 @@ Example import statements for BROWSER mode:
 
 CommonJS and Goog modules are recognized by its export mechanism. ES6 modules are recognized be either the `import` or `export` keyword. A single file can only use one type of export. The following statements must not be mixed in the same file:
 
- * ES6 export: `export default Foo // and variants` or `import foo from '/path/to/module.js'`
+ * ES6 export: `export default Foo /* and variants */` or `import foo from '/path/to/module.js'`
  * CommonJS export: `module.exports = Foo` and `export.Foo = Foo`;
  * goog.module: `goog.module('foo'); export.Foo = Foo;`
 
@@ -93,6 +73,10 @@ ES6 module loading is still at very early stages of development. Currently, ES6 
 ## CommonJS Modules
 
 CommonJS module support is enabled in the compiler when the `--process_common_js_modules` flag is specified.
+
+CommonJS modules are rewritten to be in a single namespace and imports are hoisted. Hoisting imports allows impressive code analysis and optimizations, but does so at the expense of compatibility. Not all CommonJS modules will be compatible with this rewriting.
+
+The compiler recognizes several variants of the Universal Module Definition and will simplify these into just a CommonJS module.
 
 ### Uncompiled Support for CommonJS Modules
 
