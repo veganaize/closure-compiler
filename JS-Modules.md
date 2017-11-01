@@ -30,7 +30,6 @@ Example import statements for NODE mode:
  * `require('folder/source')`
 
 ### BROWSER Resolution Mode
-*This mode is only available for the 20170218 release or later*
 
 Modules which do not begin with a "." or "/" character are not supported. Module import statements must always specify the file extension.
 
