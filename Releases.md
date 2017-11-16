@@ -11,6 +11,10 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
  * TBD
 
+### November 12, 2017 (v20171112)
+* For projects invoking the compiler from Java code: Removed Compiler method reportCodeChange. Code that was using this should switch to reportChangeToChangeScope or reportChangeToEnclosingScope.
+* Improvements to optimization passes related to OptimizeCalls.
+
 ### October 23, 2017 (v20171023)
 * When using the compiler to manage dependencies, made the dependency ordering match that of ES6 modules. In particular, this means that dependencies are processed depth first in the order of the imports in the file, starting from the entry points. For more details, see https://github.com/google/closure-compiler/pull/2641
 * "use types for optimizations" no longer triggers optimizations of comparisons with null and undefined.
