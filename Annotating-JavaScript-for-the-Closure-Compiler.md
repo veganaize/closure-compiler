@@ -152,7 +152,7 @@ Code that uses the @export annotation must either:
 
 ### `@extends {Type}`
 
-Marks a class or interface as inheriting from another class. A class marked with `@extends` must also be marked with either `@constructor` or `@interface`.
+Marks a class or interface as inheriting from another class. A class marked with `@extends` must also be marked with either `@constructor`, `@interface`, or `@record`.
 
 > Note: `@extends` does not cause a class to inherit from another class. The annotation simply tells the compiler that it can treat one class as a subclass of another during type-checking.
 
