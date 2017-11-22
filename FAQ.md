@@ -169,6 +169,10 @@ input0:2: ERROR - This code cannot be converted from ES6. Undecomposable express
 
 #### The short answer
 
+In some cases it's not possible to translate code like this to ES5 in a way that older versions of Internet Explorer will run correctly. If your code only needs to run on nodejs, or modern browsers, you can pass the flag `--allow_method_call_decomposing` to bypass this error.
+
+#### The other short answer
+
 Rewrite your code so that the result of the `yield` or `await` is stored in a temporary variable.
 
 ```javascript
