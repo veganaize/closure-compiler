@@ -9,7 +9,19 @@ For complete list of changes refer to the [change log](https://github.com/google
 ## Details
 
 ### Unreleased Changes
- * TBD
+* TBD
+
+### December 03, 2017 (v20171203)
+* Fixed a bug that broke the JavaScript (GWT) version of the compiler (closure-compiler-js).
+  That project and its npm have now been updated.
+* Fixed a bug causing incorrect code removal.
+  https://github.com/google/closure-compiler/issues/2365
+* ES6-output improvements:
+  * J2CL passes now supported
+  * `CrossModuleCodeMotion` now supported
+  * `name(Un)MappedAnonymousFunctions` now supported
+  * OptimizeCalls now supported
+* Several improvements to handling of and interoperation between CommonJS and ES6 modules.
 
 ### November 12, 2017 (v20171112)
 * For projects invoking the compiler from Java code: Removed Compiler method reportCodeChange. Code that was using this should switch to reportChangeToChangeScope or reportChangeToEnclosingScope.
