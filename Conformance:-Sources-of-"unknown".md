@@ -70,7 +70,7 @@ This results in a “unknown” for “x[prop]”. The Closure type system has a
 annotating these kinds of objects:
 
 ```
-/** @const {!Object&lt;string, ValueType>} */ var x = {};
+/** @const {!Object<string, ValueType>} */ var x = {};
 ```
 NOTE: @const or @type can be used, but @const is preferred where possible.
 
@@ -82,7 +82,7 @@ function or a union.
 Roughly, this pattern:
 
 ```
-/** @param {!Object&lt;string, ValueType>} x */
+/** @param {!Object<string, ValueType>} x */
 function f(x) {
   x.something = value;
   use(x.something);
@@ -111,7 +111,7 @@ When this class is used as a type, the generic must be specified:
 
 ```
 /**
- * @param {MyClass&lt;number>} obj
+ * @param {MyClass<number>} obj
  */
 function myFunction(obj) {
   goog.asserts.assert(obj.value instanceof number);
