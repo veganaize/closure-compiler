@@ -11,6 +11,21 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
 * TBD
 
+### January 01, 2018 (v20180101)
+* If you are using the inlineFunctions or inlineLocalFunctions boolean fields of the compiler options, you will have to migrate to the getter/setter methods setInlineFunctions(Reach) or getInlineFunctionsLevel() instead.
+* Experimental support for @noinline annotation. It will prevent inlining of symbols by the inlineVariables and inlineFunctions passes, but not other inlining passes.
+* Compiler.addToDebugLog is deprecated. If you have a custom pass that calls it, please switch to logging the information with a standard Java Logger.
+* Labeled function and class declarations are now a parse error. These are illegal in ES6 strict mode.
+* ES6-output improvements:
+  * RescopeGlobalSymbols now supported
+  * ReplaceIdGenerators now supported
+  * ClosureCodeRemoval now supported
+  * CrossModuleMethodMotion now supported
+* Made AggressiveInlineAliases more aggressive about inlining constructors to prevent decomposition from hiding references to static properties that CollapseProperties needs to replace.
+* Improved optimizations of modules in SIMPLE mode with wrapped output.
+* Fixed a bug that prevented property names defined in extern JSDoc from being recognized when type checking was disabled. This led to extern properties being renamed in some cases.
+* RemoveUnusedPrototypeProperties pass removed and its functionality merged into RemoveUnusedCode. This gives a performance boost by reducing redundant work.
+
 ### December 03, 2017 (v20171203)
 * Fixed a bug that broke the JavaScript (GWT) version of the compiler (closure-compiler-js).
   That project and its npm have now been updated.
