@@ -11,6 +11,25 @@ For complete list of changes refer to the [change log](https://github.com/google
 ### Unreleased Changes
 * TBD
 
+### Feb 04, 2018 (v20180204)
+*   Replace `RemoveUnusedClassProperties` and `smartNameRemoval` passes with
+    new `RemoveUnusedCode` optimization pass.
+*   Introduce "strictMissingProperties" that emits warnings when properties are
+    referenced and can only be found on subtypes.  These warnings can be
+    suppressed with "missingProperties" or "strictMissingProperties" but are
+    enabled with "strictMissingProperties".
+*   Now allow @suppress JSDoc to be attached to any type of declaration
+    (including let/const/class) instead of only functions/methods.
+*   Add support for transpiling object rest and spread.
+*   Removed obsolete optimization pass `ChainCalls`
+*   Deleted the legacy option to optimize the property registry in OTI.
+*   Block-scoped function declarations are now considered an ES6 feature and are
+    treated as lexically scoped to the declaring block (per ES6 strict
+    specification) and are no longer accessible elsewhere outside that block.
+*   Fix polyfill bug where `Math.hypot(0, 0)` was returning `NaN`.
+*   Add support for mutable exports and forbid duplicate exports in ES6 modules.
+*   Misc bugfixes and improvements.
+
 ### January 01, 2018 (v20180101)
 * If you are using the inlineFunctions or inlineLocalFunctions boolean fields of the compiler options, you will have to migrate to the getter/setter methods setInlineFunctions(Reach) or getInlineFunctionsLevel() instead.
 * Experimental support for @noinline annotation. It will prevent inlining of symbols by the inlineVariables and inlineFunctions passes, but not other inlining passes.
