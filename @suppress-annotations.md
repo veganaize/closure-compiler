@@ -1,4 +1,4 @@
-If you cannot easily fix a JsCompiler warning, you can suppress it using the `@suppress` annotation in the function's JSDoc block or the `@fileoverview` block.
+If you cannot easily fix a JsCompiler warning, you can suppress it using the `@suppress` annotation in the function's JSDoc block or the `@fileoverview` block or any assignment in statement position.
 
 ## Example
 ```js
@@ -20,11 +20,11 @@ function blah() {
 ## Other locations
 Some specific `@suppress` annotations are allowed elsewhere:
 
-* `@suppress {const}` and `@suppress {duplicate}` are valid on an assignment in statement position.
 * `@suppress {extraRequire}` is valid just before a `goog.require(...);` statement.
+* `@suppress {switch}` is valid on a  switch statement.
 * `@suppress {missingRequire}` is valid on any statement.
 
-All other annotations can only be suppressed for a function or file.  You cannot suppress most warnings for a single line within a function.
+All other annotations can only be suppressed for a function, file, or declaration.  You cannot suppress most warnings for a single line within a function.
 
 
 ## Suppression tags
