@@ -9,11 +9,14 @@ If you cannot easily fix a JsCompiler warning, you can suppress it using the `@s
  * @suppress {visibility|underscore} 
  */
 function blah() {
-  /** @suppress {visibility} */ // Bad; doesn't work.
+  /** @suppress {visibility} */ // Good; suppresses within this declaration only.
   otherClass.privateField_ = blah;
 
-  /** @suppress {const} */  // Good; this is an exception (see below).
-  SOME_CONSTANT = blah;
+  /** @suppress {checkTypes} */  // Bad; doesn't work.
+  foo(incompatible.type);
+
+  /** @suppress {missingRequire} */  // Good; this is an exception (see below).
+  foo(blah.not.required);
 }
 ```
 
