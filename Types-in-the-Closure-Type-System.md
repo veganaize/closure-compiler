@@ -20,12 +20,14 @@
 <tr>
 <td>Primitive Type</td>
 <td>
-There are 5 primitive types in JavaScript:
+There are 6 primitive types in JavaScript:
 <code>null</code>,
 <code>undefined</code>,
 <code>boolean</code>,
-<code>number</code>, and
-<code>string</code>.
+<code>number</code>, 
+<code>string</code>,
+<code>symbol</code>,
+.
 </td>
 <td>Simply the name of a type.<br><br>
 The primitive type other than <code>null</code> are not nullable.</td>
