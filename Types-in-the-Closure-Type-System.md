@@ -25,8 +25,8 @@ There are 6 primitive types in JavaScript:
 <code>undefined</code>,
 <code>boolean</code>,
 <code>number</code>, 
-<code>string</code>,
-<code>symbol</code>,
+<code>string</code> and
+<code>symbol</code>
 .
 </td>
 <td>Simply the name of a type.<br><br>
