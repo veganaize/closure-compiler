@@ -13,10 +13,8 @@ For complete list of changes refer to the [change log](https://github.com/google
   @suppress annotations.
 * "strictMissingProperties" is now stricter about properties referenced in
     conditionals.  Only "typeof" is allowed as a property existence check.
-* Fixed a [bug that prevented transpilation of `**`]
-  (https://github.com/google/closure-compiler/issues/2821) in some cases.
-* Fixed an [unused code removal bug]
-  (https://github.com/google/closure-compiler/issues/2822)
+* Fixed a [bug that prevented transpilation of `**`](https://github.com/google/closure-compiler/issues/2821) in some cases.
+* Fixed an [unused code removal bug](https://github.com/google/closure-compiler/issues/2822)
 * Improved transpilation of spread `...expr` to improve code size and prevent
   a code pattern that blocked removal of unused code.
 * Stricter "strictMissingProperty" checks.
