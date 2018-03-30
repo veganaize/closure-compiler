@@ -8,8 +8,27 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### Unreleased Changes
-* TBD
+### Mar 19, 2018 (v20180319)
+* Added "misplacedSuppress" diagnostic group for warning about misplaced
+  @suppress annotations.
+* "strictMissingProperties" is now stricter about properties referenced in
+    conditionals.  Only "typeof" is allowed as a property existence check.
+* Fixed a [bug that prevented transpilation of `**`]
+  (https://github.com/google/closure-compiler/issues/2821) in some cases.
+* Fixed an [unused code removal bug]
+  (https://github.com/google/closure-compiler/issues/2822)
+* Improved transpilation of spread `...expr` to improve code size and prevent
+  a code pattern that blocked removal of unused code.
+* Stricter "strictMissingProperty" checks.
+* "`strictCheckTypes`" diagnostic group to enable both the "strict operators"
+  and "strict property access" checks
+* Added preliminary support for 'symbol' as a primitive type to the type system.
+* Bugfixes/performance improvements in the `--checks_only` mode
+* ES6-output improvements:
+    * `StripCode` now supported
+    * `ReplaceMessages` now supported
+* Added new "strictPrimitiveOperators" diagnostic group for getting stricter
+  NTI-like checking of primitive operators.
 
 ### Feb 04, 2018 (v20180204)
 *   Replace `RemoveUnusedClassProperties` and `smartNameRemoval` passes with
