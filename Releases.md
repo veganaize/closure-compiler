@@ -15,7 +15,6 @@ For complete list of changes refer to the [change log](https://github.com/google
 * Introduce "Global" as the type of the global object.
 * Compiler will now keep running compiler passes after hitting non-fatal errors (i.e. those that are not errors by default).
 * Misplaced `@suppress` warnings are now on by default.
-* Add linter check and suggested fix for redundant nullability modifiers.
 
 ### Mar 19, 2018 (v20180319)
 * Added "misplacedSuppress" diagnostic group for warning about misplaced
