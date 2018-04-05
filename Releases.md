@@ -8,6 +8,15 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### Apr 02, 2018 (v20180402)
+* Fixed flaky stack overflow problem in serialization code.
+* Corrected corner-case behavior of `Array.prototype.includes` polyfill.
+* Add a polyfill for `Promise.prototype.finally`.
+* Introduce "Global" as the type of the global object.
+* Compiler will now keep running compiler passes after hitting non-fatal errors (i.e. those that are not errors by default).
+* Misplaced `@suppress` warnings are now on by default.
+* Add linter check and suggested fix for redundant nullability modifiers.
+
 ### Mar 19, 2018 (v20180319)
 * Added "misplacedSuppress" diagnostic group for warning about misplaced
   @suppress annotations.
