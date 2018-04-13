@@ -62,7 +62,7 @@ class HelloWorld implements CompilerPass {
   
   @Override
   public void process(Node externs, Node root) {
-    NodeTraversal.traverseEs6(compiler, root, new Traversal());
+    NodeTraversal.traverse(compiler, root, new Traversal());
   }
   
   private class Traversal extends AbstractPostOrderCallback {
