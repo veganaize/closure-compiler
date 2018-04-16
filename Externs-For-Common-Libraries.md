@@ -66,6 +66,8 @@ https://github.com/steida/react-externs/blob/master/externs.js
 
 ## Firebase
 
+https://github.com/firebase/firebase-js-sdk/tree/master/packages/firebase/externs
+
 project: https://github.com/isabo/firebase-externs
 
 https://github.com/isabo/firebase-externs/blob/master/firebase-externs.js
