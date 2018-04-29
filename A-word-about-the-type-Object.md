@@ -1,6 +1,8 @@
 ## Overview
 `@type {Object}` may seem like the right type for a lot of JavaScript patterns, but in the Closure Compiler type system, Object is a very loose type. There are usually better alternatives.
 
+NOTE: this article pre-dates "strictCheckTypes".  With "strictCheckTypes" enabled the compile will warn about referencing properties that only available on subclasses and the Object type is no longer loose.
+
 ## Namespaces
 
 Namespaces are best typed as `@const` without a type annotation:
