@@ -10,8 +10,8 @@ can effectively analyze and optimize them.
 
 The transformations performed vary by the version of Polymer used. The version is indicated by the `--polymer_version` flag.
 
-Polymer 2 versions require new type inference `--new_type_inf`. The compiler's old type inference system does not
-recognize the version 2 mixin constructs.
+~~Polymer 2 versions require new type inference `--new_type_inf`. The compiler's old type inference system does not
+recognize the version 2 mixin constructs.~~
 
 ## Recognizing a Polymer Element
 
