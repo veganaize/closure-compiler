@@ -8,6 +8,21 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### May 06, 2018 (v20180506)
+- Simplified transpilation of async functions for decreased code size
+- Fixed [redeclared variable error for rest destructuring](https://github.com/google/closure-compiler/issues/2909)
+- [Corrected handling of +0 and -0 in Map and Set polyfills](https://github.com/google/closure-compiler/pull/2905)
+- `--new_type_inf` is now a no-op flag. NTI has been turned down (consider `strictCheckTypes` as an alternative).
+- Removed the deprecated `Text.prototype.replaceWholeText` API
+- Fixed bug in code generator for arrow function bodies with object literals
+- Implemented [string literal trim() folding](https://github.com/google/closure-compiler/pull/2900)
+- Updates to support for local (non-global) @typedef declarations
+- Updates to improved support for local (non-global) type declarations.
+- Modified handling of extern declarations such that a class' @implements are fulfilled implicitly rather than always requiring explicit redefinitions.
+- Improved type inference on callbacks without an explicit type declaration
+- Better error checking in generator functions. Type checking code now understands generators and sees them un-transpiled for all use cases.
+- Better error checking for let/const and for-of loops in `--checksOnly` mode only. Type checking code sees them as untranspiled.
+
 ### Apr 02, 2018 (v20180402)
 * Fixed flaky stack overflow problem in serialization code.
 * Corrected corner-case behavior of `Array.prototype.includes` polyfill.
