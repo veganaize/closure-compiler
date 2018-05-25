@@ -292,8 +292,11 @@ Closure Compiler provides the `--create_source_map` flag to generate a [JavaScri
 Adding the sourceMappingUrl comment can be done with the `--output_wrapper` flag:
 
 ```
---output_wrapper "%output%\n//# sourceMappingURL=output.js.map"
+--output_wrapper "%output%
+//# sourceMappingURL=output.js.map"
 ```
+
+You must use a literal newline inside the string. The compiler does not interpret escape sequences such as `\n`.
 
 ## Contributions
 
