@@ -169,6 +169,22 @@ goog.ds.EmptyNodeList = function() {
 };
 ```
 
+While only one `@extends` is allowed with @constructor, it is allowed to use more than one for `@interface` or `@record`.
+
+```javascript
+/**
+ * @interface
+ * @extends {SuperInterface1}
+ * @extends {SuperInterface2}
+ */
+function SomeInterface() {
+  ...
+};
+```
+
+> Note: `@extends` is implicit with `class` expressions but can be used explicitly to, for example, provide type arguments to the super class type.
+
+
 ---
 
 ### `@externs`
