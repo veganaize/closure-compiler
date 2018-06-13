@@ -9,6 +9,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 ## Details
 
 ### June 10, 2018 (v20180610)
+* This release now contains the JS version of Closure Compiler inside the standard NPM package.
 * Consider @desc as @const
 * Remove special handling for @interface initialized to goog.abstractMethod
 * Fix inline type annotations of optional and var_args parameters.
