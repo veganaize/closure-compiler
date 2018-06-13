@@ -8,6 +8,33 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### June 10, 2018 (v20180610)
+* Consider @desc as @const
+* Remove special handling for @interface initialized to goog.abstractMethod
+* Fix inline type annotations of optional and var_args parameters.
+* Improve CommonJS UMD pattern detection.
+* Removed special handling for `Error` and subclasses: they will no longer be
+  implicitly added if missing from (nonstandard) externs.
+* Typechecking and other checks now see untranspiled template literals,
+  computed properties and object literal member functions.
+* Fixed bug where the compiler wasn't reporting duplicate destructured
+  declarations.
+* Improved type inference for 'assign op's such as `*=`
+* Typechecking and other checks now see untranspiled for-of loops
+* Fixed [incorrect code removal
+  bug](https://github.com/google/closure-compiler/issues/2924). The fix makes
+  an optimization more conservative so may slightly increase code size.
+* Compiler preserves an input source map's `sourcesContent` in the output
+  source map
+* Renamed code-splitting flags from "module" to "chunk".
+  e.g. cross_module_code_motion -> cross_chunk_code_motion
+* Removed JSDoc parser support for "namespace types" (e.g. `{jQuery.}`)
+* Overhauled type inference's data structures for tracking flow-sensitive types
+* Typechecking and other checks now see untranspiled let/const variables.
+* Fixed bug in [for loop transpilation in
+  generator functions](https://github.com/google/closure-compiler/issues/2910)
+* Fix scoping of catch variables during type inference.
+
 ### May 06, 2018 (v20180506)
 - Simplified transpilation of async functions for decreased code size
 - Fixed [redeclared variable error for rest destructuring](https://github.com/google/closure-compiler/issues/2909)
