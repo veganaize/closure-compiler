@@ -2,7 +2,7 @@ Graal `native-image` builds have dramatically faster startup time.  However, for
 
 Currently, June 2018, `native-image` is not available on all platforms (being limited to linux and MacOS) and can not be cross compiled, limiting where it can be used.
 
-As of June 18, 2018: build native-image from head as the release has a bug to causes the build to timeout)
+As of June 18, 2018: build native-image from head as the release has a bug to causes the build to timeout.  See https://github.com/oracle/graal/issues/428
 
 ```
 native-image --static --no-server \
