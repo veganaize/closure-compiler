@@ -1,6 +1,8 @@
 Graal `native-image` builds have dramatically faster startup time.  However, for pinned JVMs (nail gun, etc) or long running binaries (roughly ~5 minutes or greater, depending on available resources), the JVM's dynamic tuning will eventually out-perform the native-image builds.
 
-(June 18, 2018: build native-image from head as the release has a bug to causes the build to timeout)
+Currently, June 2018, `native-image` is not available on all platforms (being limited to linux and MacOS) and can not be cross compiled, limiting where it can be used.
+
+As of June 18, 2018: build native-image from head as the release has a bug to causes the build to timeout)
 
 ```
 native-image --static --no-server \
