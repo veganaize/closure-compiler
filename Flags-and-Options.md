@@ -53,7 +53,7 @@ Assume input sources are to run in strict mode\. \(default: true\)
 
 **--warnings_whitelist_file VAL**  
 A file containing warnings to suppress\. Each line should be of the form
-                                                                                      <file\-name>:<line\-number>?  <warning\-description> \(default: \)
+                                                                                      \<file\-name\>:\<line\-number\>?  \<warning\-description\> \(default: \)
 
 ## Available Error Groups
 
@@ -171,7 +171,7 @@ Generate $inject properties for AngularJS for functions annotated with @ngInject
 Rewrite Dart Dev Compiler output to be compiler\-friendly\. \(default: false\)
 
 **--force_inject_library VAL**  
-Force injection of named runtime libraries\. The format is <name> where <name> is the name of a runtime library\. Possible libraries include: base, es6_runtime, runtime_type_check
+Force injection of named runtime libraries\. The format is \<name\> where \<name\> is the name of a runtime library\. Possible libraries include: base, es6_runtime, runtime_type_check
 
 **--inject_libraries**  
 Allow injecting runtime libraries\. \(default: true\)
@@ -189,13 +189,13 @@ Rewrite ES6 library calls to use polyfills provided by the compiler's runtime\. 
 # Code Splitting
 
 **--chunk (--module) VAL**  
-A JavaScript chunk specification\. The format is <name>:<num\-js\-files>\[:\[<dep>,\.\.\.\]\[:\]\]\]\. Chunk names must be unique\. Each dep is the name of a chunk that this chunk depends on\. Chunks must be listed in dependency order, and JS source files must be listed in the corresponding order\. Where \-\-chunk flags occur in relation to \-\-js flags is unimportant\. <num\-js\-files> may be set to 'auto' for the first chunk if it has no dependencies\. Provide the value 'auto' to trigger chunk creation from CommonJSmodules\.
+A JavaScript chunk specification\. The format is \<name\>:\<num\-js\-files\>\[:\[\<dep\>,\.\.\.\]\[:\]\]\]\. Chunk names must be unique\. Each dep is the name of a chunk that this chunk depends on\. Chunks must be listed in dependency order, and JS source files must be listed in the corresponding order\. Where \-\-chunk flags occur in relation to \-\-js flags is unimportant\. \<num\-js\-files\> may be set to 'auto' for the first chunk if it has no dependencies\. Provide the value 'auto' to trigger chunk creation from CommonJSmodules\.
 
 **--chunk_output_path_prefix (--module_output_path_prefix) VAL**  
-Prefix for filenames of compiled JS chunks\. <chunk\-name>\.js will be appended to this prefix\. Directories will be created as needed\. Use with \-\-chunk \(default: \./\)
+Prefix for filenames of compiled JS chunks\. \<chunk\-name\>\.js will be appended to this prefix\. Directories will be created as needed\. Use with \-\-chunk \(default: \./\)
 
 **--chunk_wrapper (--module_wrapper) VAL**  
-An output wrapper for a JavaScript chunk \(optional\)\. The format is <name>:<wrapper>\. The chunk name must correspond with a chunk specified using \-\-chunk\. The wrapper must contain %s as the code placeholder\. Alternately, %output% can be used in place of %s\. %n% can be used to represent a newline\. The %basename% placeholder can also be used to substitute the base name of the chunk output file\.
+An output wrapper for a JavaScript chunk \(optional\)\. The format is \<name\>:\<wrapper\>\. The chunk name must correspond with a chunk specified using \-\-chunk\. The wrapper must contain %s as the code placeholder\. Alternately, %output% can be used in place of %s\. %n% can be used to represent a newline\. The %basename% placeholder can also be used to substitute the base name of the chunk output file\.
 
 
 # Reports
@@ -234,7 +234,7 @@ Input and output charset for all files\. By default, we accept UTF\-8 as input a
 Don't generate output\. Run checks, but no optimization passes\. \(default: false\)
 
 **--define (--D, -D) VAL**  
-Override the value of a variable annotated @define\. The format is <name>\[=<val>\], where <name> is the name of a @define variable and <val> is a boolean, number, or a single\-quoted string that contains no single quotes\. If \[=<val>\] is omitted, the variable is marked true
+Override the value of a variable annotated @define\. The format is \<name\>\[=\<val\>\], where \<name\> is the name of a @define variable and \<val\> is a boolean, number, or a single\-quoted string that contains no single quotes\. If \[=\<val\>\] is omitted, the variable is marked true
 
 **--help**  
 Displays this message on stdout and exit \(default: false\)
