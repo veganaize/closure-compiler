@@ -7,11 +7,11 @@ Specifies the compilation level to use\. Options: BUNDLE, WHITESPACE_ONLY, SIMPL
 Determines the set of builtin externs to load\. Options: BROWSER, CUSTOM\. Defaults to BROWSER\.
 
 **--externs VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 The file containing JavaScript externs\. You may specify multiple
 
 **--js VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 The JavaScript filename\. You may specify multiple\. The flag name is optional, because args are interpreted as files by default\. You may also use minimatch\-style glob patterns\. For example, use \-\-js='\*\*\.js' \-\-js='\!\*\*_test\.js' to recursively include all js files that do not end in _test\.js
 
 **--js_output_file VAL**  
@@ -21,7 +21,7 @@ Primary output filename\. If not specified, output is written to stdout
 Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED \(experimental\), ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_NEXT
 
 **--language_out VAL**  
-Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED \(experimental\), ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_NEXT, NO_TRANSPILE
+Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015
 
 **--warning_level (-W) [QUIET | DEFAULT | VERBOSE]**  
 Specifies the warning level to use\. Options: QUIET, DEFAULT, VERBOSE
@@ -30,15 +30,14 @@ Specifies the warning level to use\. Options: QUIET, DEFAULT, VERBOSE
 # Warning and Error Management
 
 **--conformance_configs VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 A list of JS Conformance configurations in text protocol buffer format\.
 
 **--error_format [STANDARD | JSON]**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Specifies format for error messages\.
 
 **--extra_annotation_name VAL**  
-*Not supported by the JavaScript version*  
 A whitelist of tag names in JSDoc\. You may specify multiple
 
 **--hide_warnings_for VAL**  
@@ -54,11 +53,10 @@ Turn off the named class of warnings\. Must be one of the error group items\. '\
 Make the named class of warnings a normal warning\. Must be one of the error group items\. '\*' adds all supported\.
 
 **--strict_mode_input**  
-*Not supported by the JavaScript version*  
 Assume input sources are to run in strict mode\.
 
 **--warnings_whitelist_file VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 A file containing warnings to suppress\. Each line should be of the form
                                                                                       \<file\-name\>:\<line\-number\>?  \<warning\-description\>
 
@@ -136,14 +134,14 @@ If set to IIFE the compiler output will follow the form:
 Interpolate output into this string at the place denoted by the marker token %output%\. Use marker token %output|jsstring% to do js string escaping on the output\. Consider using the \-\-isolation_mode flag instead\.
 
 **--output_wrapper_file VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Loads the specified file and passes the file contents to the \-\-output_wrapper flag, replacing the value if it exists\. This is useful if you want special characters like newline in the wrapper\.
 
 **--rename_prefix_namespace VAL**  
 Specifies the name of an object that will be used to store all non\-extern globals
 
 **--rename_variable_prefix VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Specifies a prefix that will be prepended to all variables\.
 
 
@@ -168,7 +166,6 @@ Specifies how the compiler locates modules\. BROWSER requires all module imports
 Process CommonJS modules to a concatenable form\.
 
 **--package_json_entry_names VAL**  
-*Not supported by the JavaScript version*  
 Ordered list of entries to look for in package\.json files when processing modules with the NODE module resolution strategy \(i\.e\. esnext:main,browser,main\)\. Defaults to a list with the following entries: "browser", "module", "main"\.
 
 
@@ -181,15 +178,15 @@ Generate $inject properties for AngularJS for functions annotated with @ngInject
 Rewrite Dart Dev Compiler output to be compiler\-friendly\.
 
 **--force_inject_library VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Force injection of named runtime libraries\. The format is \<name\> where \<name\> is the name of a runtime library\. Possible libraries include: base, es6_runtime, runtime_type_check
 
 **--inject_libraries**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Allow injecting runtime libraries\.
 
-**--polymer_pass**  
-Equivalent to \-\-polymer_version=1
+**--polymer_version N**  
+Which version of Polymer is being used \(1 or 2\)\.
 
 **--process_closure_primitives**  
 Processes built\-ins from the Closure library, such as goog\.require\(\), goog\.provide\(\), and goog\.exportSymbol\(\)\. True by default\.
@@ -213,41 +210,40 @@ An output wrapper for a JavaScript chunk \(optional\)\. The format is \<name\>:\
 # Reports
 
 **--create_source_map VAL**  
-*Not supported by the JavaScript version*  
 If specified, a source map file mapping the generated source files back to the original source file will be output to the specified path\. The %outname% placeholder will expand to the name of the output file that the source map corresponds to\.
 
 **--output_manifest VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Prints out a list of all the files in the compilation\. If \-\-dependency_mode=STRICT or LOOSE is specified, this will not include files that got dropped because they were not required\. The %outname% placeholder expands to the JS output file\. If you're using modularization, using %outname% will create a manifest for each module\.
 
 **--output_chunk_dependencies (--output_module_dependencies) VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Prints out a JSON file of dependencies between chunks\.
 
 **--property_renaming_report VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 File where the serialized version of the property renaming map produced should be saved
 
 **--source_map_input VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Source map locations for input files, separated by a '|', \(i\.e\. input\-file\-path|input\-source\-map\)
 
 **--source_map_include_content**  
 Includes sources content into source map\. Greatly increases the size of source maps but offers greater portability
 
 **--source_map_location_mapping VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Source map location mapping separated by a '|' \(i\.e\. filesystem\-path|webserver\-path\)
 
 **--variable_renaming_report VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 File where the serialized version of the variable renaming map produced should be saved
 
 
 # Miscellaneous
 
 **--charset VAL**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Input and output charset for all files\. By default, we accept UTF\-8 as input and output US_ASCII
 
 **--checks_only (--checks-only)**  
@@ -257,16 +253,16 @@ Don't generate output\. Run checks, but no optimization passes\.
 Override the value of a variable annotated @define\. The format is \<name\>\[=\<val\>\], where \<name\> is the name of a @define variable and \<val\> is a boolean, number, or a single\-quoted string that contains no single quotes\. If \[=\<val\>\] is omitted, the variable is marked true
 
 **--help**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Displays this message on stdout and exit
 
 **--third_party**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Check source validity but do not enforce Closure style rules and conventions
 
 **--use_types_for_optimization**  
 Enable or disable the optimizations based on available type information\. Inaccurate type annotations may result in incorrect results\.
 
 **--version**  
-*Not supported by the JavaScript version*  
+<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Prints the compiler version to stdout and exit\.
