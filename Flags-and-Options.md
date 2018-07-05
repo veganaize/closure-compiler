@@ -116,6 +116,9 @@ A file containing warnings to suppress\. Each line should be of the form
 **--assume_function_wrapper**  
 Enable additional optimizations based on the assumption that the output will be wrapped with a function wrapper\.  This flag is used to indicate that "global" declarations will not actually be global but instead isolated to the compilation unit\. This enables additional optimizations\.
 
+**--debug**  
+Enable debugging options\. Property renaming uses long mangled names which can be mapped back to the original name\.
+
 **--export_local_property_definitions**  
 Generates export code for local properties marked with @export
 
@@ -141,7 +144,6 @@ Loads the specified file and passes the file contents to the \-\-output_wrapper 
 Specifies the name of an object that will be used to store all non\-extern globals
 
 **--rename_variable_prefix VAL**  
-<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Specifies a prefix that will be prepended to all variables\.
 
 
@@ -178,11 +180,9 @@ Generate $inject properties for AngularJS for functions annotated with @ngInject
 Rewrite Dart Dev Compiler output to be compiler\-friendly\.
 
 **--force_inject_library VAL**  
-<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Force injection of named runtime libraries\. The format is \<name\> where \<name\> is the name of a runtime library\. Possible libraries include: base, es6_runtime, runtime_type_check
 
 **--inject_libraries**  
-<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Allow injecting runtime libraries\.
 
 **--polymer_version N**  
