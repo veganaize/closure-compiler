@@ -380,9 +380,9 @@ window['foobar'] = foo.bar;
 
 `@nosideeffects` indicates that a call to the declared function has no side effects. This annotation allows the compiler to remove calls to the function if the return value is not used.  This is not a signal that the function is "pure", it may still read mutable global state.  
 
-`@modifies {this}` signals that only direct properties of the provided `this` are modified.  Calls to these functions maybe be removed if the "this" object is known to be otherwise unused.
+`@modifies {this}` signals that only direct properties of the provided `this` are modified.  Calls to these functions may be removed if the "this" object is known to be otherwise unused.
 
-`@modifies {arguments}` signals that only direct properties of the provided arguments are modified.  Calls to these functions maybe be removed if the parameters provided to the function are otherwise known to be otherwise unused.
+`@modifies {arguments}` signals that only direct properties of the provided arguments are modified.  Calls to these functions may be removed if the parameters provided to the function are otherwise known to be otherwise unused.
 
 These annotations are only allowed in extern files.
 
