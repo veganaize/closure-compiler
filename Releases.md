@@ -8,6 +8,13 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### July 16, 2018 (v20180716)
+* Add a pom file for building a RefasterJs jar.
+* Type checker now knows that global `let` and `const` declarations do not add properties to the global object. To avoid a missing property error, you must use `var foo` if you want to later access `window.foo`.
+* Improvements to CommonJS rewriting support.
+* Improvements to the typechecking of several ES6 patterns, including rest/spread.
+* Forward references to types now preserve their type arguments.
+
 ### June 10, 2018 (v20180610)
 * This release now contains the JS version of Closure Compiler inside the standard NPM package.
 * Consider @desc as @const
