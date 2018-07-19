@@ -14,6 +14,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 * Improvements to CommonJS rewriting support.
 * Improvements to the typechecking of several ES6 patterns, including rest/spread.
 * Forward references to types now preserve their type arguments.
+* The npm distribution now includes native binaries for MacOS and Linux. Native binaries offer faster compile times without requiring a JVM.
 
 ### June 10, 2018 (v20180610)
 * This release now contains the JS version of Closure Compiler inside the standard NPM package.
