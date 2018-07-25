@@ -40,7 +40,7 @@ deprecated|Warnings when non-deprecated code accesses code that's marked @deprec
 duplicateMessage|Warnings when two i18n messages have the same id|ERROR
 duplicate|Warnings when a variable is declared twice in the global scope|ERROR
 es3|Warnings about EcmaScript3|ERROR
-es5Strict|Warnings about EcmaScript5 strict mode|ERROR
+es5Strict|Warnings about EcmaScript5 strict mode. See [here](https://github.com/google/closure-compiler/issues/3014) for how to turn these off.|ERROR
 externsValidation|Warnings about malformed externs files|WARNING
 extraRequire|Warnings about unnecessary goog.require calls|OFF
 fileoverviewTags|Warnings about duplicate @fileoverview tags|WARNING
