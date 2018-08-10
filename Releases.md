@@ -8,6 +8,18 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### August 5, 2018 (v20180805)
+* GWT version of the compiler now supports `--js` and `--externs` flags when
+  executed by NodeJS.
+* Fixed a crash that occurred when extending a non-builtin class named `Object`.
+* Fixed a bug causing incorrect escaping in template literals for `ES6+`
+  output.
+* You can now specify `STABLE` for input and/or output language level to request
+  the latest version of JavaScript that is fully supported by the compiler.
+  Currently, this means `ES_2017` for input and `ES5` for output.
+* Fixed bug in [optimization of shorthand assignments]
+  (https://github.com/google/closure-compiler/issues/3017) (e.g. `+=`, `*=`)
+
 ### July 16, 2018 (v20180716)
 * Add a pom file for building a RefasterJs jar.
 * Type checker now knows that global `let` and `const` declarations do not add properties to the global object. To avoid a missing property error, you must use `var foo` if you want to later access `window.foo`.
