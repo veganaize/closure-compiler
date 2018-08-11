@@ -7,21 +7,19 @@ Specifies the compilation level to use\. Options: BUNDLE, WHITESPACE_ONLY, SIMPL
 Determines the set of builtin externs to load\. Options: BROWSER, CUSTOM\. Defaults to BROWSER\.
 
 **--externs VAL**  
-<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 The file containing JavaScript externs\. You may specify multiple
 
 **--js VAL**  
-<sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 The JavaScript filename\. You may specify multiple\. The flag name is optional, because args are interpreted as files by default\. You may also use minimatch\-style glob patterns\. For example, use \-\-js='\*\*\.js' \-\-js='\!\*\*_test\.js' to recursively include all js files that do not end in _test\.js
 
 **--js_output_file VAL**  
 Primary output filename\. If not specified, output is written to stdout
 
 **--language_in VAL**  
-Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED \(experimental\), ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_NEXT
+Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED \(experimental\), ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, STABLE, ECMASCRIPT_NEXT
 
 **--language_out VAL**  
-Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015
+Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, STABLE
 
 **--warning_level (-W) [QUIET | DEFAULT | VERBOSE]**  
 Specifies the warning level to use\. Options: QUIET, DEFAULT, VERBOSE
