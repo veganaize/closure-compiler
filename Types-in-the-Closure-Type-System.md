@@ -558,9 +558,9 @@ new C();</PRE>
 <td>interface</td>
 <td>
 <PRE>/** @interface */
-function I() {}
-
-I.prototype.draw = function() {};</PRE>
+class I {
+  draw() {}
+}</PRE>
 </td>
 <td></td>
 </tr>
@@ -569,9 +569,14 @@ I.prototype.draw = function() {};</PRE>
 <td>record</td>
 <td>
 <PRE>/** @record */
-function R() {}
+class R {
+  constructor() {
+    /** @type {string} */
+    this.color;
+  }
 
-R.prototype.draw = function() {};</PRE>
+  draw() {}
+}</PRE>
 </td>
 <td>
                   Like an interface, but is checked using structural equality
