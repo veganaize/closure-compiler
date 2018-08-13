@@ -574,7 +574,6 @@ class R {
     /** @type {string} */
     this.color;
   }
-
   draw() {}
 }</PRE>
 </td>
