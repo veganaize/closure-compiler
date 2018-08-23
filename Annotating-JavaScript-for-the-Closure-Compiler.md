@@ -407,7 +407,7 @@ a.prototype.noSideEffectsFn3 = function() {
 
 ### `@override`
 
-Indicates that a method or property is part of an implemented by the class or itintentionally hides a method or property of the superclass. If no other annotations are included, the method or property automatically inherits annotations from its superclass.
+Indicates that a method or property is part of an interface implemented by the class or it intentionally hides a method or property of the superclass. If no other annotations are included, the method or property automatically inherits annotations from its superclass.
 
 ```javascript
 /**
