@@ -56,30 +56,3 @@ requirement: {
    error_message: 'Accessing properties from objects that are forward-declared type names is discouraged. Please require this type.'
  }
  ```
-
-# Bad Type Annotation - Incompatible Type Annotation
-
-The Closure Compiler will also warn if it sees different styles of type annotations in the same JSDoc. The error will look like `Bad type annotation. type annotation incompatible with other annotations.`.
-
-## Mixed @type and function types
-
-This code will warn:
-``` javascript
-/**
- * @type {function(): string}
- * @return {string}
- */
-var x;
-```
-The compiler doesn't expect you to mix `@type` annotations with the function-specific `@param` or `@return` annotation.
-
-## Multiple extends annotations
-``` javascript
-/**
- * @extends {Foo}
- * @extends {Bar}
- * @constructor
- */
-function Baz() {}
-```
-As in Java, the Closure type system only allows each constructor to extend one other constructor.
