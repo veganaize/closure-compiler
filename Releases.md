@@ -8,6 +8,24 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### September 10, 2018 (v20180910)
+*   The "typeof" type expressions now have preliminary support. Type expressions
+    of the form "typeof x" can be used to refer to types of objects that are
+    were previously anonymous such as a namespace, an enum definition or a
+    constructor.
+*   Improved the "duplicate provide" error message to include the other file.
+*   Fixed bug where compiler failed to warn on variables referenced before
+    declaration inside inner block scopes.
+*   (`ES_2018`) Recognize unicode property escapes in regular expression
+    literals. Generate a warning since we don't transpile those yet.
+*   (`ES2018`) Recognize lookbehind assertions in regular expression literals.
+    Generate a warning since we don't transipile those yet.
+*   `@protected` properties of outer classes are now accessible from inner ones.
+*   Fix for bad code do to inlining of references to "super".
+*   Applied Java 10 C2 bug workaround.
+*   Initial implementation for async generators available with an `ES2018` input
+    language level.
+
 ### August 5, 2018 (v20180805)
 * GWT version of the compiler now supports `--js` and `--externs` flags when
   executed by NodeJS.
