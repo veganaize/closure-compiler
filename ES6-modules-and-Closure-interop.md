@@ -1,4 +1,8 @@
-While Closure Library does not currently have any ES6 modules, the Closure Compiler and the Library's Debug Loader are compatible with ES6 modules. For more information on the Debug Loader support see [ES6 modules and Closure Library](https://github.com/google/closure-library/wiki/ES6-modules-and-Closure-Library).
+While Closure Library does not currently have any ES6 modules, the Closure Compiler and the Library's Debug Loader are compatible with ES6 modules.
+
+For more information on the Debug Loader support see [ES6 modules and Closure Library](https://github.com/google/closure-library/wiki/ES6-modules-and-Closure-Library).
+
+For a migration guide from `goog.module`s to ES6 modules, see [Migrating from goog.modules to ES6 modules](https://github.com/google/closure-compiler/wiki/Migrating-from-goog.modules-to-ES6-modules).
 
 # Referencing Closure Files from ES6 Modules
 
