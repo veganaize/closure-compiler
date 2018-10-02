@@ -32,7 +32,7 @@ export, especially when it comes to `goog.require`. When `goog.require`ing an
 ES6 module it **always** returns the module object (like `import * as`). If the
 ES6 module has a default export then that means the object will have a key
 `default` with the default export as value. Closure module default exports
-totally change what `goog.require` returns. ES6 default exports always result in
+directly change what `goog.require` returns. ES6 default exports always result in
 `goog.require` returning an object with both any named exports and the default
 export.
 
