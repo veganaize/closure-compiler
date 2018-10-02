@@ -65,6 +65,8 @@ import MySymbol from 'path/to/module.js';
 export MySymbol;
 ```
 
+For information on interop with Closure files, see [ES6 modules and Closure interop](https://github.com/google/closure-compiler/wiki/ES6-modules-and-Closure-interop).
+
 ### Uncompiled Support for ES6 Modules
 
 ES6 module loading is still at very early stages of development. Currently, ES6 modules require transpilation to another module format and therefore are not supported by browsers in uncompiled mode. This is not a limitation of the compiler, but one of the environment.
