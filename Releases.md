@@ -8,6 +8,29 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### October 8, 2018 (v20181008)
+*   Typechecking and other checks now see untranspiled classes and arrow functions
+*   ES2018 feature: Allow previously invalid escape sequences in tagged template
+  literals, according to https://tc39.github.io/proposal-template-literal-revision/.
+*   The "Symbol" polyfill is now injected less often.
+  Specifically, the use of "for-of" no longer requires the Symbol polyfill.
+*   GitHub issue #3080: The WeakMap polyfill no longer causes infinite recursion
+  when freezing objects recursively.
+*   Rename the helper method for declaring a closure namespace from an
+  ES6 module from from goog.module.declareNamespace to goog.declareModuleId.
+*   PolymerPass now generates goog.exportProperty calls (instead of externs)
+  when protecting Polymer element methods from renaming and dead code removal.
+*   Fixed crash when printing "typeof" in type expressions when printing JSDoc.
+*   We no longer accept missing template parameters as unknowns in the unknown
+  conformance checks.
+*   Fixed bug using quotes from command line on windows. (GitHub issue #3081)
+*   Recognize named capture groups in Regex expressions and report error when
+    trying to transpile named capture groups
+*   `@suppress` is now legal on computed property methods and applies to both
+    the property name expression and the method body.
+*   `symbol` is now an allowed type in `in` expressions
+    [(github issue 3060)](https://github.com/google/closure-compiler/issues/3060)
+
 ### September 10, 2018 (v20180910)
 *   The "typeof" type expressions now have preliminary support. Type expressions
     of the form "typeof x" can be used to refer to types of objects that are
