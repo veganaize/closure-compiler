@@ -92,6 +92,7 @@ A file containing warnings to suppress\. Each line should be of the form
   - newCheckTypes
   - nonStandardJsDocs
   - missingSourcesWarnings
+  - polymer
   - reportUnknownTypes
   - suspiciousCode
   - strictCheckTypes
