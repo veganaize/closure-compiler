@@ -105,3 +105,7 @@ https://raw.github.com/lukeasrodgers/underscore-js-externs/master/underscore-1.4
 project: https://github.com/google/closure-compiler/tree/master/contrib/externs
 
 https://github.com/google/closure-compiler/tree/master/contrib/externs/youtubeplayer.js
+
+# Collections
+
+cljsjs packages: https://github.com/cljsjs/packages
