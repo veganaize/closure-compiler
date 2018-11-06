@@ -17,7 +17,6 @@ The Closure Compiler is a tool for making JavaScript download and run faster. It
 * [Type Based Property Renaming](https://github.com/google/closure-compiler/wiki/Type-Based-Property-Renaming)
 * [JS Conformance](https://github.com/google/closure-compiler/wiki/JS-Conformance-Framework)
 * [Managing Dependencies](https://github.com/google/closure-compiler/wiki/Managing-Dependencies)
-* [Using NTI (new type inference)](https://github.com/google/closure-compiler/wiki/Using-NTI-(new-type-inference))
 * [Warnings](https://github.com/google/closure-compiler/wiki/Warnings)
 
 ### Typing
