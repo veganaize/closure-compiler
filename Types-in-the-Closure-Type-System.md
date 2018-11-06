@@ -282,9 +282,22 @@ Record types are not nullable.
 </td>
 <td>
 <code>@param {number=} opt_argument</code><br>
-                  An optional parameter of type<code>number</code>.
+                  An optional parameter of type <code>number</code>.
 </td>
 <td>Specifies that the annotated function accepts an optional argument.</td>
+</tr>
+
+<tr>
+<td>
+<a name="typeof-operator"></a>
+  Typeof operator
+</td>
+<td>
+<code>typeof ns</code><br>
+                  The type of the namespace <code>ns</code>.
+</td>
+<td>Evaluates to the type of a given value, which must be constant and declared (rather than inferred).
+Allows expressing the type of namespaces, constructors, and enum namespaces.</td>
 </tr>
 
 <tr>
