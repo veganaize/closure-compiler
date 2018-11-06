@@ -420,7 +420,7 @@ project.SubClass.prototype.toString = function() {
 };
 ```
 
-This tag is not required when a class extends a superclass or implements an interface - in those cases the documentation is automatically inherited. This tag is mainly useful to catch typos such as a method named `foobar1` in the superclass and mistakenly named `foobar2` in the subclass.
+Adding or omitting the `@override` tag does not change what type the compiler infers for a method in a class that extends a superclass or implements an interface. The method's documentation is always automatically inherited from the overridden method in those cases. However, the recommended compiler flagset includes warnings for missing and spurious `@override` annotations. These warnings are mainly useful to catch typos, like a method named `foobar1` in the superclass and mistakenly named `foobar2` in the subclass.
 
 ---
 
