@@ -8,6 +8,16 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### October 28, 2018 (v20181028)
+*   Typechecking will now run for builds with `--language_out=ECMASCRIPT_2015`.
+    Previously, typechecking was disabled for output level better than `ES5`.
+*   Made name alias inlining more aggressive to fix some cases where property collapsing causes bad output
+*   Change async transpilation to work around an MS Edge bug.
+    https://github.com/google/closure-compiler/issues/3101
+*   Fixed bug causing some properties aliasing global names to be set to `null`
+*   Removed obsolete `RemoveSuperMethods` pass.
+*   Improved type checking for destructured parameters and assignments.
+
 ### October 8, 2018 (v20181008)
 *   Typechecking and other checks now see untranspiled classes and arrow functions
 *   ES2018 feature: Allow previously invalid escape sequences in tagged template
