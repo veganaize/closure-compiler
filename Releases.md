@@ -8,6 +8,29 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### November 25, 2018 (v20181125)
+* Improved typechecking for [async/await](https://github.com/google/closure-compiler/issues/2540)
+  and ES6 class constructor calls
+* Typechecking now available for builds with `--language_out=ECMASCRIPT_2017`.
+  Previously it was disabled.
+* `--disambiguate_properties` and `--replace_strings` work for builds with
+  `--language_out=ECMASCRIPT_2017`.
+* Subtyping is now recognized for recursive templated types (e.g. `Child extends
+  Parent<Child>`)
+* Access-controls are now applied to property accesses via destructuring.
+* Report errors for comparisons involving `Number.NaN`, since they are always
+  `false`.
+* Fixed [crash](https://github.com/google/closure-compiler/issues/3145) on
+  computed properties in destructuring
+* Correct transpilation of ES6 class getters and setters with quoted property
+  names.
+* Added [polyfill for Math.fround](https://github.com/google/closure-compiler/issues/3141)
+* Warnings about JSDoc annotations in non-JSDoc comments (e.g. `/* @private */`)
+  have been moved to the linter and will no longer be reported during builds.
+* Linter now gives suggested fixes for reference types without ! or ?
+* Fixed crash when multi-line template literals are present towards the end
+  of the file.
+
 ### October 28, 2018 (v20181028)
 *   Typechecking will now run for builds with `--language_out=ECMASCRIPT_2015`.
     Previously, typechecking was disabled for output level better than `ES5`.
