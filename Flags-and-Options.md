@@ -148,8 +148,8 @@ Specifies a prefix that will be prepended to all variables\.
 
 # Dependency Management
 
-**--dependency_mode [NONE | LOOSE | STRICT]**  
-Specifies how the compiler should determine the set and order of files for a compilation\. Options: NONE the compiler will include all src files in the order listed, STRICT files will be included and sorted by starting from namespaces or files listed by the \-\-entry_point flag \- files will only be included if they are referenced by a goog\.require or CommonJS require or ES6 import, LOOSE same as with STRICT but files which do not goog\.provide a namespace and are not modules will be automatically added as \-\-entry_point entries\. Defaults to NONE\.
+**--dependency_mode [NONE | SORT_ONLY | PRUNE_LEGACY | PRUNE | LOOSE | STRICT]**  
+Specifies how the compiler should determine the set and order of files for a compilation\. Options: NONE the compiler will include all src files in the order listed, SORT_ONLY the compiler will include all source files in dependency order, PRUNE files will only be included if they are transitive dependencies of files listed in the \-\-entry_point flag and then sorted in dependency order, PRUNE_LEGACY same as PRUNE but files that do not goog\.provide a namespace and are not modules will be automatically added as \-\-entry_point entries\. Defaults to PRUNE_LEGACY if entry points are defined, otherwise to NONE\.
 
 **--entry_point VAL**  
 A file or namespace to use as the starting point for determining which src files to include in the compilation\. ES6 and CommonJS modules are specified as file paths \(without the extension\)\. Closure\-library namespaces are specified with a "goog:" prefix\. Example: \-\-entry_point=goog:goog\.Promise
@@ -213,7 +213,7 @@ If specified, a source map file mapping the generated source files back to the o
 
 **--output_manifest VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Prints out a list of all the files in the compilation\. If \-\-dependency_mode=STRICT or LOOSE is specified, this will not include files that got dropped because they were not required\. The %outname% placeholder expands to the JS output file\. If you're using modularization, using %outname% will create a manifest for each module\.
+Prints out a list of all the files in the compilation\. If \-\-dependency_mode=PRUNE or PRUNE_LEGACY is specified, this will not include files that got dropped because they were not required\. The %outname% placeholder expands to the JS output file\. If you're using modularization, using %outname% will create a manifest for each module\.
 
 **--output_chunk_dependencies (--output_module_dependencies) VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
@@ -264,4 +264,4 @@ Enable or disable the optimizations based on available type information\. Inaccu
 
 **--version**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Prints the compiler version to stdout and exit\.
+Prints the compiler version to stdout and exits\.
