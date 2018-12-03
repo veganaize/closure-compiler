@@ -2,7 +2,7 @@
 
 ### Closure module default exports
 
-Closure modules can have a "default" export via `export = value;`. When using
+Closure modules can have a "default" export via `exports = value;`. When using
 this syntax the module's exports become the default export. This is frequently
 used with modules that export a single class.
 
