@@ -95,7 +95,7 @@ new files.
     next to it. This new file should be a Closure module with the original
     Closure namespace and should `goog.require` the ES6 module and forward its
     exports. Remember that your `goog.require` returns an ES6 module object and
-    you want to forward just one of its keys with `export = value.`
+    you want to forward just one of its keys with `exports = value.`
 1.  Edit all ES6 module files that are using `goog.require` on the module
     namespace to instead use ES6 `import`.
 1.  Delete the \*\_shim.js file and change any left over `goog.require`s in
