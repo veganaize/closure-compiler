@@ -264,4 +264,4 @@ Enable or disable the optimizations based on available type information\. Inaccu
 
 **--version**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Prints the compiler version to stdout and exits\.
+Prints the compiler version to stdout and exit\.
