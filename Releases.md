@@ -8,6 +8,12 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### December 10, 2018 (v20181210)
+* Enable the `--ambiguate_properties` optimization for ES2015-ES2017 output.
+* Enable processing of `@define` annotations in checks-only mode, so errors related to them will be reported.
+* Report warnings when calling a superclass abstract method with `super.foo()`.
+* Fix crash in PolymerPass when missing externs for PolymerElement.
+
 ### November 25, 2018 (v20181125)
 * Improved typechecking for [async/await](https://github.com/google/closure-compiler/issues/2540)
   and ES6 class constructor calls
