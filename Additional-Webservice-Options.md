@@ -1,13 +1,12 @@
 # closure-compiler webservice options
 
-In addition to the options provided in the [webservice UI]
-(http://closure-compiler.appspot.com), the following options are also available:
+In addition to the options provided in the [webservice UI](http://closure-compiler.appspot.com), the following options are also available:
 
 **option**                 | **example**                         | **accepted values**
 -------------------------- | ----------------------------------- | -------------------
 debug                      | // @debug true                      | true, false
 warning level              | // @warning_level VERBOSE           | QUIET, DEFAULT, VERBOSE
-externs url                | // @externs_url http://a[]().url    |
+externs url                | // @externs_url http://a.url    |
 externs code               | // @js_externs var externName;      |
 language                   | // @language ECMASCRIPT5            | ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017
 language_out               | // @language_out ECMASCRIPT5        | ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT
