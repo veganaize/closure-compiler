@@ -8,6 +8,13 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### January 6, 2019 (v20190106)
+*   Enabled the `--inline_properties` optimization for ES2015-ES2017 output.
+*   Improved dead code removal for empty destructuring patterns.
+*   `@noinline` now prevents constant parameter values from being inlined into
+    the body of functions.
+*   Improved property collapsing for destructured objects in ES2015 output
+
 ### December 10, 2018 (v20181210)
 * Enable the `--ambiguate_properties` optimization for ES2015-ES2017 output.
 * Enable processing of `@define` annotations in checks-only mode, so errors related to them will be reported.
