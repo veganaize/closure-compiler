@@ -7,6 +7,26 @@ We also update the source distribution and the compile service (at http://closur
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### January 21, 2019 (v20190121)
+*   Report a warning if the left-hand side of a logical operator is guaranteed
+    to always have the same boolean value.
+*   Devirtualization of prototype properties optimization is now enabled for
+    ES6 classes, even when not transpiled to ES5.
+*   Type inference of `Promise.prototype.catch()` was corrected so that the
+    return value is `Promise<X>` when the callback's return value is
+    `Thenable<X>`. It previously was incorrectly inferred as
+    `Promise<Thenable<X>>`.
+*   Missing properties on functions are reported more aggressively with
+    "missingProperties" as they are with "strictMissingProperties".  This
+    also improve type checking performance on larger projects.
+*   Property collapsing is more aggressive on ES6 classes in untranspiled mode.
+*   Improved type checking for object spread. e.g. `const o = {a:1,
+    ...otherObj};`
+*   `--record_function_information` flag is no longer supported.
+*   Union types of arguments are decomposed when matching function template
+    types, allowing more matches. Example, passing `Array<string>|Set<string>`
+    to a function expecting `Iterable<T>` now infers `T` to be `string`.
+*   Runtime type checks can be added to ES6 code.
 
 ### January 6, 2019 (v20190106)
 *   Enabled the `--inline_properties` optimization for ES2015-ES2017 output.
