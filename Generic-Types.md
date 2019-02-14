@@ -6,58 +6,75 @@ You can use generics to implement generalized collections that hold references t
 
 ### Declaring a Generic Type
 
-A type can be made generic by adding a `@template` annotation to the type's constructor (for classes) or interface declaration (for interfaces). For example:
+A class or interface can be made generic by adding a `@template` annotation to the class's JSDoc. For example:
+
+```javascript
+/** @template T */
+class Foo {}
+```
+
+Pre-ES6 style classes and interfaces are made generic by adding a `@template` annotation to the constructor JSDoc. For example:
 
 ```javascript
 /**
  * @constructor
  * @template T
  */
-Foo = function() { ... };
+var Foo = function() { ... };
 ```
 
 The annotation `@template T` indicates that Foo is a generic type with one template type, `T`. The template type `T` can be used as a type within the scope of the definition of Foo. For example:
 
 ```javascript
+/** @template T */
+class Foo {
+  /** @return {T} */
+  get() { ... };
+
+  /** @param {T} t */
+  set(t) { ... };
+}
+```
+
+The method `get` will return an object of type `T`, and the method `set` will only accept objects of type `T`.
+
+Pre-ES6, this would look like:
+
+```javascript
 /** @return {T} */
 Foo.prototype.get = function() { ... };
-
 /** @param {T} t */
 Foo.prototype.set = function(t) { ... };
 ```
-
-The method get will return an object of type `T`, and the method set will only accept objects of type `T`.
 
 ### Instantiating a Generic Type
 
 Reusing the example above, a templated instance of Foo can be created in several ways:
 
 ```javascript
-/** @type {!Foo<string>} */ var foo = new Foo();
+/** @type {!Foo<string>} */ const foo = new Foo();
 
-var foo = /** @type {!Foo<string>} */ (new Foo());
+const foo = /** @type {!Foo<string>} */ (new Foo());
 ```
 
-Both of the above constructor statements create a Foo instance whose template type `T` is string. The compiler will enforce that calls to foo's methods, and accesses to foo's properties, respect the templated type. For example:
-
+Both of the above constructor statements create a Foo instance whose template type `T` is string. The compiler will enforce that calls to foo's methods, and accesses to foo's properties, respect the templatized type. For example:
 
 ```javascript
-foo.set("hello");  // OK.
-foo.set(3);        // Error - expected a string, found a number.
-var x = foo.get(); // x is a string.
+foo.set("hello");    // OK.
+foo.set(3);          // Error - expected a string, found a number.
+const x = foo.get(); // x is a string.
 ```
 
 Instances can also be implicitly typed by their constructor arguments. Consider a different generic type, Bar:
 
 ```javascript
-/**
- * @param {T} t
- * @constructor
- * @template T
- */
-Bar = function(t) { ... };
+/** @template T */
+class Bar {
+  /** @param {T} t */
+  constructor(t) { ... }
+}
 
-var bar = new Bar("hello"); // bar is a Bar<string>
+const bar = new Bar("hello"); // bar is a Bar<string>
 ```
 
 The type of the argument to the Bar constructor is inferred as string, and as a result, the created instance bar is inferred as `Bar<string>`.
@@ -67,17 +84,14 @@ The type of the argument to the Bar constructor is inferred as string, and as a 
 A generic can have any number of template types. The following map class has two template types:
 
 ```javascript
-/**
- * @constructor
- * @template Key, Val
- */
-MyMap = function() { ... };
+/** @template Key, Val */
+class MyMap { ... }
 ```
 
 All template types for a generic type must be specified in the same @template annotation, as a comma-separated list. The order of the template type names is important, since templated type annotations will use the ordering to pair template types with the values. For example:
 
 ```javascript
-/** @type {MyMap<string, number>} */ var map; // Key = string, Val = number.
+/** @type {!MyMap<string, number>} */ let map; // Key = string, Val = number.
 ```
 
 ### Invariance of Generic Types
@@ -85,25 +99,17 @@ All template types for a generic type must be specified in the same @template an
 The Closure Compiler enforces invariant generic typing. This means that if a context expects a type `Foo<X>`, you cannot pass a type `Foo<Y>` when X and Y are different types, even if one is a subtype of the other. For example:
 
 ```javascript
-/**
- * @constructor
- */
-X = function() { ... };
+class X {}
+class Y extends X {}
 
-/**
- * @extends {X}
- * @constructor
- */
-Y = function() { ... };
-
-/** @type {Foo<X>} */ var fooX;
-/** @type {Foo<Y>} */ var fooY;
+/** @type {!Foo<X>} */ let fooX;
+/** @type {!Foo<Y>} */ let fooY;
 
 fooX = fooY; // Error
 fooY = fooX; // Error
 
-/** @param {Foo<Y>} fooY */
-takesFooY = function(fooY) { ... };
+/** @param {!Foo<Y>} fooY */
+const takesFooY = function(fooY) { ... };
 
 takesFooY(fooY); // OK.
 takesFooY(fooX); // Error
@@ -114,34 +120,29 @@ takesFooY(fooX); // Error
 Generic types can be inherited, and their template types can either be fixed or propagated to the inheriting type. Here is an example of an inheriting type fixing the template type of its supertype:
 
 ```javascript
-/**
- * @constructor
- * @template T
- */
-A = function() { ... };
+/** @template T */
+class A {
+  /** @param {T} t */
+  method(t) { ... }
+}
 
-/** @param {T} t */
-A.prototype.method = function(t) { ... };
-
-/**
- * @constructor
- * @extends {A<string>}
- */
-B = function() { ... };
+/** @extends {A<string>} */
+class B extends A { ... }
 ```
 
 By extending `A<string>`, `B` will have a method that takes a parameter of type string.
+
+Note that this example uses both the `extends` keyword and `@extends` in JSDoc. This is only necessary because the superclass is templatized.
 
 Here is an example of an inheriting type propagating the template type of its supertype:
 
 
 ```javascript
 /**
- * @constructor
  * @template U
  * @extends {A<U>}
  */
-C = function() { ... };
+class C extends A { ... }
 ```
 
 By extending `A<U>`, templated instances of C will have a method that takes a parameter of the template type `U`.
@@ -153,19 +154,19 @@ Interfaces can be implemented and extended in a similar fashion, but a single ty
  * @interface
  * @template T
  */
-Foo = function() {};
-
-/** @return {T} */
-Foo.prototype.get = function() {};
+class Foo {
+  /** @return {T} */
+  get() {}
+}
 
 /**
- * @constructor
  * @implements {Foo<string>}
  * @implements {Foo<number>}
  */
-FooImpl = function() { ... }; // Error - implements the same interface twice
-Generic Functions and Methods
+class FooImpl { ... }; // Error - implements the same interface twice
 ```
+
+### Generic Functions and Methods
 
 Similar to generic types, functions and methods can be made generic by adding a `@template` annotation to their definition. For example:
 
@@ -175,11 +176,25 @@ Similar to generic types, functions and methods can be made generic by adding a 
  * @return {T}
  * @template T
  */
-identity = function(a) { return a; };
+const identity = (a) => a;
 
-/** @type {string} */ var msg = identity("hello") + identity("world"); // OK
-/** @type {number} */ var sum = identity(2) + identity(2); // OK
-/** @type {number} */ var sum = identity(2) + identity("2"); // Type mismatch
+/** @type {string} */ const msg = identity("hello") + identity("world"); // OK
+/** @type {number} */ const sum1 = identity(2) + identity(2);            // OK
+/** @type {number} */ const sum2 = identity(2) + identity("2");          // Type mismatch
 ```
 
-We do not currently support bounded generics (e.g. `Foo<T extends Bar>`) though we may in the future.
+### Limitations
+
+We do not currently support bounded generics (e.g. `Foo<T extends Bar>`) though we may in the future. See https://github.com/google/closure-compiler/issues/576.
+
+Similarly, you can reference generic type parameters inside a function body. However, with the exception of instance variables declared in a constructor, they always produce the unknown type. For example, this code produces no error:
+
+```javascript
+/**
+ * @param {T} t
+ * @template T
+ */
+function f() {
+  const /** null */ n = t;  // No warning
+}
+```
