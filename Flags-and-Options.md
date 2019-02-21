@@ -108,7 +108,7 @@ A file containing warnings to suppress\. Each line should be of the form
   - uselessCode
   - useOfGoogBase
   - underscore
-  - visibility
+  - untranspilableFeatures,visibility
 
 # Output
 
