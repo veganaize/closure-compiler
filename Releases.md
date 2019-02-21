@@ -7,6 +7,24 @@ We also update the source distribution and the compile service (at http://closur
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### February 15, 2019 (v20190215)
+*   Prerequisite changes to improve support for goog.define in modules.
+*   Fix crashes with language_out=ES2017.
+*   "--allow_method_call_decomposing" is now enabled by default.
+*   ES_2019 feature: unescaped unicode line and paragraph separators in string
+    literals are now supported https://github.com/tc39/proposal-json-superset
+*   It is now an error to request a compiler pass that does not support all
+    language features present when the pass runs (i.e. if necessary
+    transpilations have not also been requested). The pass will still be run.
+*   Polyfill for `Math.hypot` now works correctly for zero or one argument.
+*   Blank lines are now preserved in template literals
+*   ES2018 is now type checked when language_out=ES2018 is specified.
+*   Declaring a class constructor using `get`, `set, `async`, or `*` is now a
+    parse error.
+*   The BanUnknownDirectThisPropsReferences conformance check now allows
+    references to properties that are explicitly declared to have a type of `?`
+    (Unknown).
+
 ### January 21, 2019 (v20190121)
 *   Report a warning if the left-hand side of a logical operator is guaranteed
     to always have the same boolean value.
