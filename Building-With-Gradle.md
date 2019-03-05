@@ -1,4 +1,5 @@
-##Initial Setup
+## Initial Setup
+
 To setup a project you must have Gradle installed https://gradle.org
 
 Init the project:
@@ -8,8 +9,9 @@ Init the project:
 ```
 Gradle inits a _build.gradle_ where the main configuration is happening, further it creates an executable _gradlew_ / _gradlew.bat_ that can be checked into your VCS. This tiny script so called Gradle Wrapper downloads Gradle locally into your project and ensures that all your team members work with the same Gradle version.
 
-##Gradle as closure compiler command line wrapper
-###Setup
+## Gradle as closure compiler command line wrapper
+
+### Setup
 
 *build.gradle*
 
@@ -39,7 +41,9 @@ task compileJS(type: JavaExec){
   args closureArgs
 }
 ```
-###Run
+
+### Run
+
 ```./gradlew compileJS```
 
 ##Gradle Plugin - [gradle-js-plugin](http://eriwen.github.io/gradle-js-plugin/)
@@ -74,13 +78,16 @@ minifyJs {
     }
 }
 ```
-###Run
+
+### Run
+
 ```./gradlew minifyJs```
 
 ##Gradle Plugin - [silksmith](http://silksmith.io/)
 The silksmith plugin contains similar to plovr a development server that serves all your closure javascript, precompiled libs like jquery and generates the _deps.js_ for you on the fly. Further it allows you to specify dependencies to other libraries that may contain closure js sources or be already precompiled and have externs, silksmith will configure this for you. It also comes with a built-in test runner, that setups the mocha suite and executes the provided test.
 
-###Setup
+### Setup
+
 Currently requires Java 8
 
 *build.gradle*
@@ -116,18 +123,21 @@ js/html part:
 - put all your test js code in ```src/main/js```
 - in your ```www/index.html``` include a script tag ```<script src="your-app.js">``` (if not explicitly set the name is  **{project-folder-name}.js**)
 
-###Run
+### Run
 
-####Developmenet
+#### Developmenet
+
 ```./gradlew server```
 
 Then open http://localhost:10101
 
-####Test
+#### Test
+
 ```./gradlew testJS```
 Executes the tests in FireFox (must be installed)
 
-####Build
+#### Build
+
 ```./gradlew closureCompileJS```
 
 Runs the closure compiler against your sources (output ```build/compiled/web/your-app.js```)
