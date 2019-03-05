@@ -5,10 +5,10 @@ NOTE: this article pre-dates "strictCheckTypes".  With "strictCheckTypes" enable
 
 ## Namespaces
 
-Namespaces are best typed as `@const` without a type annotation:
+Namespaces are best typed as `@const` (or `const` for simple names) without a type annotation:
 
 ```js
-/** @const */ var ns = {};
+const ns = {};
 /** @const */ ns.anInnerNamespace = {};
 ```
 
@@ -28,6 +28,8 @@ var enum = {
 ```
 
 ## Maps
+
+NOTE: This section is obsolete since ES6 introduced a built-in [`Map`](https://hackernoon.com/what-you-should-know-about-es6-maps-dc66af6b9a1e), which has nice properties that Object lacks.
 
 Objects used as maps for runtime additions or lookups should restrict their key and value types using generics.
 
@@ -57,7 +59,7 @@ Where optional values should include "undefined":
 function f(props) {}
 ```
 
-Record types tend to be verbose, and a typedef are often more practical:
+Record types tend to be verbose, and a typedef is often more practical:
 
 ```js
 /** @typedef {{required:string, optional:(string|undefined)}} */
