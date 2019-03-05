@@ -24,11 +24,16 @@ function /** string */ f(/** number */ x) {return x + ' apples'}
 
 ```js
 /** @type {string} */
-var x = 'fruit';
+let x = 'fruit';
 ```
 or the more concise inline var declaration:
 ```js
-var /** string */ x = 'fruit';
+let /** string */ x = 'fruit';
+```
+
+Variables declared through destructuring can only be typed with an inline var declaration:
+```js
+const {/** string */ x, /** number */ y} = obj;
 ```
 
 ### Property declarations
@@ -39,7 +44,7 @@ x.prop = 'fruit';
 or
 
 ```js
-var x = {
+let x = {
   /** @type {string} */
   prop : 'fruit'
 };
@@ -60,5 +65,5 @@ try {
 Type cast precede a parenthesized expression.
 
 ```js
-var x = /** @type {string} */ (fruit);
+let x = /** @type {string} */ (fruit);
 ```
