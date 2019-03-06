@@ -9,6 +9,28 @@ The Closure Compiler team's goal is to release every three weeks, although we ma
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### March 1, 2019 (v20190301)
+*   No longer artificially require ES6 externs when transpiling down to ES5.  
+    If type checking and transpilation are both on and standard externs are missing, 
+    it's possible to see some type warnings from internal runtime library code.
+*   The `--allow_method_call_decomposing` flag has been removed as the
+    functionality is always enabled.
+*   Fixed a bug with printing of spaces in template literals.
+*   Changed the API of Result.errors and Result.warnings from `JSError[]` to
+    `ImmutableList<JSError>`.
+*   Simplified the API for `CodingConvention.AssertionFunctionSpec`
+*   Compiler will no longer skip passes that don't understand newer features
+    in the source code that aren't being transpiled away. Instead it will halt
+    with an error message.
+*   `ECMASCRIPT_2019` is now available for use as `--language_in`.
+    See features added at
+    http://go/gh/tc39/proposals/blob/master/finished-proposals.md
+*   Default `--language_in` is now equivalent to `ECMASCRIPT_2018`.
+*   `ECMASCRIPT6`, `ECMASCRIPT_2016`, and `ECMASCRIPT_2017` are now fully
+    supported for `--language_out`.
+    JSCompiler team has confirmed that resulting output is no bigger than
+    it would be for `ECMASCRIPT5`. Generally it is smaller.
+
 ### February 15, 2019 (v20190215)
 *   Prerequisite changes to improve support for goog.define in modules.
 *   Fix crashes with language_out=ES2017.
