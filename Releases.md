@@ -4,6 +4,8 @@ Here's a list of recent releases of Closure Compiler.
 To download a binary version of any release, see [[Binary Downloads]].
 We also update the source distribution and the compile service (at http://closure-compiler.appspot.com) at each release.
 
+The Closure Compiler team's goal is to release every three weeks, although we may miss that deadline due to unexpected internal test failures or holidays.
+
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
