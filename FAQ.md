@@ -11,7 +11,7 @@
  * [My code broke when using advanced optimizations! How do I figure out what's wrong?](#my-code-broke-when-using-advanced-optimizations-how-do-i-figure-out-whats-wrong)
  * [Some of my properties are getting renamed, but some aren't. Why?](#some-of-my-properties-are-getting-renamed-but-some-arent-why)
  * [When using type-checking, sometimes Closure Compiler doesn't warn me about missing properties. Why not?](#when-using-type-checking-sometimes-closure-compiler-doesnt-warn-me-about-missing-properties-why-not)
- * [I get an "undecomposable expression" error for my `yield` or `await` expression. What do I do?](#i-get-an-undecomposable-expression-error-for-my-yield-or-await-expression-what-do-i-do)
+ * [I got an "Incomplete alias created for namespace" error.  What do I do?](#i-got-an-incomplete-alias-created-for-namespace-error--what-do-i-do)
 
 ### Using Closure Compiler
  * [What are the recommended Java VM command-line options?](#what-are-the-recommended-java-vm-command-line-options)
@@ -154,57 +154,48 @@ Not all elements have "contentWindow" defined on them. Only HTMLIframeElements d
 
 It is possible to get stricter property check on specific types by annotating them with [`@struct`](https://github.com/google/closure-compiler/wiki/@struct-and-@dict-Annotations).   The experimental [New Type Inferrence](https://github.com/google/closure-compiler/wiki/Using-NTI-(new-type-inference)) implements a 'may not be defined' check.
 
-### I get an "undecomposable expression" error for my `yield` or `await` expression. What do I do?
+### I got an "incomplete alias created for namespace" error.  What do I do?
 
 ```javascript
-function *f(x) {
-  x.someMethod(yield 1);
+async function (x) {
+  return goog.asserts.assertString(yield x);
 }
 ```
 ```
-input0:2: ERROR - This code cannot be converted from ES6. Undecomposable expression
-  x.someMethod(yield 1);
-               ^^^^^^^
+Incomplete alias created for namepace `goog.asserts`
+  return goog.asserts.assertString(yield x);
 ```
 
 #### The short answer
 
-In some cases it's not possible to translate code like this to ES5 in a way that older versions of Internet Explorer will run correctly. If your code only needs to run on nodejs, or modern browsers, you can pass the flag `--allow_method_call_decomposing` to bypass this error.
+If you got this on a line like `const asserts = goog.asserts;` with no `yield` or `await`, you probably need to remove the alias of `goog.asserts`, and instead always use the fully qualified name. If you got this error on a `yield` or `await` expression,  you need to extract the `yield` or `await` into a separate variable.
 
-#### The other short answer
+#### What's the deal with using the fully qualified name?
 
-Rewrite your code so that the result of the `yield` or `await` is stored in a temporary variable.
+In ADVANCED optimizations, the compiler flattens qualified namespaces like `goog.asserts.assertString`to a single name, `goog$asserts$assertString`. This introduces many different limitations on how your write your JavaScript, described in more detail [here](https://developers.google.com/closure/compiler/docs/limitations#implications-of-object-property-flattening). One implication is that if you refer to a property by a name other than the one it was declared on (like `asserts.assertString` instead of `goog.asserts.assertString`), the compiler may flatten `goog.asserts.assertString` but leave behind the reference to `asserts.assertString`. Now that reference is just `undefined`.
 
-```javascript
-function *f(x) {
-  const tmp = yield 1;
-  x.someMethod(tmp);
-}
-```
+The compiler generally tries to avoid this happening. In some cases, this isn't possible (either because the code is too dynamic or the compiler is not smart enough), and the compiler issues this warning to tell you to decrease 'aliasing' of namespaces.
 
-#### What is the issue here?
+#### What is this happening with `yield` and `await`, then?
 
 1.  The compiler implements async functions with generator functions, so an `await` is transpiled to a `yield`.
 2.  In order to interrupt execution at the `yield`, the compiler must first decompose the expression
     containing it into multiple statements.
 
-    The the `x.someMethod(yield 1);` statement from the example above becomes something like this.
+    The the `goog.asserts.assertString(yield 'foobar');` statement from the example above becomes something like this.
 
     ```javascript
-    const tmpX = x;
-    const tmpFunc = x.someMethod;
-    const tmpYieldResult = yield 1;
-    tmpFunc.call(tmpX, tmpYieldResult);
+    const tmpGoogAsserts = goog.asserts;
+    const tmpAssertString = tmpGoogAsserts.assertString;
+    const tmpYieldResult = yield x;
+    tmpAssertString.call(tmpX, tmpYieldResult);
     ```
 
     This preserves expression evaluation order and avoids evaluating any expression more than once.
     
-3.  That **should** work fine, but unfortunately some older browsers (definitely IE8, possibly IE9)
-    don't actually add a `.call()` method on the methods of objects they create internally, like DOM objects.
-    Rather than generate code that will fail on some browsers, the compiler chooses to generate an error
-    message.
+Unfortunately, under some circumstances, this generated code runs into the same issue with property flattening described above. If the compiler is unable to replace `tmpGoogAsserts.assertString` with `goog.asserts.assertString`, it cannot safely flatten your code.
 
-Babel and other transpilers typically just ignore this problem and generate the `.call()` anyway.
+The workaround is to rewrite the `yield x` into a separate variable.
 
 ## Using Closure Compiler
 
