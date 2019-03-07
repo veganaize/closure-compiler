@@ -24,7 +24,7 @@ For complete list of changes refer to the [change log](https://github.com/google
     with an error message.
 *   `ECMASCRIPT_2019` is now available for use as `--language_in`.
     See features added at
-    http://go/gh/tc39/proposals/blob/master/finished-proposals.md
+    https://github.com/tc39/proposals/blob/master/finished-proposals.md
 *   Default `--language_in` is now equivalent to `ECMASCRIPT_2018`.
 *   `ECMASCRIPT6`, `ECMASCRIPT_2016`, and `ECMASCRIPT_2017` are now fully
     supported for `--language_out`.
