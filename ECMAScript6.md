@@ -1,8 +1,10 @@
-# Status of ES6 support in Closure Compiler
+# Status of ES6+ support in Closure Compiler
 
 # Introduction
 
-ECMAScript 6 is now officially supported as an input language for the Closure Compiler. You cannot use it as an output language yet; for now you need to transpile down to ES5 or ES3. If you find that the Closure Compiler does not support your favorite ES6 feature, you can file an issue, but please be aware that supporting the entire ES6 specification is a non-goal for the Closure Compiler. We currently avoid features that cannot be transpiled cleanly to ES5, and features that tend to lead to code which is difficult to analyze and typecheck. 
+ECMAScript 6, ECMAScript 2016, and ECMAScript 2017 are now officially supported as both input and output language for the Closure Compiler.
+
+If you find that the Closure Compiler does not support your favorite feature, you can file an issue, but please be aware that supporting the entire ECMAScript specification is a non-goal for the Closure Compiler. We currently avoid features that cannot be transpiled cleanly to ES5, and features that tend to lead to code which is difficult to analyze and typecheck. 
 
 This is a place to collect changes that will need to be made to the compiler.
 
@@ -10,13 +12,10 @@ This is a place to collect changes that will need to be made to the compiler.
 
 Summary: https://github.com/lukehoban/es6features
 
-Spec: http://people.mozilla.org/~jorendorff/es6-draft.html
+Current draft Spec: https://tc39.github.io/ecma262/
+Finished proposals: https://github.com/tc39/proposals/blob/master/finished-proposals.md
 
 # Details
-
-## Parser
-
-The new parser is in place, and has replaced the old Rhino parser. It understands all ES6 features though there may still be a few bugs here and there.
 
 ## Transpilation
 
@@ -35,15 +34,18 @@ We support transpilation of the following ES6 features down to ES5/3.
 * Better unicode escapes in string literals (e.g. "\u{1F436}" == "🐶")
 * destructuring assignment
 * modules
+* async functions
+* async generators
+* `for await (const item of asyncIterator) {}`
 
 ## Type Checking
 
-Type checking is currently done on "transpiled" code.  Direct support will happen after the new type inference is stable.
+Type checking is done on the original code before transpilation.
 
 ## Optimizations
 
-Optimization currently occur on "transpiled" code.  Direct support will happen after the "check" phase understands ES6.
+Optimization currently occur after the code is transpiled to your chosen output language.
 
 ## Code Printer
 
-The code printer should at this point support all of ES6
+The code printer currently supports up to ECMAScript 2019.
