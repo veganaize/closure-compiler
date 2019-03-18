@@ -168,13 +168,13 @@ Incomplete alias created for namepace `goog.asserts`
 
 #### The short answer
 
-If you got this on a line like `const asserts = goog.asserts;` with no `yield` or `await`, you probably need to remove the alias of `goog.asserts`, and instead always use the fully qualified name. If you got this error on a `yield` or `await` expression,  you need to extract the `yield` or `await` into a separate variable.
+If you got this on a line like `const asserts = goog.asserts;` with no `yield` or `await`, you probably need to remove the alias of `goog.asserts`, and instead always use the fully qualified name. If you got this error on a function argument, either refactor your code so that the function doesn't need a namespace, or annotate any constructors/enums on the namespace `@nocollapse`. If you got this error on a `yield` or `await` expression,  you need to extract the `yield` or `await` into a separate variable.
 
 #### What's the deal with using the fully qualified name?
 
 In ADVANCED optimizations, the compiler flattens qualified namespaces like `goog.asserts.assertString`to a single name, `goog$asserts$assertString`. This introduces many different limitations on how your write your JavaScript, described in more detail [here](https://developers.google.com/closure/compiler/docs/limitations#implications-of-object-property-flattening). One implication is that if you refer to a property by a name other than the one it was declared on (like `asserts.assertString` instead of `goog.asserts.assertString`), the compiler may flatten `goog.asserts.assertString` but leave behind the reference to `asserts.assertString`. Now that reference is just `undefined`.
 
-The compiler generally tries to avoid this happening. In some cases, this isn't possible (either because the code is too dynamic or the compiler is not smart enough), and the compiler issues this warning to tell you to decrease 'aliasing' of namespaces.
+The compiler generally tries to avoid breaking code, but there is a tradeoff between code size and optimization safety. In some cases, either your code is too dynamic or the compiler is not smart enough, and the compiler throws an error instead of risking breaking your code.
 
 #### What is this happening with `yield` and `await`, then?
 
