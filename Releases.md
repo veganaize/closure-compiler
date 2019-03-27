@@ -9,6 +9,20 @@ The Closure Compiler team's goal is to release every three weeks, although we ma
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### March 25, 2019 (v20190325)
+*   Removed some rewriting of the input JS pre-typechecking. User-visible results include:
+    *   Names in error messages match the original JS better
+    *   The compiler is stricter about requiring namespaces to be const object
+        literals.
+*   Iterable spread is now preserved for side-effects.
+*   Some type references not explicitly annotated with `!` are now considered nullable. Code should always explicitly specify nullability.
+*   Fixed bug when dropping const-ness and JSDoc on names exported from `goog.module`s.
+*   Improved type checking of ES module transitive imports / mutable exports.
+*   `export * from` within ES modules is now supported.
+*   `--shadow_variables` is now disabled by default. It does not scale well and provides little value in most cases.
+*   Type checking performance improvement.
+*   Added polyfills for trimStart/trimEnd.
+
 ### March 1, 2019 (v20190301)
 *   No longer artificially require ES6 externs when transpiling down to ES5.  
     If type checking and transpilation are both on and standard externs are missing, 
