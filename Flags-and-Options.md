@@ -19,7 +19,7 @@ Primary output filename\. If not specified, output is written to stdout
 Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED \(experimental\), ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, STABLE, ECMASCRIPT_NEXT
 
 **--language_out VAL**  
-Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, STABLE
+Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, STABLE
 
 **--warning_level (-W) [QUIET | DEFAULT | VERBOSE]**  
 Specifies the warning level to use\. Options: QUIET, DEFAULT, VERBOSE
