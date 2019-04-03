@@ -780,7 +780,7 @@ Parameterizes a type with a set of type arguments. Similar to Java generics.
 
 Example: `(number|boolean)`  
 A number or a boolean.
-Note the parentheses, which are required.
+Note the parentheses, which are required unless the union is the top level of the specified type, e.g. `@type {number|string}` is ok.
 
 Indicates that a value might have type `A` OR type `B`.
 
