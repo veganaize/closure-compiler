@@ -34,7 +34,6 @@
  * [How do I find out more about how Closure Compiler works?](#how-do-i-find-out-more-about-how-closure-compiler-works)
  * [Is there a specification for the JSDoc type language?](#is-there-a-specification-for-the-jsdoc-type-language)
  * [Can you add alternative syntax X to your JSDoc type language?](#can-you-add-alternative-syntax-x-to-your-jsdoc-type-language)
- * [I'm writing a Firefox extension. It only needs to work on the bleeding-edge version of Firefox. I don't care if it doesn't work in other browsers. Could we add a --platform=FIREFOX flag that lets me use the snazzy features introduced in ?](#im-writing-a-firefox-extension-it-only-needs-to-work-on-the-bleeding-edge-version-of-firefox-i-dont-care-if-it-doesnt-work-in-other-browsers-could-we-add-a---platformfirefox-flag-that-lets-me-use-the-snazzy-javascript-features-introduced-in--javascript-17)
  * [My question isn't covered on this list!](#my-question-isnt-covered-on-this-list)
 
 ## Unexpected Output
@@ -85,13 +84,10 @@ In ADVANCED mode you need to be sure to quote the property references consistent
 
 ### I get "Unsupported syntax" errors. But it works on Firefox!
 
-Firefox has done a lot of cool innovations since JavaScript 1.5 (aka EcmaScript 3). The Closure Compiler does not support anything that is not compatible with the EcmaScript standard (aka JavaScript). This includes:
+Firefox has done a lot of cool innovations since JavaScript 1.5 (aka EcmaScript 3). Some of those innovations are now standardized in the EcmasScript 6 standard (aka JavaScript), but some are not. The Closure Compiler does not support anything that is not compatible with the EcmaScript standard This includes:
 
-- [The `const` keyword](https://developer.mozilla.org/En/Core_JavaScript_1.5_Guide/Constants)
-- [Destructuring assignments](https://developer.mozilla.org/en/New_in_javascript_1.7#Destructuring_assignment)
-- [for each](https://developer.mozilla.org/en/JavaScript/Reference/Statements/for_each...in)
-
-
+- [for each](https://developer.mozilla.org/en/JavaScript/Reference/Statements/for_each...in) only works on older versions of FireFox.
+- [legacy generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/Legacy_generator_function)
 
 ### Closure Compiler inlined all my strings, which made my code size bigger. Why did it do that?
 
@@ -235,7 +231,9 @@ If you do use types, then the compiler can optimize your code even more. See htt
 
 Closure Compiler's advanced optimizations mode assumes that it's ok to add new variables to the global scope.
 
-In JavaScript, it's often standard practice to wrap your code in an anonymous function, so that variables don't pollute the global scope. Closure Compiler has an `--output_wrapper` flag for exactly this purpose. Invoking it as `--output_wrapper "(function() {%output%}).call(window);"` will wrap your code in an anonymous function at compile-time.
+In JavaScript, it's often standard practice to wrap your code in an anonymous function, so that variables don't pollute the global scope. Closure Compiler has an `--isolation_mode` flag for exactly this purpose. Invoking it as `--isolation_mode IIFE"` will wrap your code in an anonymous function at compile-time: `(function(){%output%)).call(this);`.
+
+You can also use a custom output wrapper with the `--output_wrapper` flag, although in most cases `--isolation_mode IIFE` is sufficient. Interpolate output into this string at the place denoted by the marker token %output%. Use marker token %output|jsstring% to do js string escaping on the output.
 
 Do not manually wrap your code in an immediately executed function, because the optimization passes may inline the call.
 
@@ -332,14 +330,6 @@ If X is already possible some other way, then 99% of the time, the answer is no.
 There are many tools that need to parse our JSDoc type language. When you add a new syntax, that means all those tools need to be updated. The documentation needs to be updated, and every JavaScript developer needs to be taught that the syntaxes are equivalent. It becomes harder to write new tools, because the language is now more complicated.
 
 If this new syntax doesn't add any real value, then we really can't justify that cost.
-
-### I'm writing a Firefox extension. It only needs to work on the bleeding-edge version of Firefox. I don't care if it doesn't work in other browsers. Could we add a `--platform=FIREFOX` flag that lets me use the snazzy JavaScript features introduced in  [JavaScript 1.7](https://developer.mozilla.org/en/New_in_javascript_1.7)?
-
-In general, no. There are two reasons for this.
-
-The first is that we're lazy. In the past, Closure Compiler passes were mostly written by Google engineers in their volunteer time. The development cycle went like, "Hey! My app is running slow, but I could speed it up if I added this optimization. I can write it in an afternoon and then go back to my full-time job." Most developers are not experts on JavaScript. So it was pretty important to us that it was easy for developers to write new passes without understanding the two-dozen variants of JavaScript.
-
-The second is that we really like sharing code. Suppose I write a JavaScript class for my Firefox extension that uses Firefox-only keywords. A couple months later, my friend Kushal likes it, and wants to use it in his web app. His web app has to work on Internet Explorer. But trying to untangle all the [getters and setters](https://developer.mozilla.org/En/Core_JavaScript_1.5_Guide:Creating_New_Objects:Defining_Getters_and_Setters) takes way too long. He gives up when he realizes that it's easier for him to rewrite the code from scratch. This makes both of us unhappy. We find that everyone's happier if code works cross-browser, and it's easy to share.
 
 ### My question isn't covered on this list!
 
