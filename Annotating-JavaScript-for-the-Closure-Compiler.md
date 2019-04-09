@@ -25,13 +25,24 @@ The type declaration is optional.
 The compiler produces a warning if a variable marked with `@const` is assigned a value more than once. If the variable is an object, note that the compiler does not prohibit changes to the properties of the object.
 
 ```javascript
-/** @const */ var MY_BEER = 'stout';
+/** @const */ var MY_BEER = 'stout';  // NOTE: in most cases, you should instead use the const keyword here.
 
 /**
  * My namespace's favorite kind of beer.
  * @const {string}
  */
 mynamespace.MY_BEER = 'stout';
+
+class User {
+  /** @param {string} beer */
+  constructor(beer) {
+    /**
+     * My user's favorite kind of beer.
+     * @const {string}
+     */
+    this.myBeer = beer;
+  }
+}
 ```
 
 ---
