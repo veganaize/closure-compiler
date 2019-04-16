@@ -10,7 +10,7 @@ There is a function `f` that expects a `Container<Foo|Bar>` and I'm calling it w
 
 ### Exceptions to invariant generics
 
-Both `Iterable<T>` (plus anything that implements `Iterable`) and `Object<K, V>` are bivariant. This means that you can assign an `Array<Foo>` to an `Array<Foo|Bar>`, and vice versa. This is not type-safe but was accepted as a compromise when trying to land invariant generics.
+The types `Array<T>`, `IArrayLike<T>` (and anything implementing it),  and `Object<K, V>` are bivariant. This means that you can assign an `Array<Foo>` to an `Array<Foo|Bar>`, and vice versa. This is not type-safe but was accepted as a compromise when trying to land invariant generics.
 
 On the other hand, `Promise` and all other subtypes of `IThenable` are covariant. This means you can assign a `Promise<Foo>` to a `Promise<Foo|Bar>`, but not vice versa. This /is/ type-safe. A user of a `Promise<Foo|Bar>` can always handle the Promise resolving to `Foo`, but they cannot surprise anyone by somehow making a `Promise<Foo>` resolve to a `Bar`.
 
