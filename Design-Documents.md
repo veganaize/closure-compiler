@@ -17,7 +17,7 @@ If you are a developer on Closure Compiler, you can install "sanity check" passe
 
 [The Type System](https://docs.google.com/document/edit?id=1L6g92j9Z-w3uvDP0H-0whb2fOcwnjiXRY8pbG9LkOvQ)
 
-[The Internal Syntax Tree (PDF)](http://code.google.com/p/closure-compiler/downloads/detail?name=closure-compiler-ast.pdf&can=2&q=)
+[The Internal Syntax Tree (PDF)](https://onyx.koli.ch/get/4882/closure-compiler-ast.pdf)
 
 [Closure Compiler Side-effect annotations for Extern definitions](https://docs.google.com/document/pub?id=1oaJGeYqhat13e_gpE47ToQc1jPCN6k59438OoUGeXFc)
 
