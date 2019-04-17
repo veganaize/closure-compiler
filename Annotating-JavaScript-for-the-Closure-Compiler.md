@@ -837,7 +837,7 @@ To make a scalar or function type nullable, use the Nullable operator.
 ### Function Type
 
 Example: `function(string, boolean)`  
-A function that takes two parameters (a string and a boolean), and has an unknown return value.
+A function that takes two parameters (a string and a boolean), and has a "?" return value.
 
 Specifies a function and the types of the function's parameters.
 
@@ -938,7 +938,7 @@ To use a value of type ALL as a more specific type, you need to downcast it firs
 
 ---
 
-### The UNKNOWN type
+### The ANY type
 
 Example: `?`
 
