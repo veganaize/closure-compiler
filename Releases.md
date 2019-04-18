@@ -9,6 +9,26 @@ The Closure Compiler team's goal is to release every three weeks, although we ma
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### April 15, 2019 (v20190415)
+*   Fixed a NullPointerException that occurred when using `this` in a default
+    parameter value for an async function or async generator.
+*   Static methods are now checked as overrides, as per class-side inheritance.
+    This only applied to ES6 classes.
+    *   The type of a static method is now checked to be compatible with any
+        superclass definitions
+    *   `@override` annotations are validated on statics.
+*   Removal of various obsolete ES5-era or transitional Java APIs:
+    *   SyntacticScopeCreator
+    *   MarkNoSideEffects
+    *   NodeTraversal's traverseEs6ScopeRoot, traverseTyped, and traverseRootsTyped
+*   In the GWT version of the parser, Greek Capital Letter Delta is now accept
+    in a identifier.
+*   For users of the Java API: TypeCheck#processForTesting enforces its inputs
+    are ROOT nodes.
+*   Function aliasing, including class constructors and `super()`, is now
+    considered when analyzing function purity.
+*   Type checking performance improvements
+
 ### March 25, 2019 (v20190325)
 *   Removed some rewriting of the input JS pre-typechecking. User-visible results include:
     *   Names in error messages match the original JS better
