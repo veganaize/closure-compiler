@@ -62,6 +62,7 @@ A file containing warnings to suppress\. Each line should be of the form
 
   - accessControls
   - ambiguousFunctionDecl
+  - checkPrototypalTypes
   - checkRegExp
   - checkTypes
   - checkVars
@@ -87,27 +88,27 @@ A file containing warnings to suppress\. Each line should be of the form
   - missingProvide
   - missingRequire
   - missingReturn
+  - missingSourcesWarnings
   - moduleLoad
   - msgDescriptions
   - newCheckTypes
   - nonStandardJsDocs
-  - missingSourcesWarnings
   - polymer
   - reportUnknownTypes
-  - suspiciousCode
   - strictCheckTypes
   - strictMissingProperties
   - strictModuleDepCheck
   - strictPrimitiveOperators
+  - suspiciousCode
   - typeInvalidation
   - undefinedNames
   - undefinedVars
+  - underscore
   - unknownDefines
   - unusedLocalVariables
   - unusedPrivateMembers
-  - uselessCode
   - useOfGoogBase
-  - underscore
+  - uselessCode
   - untranspilableFeatures,visibility
 
 # Output
