@@ -1,3 +1,9 @@
+Please see:
+
+[type-expressions](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#type-expressions) on the [Annotating-JavaScript-for-the-Closure-Compiler](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler) page.
+
+
+
 # Type Expressions
 
 You can specify the data type of any variable, property, expression or function parameter with a type expression. A type expression consists of curly braces ("{ }") containing some combination of the type operators described below.
