@@ -1,3 +1,5 @@
+See also [Annotating-JavaScript-for-the-Closure-Compiler](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler)
+
 The Closure-compiler uses a subset of the [JSDoc annotations][1] (and adds a few of its own). See the [annotation reference for the compiler][2] for the complete set. A JSDoc annotation is similar to a JavaDoc annotation and is a comment block that begins with `/**` (two stars). While each line of the comment often begins with it's own `*`, that is a convention that is not required.
 
 ```js
