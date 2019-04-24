@@ -27,9 +27,9 @@ var enum = {
 };
 ```
 
-## Maps
+## Map-like objects
 
-NOTE: This section is obsolete since ES6 introduced a built-in [`Map`](https://hackernoon.com/what-you-should-know-about-es6-maps-dc66af6b9a1e), which has nice properties that Object lacks.
+NOTE: For many uses JavaScript's Map collection is a better choose. This section is obsolete since ES6 introduced a built-in [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), which has nice properties that Object lacks.
 
 Objects used as maps for runtime additions or lookups should restrict their key and value types using generics.
 
