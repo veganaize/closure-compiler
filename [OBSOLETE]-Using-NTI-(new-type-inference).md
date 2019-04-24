@@ -14,4 +14,4 @@ Here are some of the reasons for this:
 Deciding to drop NTI was not an easy decision, but it was a necessary one to unblock compiler development.
 
 It did leave us with a backlog of "this works in NTI, so we won't fix it in OTI" issues, but we've already fixed some of the worst of these. (e.g. the strictCheckTypes flag)
-We'll be fixing more in the near future as we work on OTI (now just "the type checker") to make it fully understands language features up through ES 2017.
+We'll be fixing more in the near future as we work on OTI (now just "the type checker") to make it fully understands language features up through the current EcmaScript standard.
