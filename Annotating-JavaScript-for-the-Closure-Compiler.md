@@ -647,7 +647,7 @@ Container = function(t) { ... };
 
 Specifies the type of the object to which the keyword this refers within a function. The `@this` tag must be followed by a type expression.
 
-To prevent compiler warnings, you must use a `@this` annotation whenever this appears in a function that is neither a prototype method nor a function marked as a `@constructor`.
+To prevent compiler warnings, you must use a `@this` annotation whenever `this` appears in a function that is neither a prototype method nor a function marked as a `@constructor`.
 
 ```javascript
     /**
@@ -657,7 +657,7 @@ To prevent compiler warnings, you must use a `@this` annotation whenever this ap
      */
     function() {
       return this.getComponent().getElement();
-    });
+    };
 ```
 
 ---
