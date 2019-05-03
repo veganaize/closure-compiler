@@ -35,7 +35,11 @@ var /** !PNum */ x = new Foo;  // OK with structural interfaces
 var /** !PNum */ y = { p: 5 }; // OK with structural interfaces
 ````
 
-For now, we use the `@record` annotation to denote structural interfaces, but we hope to convert all interfaces to structural since it's simpler to have only one style of interfaces.
+### Use of `@interface` is preferred to `@record` when possible
+
+Defining a new `@record` can have the side-effect that one or more classes far away in the program code can now be considered to be a subtype of this new record. On the flip side, a new or modified class could be adding a new implementation of an `@record` type that is far away and unknown to the reader or writer of the code. This action-at-a-distance does not occur with `@interface` types.
+
+Why does this matter? When you use `@record` the compiler has to assume that any arbitrary class, C,  that happens to implement the same properties as some record, R, could be intended to implement it, unless it can prove that no instance of C is ever used in a place where an R is expected. Proving this is often very difficult or impossible. The result is often that C has to stay in the output JS as long anything using an R is there. This can lead to a significant increase in output code size.
 
 ### Records vs. Structural Interfaces
 
