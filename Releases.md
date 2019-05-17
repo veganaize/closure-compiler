@@ -9,6 +9,23 @@ The Closure Compiler team's goal is to release every three weeks, although we ma
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### May 13, 2019 (v20190513)
+* Flag changes:
+    * Introduced a new flag `--browser_featureset_year` to control the `goog.FEATURESET_YEAR` define and to set a default `--language_out`.
+    * Removed deprecated `--new_type_inf` and `--allow_method_call_decomposing` flags from the command line runner.
+    * When using `--dependency_mode=PRUNE_LEGACY` or `--manage_closure_dependencies`, a file passed under `--weakdep` can no longer be an entry point.
+* Added typing support for `this` and `super` in static methods:
+    * `this` and `super` are now typechecked in methods declared with the `static` keyword. Static methods declared using other syntaxes are inferred to be free functions.
+    * For functions whose `@this` type is `*` or `undefined`, typechecking permits free calls.
+* Improvements to unused code removal:
+    * Unused polyfills are now removed by RemoveUnusedCode, which should give smaller output code size in some cases.
+    * Unused parameters of computed setters are no longer removed.
+    * Unused parameters are retained in computed-property setter declarations.
+* Typechecking verfies that classes declare the instance properties of their implemented interfaces (e.g. properties declared in the "`constructor`" of the interface).
+* Assigning a value to an `@typedef` simple name is only allowed if the value is a literal or cast and the name is `const` or `@const`.
+* Aliases are now followed when determining whether the initializer for `goog.define`s and `@define`s is valid (i.e. a compile-time constant).
+* Fixed incorrect printing of comma expressions used as computed property keys or values, which led to syntax errors.
+
 ### April 15, 2019 (v20190415)
 *   Fixed a NullPointerException that occurred when using `this` in a default
     parameter value for an async function or async generator.
