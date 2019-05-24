@@ -231,9 +231,9 @@ If you do use types, then the compiler can optimize your code even more. See htt
 
 Closure Compiler's advanced optimizations mode assumes that it's ok to add new variables to the global scope.
 
-In JavaScript, it's often standard practice to wrap your code in an anonymous function, so that variables don't pollute the global scope. Closure Compiler has an `--isolation_mode` flag for exactly this purpose. Invoking it as `--isolation_mode IIFE"` will wrap your code in an anonymous function at compile-time: `(function(){%output%)).call(this);`.
+In JavaScript, it's often standard practice to wrap your code in an anonymous function, so that variables don't pollute the global scope. Closure Compiler has an `--isolation_mode` flag for exactly this purpose. Invoking it as `--isolation_mode IIFE"` will wrap your code in an anonymous function at compile-time: `(function(){%output%}).call(this);`.
 
-You can also use a custom output wrapper with the `--output_wrapper` flag, although in most cases `--isolation_mode IIFE` is sufficient. Interpolate output into this string at the place denoted by the marker token %output%. Use marker token %output|jsstring% to do js string escaping on the output.
+You can also use a custom output wrapper with the `--output_wrapper` flag, although in most cases `--isolation_mode IIFE` is sufficient. Interpolate output into this string at the place denoted by the marker token `%output%`. Use marker token `%output|jsstring%` to do js string escaping on the output.
 
 Do not manually wrap your code in an immediately executed function, because the optimization passes may inline the call.
 
