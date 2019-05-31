@@ -16,10 +16,10 @@ The JavaScript filename\. You may specify multiple\. The flag name is optional, 
 Primary output filename\. If not specified, output is written to stdout
 
 **--language_in VAL**  
-Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED \(experimental\), ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, STABLE, ECMASCRIPT_NEXT
+Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED \(experimental\), ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, STABLE, ECMASCRIPT_NEXT
 
 **--language_out VAL**  
-Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, STABLE
+Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, STABLE
 
 **--warning_level (-W) [QUIET | DEFAULT | VERBOSE]**  
 Specifies the warning level to use\. Options: QUIET, DEFAULT, VERBOSE
@@ -130,7 +130,7 @@ Generates export code for those marked with @export
 
 **--isolation_mode [NONE | IIFE]**  
 If set to IIFE the compiler output will follow the form:
-                                                                                        \(function\(\)\{%output%\)\)\.call\(this\);
+                                                                                        \(function\(\)\{%output%\}\)\.call\(this\);
                                                                                       Options: NONE, IIFE
 
 **--output_wrapper VAL**  
@@ -251,6 +251,9 @@ Don't generate output\. Run checks, but no optimization passes\.
 
 **--define (--D, -D) VAL**  
 Override the value of a variable annotated @define\. The format is \<name\>\[=\<val\>\], where \<name\> is the name of a @define variable and \<val\> is a boolean, number, or a single\-quoted string that contains no single quotes\. If \[=\<val\>\] is omitted, the variable is marked true
+
+**--browser_featureset_year N**  
+shortcut for defining goog\.FEATURESET_YEAR=YYYY\. The minimum valid value of the browser year is 2012
 
 **--help**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
