@@ -9,6 +9,16 @@ The Closure Compiler team's goal is to release every three weeks, although we ma
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### May 28, 2019 (v20190528)
+*   `--devirtualize_prototype_methods` is now `--devirtualize_methods` due to
+    added support for static methods. The old name is still temporarily
+    supported for transitioning.
+*   Abstract classes no longer need explicit abstract method overrides to
+    implement interfaces.
+*   Fixed a crash in chrome_pass with defineProperty.
+*   Introduce a new compile time error if an ES6 class is passed as the first
+    argument to `goog.inherits`, use the `extends` keyword instead.
+
 ### May 13, 2019 (v20190513)
 * Flag changes:
     * Introduced a new flag `--browser_featureset_year` to control the `goog.FEATURESET_YEAR` define and to set a default `--language_out`.
