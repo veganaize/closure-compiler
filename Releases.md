@@ -9,6 +9,16 @@ The Closure Compiler team's goal is to release every three weeks, although we ma
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+### June 18, 2019 (v20190618)
+*   Fix for misassociating property declarations that resulted in access control
+    false positives.
+*   Fix ES modules referencing CommonJS modules.
+*   Allow js_library checking of untranspilable ES2018 features.
+*   Fixed false negatives on invalid goog.require calls in goog.provide files
+*   Remove pure undefined default values in parameters and object patterns.
+*   Make local enums and typedef types non-nullable by default, to be consistent
+    with the default nullability of global types.
+
 ### May 28, 2019 (v20190528)
 *   `--devirtualize_prototype_methods` is now `--devirtualize_methods` due to
     added support for static methods. The old name is still temporarily
