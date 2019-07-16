@@ -9,6 +9,11 @@ The Closure Compiler team's goal is to release every three weeks, although we ma
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
 
 ## Details
+
+### July 09, 2019 (v20190709)
+*   Improved support for incremental compilation of Polymer Behaviors. Properties defined by behaviors are now accessible to the elements that apply them.
+*   Type checker no longer autoboxes primitives when validating case expressions in a switch statement.
+
 ### June 18, 2019 (v20190618)
 *   Fix for misassociating property declarations that resulted in access control
     false positives.
