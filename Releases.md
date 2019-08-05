@@ -10,6 +10,17 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### July 29, 2019 (v20190729)
+*   Allow @suppress annotations on compound assignment operators.
+*   Correctly resolve forward declared types used as templated type arguements.
+*   Optimize Array.concat by
+    *   Replacing empty array literal from the front of concatenation with the
+        first argument of concat function call
+    *   Folding chained concat functions
+*   Back off from collapsing property reads/writes when the property is declared
+    in an or-expression or ternary-expression.
+*   Fix `WeakMap` and `WeakSet` polyfills to treat non-object keys per the spec.
+
 ### July 09, 2019 (v20190709)
 *   Improved support for incremental compilation of Polymer Behaviors. Properties defined by behaviors are now accessible to the elements that apply them.
 *   Type checker no longer autoboxes primitives when validating case expressions in a switch statement.
