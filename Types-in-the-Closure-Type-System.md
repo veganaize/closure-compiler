@@ -307,7 +307,7 @@ Allows expressing the type of namespaces, constructors, and enum namespaces.</td
 </tr>
 
 <tr>
-<td>The UNKNOWN type</td>
+<td>The ANY type</td>
 <td><code>?</code></td>
 <td>Indicates that the variable can take on any type,
                     and the compiler should not type-check any uses of it.</td>
