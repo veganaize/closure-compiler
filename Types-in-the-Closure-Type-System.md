@@ -256,55 +256,9 @@ goog.createElement = function(tagName, contents) {
 };
 ```
 
-## Template types
+### Template types
 
-Functions and classes can be annotated with template types using `@template T, U`. 
-These type work similarly to Java's generic types. For example:
-
-``` js
-/** @template T */
-class Wrapper {
-  /** @param {T} item */
-  constructor(item) {
-    /** @const */
-    this.item = item;
-  }
-}
-/** @param {!Wrapper<!Array<string>>} wrappedArray */
-function f(wrappedArray) {
-  console.log(wrappedArray.item.length);
-}
-f(new Wrapper(['foo', 'bar'])); // Ok
-f(new Wrapper(0));  // Bad
-f([]);  // Bad
-```
-
-The compiler has limited support for inferring template types. It can only infer the type
-of`this` inside an anonymous function literal from the type of the`this`
-argument and whether the `this` argument is missing.
-
-``` js
-/**
- * @param {function(this:T, ...)} fn
- * @param {T} thisObj
- * @param {...*} var_args
- * @template T
- */
-goog.bind = function(fn, thisObj, var_args) {
-...
-};
-// Possibly generates a missing property warning.
-goog.bind(function() { this.someProperty; }, new SomeClass());
-// Generates an undefined this warning.
-goog.bind(function() { this.someProperty; });
-```
-
-Note: the compiler cannot infer the type of array literals! This means that, for example, this code is allowed:
-``` js
-const arrNum = [0, 1, 2];
-/** @type {!Array<string>} */
-const arrString = arrNum;
-```
+The Closure Compiler supports 'template types', which are similar to Java's generic types. See https://github.com/google/closure-compiler/wiki/Generic-Types for more details.
 
 ### Wrapper objects for primitive types
 
