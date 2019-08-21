@@ -53,7 +53,7 @@ This table includes only tags that affect on the behavior of the Closure Compile
     + [`@noalias`](#noalias)
     + [`@nocompile`](#nocompile)
     + [`@nocollapse`](#nocollapse)
-    + [`@noinline`]
+    + [`@noinline`](#noinline)
     + [`@nosideeffects` `@modifies {this|arguments}`](#nosideeffects-modifies-thisarguments)
     + [`@throws {Type}`](#throws-type)
 
