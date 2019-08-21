@@ -251,3 +251,14 @@ function f(t) {
   const /** null */ n = t;  // No warning
 }
 ```
+
+However, similar code using a bounded generic template, does produce an error.
+```javascript
+/**
+ * @param {T} t
+ * @template {!Object} T
+ */
+function f(t) {
+  const /** null */ n = t;  // Warning!
+}
+```
