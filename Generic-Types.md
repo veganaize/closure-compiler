@@ -47,6 +47,47 @@ Foo.prototype.get = function() { ... };
 Foo.prototype.set = function(t) { ... };
 ```
 
+### Declaring a Bounded Generic Type
+
+A template can be declared with an upper bound, specifying that any type the template assumes must be a subtype of the annotated bound. This is similarly annotated using the `@template` tag, but placing the type expression bound in curly braces between the template name. For example:
+
+```javascript
+/** @template {!Element} T
+class Foo {}
+```
+
+Values of generic types that share the same bound are still unassignable to each other. Because the template can represent any subtype of the bound, it is unknown whether one generic is a subtype of the other or not. For this reason, generic types that share the same bound are invariant. For example:
+
+```javascript
+/**
+ * @param {T} x
+ * @param {S} y
+ * @template {number|string} T
+ * @template {number|string} S
+ */
+function foo(x,y) { x=y; }    // Error, y=x would error as well
+```
+
+Generic types can be bounded by type expressions containing other generic types declared in the same scope. When a generic type is directly bounded by another generic type, this makes the first generic assignable to the second. For example:
+
+```javascript
+/**
+ * @param {T} x
+ * @param {S} y
+ * @template {number|string} T
+ * @template {T} S
+ */
+function foo(x,y) { x=y; }    // No error
+```
+
+This scoping allows generics to be recursively defined. However, direct cycles of template type bounds are forbidden. For example: 
+
+```javascript
+/**
+ * @template {S} T // Error
+ * @template {T} S // Error
+ */
+
 ### Instantiating a Generic Type
 
 Reusing the example above, a templated instance of Foo can be created in several ways:
@@ -57,7 +98,7 @@ Reusing the example above, a templated instance of Foo can be created in several
 const foo = /** @type {!Foo<string>} */ (new Foo());
 ```
 
-Both of the above constructor statements create a Foo instance whose template type `T` is string. The compiler will enforce that calls to foo's methods, and accesses to foo's properties, respect the templatized type. For example:
+Both of the above constructor statements create a Foo instance whose template type `T` is string. If `T` is a bounded template type, a check is conducted to make sure the templatized type respects the type bound given to `T`. The compiler will enforce that calls to foo's methods, and accesses to foo's properties, respect the templatized type. For example:
 
 ```javascript
 foo.set("hello");    // OK.
@@ -92,6 +133,19 @@ All template types for a generic type must be specified in the same @template an
 
 ```javascript
 /** @type {!MyMap<string, number>} */ let map; // Key = string, Val = number.
+```
+
+
+### Multiple Bounded Template Types
+
+Multiple bounded generics cannot be declared on the same line. For the sake of clarity, if multiple templates share the same type bound they must be declared on separate lines. This eliminates any ambiguity as to which template a bound is meant to apply to.
+
+```javascript
+/**
+ * @template {Foo} T     // Okay
+ * @template {Foo} S     // Okay
+ * @template {Foo} U,V   // NOT okay
+ */
 ```
 
 ### Invariance of Generic Types
@@ -185,16 +239,14 @@ const identity = (a) => a;
 
 ### Limitations
 
-We do not currently support bounded generics (e.g. `Foo<T extends Bar>`) though we may in the future. See https://github.com/google/closure-compiler/issues/576.
-
-Similarly, you can reference generic type parameters inside a function body. However, with the exception of instance variables declared in a constructor, they always produce the unknown type. For example, this code produces no error:
+You can reference generic type parameters inside a function body. However, with the exception of instance variables declared in a constructor, they always produce the unknown type if unbounded. For example, this code produces no error:
 
 ```javascript
 /**
  * @param {T} t
  * @template T
  */
-function f() {
+function f(t) {
   const /** null */ n = t;  // No warning
 }
 ```
