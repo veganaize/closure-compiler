@@ -53,6 +53,7 @@ This table includes only tags that affect on the behavior of the Closure Compile
     + [`@noalias`](#noalias)
     + [`@nocompile`](#nocompile)
     + [`@nocollapse`](#nocollapse)
+    + [`@noinline`]
     + [`@nosideeffects` `@modifies {this|arguments}`](#nosideeffects-modifies-thisarguments)
     + [`@throws {Type}`](#throws-type)
 
@@ -797,6 +798,12 @@ foo.bar = 42;
 
 window['foobar'] = foo.bar;
 ```
+
+---
+
+### `@noinline`
+
+(EXPERIMENTAL) Denotes a function or variable that should not be inlined. Currently only the InlineFunctions and InlineVariables passes honor this annotation. See https://github.com/google/closure-compiler/issues/2751 for background on this annotation.
 
 ---
 
