@@ -803,7 +803,19 @@ window['foobar'] = foo.bar;
 
 ### `@noinline`
 
-(EXPERIMENTAL) Denotes a function or variable that should not be inlined. Currently only the InlineFunctions and InlineVariables passes honor this annotation. See https://github.com/google/closure-compiler/issues/2751 for background on this annotation.
+(EXPERIMENTAL) Denotes a function or variable that should not be inlined by the optimizations. 
+
+Currently, this annotation works in the common case, but there may be other code paths in the compiler that still cause inlining. See https://github.com/google/closure-compiler/issues/2751#issuecomment-353484914 for more background and file a feature request if you have another use case for this annotation.
+
+``` js
+/** @noinline */
+function dontInlineMe() {
+  return 0;
+}
+/** @noinline */
+const orMe = 1;
+console.log(dontInlineMe() + orMe);
+```
 
 ---
 
