@@ -10,6 +10,18 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### August 19, 2019 (v20190819)
+*   Fixed linter crash on default ES module exports
+    (See https://github.com/google/closure-compiler/issues/3453).
+*   Removed template parameter from `Argument` externs.
+*   Remove blaze-out/bazel-out prefix from paths by default when checking
+    conformance whitelists.
+*   chrome_pass: remove assert, assertNotReached, and cr.ui.decorate from coding
+    convention in favor of @closurePrimitive annotation in .js files directly.
+*   Handle `{html: true}` option in `goog.getMsg`.
+*   Correctly check property types when extending interfaces.
+*   Compiler can preserve all source comments now including inline comments.
+
 ### July 29, 2019 (v20190729)
 *   Allow @suppress annotations on compound assignment operators.
 *   Correctly resolve forward declared types used as templated type arguements.
