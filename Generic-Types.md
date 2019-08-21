@@ -87,6 +87,7 @@ This scoping allows generics to be recursively defined. However, direct cycles o
  * @template {S} T // Error
  * @template {T} S // Error
  */
+```
 
 ### Instantiating a Generic Type
 
