@@ -256,11 +256,11 @@ goog.createElement = function(tagName, contents) {
 };
 ```
 
-### Template types
+## Template types
 
 The Closure Compiler supports 'template types', which are similar to Java's generic types. See https://github.com/google/closure-compiler/wiki/Generic-Types for more details.
 
-### Wrapper objects for primitive types
+## Wrapper objects for primitive types
 
 The JavaScript language has wrappers for primitive types. For example, `new Number(0)` vs `0`. The Closure Compiler also supports both wrapper object types and primitives:
 ``` js
@@ -282,3 +282,135 @@ o = null; // Not ok
 And the `Function` type matches all functions.
 
 In general, prefer using a more specific type than `Object` or `Function` when possible. See also https://github.com/google/closure-compiler/wiki/A-word-about-the-type-Object.
+
+## Declared versus inferred types
+
+The Closure type system is designed to be optional: you don't have to add `@type` annotations everywhere. This leads to a distinction in the type system between variables and properties with **declared** versus **inferred** types.
+
+The basic idea is not too hard to grasp. Declared types make the compiler enforce that a variable is only assigned a particular type. Inferred types do not.
+
+``` js
+// Example of inferred type
+let x = 0;
+x = 'a string';  // x has only an inferred type of number before this assignment, so no type warning.
+
+// Example of declared type
+/** @type {number} */
+let y = 0;
+y = 'a string';  // x has a declared type of number, so this causes a warning.
+```
+
+### JSDoc type declarations
+
+Here are some examples of declarations:
+``` js
+/** @type {number} */
+let x = 0;  // Note that @export or @const also work
+/** @param {string} */
+let fn = createStringFn();
+/** @enum {string} */
+const COLORS = {RED: 0, BLUE: 1};
+/** @constructor */
+function Klazz() {} // The pre-ES6 style of declaring classes
+/** @constructor */
+let MyCtor = mixin(BaseCtor); // @constructor works even if not assigning a function literal
+```
+
+Not all JSDoc makes a variable declared. JSDoc with a non-type-related annotation (like `@nocollapse`) or with no type annotation (`/** some descriptive comment */`) does not affect whether the variable it is attached to is inferred or declared.
+
+### Non-JSDoc declarations
+
+There are a few cases where a variable declaration or property write without type-related JSDoc is still treated as having a declared type. These include:
+ - [functions](https://closure-compiler-debugger.appspot.com/#input0%3Dlet%2520x%2520%253D%2520function(x%252C%2520y)%2520%257B%257D%253B%250A%250Ax%2520%253D%25200%253B%2520%252F%252F%2520type%2520mismatch!%26input1%26conformanceConfig%26externs%26refasterjs-template%26CHECK_TYPES%3Dtrue%26CLOSURE_PASS%3Dtrue%26PRESERVE_TYPE_ANNOTATIONS%3Dtrue%26PRETTY_PRINT%3Dtrue) (`let x = function() {};`, `function f() {}`, or `a.b = function() {}`)
+ - [classes](https://closure-compiler-debugger.appspot.com/#input0%3Dlet%2520Klazz%2520%253D%2520class%2520%257B%257D%253B%250A%250AKlazz%2520%253D%25200%253B%2520%2520%252F%252F%2520type%2520mismatch!%26input1%26conformanceConfig%26externs%26refasterjs-template%26CHECK_TYPES%3Dtrue%26CLOSURE_PASS%3Dtrue%26PRESERVE_TYPE_ANNOTATIONS%3Dtrue%26PRETTY_PRINT%3Dtrue) (`let Klazz = class {};`, `class Klazz {}`, or `a.Klazz = class {};`)
+ - some (but not all) constant declarations: (`const x = 0;`). This is discussed in more detail below.
+
+### Constant declarations
+
+A variable or property that is a) declared constant and b) is assigned an 'easily inferrable value' will have a declared type. Examples:
+
+``` js
+const x = 0;  // declared type of number
+/** @const */
+var y = 0;  // declared type of number
+/** @const */
+goog.Number = 0;  // declared type of number
+```
+
+Note that all `goog.module` exports are implicitly constant:
+``` js
+goog.module('my.mod');
+exports.x = 0;  // declared type of number
+```
+
+The definition of an "easily inferrable value" is, unfortunately, defined only by the behavior of the compiler. Currently things that are 'easily inferrable' include:
+
+ - numeric literals (`const x = 0;`)
+ - string or template literals (`const x = '0';`)
+ - object literals (`/** @const */ var goog = {};`)
+ - `null` or `undefined`
+ - expressions consisting of literals (`const x = 'there are ' + 0 + ' cats.'`)
+ - qualified names that represent types (`class Foo {} const FooAlias = Foo;`)
+ - casts (`const x = /** @type {string} */ (fnCall());
+ - qualified names with a declared type. (`const x = 0; const y = x;`)
+ - new expressions of declared qualified names (`const n = new Number(0);`)
+
+### Differences between inferred and declared types
+
+There are three main distinctions between declared types and inferred types. The first is probably the most obvious: the compiler reports a warning if you assign the wrong type to a declared variable.
+
+The other two distinctions stem from how the Closure Compiler implements type inference internally.
+
+First, only names or properties with declared types are valid to reference in type annotations. This is because Closure Compiler resolves type annotations before doing any flow-sensitive type inference. This matters when, for example, aliasing types:
+
+``` js
+class Foo {}
+const FooConstAlias = Foo;
+let FooNonConstAlias = foo;
+var /** !Foo */ f1;  // typed as a Foo.
+var /** !FooConstAlias */ f2; // no warning, `f2` is typed as a Foo.
+var /** !FooNonConstAlias */ f3;  // "bad type annotation" warning, because FooNonConstAlias does not have a declared type
+```
+
+Second, inferred properties on instance types (`this.x = 0;`) do not get typechecked well. This is more or less because instance properties references are nonlocal to where the type itself is declared. Here's an [example](https://closure-compiler-debugger.appspot.com/#input0%3D%252F**%2520%2540param%2520%257B!Person%257D%2520p%2520*%252F%250Afunction%2520analyze(p)%2520%257B%250A%2520%2520%252F%252F%2520See%2520if%2520Closure%2520Compiler%2520notices%2520that%2520you're%2520assigning%2520non-null%2520values%2520to%2520the%2520%2560null%2560%2520type.%250A%2520%2520const%2520%252F**%2520null%2520*%252F%2520name%2520%253D%2520p.name%253B%2520%252F%252F%2520warning%250A%2520%2520const%2520%252F**%2520null%2520*%252F%2520shoeSize%2520%253D%2520p.shoeSize%253B%2520%252F%252F%2520warning%250A%2520%2520const%2520%252F**%2520null%2520*%252F%2520age%2520%253D%2520p.age%253B%2520%252F%252F%2520no%2520warning%250A%2520%2520const%2520%252F**%2520null%2520*%252F%2520height%2520%253D%2520p.height%253B%2520%252F%252F%2520no%2520warning%250A%257D%250Aclass%2520Person%2520%257B%250A%2520%2520constructor(%252F**%2520string%2520*%252F%2520name%252C%2520%252F**%2520number%2520*%252F%2520height)%2520%257B%250A%2520%2520%2520%2520%252F**%2520%2540const%2520*%252F%250A%2520%2520%2520%2520this.name%2520%253D%2520name%253B%2520%2520%252F%252F%2520declared%250A%2520%2520%2520%2520%252F**%2520%2540type%2520%257B%253Fnumber%257D%2520*%252F%250A%2520%2520%2520%2520this.shoeSize%2520%253D%2520null%253B%2520%2520%252F%252F%2520declared%250A%2520%2520%2520%2520this.height%2520%253D%2520height%253B%2520%252F%252F%2520inferred%250A%2520%2520%2520%2520this.age%2520%253D%2520101%253B%2520%2520%2520%2520%252F%252F%2520inferred%250A%2520%2520%257D%250A%257D%2520%2520%250Aanalyze(new%2520Person('Bob%2520the%2520Builder'%252C%252061))%253B%26input1%26conformanceConfig%26externs%26refasterjs-template%26CHECK_TYPES%3Dtrue%26CLOSURE_PASS%3Dtrue%26PRESERVE_TYPE_ANNOTATIONS%3Dtrue%26PRETTY_PRINT%3Dtrue) of a function with a few potential type errors, only some of which are caught by Closure Compiler:
+
+``` js
+/** @param {!Person} p */
+function analyze(p) {
+  // See if Closure Compiler notices that you're assigning non-null values to the `null` type.
+  const /** null */ name = p.name; // warning
+  const /** null */ shoeSize = p.shoeSize; // warning
+  const /** null */ age = p.age; // no warning
+  const /** null */ height = p.height; // no warning
+}
+class Person {
+  constructor(/** string */ name, /** number */ height) {
+    /** @const */
+    this.name = name;  // declared
+    /** @type {?number} */
+    this.shoeSize = null;  // declared
+    this.height = height; // inferred
+    this.age = 101;    // inferred
+  }
+}  
+analyze(new Person('Bob the Builder', 61));
+```
+
+### Access controls
+
+The above sections explained how JSDoc annotations relate to type declarations. What about [access control checks checks](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#visibility-checks)?
+
+A name or property without a declared type can still have restricted visibility. For example:
+
+``` js
+class Person {
+  constructor() {
+    /** @private */
+    this.count = 0;
+  }
+}
+```
+
+The property `count` on `Person` does not have a declared type. However, the compiler will still enforce that `count` is not accessed outside of the above file.
+
+This brings up a confusing point about Closure: some writes to properties are treated as a property _declaration_, but some are not. Additionally, properties that have a visibility declaration may not have a declared type.
