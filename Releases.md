@@ -10,6 +10,21 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+
+### September 9, 2019 (v20190909)
+*   CrossChunkMethodMotion now correctly recognizes methods declared in externs
+    using ES6 class syntax. Previously it would ignore these, possibly causing
+    incorrect movement of method definitions.
+*   `!= null` and `== null` are now treated as property existence checks.
+*   Fix for `@suppress` JSDoc on a property assignment causing access control
+    checks to fail to warn.
+*   Performance fix for outputting large files with source maps enabled
+*   Subclasses of deprecated classes are no longer treated as deprecated
+*   Fix bad code generation with async member functions:
+    https://github.com/google/closure-compiler/issues/3217
+*   Fix dropping duplicate symbols declarations as part of dependency pruning
+    that prevented the same from being reported.
+
 ### August 19, 2019 (v20190819)
 *   Fixed linter crash on default ES module exports
     (See https://github.com/google/closure-compiler/issues/3453).
