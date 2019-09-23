@@ -166,6 +166,8 @@ Incomplete alias created for namepace `goog.asserts`
 
 If you got this on a line like `const asserts = goog.asserts;` with no `yield` or `await`, you probably need to remove the alias of `goog.asserts`, and instead always use the fully qualified name. If you got this error on a function argument, either refactor your code so that the function doesn't need a namespace, or annotate any constructors/enums on the namespace `@nocollapse`. If you got this error on a `yield` or `await` expression,  you need to extract the `yield` or `await` into a separate variable.
 
+To keep optimizations safe, the compiler will back off from collapsing anything aliased in such a way. Note that this has potential to cause significant code size regressions, since property collapse is a key enabler of many important optimizations. If this alias is intentional and code size is not expected to regress, the error may be suppressed with `/** @suppress {partialAlias} */`.
+
 #### What's the deal with using the fully qualified name?
 
 In ADVANCED optimizations, the compiler flattens qualified namespaces like `goog.asserts.assertString`to a single name, `goog$asserts$assertString`. This introduces many different limitations on how your write your JavaScript, described in more detail [here](https://developers.google.com/closure/compiler/docs/limitations#implications-of-object-property-flattening). One implication is that if you refer to a property by a name other than the one it was declared on (like `asserts.assertString` instead of `goog.asserts.assertString`), the compiler may flatten `goog.asserts.assertString` but leave behind the reference to `asserts.assertString`. Now that reference is just `undefined`.
