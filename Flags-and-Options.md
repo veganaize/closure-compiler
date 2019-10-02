@@ -93,6 +93,7 @@ A file containing warnings to suppress\. Each line should be of the form
   - msgDescriptions
   - newCheckTypes
   - nonStandardJsDocs
+  - partialAlias
   - polymer
   - reportUnknownTypes
   - strictCheckTypes
