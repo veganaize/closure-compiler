@@ -15,6 +15,10 @@ Release notes for each release can be found at [[Releases]]
 - https://dl.google.com/closure-compiler/compiler-20190909.zip
 - https://dl.google.com/closure-compiler/compiler-20190909.tar.gz
 
+### **v20190929**
+- https://dl.google.com/closure-compiler/compiler-20190929.zip
+- https://dl.google.com/closure-compiler/compiler-20190929.tar.gz
+
 ### **v20190819**
 - https://dl.google.com/closure-compiler/compiler-20190819.zip
 - https://dl.google.com/closure-compiler/compiler-20190819.tar.gz
