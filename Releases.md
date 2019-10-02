@@ -10,6 +10,16 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### September 29, 2019 (v20190929)
+*   Added a linter warning for constant-by-convention names missing `@const`
+*   It's now a compile error to not assign the result of a call to `goog.define`.
+*   The GWT implementation of the debugger service has been deleted.
+*   `CollapseProperty` now backs off on unsafe namespace aliasing.
+    The warning is still emitted, but may be suppressed with `@suppress {partialAlias}`.
+*   Allow `MSG_*` variables to be initialized as aliases of other `MSG_*` variables.
+*   Improved the typechecker's ability to distinguish between different types with the same name. This may uncover new type errors.
+*   Added `Promise.allSettled` (`ES_2020` feature) to standard externs definitions.
+    Polyfill should be available in the next release.
 
 ### September 9, 2019 (v20190909)
 *   CrossChunkMethodMotion now correctly recognizes methods declared in externs
