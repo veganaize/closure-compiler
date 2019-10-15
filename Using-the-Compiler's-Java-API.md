@@ -11,6 +11,4 @@
 
 ### References
 
-http://hyegar.com/2017/01/09/calling-google-closure/
-
 http://blog.bolinfest.com/2009/11/calling-closure-compiler-from-java.html
