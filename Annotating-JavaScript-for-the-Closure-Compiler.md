@@ -825,7 +825,7 @@ console.log(dontInlineMe() + orMe);
 
 `@modifies {this}` signals that only direct properties of the provided `this` are modified.  Calls to these functions may be removed if the "this" object is known to be otherwise unused.
 
-`@modifies {arguments}` signals that only direct properties of the provided arguments are modified.  Calls to these functions may be removed if the parameters provided to the function are otherwise known to be otherwise unused.
+`@modifies {arguments}` signals that only direct properties of the provided arguments are modified.  Calls to these functions may be removed if the parameters provided to the function are otherwise known to be unused.
 
 These annotations are only allowed in extern files.
 
