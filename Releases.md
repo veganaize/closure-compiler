@@ -10,6 +10,33 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### October 27, 2019 (v20191027)
+*   Added externs for Jasmine 3.3.
+*   Compiler enforces that `goog.require` is in the file scope, not within a
+    function or conditional block.
+*   Replace constant-inlined out-of-bounds array accesses with 'undefined'
+    instead of reporting a warning
+*   Fixed optimization bug on object destructuring declarations, which may cause
+    a slight code size regression in some ES2015+ out targets.
+*   In-browser transpiler is now build with J2CL rather than GWT.
+*   Improved JSC_DUPLICATE_NAMESPACE error message to include the source of both
+    the original provide and duplicate provide.
+*   Remove support for duplicate sources in zip files.
+*   Compiler now enforces that `goog.module.declareLegacyNamespace()` is
+    immediately after the `goog.module` call.
+*   Report undefined variable `goog` errors when using Closure dependency
+    methods (`goog.{provide,require,module,etc.}`) without some definition of
+    `goog`.
+*   Removed "The template variable is unused" error to allow references to
+    template variables from inline parameter declarations.
+*   Added polyfill for `Promise.allSettled` (`ES_2020` feature).
+*   Referencing the `exports` namespace of a `goog.module` through `this` will
+    no longer work compiled in exported functions. (Note: this pattern already
+    causes a `JSC_UNSAFE_THIS` warning and breaks uncompiled when using
+    destructuring requires)
+*   Back off from strict missing property errors while checking property absence
+    (`if (x.y == null)` will no longer give a strict error if `x.y` is missing).
+
 ### September 29, 2019 (v20190929)
 *   Added a linter warning for constant-by-convention names missing `@const`
 *   It's now a compile error to not assign the result of a call to `goog.define`.
