@@ -10,6 +10,15 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### November 11, 2019 (v20191111)
+*   Enable a diagnostic against using bounded generics. The existing diagnostic had a logic error that effectively disabled it.
+*   Deprecate unused diagnostic group ambiguousFunctionDecl.
+*   Remove obsolete diagnostic group 'checkEventfulObjectDisposal'
+*   Remove obsolete diagnostic group 'oldReportUnknownTypes'
+*   Move missing goog.require and ES module import errors from the missingProvide diagnostic group to missingSourcesWarnings.
+*   Enabled 'strictCheckTypes' with the '*' diagnostic group.
+*   Warn for duplicate function parameter names when destructuring, using rest parameters, and default assignment.
+
 ### October 27, 2019 (v20191027)
 *   Added externs for Jasmine 3.3.
 *   Compiler enforces that `goog.require` is in the file scope, not within a
