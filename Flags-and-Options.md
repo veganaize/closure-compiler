@@ -61,7 +61,6 @@ A file containing warnings to suppress\. Each line should be of the form
 ## Available Error Groups
 
   - accessControls
-  - ambiguousFunctionDecl
   - checkPrototypalTypes
   - checkRegExp
   - checkTypes
