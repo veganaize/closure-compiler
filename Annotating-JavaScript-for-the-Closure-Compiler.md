@@ -505,7 +505,7 @@ class User {
 
 The `@const` annotation is also how aliases for interfaces, records, classes and enums are annotated. Without that annotation the alias symbol will not be recognized in a type position.
 
-```
+```javascript
 /** @enum {number} */
 const E = {...};
 
@@ -515,7 +515,7 @@ const EAlias = E;
 
 Note that repeating the original annotation, e.g. `@enum` at the alias declaration site is not allowed.
 
-```
+```javascript
 /** @enum */
 const EAlias = E;  // wrong
 ```
