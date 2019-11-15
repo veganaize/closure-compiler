@@ -503,6 +503,23 @@ class User {
 }
 ```
 
+The `@const` annotation is also how aliases for interfaces, records, classes and enums are annotated. Without that annotation the alias symbol will not be recognized in a type position.
+
+```
+/** @enum {number} */
+const E = {...};
+
+/** @const */
+const EAlias = E; 
+```
+
+Note that repeating the original annotation, e.g. `@enum` at the alias declaration site is not allowed.
+
+```
+/** @enum */
+const EAlias = E;  // wrong
+```
+
 ---
 
 ### `@dict`
