@@ -283,6 +283,26 @@ And the `Function` type matches all functions.
 
 In general, prefer using a more specific type than `Object` or `Function` when possible. See also https://github.com/google/closure-compiler/wiki/A-word-about-the-type-Object.
 
+## Union types
+
+Type unions in Closure are often useful, but have a few potential gotchas.
+
+First, in Closure, a type union is considered to have a property `x` if any of the types in the union have such a property. For example, given a union (`Date|Array<string>`), Closure will treat that union as having the `length` property from `Array<string>`. This is despite the fact that `Date`s do not have a `length`.
+
+Second, Closure is very bad about handling unions of function types. The type system has zero support for function overloads. In the worst case, unions of function types are simplified to the very general `Function` type and lose all typechecking. In order to get the most accurate typechecking, never write unions of function literal types.
+
+Bad type information (but better documentation):
+``` js
+/** @typedef {function(string): string|function(number): number} */
+let MyType;
+```
+
+Better type information:
+``` js
+/** @typedef {function(string|number):(string|number)} */
+let MyType;
+```
+
 ## Declared versus inferred types
 
 The Closure type system is designed to be optional: you don't have to add `@type` annotations everywhere. This leads to a distinction in the type system between variables and properties with **declared** versus **inferred** types.
