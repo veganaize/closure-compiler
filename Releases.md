@@ -10,6 +10,44 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### January 1, 2020 (v20200101)
+*   CrossChunkMethodMotion no longer moves methods containing `super`. Referring
+    to `super` in a non-method function is a syntax error.
+*   Fixed crash when using for-of without externs
+*   Added polyfill for [globalThis](https://github.com/tc39/proposal-global).
+*   Fixed bug where the `!` operator did not always remove null/undefined on
+    `@typedef`s
+*   Added missing `Symbol.iterator` on return of String.prototype.matchAll().
+*   String.prototype.matchAll() now throws error when non-global RegExp is
+    passed in as parameter. Updated to match spec updated in Oct 2019 TC39
+    meeting.
+*   Adds a warning for improperly formatted typeof annotations.
+*   Implemented polyfill for
+    [String.prototype.matchAll()](https://github.com/tc39/proposal-string-matchall).
+    Only available if you specify `--lanauge_in=ES_NEXT`.
+*   Added `globalThis` to externs. Polyfill not yet available - coming soon.
+*   Added `String.prototype.matchAll()` to externs. Polyfill not yet available -
+    coming soon.
+*   Referencing `exports` before assigning to `exports` is now an error in a
+    goog.module.
+*   Add externs for maps api v3.38 and v3.39
+*   Remove the deprecated `--dependency_mode STRICT`
+    and `LOOSE`, which are synonyms for `PRUNE` and `PRUNE_LEGACY`,
+    respectively.
+*   Fix the type for `matchers.not` in the Jasmine extern.
+*   Fix a bug where semicolons would be moved into a template string literal.
+*   Removed obsolete diagnostic group 'es3'. Setting --language_in to ES5 or
+    greater is the replacement for this diagnostic group.
+*   Remove obsolete diagnostic groups 'newCheckTypes',
+    'newCheckTypesCompatibility', and 'newCheckTypesExtraChecks'.
+*   Remove obsolete diagnostic group 'ambiguousFunctionDecl'.
+*   Deprecate and remove unuseful diagnotic group internetExplorerChecks. Setting the
+    language_in to ECMASCRIPT5 or greater is the appropriate way to allow
+    trailing commas in array or object literals.
+*   Remove obsolete diagnostic group 'fileoverviewTags'
+*   Fix an automatic semicolon insertion (ASI) bug with semicolons following
+    newlines.
+
 ### November 11, 2019 (v20191111)
 *   Enable a diagnostic against using bounded generics. The existing diagnostic had a logic error that effectively disabled it.
 *   Deprecate unused diagnostic group ambiguousFunctionDecl.
