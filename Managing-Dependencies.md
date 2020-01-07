@@ -82,23 +82,23 @@ If you want the code to work uncompiled, you should either include Closure Libra
 
 *This flag replaces the now deprecated `--only_closure_dependencies`  and `--manage_closure_dependencies` flags*
 
-Suppose you don't need the ice cream shop. You just want the ice cream. If you have a lot of files, it is difficult to manually figure out if your ice cream had any dependencies. `--dependency_mode` helps with that. When you use `--dependency_mode=STRICT`, you must specify to the compiler what the entry points of your application are. Beginning at those entry points, it will trace through the files to discover what sources are actually referenced and will drop all other files.
+Suppose you don't need the ice cream shop. You just want the ice cream. If you have a lot of files, it is difficult to manually figure out if your ice cream had any dependencies. `--dependency_mode` helps with that. When you use `--dependency_mode=PRUNE`, you must specify to the compiler what the entry points of your application are. Beginning at those entry points, it will trace through the files to discover what sources are actually referenced and will drop all other files.
 
     $ java -jar compiler.jar --js shop.js --js icecream.js --js cone.js \
-      --dependency_mode=STRICT --entry_point=goog:ice.cream
+      --dependency_mode=PRUNE --entry_point=goog:ice.cream
     
     var ice={};ice.cream={};
 
-`--dependency_mode=STRICT` only keeps files that `goog.provide` a symbol. If you have files that do not `goog.provide` a symbol, the compiler will just skip them when this flag is used. ES6 or CommonJS module rewriting generates an a `goog.provide` statement for every ES6 or CommonJS file which is auto-detected by the presenese of `import` or `export` statements for ES6 and `require` or `module.exports` statements for CommonJS.
+`--dependency_mode=PRUNE` only keeps files that `goog.provide` a symbol. If you have files that do not `goog.provide` a symbol, the compiler will just skip them when this flag is used. ES6 or CommonJS module rewriting generates an a `goog.provide` statement for every ES6 or CommonJS file which is auto-detected by the presenese of `import` or `export` statements for ES6 and `require` or `module.exports` statements for CommonJS.
 
 ## Working with Files that Do Not Specify Dependencies
 
 Suppose you want to compile a file that doesn't contain dependency information, but want the nice sorting and pruning of sources that Closure Compiler provides. There are two common solutions:
 
 - Write a shell script that adds goog.provide/goog.require dependency information to the top of the file.
-- Use `--dependency_mode=LOOSE`
+- Use `--dependency_mode=PRUNE_LEGACY`
 
-`--dependency_mode=LOOSE` will **keep** any files that do not `goog.provide` symbols (whereas `--dependency_mode=STRICT` will drop them). ES6 and CommonJS modules are rewritten to **always** have `goog.provide` statements.
+`--dependency_mode=PRUNE_LEGACY` will **keep** any files that do not `goog.provide` symbols (whereas `--dependency_mode=PRUNE` will drop them). ES6 and CommonJS modules are rewritten to **always** have `goog.provide` statements.
 
 For example, you would define a new file:
 
@@ -109,10 +109,10 @@ goog.require('ice.cream.Shop');
 ```
 ----
 
-Because this file does not `goog.provide` a symbol, `--dependency_mode=LOOSE` will always keep it and all of its dependencies.
+Because this file does not `goog.provide` a symbol, `--dependency_mode=PRUNE_LEGACY` will always keep it and all of its dependencies.
 
     $ java -jar compiler.jar --js shop-app.js --js shop.js --js icecream.js --js cone.js \
-      --dependency_mode=LOOSE
+      --dependency_mode=PRUNE_LEGACY
     
     var ice={};ice.cream={};var waffle={};waffle.cone={};ice.cream.Shop={};
 
@@ -123,7 +123,7 @@ These flag may sometimes appear to be magical. The compiler reads all your code,
 Fortunately, there is a flag for that.
 
     $ java -jar compiler.jar --js shop-app.js --js shop.js --js icecream.js --js cone.js \
-      --dependency_mode=LOOSE --output_manifest manifest.MF
+      --dependency_mode=PRUNE_LEGACY --output_manifest manifest.MF
     
     ...
     
@@ -137,11 +137,11 @@ When you use `--output_manifest` on the commandline, you give the flag an output
 
 ### FAQ
 
-**I made a syntax error in one of my library files, and when I used `--dependency_mode=STRICT`/`--dependency_mode=LOOSE`, Closure Compiler didn't catch it. Why not?**
+**I made a syntax error in one of my library files, and when I used `--dependency_mode=PRUNE`/`--dependency_mode=PRUNE_LEGACY`, Closure Compiler didn't catch it. Why not?**
 
 When you use these flags, Closure Compiler looks at the dependencies and drops library files that are not required. It makes this determination very early in the process. It doesn't even parse the dropped files to check if they're syntactically valid.
 
-If you're writing a library and you're primarily using Closure Compiler to do syntax checking on that library, then you should not use `--dependency_mode=STRICT` or `--dependency_mode=LOOSE`. You should create separate build rules for syntax checking and for compiling just what's needed in your app.
+If you're writing a library and you're primarily using Closure Compiler to do syntax checking on that library, then you should not use `--dependency_mode=PRUNE` or `--dependency_mode=PRUNE_LEGACY`. You should create separate build rules for syntax checking and for compiling just what's needed in your app.
 
 **I aliased `goog.require` or CommonJS's `require` statement like `var r = goog.require;`. Now dependency sorting doesn't work. Why?**
 
