@@ -1,7 +1,7 @@
 | Feature           | Language Version | Support |
 | ----------------- | ---------------- | ------- |
 | ES3 keywords as identifiers | `ES5` | yes |
-| getters & setters |            `ES5` | Cannot be transpiled down to `ES3`. Negatively impact optimizations. |
+| getters & setters |            `ES5` | Yes, but cannot be transpiled down to `ES3`. Negatively impact optimizations. |
 | reserved words as properties | `ES5` | yes |
 | string continuation | `ES5` | yes |
 | trailing comma    |            `ES5` | yes |
@@ -11,7 +11,7 @@
 | block-scoped function declaration | `ES6` | yes |
 | class | `ES6` | yes |
 | class extends | `ES6` | yes |
-| class getters / setters | `ES6` | yes |
+| class getters / setters | `ES6` | Yes, but cannot be transpiled down to `ES3`. Negatively impact optimizations. |
 | computed properties | `ES6` | yes |
 | const declaration | `ES6` | yes |
 | let declaration | `ES6` | yes |
