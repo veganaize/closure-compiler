@@ -46,4 +46,4 @@
 | `import.meta` | `ES_NEXT` | recognized in input, but cannot be output or transpiled |
 | Nullish coalescing operator `??` | `ES_UNSUPPORTED` | work in progress |
 | Optional chaining operator `?.` | none | work to start soon |
-
+| `globalThis` | `ES_NEXT` | polyfill |
