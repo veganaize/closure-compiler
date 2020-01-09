@@ -25,13 +25,20 @@
 | for-of loop | `ES6` | yes |
 | generators | `ES6` | yes |
 | `new.target` | `ES6` | yes |
-| `RegExp` flag 'u' | `ES6` | yes |
-| `RegExp` flag 'y' | `ES6` | yes |
+| `RegExp` flag 'u' | `ES6` | recognized in input, but cannot be transpiled |
+| `RegExp` flag 'y' | `ES6` | recognized in input, but cannot be transpiled |
 | string template literals | `ES6` | yes |
 | ES modules | `ES6` | yes in input, but output is one large script, possibly broken into chunks |
 | exponent operators | `ES7` | yes |
 | async functions | `ES8` | yes |
 | trailing comma in param list | `ES9` | yes |
 | spread into object literal | `ES_2018` | yes |
+| object pattern rest | `ES_2018` | yes |
+| async generator functions | `ES_2018` | yes |
+| for-await-of loop | `ES_2018` | yes |
+| `RegExp` flag 's' | `ES_2018` | recognized in input, but cannot be transpiled |
+| `RegExp` lookbehind | `ES_2019` | recognized in input, but cannot be transpiled |
+| `RegExp` named groups | `ES_2018` | recognized in input, but cannot be transpiled |
+| `RegExp` unicode property escape | `ES_2018` | yes |
 
 
