@@ -40,5 +40,9 @@
 | `RegExp` lookbehind | `ES_2019` | recognized in input, but cannot be transpiled |
 | `RegExp` named groups | `ES_2018` | recognized in input, but cannot be transpiled |
 | `RegExp` unicode property escape | `ES_2018` | yes |
+| Unescaped Unicode line or paragraph separator | `ES_2019` | yes |
+| Optional catch binding | `ES_2019` | yes |
+| Dynamic module import | `ES_UNSUPPORTED` | recognized in input, but cannot be output or transpiled |
+| import.meta | `ES_NEXT` | recognized in input, but cannot be output or transpiled |
 
 
