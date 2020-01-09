@@ -43,6 +43,7 @@
 | Unescaped Unicode line or paragraph separator | `ES_2019` | yes |
 | Optional catch binding | `ES_2019` | yes |
 | Dynamic module import | `ES_UNSUPPORTED` | recognized in input, but cannot be output or transpiled |
-| import.meta | `ES_NEXT` | recognized in input, but cannot be output or transpiled |
-
+| `import.meta` | `ES_NEXT` | recognized in input, but cannot be output or transpiled |
+| Nullish coalescing operator `??` | `ES_UNSUPPORTED` | work in progress |
+| Optional chaining operator `?.` | none | work to start soon |
 
