@@ -1,3 +1,5 @@
+See also https://github.com/google/closure-compiler/issues/2899
+
 | Feature                                       | Language Version | Support                                                                       |
 | --------------------------------------------- | ---------------- | ----------------------------------------------------------------------------- |
 | ES3 keywords as identifiers                   | `ES5`            | yes                                                                           |
