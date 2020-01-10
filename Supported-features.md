@@ -1,3 +1,5 @@
+Last update: 2020-01-09
+
 See also https://github.com/google/closure-compiler/issues/2899
 
 | Feature                                       | Language Version | Support                                                                       |
