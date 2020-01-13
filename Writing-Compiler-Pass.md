@@ -162,18 +162,17 @@ Let's say we want to execute our pass just before some optimization passes. To d
 ```java
     // Collapsing properties can undo constant inlining, so we do this before
     // the main optimization loop.
-    if (options.collapseProperties) {
+    if (options.getPropertyCollapseLevel() != PropertyCollapseLevel.NONE) {
       passes.add(collapseProperties);
     }
    
     ///////////////////  NEW CODE STARTS  //////////////////////////
     passes.add(
-        new PassFactory("helloWorld", true) {
-          @Override
-          protected CompilerPass create(AbstractCompiler compiler) {
-            return new HelloWorld(compiler);
-          }
-        });
+        PassFactory.builder()
+            .setName("helloWorld")
+            .setInternalFactory(HelloWorld::new)
+            .setFeatureSet(FeatureSet.ES2019_MODULES)
+            .build());
     ///////////////////  NEW CODE ENDS  ////////////////////////////
     
     // ReplaceStrings runs after CollapseProperties in order to simplify
