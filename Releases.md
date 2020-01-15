@@ -10,6 +10,24 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### January 12, 2020 (v20200112)
+*   Added support for transpiling computed getters and setters in ES6 classes
+*   `InlineAliases` is moved from after type checking to the beginning of
+    optimizations. This may change the identifier names reported by the various
+    post type checking check passes.
+*   Presence of object rest now prevents removal of any of the other contents of
+    the object pattern.
+*   Stricten variable redeclaration checks to also report even if the declared
+    types of the variable are a structural match.
+*   Compiler-injected logic for finding the global object now works even when
+    the output is wrapped in a strict-mode IIFE.
+*   Allow `--browser_featureset_year=2020`
+*   Add a `FeatureSet` describing the JS features implemented by all 2020
+    browsers. Used when compiling with `--browser_featureset_year=2020`
+*   Fix a crash when an interface would accidentally extend a union type.
+*   Bug fix related to typing of properies on typedefs,
+    e.g. `a.b` when `a` is also a `@typedef`
+
 ### January 1, 2020 (v20200101)
 *   CrossChunkMethodMotion no longer moves methods containing `super`. Referring
     to `super` in a non-method function is a syntax error.
