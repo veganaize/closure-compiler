@@ -25,7 +25,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 *   Add a `FeatureSet` describing the JS features implemented by all 2020
     browsers. Used when compiling with `--browser_featureset_year=2020`
 *   Fix a crash when an interface would accidentally extend a union type.
-*   Bug fix related to typing of properies on typedefs,
+*   Bug fix related to typing of properties on typedefs,
     e.g. `a.b` when `a` is also a `@typedef`
 
 ### January 1, 2020 (v20200101)
