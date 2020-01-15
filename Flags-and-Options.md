@@ -71,13 +71,10 @@ A file containing warnings to suppress\. Each line should be of the form
   - deprecated
   - deprecatedAnnotations
   - duplicateMessage
-  - es3
   - es5Strict
   - externsValidation
-  - fileoverviewTags
   - functionParams
   - globalThis
-  - internetExplorerChecks
   - invalidCasts
   - misplacedTypeAnnotation
   - missingGetCssName
@@ -90,7 +87,6 @@ A file containing warnings to suppress\. Each line should be of the form
   - missingSourcesWarnings
   - moduleLoad
   - msgDescriptions
-  - newCheckTypes
   - nonStandardJsDocs
   - partialAlias
   - polymer
@@ -149,7 +145,7 @@ Specifies a prefix that will be prepended to all variables\.
 
 # Dependency Management
 
-**--dependency_mode [NONE | SORT_ONLY | PRUNE_LEGACY | PRUNE | LOOSE | STRICT]**  
+**--dependency_mode [NONE | SORT_ONLY | PRUNE_LEGACY | PRUNE]**  
 Specifies how the compiler should determine the set and order of files for a compilation\. Options: NONE the compiler will include all src files in the order listed, SORT_ONLY the compiler will include all source files in dependency order, PRUNE files will only be included if they are transitive dependencies of files listed in the \-\-entry_point flag and then sorted in dependency order, PRUNE_LEGACY same as PRUNE but files that do not goog\.provide a namespace and are not modules will be automatically added as \-\-entry_point entries\. Defaults to PRUNE_LEGACY if entry points are defined, otherwise to NONE\.
 
 **--entry_point VAL**  
