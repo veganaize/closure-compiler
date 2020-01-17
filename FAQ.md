@@ -2,7 +2,7 @@
 
 ## Table of Contents
 ### Unexpected Output
- * [My multi-line `goog.require` statements are getting ignored or stripped](#my-multi-line-googrequire-statements-are-getting-ignored-or-stripped)
+ * [My multi-line `goog.require` statements are getting ignored](#my-multi-line-googrequire-statements-are-getting-ignored)
  * [The compiler crashes with UnsupportedClassVersionError or Unsupported major.minor version 51.0](#the-compiler-crashes-with-unsupportedclassversionerror-or-unsupported-majorminor-version-510)
  * [I get a "Trailing comma is not legal" error. But it works on Firefox!](#i-get-a-trailing-comma-is-not-legal-error-but-it-works-on-firefox)
  * [I get "invalid property id" errors. But it works on Firefox!](#i-get-invalid-property-id-errors-but-it-works-on-firefox)
@@ -39,7 +39,7 @@
 
 ## Unexpected Output
 
-### My multi-line `goog.require` statements are getting ignored or stripped
+### My multi-line `goog.require` statements are getting ignored
 
 The compiler needs to be able to quickly examine files to determine their dependencies, so it uses
 an early regex-based pass just to find the `goog.require` statements. The regex isn't smart enough to handle
