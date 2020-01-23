@@ -63,7 +63,7 @@ typeInvalidation|Warn about properties that cannot be disambiguated when using t
 undefinedNames|Warnings when a property of a global name is not defined.|OFF
 undefinedVars|Warnings when a variable is never defined.|ERROR
 unknownDefines|Warnings when unknown @define values are specified.|WARNING
-useOfGoogBase|Warnings about usages of goog.base, which is not compatible with strict mode|OFF
+useOfGoogBase|[DEPRECATED]Warnings about usages of goog.base, which is deleted from Closure library|OFF
 uselessCode|Warnings when the compiler sees useless code that it plans to remove.|WARNING
 violatedModuleDep|Warnings when there are references in earlier modules to variables defined in later modules|ERROR
 visibility|Warnings when @private and @protected are violated.|OFF
