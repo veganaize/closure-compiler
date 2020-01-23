@@ -25,9 +25,9 @@ The following table describes the available diagnostic groups.
 Name|Effect|Default Value
 ----|------|-----------------
 accessControls|Warnings when @deprecated, @private, @protected, or @package are violated.|OFF
-ambiguousFunctionDecl|Warnings about ambiguous definitions of functions. On Chrome, <br/> if (false) { function f() {} } <br/> declared 'f' in the global scope anyway. Future versions of javascript forbid this, because the <br/> actual semantics differ between browsers.|ERROR
+ambiguousFunctionDecl|[DELETED in v20200101] Warnings about ambiguous definitions of functions. On Chrome, <br/> if (false) { function f() {} } <br/> declared 'f' in the global scope anyway. Future versions of javascript forbid this, because the <br/> actual semantics differ between browsers.|ERROR
 checkDebuggerStatement|Warnings when the 'debugger' keyword is used.|OFF
-checkEventfulObjectDisposal|Warnings about undisposed eventful objects.|OFF
+checkEventfulObjectDisposal|[DELETED in v20191111] Warnings about undisposed eventful objects.|OFF
 checkRegExp|Warnings about weird regular expression literals|OFF
 checkTypes|Type-checking|WARNING
 checkVars|Warnings when vars are not declared or declared multiple times in the global scope.|ERROR
@@ -39,30 +39,37 @@ deprecatedAnnotations|Warnings when using annotations that are deprecated|OFF
 deprecated|Warnings when non-deprecated code accesses code that's marked @deprecated|OFF
 duplicateMessage|Warnings when two i18n messages have the same id|ERROR
 duplicate|Warnings when a variable is declared twice in the global scope|ERROR
-es3|Warnings about EcmaScript3|ERROR
+es3|[DELETED in v20200101] Warnings about EcmaScript3|ERROR
 es5Strict|Warnings about EcmaScript5 strict mode. See [here](https://github.com/google/closure-compiler/issues/3014) for how to turn these off.|ERROR
 externsValidation|Warnings about malformed externs files|WARNING
 extraRequire|Warnings about unnecessary goog.require calls|OFF
-fileoverviewTags|Warnings about duplicate @fileoverview tags|WARNING
+fileoverviewTags|[DELETED in v20200101] Warnings about duplicate @fileoverview tags|WARNING
 globalThis|Warnings about [improper use of the global this](http://closuretools.blogspot.com/2010/10/this-this-is-your-this.html).|WARNING
-internetExplorerChecks|Warnings about syntax error on Internet Explorer.|ERROR
+internetExplorerChecks|[DELETED in v20200101] Warnings about syntax error on Internet Explorer.|ERROR
 invalidCasts|Warnings about invalid type casts.|WARNING
+misplacedSuppress|Warnings about misplaced @suppress annotations|WARNING
 misplacedTypeAnnotation|Warnings about jsdoc type annotations that are misplaced|WARNING
 missingGetCssName|Warnings about strings that should only be used inside calls to goog.getCssName|OFF
 missingProperties|Warnings about whether a property will ever be defined on an object. Part of type-checking.|OFF
 missingProvide|Warnings if missing a goog.provide('Foo') when defining a Foo class|OFF
 missingRequire|Warnings if missing a goog.require('Foo') when a new Foo() is encountered|OFF
 missingReturn|Warnings if missing return in a function which a non-void return type|OFF
-newCheckTypes|Warnings from new type checker|OFF
+newCheckTypes|[DELETED in v20200101] Warnings from new type checker|OFF
 nonStandardJsDocs|Warnings when JSDoc has annotations that the compiler thinks you misspelled.|WARNING
 reportUnknownTypes|Warnings for any place in the code where type is inferred to ?. NOT RECOMMENDED!|OFF
+strictCheckTypes|Combines `strictMissingProperties` and `strictPrimitiveOperators`|OFF
+strictMissingProperties|Warnings for missing properties that forbid accessing subclass props off superclasses|OFF
 strictModuleDepCheck|Warnings about all references potentially violating module dependencies|OFF
+strictPrimitiveOperators|Warnings about legal operand types for primitive operators like `+` and `-`|OFF
 suspiciousCode|Warning about things like missing semicolons and comparisons to NaN|WARNING
 tweakValidation|Warnings about goog.tweak primitives|OFF
 typeInvalidation|Warn about properties that cannot be disambiguated when using type based optimizations|OFF
 undefinedNames|Warnings when a property of a global name is not defined.|OFF
 undefinedVars|Warnings when a variable is never defined.|ERROR
 unknownDefines|Warnings when unknown @define values are specified.|WARNING
+unusedLocalVariables|Warnings about unused variables in local scopes|OFF
+unusedPrivateMembers|Warnings about @private class properties that are unused|OFF
+untranspilableFeatures|Warnings about use of features that cannot be transpiled down to the specified `--language_out`|ERROR
 useOfGoogBase|[DEPRECATED]Warnings about usages of goog.base, which is deleted from Closure library|OFF
 uselessCode|Warnings when the compiler sees useless code that it plans to remove.|WARNING
 violatedModuleDep|Warnings when there are references in earlier modules to variables defined in later modules|ERROR
