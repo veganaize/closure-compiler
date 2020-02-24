@@ -3,9 +3,10 @@
 The browser processes JavaScript files serially. So if you have a lot of JavaScript files you'll need some way to make sure they get executed in the right order. Closure Compiler has similar restrictions in that compilations must process files in the correct order so that types are defined before they are used.
 
 ## Specifying Dependencies Between Files
+
 Closure Compiler can use dependency information from the following sources:
 
- * Closure-Library `goog.require` and `goog.provide` statements
+ * Closure-Library `goog.require`, `goog.module`, and `goog.provide` statements
  * ES6 Module `import` and `export` statements
  * CommonJS `require` and `module.export` or `exports` statements when the `--process_common_js_modules` flag is specified
 
