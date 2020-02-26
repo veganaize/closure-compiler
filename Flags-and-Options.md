@@ -103,7 +103,6 @@ A file containing warnings to suppress\. Each line should be of the form
   - unknownDefines
   - unusedLocalVariables
   - unusedPrivateMembers
-  - useOfGoogBase
   - uselessCode
   - untranspilableFeatures,visibility
 
