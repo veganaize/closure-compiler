@@ -10,6 +10,32 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### February 24, 2020 (v20200224)
+
+*   Add externs for maps api v3.40
+*   Avoid including polyfill for `globalThis` when input code doesn't use it.
+*   Improved dead code elimination to realize exceptions thrown within try-catch
+    blocks are side-effect free.
+*   Fix optimization bug where functions using destructuring were sometimes
+    incorrectly detected as side-effect-free and optimized away.
+*   BANNED_PROPERTY (and related) conformance rules now apply to destructuring.
+*   Extend "too many template parameters" warning to primitives like `string`
+*   Drop support for modeling function hoisting in the typechecker. The
+    typechecker expects all function references to be after the declaration. The
+    only known behavioral change is that `goog.module` exports of ES5 classes
+    that take advantage of function hoisting will no longer be typechecked. 
+    This change does *not* affect the runtime behavior.
+*   Report an error for `super` used in a normal function even when it's nested
+    in a class method.
+*   Report an error for `super()` calls in arrow functions within constructors.
+    The JS spec allows them as long as `super()` is called exactly once before
+    any references to `this` or `super.prop`, but they make it very hard to
+    determine statically whether `super()` is being called correctly. Code that
+    is calling `super()` from an arrow function is unnecessarily complex and
+    should be refactored.
+*   Deleted the deprecated diagnostic group `useOfGoogBase`
+*   Bugfixes and improvements.
+
 ### February 4, 2020 (v20200204)
 
 *   Warn on unrecognized types found in (spurious) enum and typedef template
