@@ -89,37 +89,4 @@ This is how we "canary" new warnings until we feel they're stable.
 
 ## @suppress Tags
     
-You can also silence warnings by adding JSDoc annotations to your code. All of the warnings categories above should be available for use in a @suppress tag in a @fileoverview JSDoc comment or a function JSDoc comment. However check [ParserConfig.properties](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/ParserConfig.properties#L131) for a comprehensive list of suppressible warnings.
-
-For example,
-
-```js
-/**
- * @fileoverview This is a file where deprecation checks are disabled.
- * @suppress {deprecated}
- */
-
-/**
- * This is a function where type checking is disabled.
- * @suppress {checkTypes}
- */
-function f() { /** ... */ }
-```
-
-There is also one warning category that you can suppress with @suppress tags, but is not available from the command-line.
-
-```js
-/** @suppress {duplicate} */ foo.prop = ...
-```
-Suppresses warnings about a declaration of the same method or property twice in the global scope.
-
-If you want to suppress many warnings at once, you can write
-
-```js
-/** @suppress {duplicate, accessControls} */ function f() { ... }
-```
-or
-
-```js
-/** @suppress {duplicate|accessControls} */ function f() { ... }
-```
+You can also silence some warnings by adding JSDoc annotations to your code. See https://github.com/google/closure-compiler/wiki/@suppress-annotations for more details.
