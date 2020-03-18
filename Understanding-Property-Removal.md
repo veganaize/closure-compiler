@@ -42,3 +42,6 @@ cls.prototype.z = function() { // removal candidate due to "prototype" assumptio
   alert(this.x + this.y);
 }
 ```
+
+Use of `x[propName]` to access a property will disable removal of all properties from `x`'s type,
+because the compiler will assume it cannot know which properties of that type are accessed using `[]`.
