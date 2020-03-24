@@ -239,7 +239,7 @@ File where the serialized version of the variable renaming map produced should b
 
 **--charset VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Input and output charset for all files\. By default, the input is UTF\-8 and output is US_ASCII
+Input and output charset for all files\. By default, we accept UTF\-8 as input and output US_ASCII
 
 **--checks_only (--checks-only)**  
 Don't generate output\. Run checks, but no optimization passes\.
