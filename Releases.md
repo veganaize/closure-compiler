@@ -17,9 +17,10 @@ For complete list of changes refer to the [change log](https://github.com/google
 *   Added a new suppression `useOfGoogProvide` to suppress the recently added
     lint error on `goog.provide`.
 *   The "missing" and "extra" requires checks again run during lint/fixjs.
+*   The "unknown class property" conformance check now recognizes ES6 classes.
+    Previously a bug made it only apply to ES5 classes.
 *   Fixed a bug that broke references to class static properties using the
     class's inner name. e.g.
-
     ```javascript
     const X = class InnerX {
       // gets collapsed to something like X$$staticMethod
@@ -30,8 +31,6 @@ For complete list of changes refer to the [change log](https://github.com/google
       }
     }
     ```
-*   The "unknown class property" conformance check now recognizes ES6 classes.
-    Previously a bug made it only apply to ES5 classes.
 
 ### February 24, 2020 (v20200224)
 
