@@ -10,6 +10,29 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### March 15, 2020 (v20200315)
+
+*   Moved webassembly externs out of contrib.
+*   Nullish coalesce operator (`??`) available with `--language_in=ES_NEXT`
+*   Added a new suppression `useOfGoogProvide` to suppress the recently added
+    lint error on `goog.provide`.
+*   The "missing" and "extra" requires checks again run during lint/fixjs.
+*   Fixed a bug that broke references to class static properties using the
+    class's inner name. e.g.
+
+    ```javascript
+    const X = class InnerX {
+      // gets collapsed to something like X$$staticMethod
+      static staticMethod() {}
+      method() {
+        // left pointing at a nonexistent method
+        InnerX.staticMethod();
+      }
+    }
+    ```
+*   The "unknown class property" conformance check now recognizes ES6 classes.
+    Previously a bug made it only apply to ES5 classes.
+
 ### February 24, 2020 (v20200224)
 
 *   Add externs for maps api v3.40
