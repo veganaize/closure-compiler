@@ -335,7 +335,7 @@ Complex types (including unions, and record types) can be aliased for convenienc
  * @typedef {{
  *            foo:string,
  *            bar:number,
- *            foobar:number|string
+ *            foobar: (number|string)
  *          }}
  */
 var Mytype;
