@@ -10,6 +10,11 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### April 6, 2020 (v20200406)
+*    Conformance errors now print the conformance config file where the requirement was defined.
+*    Remove extern definitions for obsolete static methods on Array that were only ever available on older versions of Mozilla products (such as FireFox and Rhino).
+*    The "missing require" check no longer runs during lint.
+
 ### March 15, 2020 (v20200315)
 
 *   Moved webassembly externs out of contrib.
