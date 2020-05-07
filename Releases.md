@@ -24,6 +24,11 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### April 26, 2020 (v20200426)
 
+Note: A [problem](https://github.com/google/closure-compiler/issues/3587) was discovered
+with this release after most of the work to publish it was already complete, so we did
+another release the following week with that problem fixed and do not recommend using this
+one.
+
 *   Remove unused polyfills even if `--rewrite_polyfills=false` as
     long as polyfills are not force injected using options or flag
 *   New optimization to replace Array.of calls with array literals (thanks
