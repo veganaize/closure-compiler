@@ -10,6 +10,36 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### May 4, 2020 (v20200504)
+*   Improved type inference of `===` operands when one operand is `?`
+*   `--print_source_after_each_pass` sends files to
+    `.../<debug_logdirectory>/JSCompiler/source_after_pass/...`
+*   Add externs for `chrome.runtime.Manifest.prototype.icons`.
+*   Add `Atomics.notify` API externs from ES2019.
+*   Fix inappropriate return expression deduplication. Fixes
+    [github issue 3462](https://github.com/google/closure-compiler/issues/3462)
+*   Improve elimination of unnecessary polyfills only used behind guards, like
+    `if (typeof Promise === 'function') { use(Promise); }`.
+*   Add externs for `chrome.runtime.PlatformInfo`.
+
+### April 26, 2020 (v20200426)
+
+*   Remove unused polyfills even if `--rewrite_polyfills=false` as
+    long as polyfills are not force injected using options or flag
+*   New optimization to replace Array.of calls with array literals (thanks
+    @bugreportuser)
+*   Fix `StorageEvent` API externs to match current W3C standard.
+*   closure-compiler's AST now attaches inline trailing comments to the suitable parameters and
+    arguments for function declarations and call-sites.
+*   The compiler's runtime libraries now prefer the global `this` over `window`
+    when searching for the global object to install polyfills on.
+*   Stopped backing off inlining non-global variables whose names are "exported"
+    according to the `CodingConvention` in use.
+*   Add input support for numeric separators
+*   `LogFile` (debug logging) now appends to existing files rather than overwriting them.
+    All logs are cleared on compiler startup to prevent mixing across compilations.
+*   Added WebGL 2.0 Compute externs to the set of standard browser externs
+
 ### April 6, 2020 (v20200406)
 *    Conformance errors now print the conformance config file where the requirement was defined.
 *    Remove extern definitions for obsolete static methods on Array that were only ever available on older versions of Mozilla products (such as FireFox and Rhino).
