@@ -34,7 +34,7 @@ This option is available starting in v20200504. A major caveat (as of 2020-05-07
 
  - polyfilled classes and methods referenced via bracket access will not be polyfilled at runtime. So `window.Promise` is acceptable but `window['Promise']` is not.
  - custom implementations of polyfills are not supported. For example, given `window.Promise = MyPromise; use(new Promise(resolve, reject));`, the `Promise` instantation will refer to the compiler polyfill and not `MyPromise`.
- - as of v20200504, polyfill isolation is supported for all polyfills _except_ `Symbol`. Support for `Symbol` is expected to land in the next release.
+ - as of v20200504, polyfill isolation is supported for all polyfills _except_ `Symbol`. Support for `Symbol` is already implemented at head and in the internal Google release, and it will land in the next release.
 
 These are not technical limitations and could be supported given a compelling use case.
 
