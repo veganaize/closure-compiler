@@ -10,6 +10,21 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### May 17, 2020 (v20200517)
+
+*   Change the externs to the current shape of [Trusted Types API](https://github.com/w3c/webappsec-trusted-types).
+*   Convert `Symbol.iterator` to a library polyfill
+*   Omit weak files from the bundle output.
+*   Make count optional in Atomics. {notify,wake}
+*   Start polyfilling `Symbol.iterator` for TypedArrays when they are present.
+*   Remove the legacy_js_project flag.
+*   Convert Symbol.asyncIterator to a library polyfill
+*   Transpile `new.target` -> `this.constructor` in ES6 constructors.
+*   Skip the JSC_UNKNOWN_EXPR warning for unknown expressions used as standalone
+    statements.
+*   Fixed `--isolate_polyfills` bugs causing runtime exceptions in compiler
+    library code
+
 ### May 4, 2020 (v20200504)
 *   Improved type inference of `===` operands when one operand is `?`
 *   `--print_source_after_each_pass` sends files to
