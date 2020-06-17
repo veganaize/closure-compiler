@@ -10,6 +10,51 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### June 14, 2020 (v20200614)
+
+*   Fixed a bug causing `OptimizeParameters` to inline parameters for a case
+    where the compiler couldn't actually see all calls to the function.
+*   Avoid including polyfills for Promise and Symbol in `ES_2015` output. They
+    were previously getting unnecessarily included due to their use in
+    transpilation of async functions.
+*   Fixed bug triggered by re-freezing an object frozen before the JSCompiler
+    WeakMap polyfill loaded
+*   Polyfill isolation mode no longer supports inserting
+    frozen/sealed/non-extensible objects into the `Map`, `Set`, `WeakMap`, or
+    `WeakSet` polyfills.
+*   Add externs for all remaining Web Crypto APIs specified at
+    https://www.w3.org/TR/WebCryptoAPI/ that weren't already present.
+*   Support transpilation of classes that extend native classes (e.g. Map).
+    Previously only extension of `Object` and various `Error` classes were
+    supported for ES6 classes being transpiled to ES5.
+*   Changed the default error format to include multiple lines from the original
+    source.
+*   Fix invalid code generation when attempting to convert RegExp constructors
+    whose patterns start with * to regex literals
+*   Fixed OptimizeParameters to stop inlining `yield` and `await` expressions
+    into other functions.
+*   Added the NO_OP conformance rule, useful for removing conformance
+    requirements from a codebase without breaking downstream builds that extend
+    them.
+*   Fix bug in AngularJS externs where `templateUrl` field was not indicated to
+    be in the prototype of `angular.$routeProvider.Params`.
+*   Add jasmine externs for setSpecProperty and setSuiteProperty, due in v3.6.
+*   Add jasmine externs to jasmine namespace for Spec.getFullName,
+    Env.configure, SpecResult, JasmineDoneInfo, jsApiReporter, HtmlReporter,
+    QueryString, HtmlSpecFilter, and Timer.
+*   Add definitions for DOMPoint to externs
+*   Adds missing externs for HTMLTextAreaElement: maxLength, minLength,
+    textLength.
+*   Add externs for maps api v3.41
+*   checkGlobalThisLevel compiler option has been removed. Use the `globalThis`
+    diagnostic group instead to trigger the global this checks.
+*   Added a suggested fix for the new more accurate missing require warnings.
+*   Report syntax error for usage of `yield` or `await` in default parameter
+    values. This has always been illegal JS syntax. If this change seems to
+    break your project, then it was really already broken and you should fix
+    your code.
+*   Fixed crash caused by using @export without depending on base.js
+
 ### May 17, 2020 (v20200517)
 
 *   Change the externs to the current shape of [Trusted Types API](https://github.com/w3c/webappsec-trusted-types).
