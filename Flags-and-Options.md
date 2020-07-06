@@ -36,7 +36,7 @@ A list of JS Conformance configurations in text protocol buffer format\.
 Specifies format for error messages\.
 
 **--extra_annotation_name VAL**  
-A whitelist of tag names in JSDoc\. You may specify multiple
+A allowlist of tag names in JSDoc\. You may specify multiple
 
 **--hide_warnings_for VAL**  
 If specified, files whose path contains this string will have their warnings hidden\. You may specify multiple\.
@@ -53,7 +53,7 @@ Make the named class of warnings a normal warning\. Must be one of the error gro
 **--strict_mode_input**  
 Assume input sources are to run in strict mode\.
 
-**--warnings_whitelist_file VAL**  
+**--warnings_allowlist_file (--warnings_whitelist_file) VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 A file containing warnings to suppress\. Each line should be of the form
                                                                                       \<file\-name\>:\<line\-number\>?  \<warning\-description\>
