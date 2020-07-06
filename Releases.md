@@ -10,6 +10,33 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### June 28, 2020 (v20200628)
+
+*   Simplified unused polyfill removal, with the result that more unnecessary
+    polyfills may be present in the compiled output. This can happen when shares
+    a name with an extern or structural type property.
+*   Update AsyncGenerator type definition to have 3 template parameters instead
+    of one. This brings it in line with TS and with the other Iterator types.
+    Like those others, the 2 additional parameters aren't actually used yet.
+*   `--shadow_variables` is now a no-op. The functionality scaled very poorly
+    and proved to provide little meaningful value in practice.
+*   Fix [crash with `new.target`](https://github.com/google/closure-compiler/issues/3607)
+*   Fix [`instanceof` code removal bug](https://github.com/google/closure-compiler/issues/3618)
+*   Add onChanged to Chrome extensions StorageArea
+*   Rename WarningsGuard#Priority.SUPPRESS_BY_WHITELIST to SUPPRESS_BY_ALLOWLIST
+*   Define TextEncoder.encodeInto API
+*   Fixed
+    `com.google.javascript.refactoring.RefactoringUtils.isInClosurizedFile` to
+    recognize additional files declaring a goog.module as Closurized. Prior to
+    this change, files that exported a class without requiring other imports may
+    not have been recognized as Closurized.
+*   Dropped 'duplicate requires' check from deps generator.
+*   Addition of support for BigInt is in progress. With this release you may
+    begin to see `bigint` mentioned in error messages. However, support for it
+    isn't complete yet. We will announce when it is.
+*   Declare HTMLVideoElement.requestVideoFrameCallback() and
+    cancelVideoFrameCallback() See https://wicg.github.io/video-rvfc/
+
 ### June 14, 2020 (v20200614)
 
 *   Fixed a bug causing `OptimizeParameters` to inline parameters for a case
