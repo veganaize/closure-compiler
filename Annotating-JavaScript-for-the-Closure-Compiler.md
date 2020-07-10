@@ -540,6 +540,19 @@ var obj2 = /** @dict */ { 'x': 321 };
 obj2.x = 123;  // warning
 ```
 
+or using the class keyword:
+
+```javascript
+/** @dict */
+class Foo {}
+var obj1 = new Foo();
+obj1['x'] = 123;
+obj1.x = 234;  // warning
+
+var obj2 = /** @dict */ { 'x': 321 };
+obj2.x = 123;  // warning
+```
+
 ---
 
 ### `@implicitCast`
@@ -626,6 +639,8 @@ var A = Polymer({
 
 `@struct` is used to create objects with a fixed number of properties. When a constructor (Foo in the example) is annotated with `@struct`, you can only use the dot notation to access the properties of Foo objects, not the bracket notation. Also, you cannot add a property to a Foo instance after it's constructed. The annotation can also be used directly on object literals.
 
+Classes created with the ES class keyword or with `goog.defineClass` are `@struct` by default, so this annotation is only needed for old-style `@constructor` functions.
+
 ```javascript
 /**
  * @constructor
@@ -665,15 +680,32 @@ function f() {
 
 ### `@unrestricted`
 
-Indicates that a class is neither a `@struct` type, nor a `@dict` type. This is the default so it is generally not necessary to write it explicitly, unless you are using `goog.defineClass`, or the class keyword, which both produce classes which are `@structs` by default.
+Indicates that a class is neither a `@struct` type nor a `@dict` type. This is the default for old Closure-style classes created with a `@constructor` function. Both `goog.defineClass` and the ES class keyword produce classes which are `@struct` by default, so will need to be explicitly labeled `@unrestricted`.
 
 ```javascript
 /**
  * @constructor
- * @unrestricted
+ * @unrestricted (This annotation is optional)
  */
 function Foo(x) {
   this.x = x;
+}
+
+var obj1 = new Foo(123);
+var someVar = obj1.x;  // OK
+obj1.x = "qwerty";  // OK
+obj1['x'] = "asdf";  // OK
+obj1.y = 5;  // OK
+```
+
+or using the class keyword:
+
+```javascript
+/** @unrestricted */
+class Foo {
+  constructor(x) {
+    this.x = x;
+  }
 }
 
 var obj1 = new Foo(123);
