@@ -10,6 +10,22 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### July 19, 2020 (v20200719)
+
+*   Optimized code no longer contains JSDoc/types on the AST. For use-cases that
+    still require output to have types, please use the `checksOnly` mode.
+*   Rename AbstractCommandLineRunner#setWarningsWhitelistFile to
+    setWarningsAllowlistFile
+*   Rename "WhitelistWarningsGuard" to "AllowlistWarningsGuard"
+*   Rename CompilerOptions#setCssRenamingWhitelist
+    to #setCssRenamingSkiplist
+*   Stop special-casing `goog.dom.TagName` for optimization now that existing
+    passes can do the same thing.
+*   Deleted deprecated CompilerOption `setIdeMode`.
+*   Add iterable methods to URLSearchParams externs
+*   Add polyfill for `TypedArray.fill`.
+*   Add polyfill for `TypedArray.copyWithin`.
+
 ### June 28, 2020 (v20200628)
 
 *   Simplified unused polyfill removal, with the result that more unnecessary
