@@ -86,6 +86,7 @@ A file containing warnings to suppress\. Each line should be of the form
   - missingReturn
   - missingSourcesWarnings
   - moduleLoad
+  - moduleImports
   - msgDescriptions
   - nonStandardJsDocs
   - partialAlias
