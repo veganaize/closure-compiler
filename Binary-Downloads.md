@@ -1,10 +1,10 @@
-# Newest Downloads
+**As of 2020-08 this page is no longer updated. Existing downloads will remain
+available, however no new versions will be posted here.**
 
-The most recent release of Closure Compiler can always be downloaded from the following locations
-- https://dl.google.com/closure-compiler/compiler-latest.zip
-- https://dl.google.com/closure-compiler/compiler-latest.tar.gz
-
-The compiler is also available on [[Maven]] or [NPM](https://www.npmjs.com/package/google-closure-compiler).
+Supported alternatives:
+ - [Building from source](https://github.com/google/closure-compiler#building-it-yourself)
+ - Downloading from [[Maven]]
+ - Downloading from [NPM](https://www.npmjs.com/package/google-closure-compiler)
 
 -------------------------------------------------------------------------------
 ## Specific Versions
