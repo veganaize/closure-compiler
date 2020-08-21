@@ -28,7 +28,7 @@ Polyfill isolation mode attempts to solve these problems by "isolating" Closure 
 
 Enable with `--isolate_polyfills` or `options.setIsolatePolyfills(true);`.
 
-This option is available starting in v20200504. A major caveat (as of 2020-05-07) is that support for isolation of the `Symbol` polyfill is not expected until the following release.
+This option is available starting in v20200504. One caveat is that support for isolation of the `Symbol` polyfill is not available until the following release v20200517.
 
 ### Current limitations
 
