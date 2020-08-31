@@ -1,9 +1,9 @@
 **As of 2020-08 this page is no longer updated. Existing downloads will remain
-available, however no new versions will be posted here.**
+available, however no new versions will be posted here and the `-latest` symlinks no longer exist.**
 
 Supported alternatives:
  - [Building from source](https://github.com/google/closure-compiler#building-it-yourself)
- - Downloading from [[Maven]]
+ - Downloading from [Maven](https://mvnrepository.com/artifact/com.google.javascript/closure-compiler). 
  - Downloading from [NPM](https://www.npmjs.com/package/google-closure-compiler)
 
 -------------------------------------------------------------------------------
