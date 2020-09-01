@@ -10,6 +10,28 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### August 30, 2020 (v20200830)
+
+* Add externs for Jasmine toBeRejectedWithError()
+* Fix property ambiguation bug where properties on structural types were sometimes unsafely renamed. This may slightly increase post-gzip size but is necessary for correctness.
+* Add externs for maps api v3.42
+* Add externs for `NodeList.prototype.entries()`, `.keys()`, and `.values()` methods.
+* Backoff in InlineProperties on structural type mismatches, bringing it more in line with the (dis)ambiguate properties optimizations.
+* Property ambiguation no longer accounts for constructors that were dead-code eliminated after typechecking. This shouldn't be a breaking change unless it triggers problems with existing violations of compiler assumptions in typings.
+* Support for globalThis and optional chaining in GatherRawExports
+* CheckMissingGetCssName has been removed and the associated settings are now noops.
+* Allow concatenating compile-time literals via ECMAScript templates (which only substitute compile-time constants) in calls to goog.string.Const.from
+* Correctly report the ModuleType of an ES module in JsFileFullParser.
+* Omit weak files from single-module manifests.
+* BigInt is now supported for `language_in=ECMASCRIPT_2020`. However, it won't be transpiled or polyfilled. If language_out is lower than ES_2020:
+  * The compiler will report errors for BigInt literals.
+  * The compiler will not report errors for using the BigInt() function to create bigint values, but you will get runtime errors if your code executes in an environment where BigInt is not available.
+* CompilerOptions#setExtraSmartNameRemoval() is now a noop. "extra smart name removal" is now always enabled with "smart name removal".
+* Prevent --strict from promoting IMPLICIT_WEAK_ENTRY_POINT_ERROR to an error, as this diagnostic is meant to be purely advisory.
+* Remove noop flag --remove_unused_prototype_props_in_externs
+* Remove noop API CompilerOptions#setRemoveUnusedPrototypePropertiesInExterns
+
+
 ### July 19, 2020 (v20200719)
 
 *   Optimized code no longer contains JSDoc/types on the AST. For use-cases that
