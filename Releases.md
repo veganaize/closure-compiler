@@ -10,6 +10,77 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### September 21, 2020 (v20200920)
+
+*   Support for "name anonymous functions" and its associated options and flags
+    have been removed.
+*   Type checking support for obsolete Closure Library methods
+    goog.isDef/isDefAndNotNull/isNull/isString/isBoolean/isNumber/isFunction/isArray
+    has been removed. These methods have been removed from the library.
+*   Properties marked as @const on a structural interface are now treated as
+    readonly when accessed through the structural type. Note that properties on
+    implementing types may be mutable.
+*   Unused properties set on non-constructor functions were not previously
+    removed, but now they may be.
+
+    Also, an unused property assignment `X.unusedProp` that was previously
+    removed may now be left behind if the value assigned to `X` is not a class
+    or function literal. (e.g. `const X = createClassX();`)
+
+    RemoveUnusedCode attempts to distinguish properties set on constructors from
+    those set on other kinds of objects. It may be able to remove properties set
+    on constructors if they are never used.
+
+    Prior to this change, when it considered `X.prop = value`, it would look at
+    the JSType information of `X` to determine whether `X` was a constructor.
+    However, that is problematic for the future direction we want to take to use
+    less type information in optimization passes.
+
+    With this change, RemoveUnusedCode instead looks at what value was assigned
+    to `X`. If the value is a function or class literal, it will treat `X.prop`
+    as if it were set on a constructor.
+
+    This change is expected to make very little difference to the optimized
+    output, but there are some subtle differences.
+
+*   Add `unhandledrejection` support in the promise polyfill.
+
+    The polyfill passes most of the WPT test suite (http://shortn/_OPfqQ0tVC7)
+    except for the following cases:
+      - `event.promise` is an instance of polyfill promise instead of native
+        promise.
+      - You cannot attach a rejection handler after waiting for nested promises
+        because polyfill promise and unhandledrejection are both delayed with
+        `setTimeout`. Delay attaching a rejection handler after microtasks works
+        as expected.
+*   Back off unsafe property (dis)ambiguation on properties of functions used as
+    namespaces, except for constructors and interfaces. This may cause a slight
+    code size regression.
+*   When pretty printing JSDoc annotations, they now occupy their own line.
+*   Add definition for `_.bind()` to underscore-1.4.4.js externs file.
+*   The `unhandledrejection` event is now enabled by default.
+*   Obsolete `WebWorker` externs have been removed.
+    The name was changed to just `Worker` quite some time ago.
+*   Add externs for `Navigator.prototype.wakeLock` and associated interfaces,
+    `w3c_screen_wake_lock.js`.
+*   Remove TypeScript -> Closure JS transpilation, as it is unmaintained and
+    does not support newer TS features. https://github.com/angular/tsickle is
+    the better-supported tool for TS -> Closure.
+*   Passing the experimental `--language_in=ECMASCRIPT6_TYPED` is now forbidden.
+    The TS parser has not been kept up-to-date.
+*   Stop building Maven artifacts closure-compiler-linter and
+    closure-compiler-gwt, and stop uploading them to Sonatype.
+*   Fix printing COMMA expression as RHS of DESTRUCTURING_LHS
+
+    When a variable declaration uses destructuring and the RHS is a comma
+    expression, the printer would omit the necessary parentheses. This would
+    cause an unexpected `var {foo} = first, second` declaring a new `second`
+    binding. Or, it would cause an outright syntax error, eg `var {foo} = first,
+    second()`.
+*   Add externs for W3C Keyboard Lock API
+*   Fix incorrect DCE of calls to fns with destructuring params. See
+    https://github.com/google/closure-compiler/issues/3499 for more details.
+
 ### August 30, 2020 (v20200830)
 
 * Add externs for Jasmine toBeRejectedWithError()
