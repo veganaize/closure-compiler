@@ -12,6 +12,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### September 21, 2020 (v20200920)
 
+*   **[KNOWN ISSUE]** Does not contain ANT plugin code
 *   Support for "name anonymous functions" and its associated options and flags
     have been removed.
 *   Type checking support for obsolete Closure Library methods
@@ -22,29 +23,28 @@ For complete list of changes refer to the [change log](https://github.com/google
     implementing types may be mutable.
 *   Unused properties set on non-constructor functions were not previously
     removed, but now they may be.
-
+    <br><br>
     Also, an unused property assignment `X.unusedProp` that was previously
     removed may now be left behind if the value assigned to `X` is not a class
     or function literal. (e.g. `const X = createClassX();`)
-
+    <br><br>
     RemoveUnusedCode attempts to distinguish properties set on constructors from
     those set on other kinds of objects. It may be able to remove properties set
     on constructors if they are never used.
-
+    <br><br>
     Prior to this change, when it considered `X.prop = value`, it would look at
     the JSType information of `X` to determine whether `X` was a constructor.
     However, that is problematic for the future direction we want to take to use
     less type information in optimization passes.
-
+    <br><br>
     With this change, RemoveUnusedCode instead looks at what value was assigned
     to `X`. If the value is a function or class literal, it will treat `X.prop`
     as if it were set on a constructor.
-
+    <br><br>
     This change is expected to make very little difference to the optimized
     output, but there are some subtle differences.
-
 *   Add `unhandledrejection` support in the promise polyfill.
-
+    <br><br>
     The polyfill passes most of the WPT test suite (http://shortn/_OPfqQ0tVC7)
     except for the following cases:
       - `event.promise` is an instance of polyfill promise instead of native
@@ -71,7 +71,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 *   Stop building Maven artifacts closure-compiler-linter and
     closure-compiler-gwt, and stop uploading them to Sonatype.
 *   Fix printing COMMA expression as RHS of DESTRUCTURING_LHS
-
+    <br><br>
     When a variable declaration uses destructuring and the RHS is a comma
     expression, the printer would omit the necessary parentheses. This would
     cause an unexpected `var {foo} = first, second` declaring a new `second`
