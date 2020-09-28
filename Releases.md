@@ -10,6 +10,12 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### September 28, 2020 (v20200927)
+
+*   Add back the ANT plugin code that was dropped when migrating to Bazel.
+*   Remove `ENABLE_UNHANDLED_REJECTION_POLYFILL` compiler @define. The feature
+    is no longer optional.
+
 ### September 21, 2020 (v20200920)
 
 *   **[KNOWN ISSUE]** Does not contain ANT plugin code
