@@ -1,10 +1,10 @@
 # Basic Usage
 
 **--compilation_level (-O) VAL**  
-Specifies the compilation level to use\. Options: BUNDLE, WHITESPACE_ONLY, SIMPLE \(default\), ADVANCED
+Specifies the compilation level to use\. Options: BUNDLE, WHITESPACE_ONLY, SIMPLE \(default\), ADVANCED \(default: SIMPLE\)
 
 **--env [BROWSER | CUSTOM]**  
-Determines the set of builtin externs to load\. Options: BROWSER, CUSTOM\. Defaults to BROWSER\.
+Determines the set of builtin externs to load\. Options: BROWSER, CUSTOM\. Defaults to BROWSER\. \(default: BROWSER\)
 
 **--externs VAL**  
 The file containing JavaScript externs\. You may specify multiple
@@ -13,16 +13,16 @@ The file containing JavaScript externs\. You may specify multiple
 The JavaScript filename\. You may specify multiple\. The flag name is optional, because args are interpreted as files by default\. You may also use minimatch\-style glob patterns\. For example, use \-\-js='\*\*\.js' \-\-js='\!\*\*_test\.js' to recursively include all js files that do not end in _test\.js
 
 **--js_output_file VAL**  
-Primary output filename\. If not specified, output is written to stdout
+Primary output filename\. If not specified, output is written to stdout \(default: \)
 
 **--language_in VAL**  
-Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, STABLE, ECMASCRIPT_NEXT \(latest features supported\),ECMASCRIPT_NEXT_IN \(latest features supported for input, but not output yet\)
+Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, STABLE, ECMASCRIPT_NEXT \(latest features supported\),ECMASCRIPT_NEXT_IN \(latest features supported for input, but not output yet\) \(default: STABLE\)
 
 **--language_out VAL**  
-Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, STABLE
+Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, STABLE \(default: STABLE\)
 
 **--warning_level (-W) [QUIET | DEFAULT | VERBOSE]**  
-Specifies the warning level to use\. Options: QUIET, DEFAULT, VERBOSE
+Specifies the warning level to use\. Options: QUIET, DEFAULT, VERBOSE \(default: DEFAULT\)
 
 
 # Warning and Error Management
@@ -33,7 +33,7 @@ A list of JS Conformance configurations in text protocol buffer format\.
 
 **--error_format [STANDARD | JSON]**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Specifies format for error messages\.
+Specifies format for error messages\. \(default: STANDARD\)
 
 **--extra_annotation_name VAL**  
 A allowlist of tag names in JSDoc\. You may specify multiple
@@ -51,12 +51,12 @@ Turn off the named class of warnings\. Must be one of the error group items\. '\
 Make the named class of warnings a normal warning\. Must be one of the error group items\. '\*' adds all supported\.
 
 **--strict_mode_input**  
-Assume input sources are to run in strict mode\.
+Assume input sources are to run in strict mode\. \(default: true\)
 
 **--warnings_allowlist_file (--warnings_whitelist_file) VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 A file containing warnings to suppress\. Each line should be of the form
-                                                                                      \<file\-name\>:\<line\-number\>?  \<warning\-description\>
+                                                                                      \<file\-name\>:\<line\-number\>?  \<warning\-description\> \(default: \)
 
 ## Available Error Groups
 
@@ -109,31 +109,31 @@ A file containing warnings to suppress\. Each line should be of the form
 # Output
 
 **--assume_function_wrapper**  
-Enable additional optimizations based on the assumption that the output will be wrapped with a function wrapper\.  This flag is used to indicate that "global" declarations will not actually be global but instead isolated to the compilation unit\. This enables additional optimizations\.
+Enable additional optimizations based on the assumption that the output will be wrapped with a function wrapper\.  This flag is used to indicate that "global" declarations will not actually be global but instead isolated to the compilation unit\. This enables additional optimizations\. \(default: false\)
 
 **--debug**  
-Enable debugging options\. Property renaming uses long mangled names which can be mapped back to the original name\.
+Enable debugging options\. Property renaming uses long mangled names which can be mapped back to the original name\. \(default: false\)
 
 **--export_local_property_definitions**  
-Generates export code for local properties marked with @export
+Generates export code for local properties marked with @export \(default: false\)
 
 **--formatting [PRETTY_PRINT | PRINT_INPUT_DELIMITER | SINGLE_QUOTES]**  
 Specifies which formatting options, if any, should be applied to the output JS\. Options: PRETTY_PRINT, PRINT_INPUT_DELIMITER, SINGLE_QUOTES
 
 **--generate_exports**  
-Generates export code for those marked with @export
+Generates export code for those marked with @export \(default: false\)
 
 **--isolation_mode [NONE | IIFE]**  
 If set to IIFE the compiler output will follow the form:
                                                                                         \(function\(\)\{%output%\}\)\.call\(this\);
-                                                                                      Options: NONE, IIFE
+                                                                                      Options: NONE, IIFE \(default: NONE\)
 
 **--output_wrapper VAL**  
-Interpolate output into this string at the place denoted by the marker token %output%\. Use marker token %output|jsstring% to do js string escaping on the output\. Consider using the \-\-isolation_mode flag instead\.
+Interpolate output into this string at the place denoted by the marker token %output%\. Use marker token %output|jsstring% to do js string escaping on the output\. Consider using the \-\-isolation_mode flag instead\. \(default: \)
 
 **--output_wrapper_file VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Loads the specified file and passes the file contents to the \-\-output_wrapper flag, replacing the value if it exists\. This is useful if you want special characters like newline in the wrapper\.
+Loads the specified file and passes the file contents to the \-\-output_wrapper flag, replacing the value if it exists\. This is useful if you want special characters like newline in the wrapper\. \(default: \)
 
 **--rename_prefix_namespace VAL**  
 Specifies the name of an object that will be used to store all non\-extern globals
@@ -157,10 +157,10 @@ A file or namespace to use as the starting point for determining which src files
 Path prefixes to be removed from ES6 & CommonJS modules\.
 
 **--module_resolution [BROWSER | BROWSER_WITH_TRANSFORMED_PREFIXES | NODE | WEBPACK]**  
-Specifies how the compiler locates modules\. BROWSER requires all module imports to begin with a '\.' or '/' and have a file extension\. NODE uses the node module rules\. WEBPACK looks up modules from a special lookup map\.
+Specifies how the compiler locates modules\. BROWSER requires all module imports to begin with a '\.' or '/' and have a file extension\. NODE uses the node module rules\. WEBPACK looks up modules from a special lookup map\. \(default: BROWSER\)
 
 **--process_common_js_modules**  
-Process CommonJS modules to a concatenable form\.
+Process CommonJS modules to a concatenable form\. \(default: false\)
 
 **--package_json_entry_names VAL**  
 Ordered list of entries to look for in package\.json files when processing modules with the NODE module resolution strategy \(i\.e\. esnext:main,browser,main\)\. Defaults to a list with the following entries: "browser", "module", "main"\.
@@ -169,25 +169,25 @@ Ordered list of entries to look for in package\.json files when processing modul
 # Library and Framework Specific
 
 **--angular_pass**  
-Generate $inject properties for AngularJS for functions annotated with @ngInject
+Generate $inject properties for AngularJS for functions annotated with @ngInject \(default: false\)
 
 **--dart_pass**  
-Rewrite Dart Dev Compiler output to be compiler\-friendly\.
+Rewrite Dart Dev Compiler output to be compiler\-friendly\. \(default: false\)
 
 **--force_inject_library VAL**  
 Force injection of named runtime libraries\. The format is \<name\> where \<name\> is the name of a runtime library\. Possible libraries include: base, es6_runtime, runtime_type_check
 
 **--inject_libraries**  
-Allow injecting runtime libraries\.
+Allow injecting runtime libraries\. \(default: true\)
 
 **--polymer_version N**  
 Which version of Polymer is being used \(1 or 2\)\.
 
 **--process_closure_primitives**  
-Processes built\-ins from the Closure library, such as goog\.require\(\), goog\.provide\(\), and goog\.exportSymbol\(\)\. True by default\.
+Processes built\-ins from the Closure library, such as goog\.require\(\), goog\.provide\(\), and goog\.exportSymbol\(\)\. True by default\. \(default: true\)
 
 **--rewrite_polyfills**  
-Rewrite ES6 library calls to use polyfills provided by the compiler's runtime\.
+Rewrite ES6 library calls to use polyfills provided by the compiler's runtime\. \(default: true\)
 
 
 # Code Splitting
@@ -196,7 +196,7 @@ Rewrite ES6 library calls to use polyfills provided by the compiler's runtime\.
 A JavaScript chunk specification\. The format is \<name\>:\<num\-js\-files\>\[:\[\<dep\>,\.\.\.\]\[:\]\]\]\. Chunk names must be unique\. Each dep is the name of a chunk that this chunk depends on\. Chunks must be listed in dependency order, and JS source files must be listed in the corresponding order\. Where \-\-chunk flags occur in relation to \-\-js flags is unimportant\. \<num\-js\-files\> may be set to 'auto' for the first chunk if it has no dependencies\. Provide the value 'auto' to trigger chunk creation from CommonJSmodules\.
 
 **--chunk_output_path_prefix (--module_output_path_prefix) VAL**  
-Prefix for filenames of compiled JS chunks\. \<chunk\-name\>\.js will be appended to this prefix\. Directories will be created as needed\. Use with \-\-chunk
+Prefix for filenames of compiled JS chunks\. \<chunk\-name\>\.js will be appended to this prefix\. Directories will be created as needed\. Use with \-\-chunk \(default: \./\)
 
 **--chunk_wrapper (--module_wrapper) VAL**  
 An output wrapper for a JavaScript chunk \(optional\)\. The format is \<name\>:\<wrapper\>\. The chunk name must correspond with a chunk specified using \-\-chunk\. The wrapper must contain %s as the code placeholder\. Alternately, %output% can be used in place of %s\. %n% can be used to represent a newline\. The %basename% placeholder can also be used to substitute the base name of the chunk output file\.
@@ -205,26 +205,26 @@ An output wrapper for a JavaScript chunk \(optional\)\. The format is \<name\>:\
 # Reports
 
 **--create_source_map VAL**  
-If specified, a source map file mapping the generated source files back to the original source file will be output to the specified path\. The %outname% placeholder will expand to the name of the output file that the source map corresponds to\.
+If specified, a source map file mapping the generated source files back to the original source file will be output to the specified path\. The %outname% placeholder will expand to the name of the output file that the source map corresponds to\. \(default: \)
 
 **--output_manifest VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Prints out a list of all the files in the compilation\. If \-\-dependency_mode=PRUNE or PRUNE_LEGACY is specified, this will not include files that got dropped because they were not required\. The %outname% placeholder expands to the JS output file\. If you're using modularization, using %outname% will create a manifest for each module\.
+Prints out a list of all the files in the compilation\. If \-\-dependency_mode=PRUNE or PRUNE_LEGACY is specified, this will not include files that got dropped because they were not required\. The %outname% placeholder expands to the JS output file\. If you're using modularization, using %outname% will create a manifest for each module\. \(default: \)
 
 **--output_chunk_dependencies (--output_module_dependencies) VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Prints out a JSON file of dependencies between chunks\.
+Prints out a JSON file of dependencies between chunks\. \(default: \)
 
 **--property_renaming_report VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-File where the serialized version of the property renaming map produced should be saved
+File where the serialized version of the property renaming map produced should be saved \(default: \)
 
 **--source_map_input VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Source map locations for input files, separated by a '|', \(i\.e\. input\-file\-path|input\-source\-map\)
 
 **--source_map_include_content**  
-Includes sources content into source map\. Greatly increases the size of source maps but offers greater portability
+Includes sources content into source map\. Greatly increases the size of source maps but offers greater portability \(default: false\)
 
 **--source_map_location_mapping VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
@@ -232,35 +232,35 @@ Source map location mapping separated by a '|' \(i\.e\. filesystem\-path|webserv
 
 **--variable_renaming_report VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-File where the serialized version of the variable renaming map produced should be saved
+File where the serialized version of the variable renaming map produced should be saved \(default: \)
 
 
 # Miscellaneous
 
 **--charset VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Input and output charset for all files\. By default, we accept UTF\-8 as input and output US_ASCII
+Input and output charset for all files\. By default, we accept UTF\-8 as input and output US_ASCII \(default: \)
 
 **--checks_only (--checks-only)**  
-Don't generate output\. Run checks, but no optimization passes\.
+Don't generate output\. Run checks, but no optimization passes\. \(default: false\)
 
 **--define (--D, -D) VAL**  
 Override the value of a variable annotated @define\. The format is \<name\>\[=\<val\>\], where \<name\> is the name of a @define variable and \<val\> is a boolean, number, or a single\-quoted string that contains no single quotes\. If \[=\<val\>\] is omitted, the variable is marked true
 
 **--browser_featureset_year N**  
-shortcut for defining goog\.FEATURESET_YEAR=YYYY\. The minimum valid value of the browser year is 2012
+shortcut for defining goog\.FEATURESET_YEAR=YYYY\. The minimum valid value of the browser year is 2012 \(default: 0\)
 
 **--help**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Displays this message on stdout and exit
+Displays this message on stdout and exit \(default: false\)
 
 **--third_party**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Check source validity but do not enforce Closure style rules and conventions
+Check source validity but do not enforce Closure style rules and conventions \(default: false\)
 
 **--use_types_for_optimization**  
-Enable or disable the optimizations based on available type information\. Inaccurate type annotations may result in incorrect results\.
+Enable or disable the optimizations based on available type information\. Inaccurate type annotations may result in incorrect results\. \(default: true\)
 
 **--version**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
-Prints the compiler version to stdout and exit\.
+Prints the compiler version to stdout and exit\. \(default: false\)
