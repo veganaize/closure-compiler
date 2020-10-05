@@ -123,10 +123,10 @@ See also https://github.com/google/closure-compiler/issues/2899
 | `String.prototype.trimStart`                  | `ES_2019`        | polyfill                                                                      |
 | Unescaped Unicode line or paragraph separator | `ES_2019`        | yes                                                                           |
 | `globalThis`                                  | `ES_2020`        | polyfill                                                                      |
-| `import.meta`                                 | `ES_2020`        | recognized in input, but cannot be output or transpiled                       |
+| `import.meta`                                 | `ES_2020`        | recognized in input, but [cannot be output or transpiled](https://github.com/google/closure-compiler/wiki/import.meta-support)                       |
 | `Promise.allSettled`                          | `ES_2020`        | polyfill                                                                      |
 | `String.prototype.matchAll`                   | `ES_2020`        | polyfill                                                                      |
-| Dynamic module import                         | `ES_2020`        | recognized in input, but cannot be output or transpiled                       |
+| Dynamic module import                         | `ES_2020`        | recognized in input, but [cannot be output or transpiled](https://github.com/google/closure-compiler/wiki/dynamic-import()-support)                       |
 | Nullish coalescing operator `??`              | `ES_2020`        | yes                                                                     |
 | Optional chaining operator `?.`               | `ES_2020`        | yes                                                                     |
 | BigInt                                        | `ES_2020`        | see [BigInt Support](https://github.com/google/closure-compiler/wiki/BigInt-support) |
