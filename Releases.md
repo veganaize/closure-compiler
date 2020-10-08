@@ -10,6 +10,24 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### October 6, 2020 (v20201006)
+
+*   `ECMASCRIPT_2020` is now the default input language.
+*   Add lint warning for using `var` (prefer `let` or `const`).
+*   Remove deprecated noop diagnostic group: missingGetCssName
+*   Add `updateTiming` option to `AnimationEffect`.
+    Animation Effects have a function called updateTiming,
+    https://drafts.csswg.org/web-animations-1/#dom-animationeffect-updatetiming.
+*   Bazel J2CL rules are deleted.
+*   --version flag no longer prints the build time
+*   Add `$jscomp.FORCE_POLYFILL_PROMISE_WHEN_NO_UNHANDLED_REJECTION` compiler
+    @define. It allows you to force promise polyfill on browsers that natively
+    support promise but not the unhandledrejection event.
+*   Allow left and right shift operators to apply to bigint values.
+*   Revamped type-based property ambiguation to use a heavily simplified
+    representation of Closure types (called "colors"). This is not expected to
+    affect the optimizer's output.
+
 ### September 28, 2020 (v20200927)
 
 *   Add back the ANT plugin code that was dropped when migrating to Bazel.
