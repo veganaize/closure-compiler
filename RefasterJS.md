@@ -1,1 +1,5 @@
-RefasterJS is a tool for refactoring JavaScript that leverages the Closure Compiler's AST and type information to make refactoring easier. Developers write a JavaScript template to tell the tool what code to change and how it should be changed. More information can be found at the [RefasterJS documentation](https://docs.google.com/document/d/14-rsX1-VoTN2lpFalbwr4_yupxXYW-qNYn2XGVvhLwE/view).
+**RefasterJS is no longer supported.**
+
+See https://github.com/google/closure-compiler/issues/3702 for details
+
+RefasterJS was a tool for refactoring JavaScript that leverages the Closure Compiler's AST and type information to make refactoring easier. Developers write a JavaScript template to tell the tool what code to change and how it should be changed.
