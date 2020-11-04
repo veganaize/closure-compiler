@@ -10,6 +10,22 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### November 2, 2020 (v20201102)
+*   Add `$jscomp.global` to the list of known aliases of the global object
+*   Delete always-false `isDisposes` method from `JSDocInfo` API
+*   Removed a peephole optimization that folds calls to `Array.prototype.concat`
+    based on inferred type information. This optimization still applies to array
+    literals.
+*   `ClosureCodeRemoval`: Limit abstract removal to empty function expressions.
+
+    In some cases the compiler would incorrectly remove assignments annotated as
+    `@abstract`. We've restricted it to removing assignments of the special
+    `goog.abstractFunction` value and empty function expressions (`function()
+    {}`) that are not also annotated with `@constructor`.
+*   Inline constant parameters and remove unused ones for ES6 class constructor
+    calls as is done for normal functions. This feature was overlooked when ES6
+    class support was added.
+
 ### October 6, 2020 (v20201006)
 
 *   `ECMASCRIPT_2020` is now the default input language.
