@@ -4,6 +4,7 @@ The Closure Compiler is a tool for making JavaScript download and run faster. It
 
 ## Common wiki pages
 
+* [Binary Downloads](https://github.com/google/closure-compiler/wiki/Binary-Downloads)
 * [FAQ](https://github.com/google/closure-compiler/wiki/FAQ)
 * [Supported features](https://github.com/google/closure-compiler/wiki/Supported-features)
 * [Release Notes](https://github.com/google/closure-compiler/wiki/Releases)
