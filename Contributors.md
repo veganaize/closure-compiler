@@ -24,7 +24,7 @@ Changes are automatically mirrored between Github, and Google's internal reposit
 ### How to Get Your Pull Request Accepted
 
 A few pointers on how to get your pull request accepted:
-- Run `mvn test` and ensure your patch passes all unit tests.
+- Run `bazelisk test //:all` and ensure your patch passes all unit tests.
 - Write a unit test, or possibly an integration test, that demonstrates your patch. Tests are the best way to ensure that future contributors do not break your code accidentally.
 - Follow the coding conventions (below)
 
