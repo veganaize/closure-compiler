@@ -1,10 +1,6 @@
 # Guidelines for submitting pull requests to Closure Compiler
 
-### So! You Want to Submit a Pull Request?
-
-Getting pull requests into Closure Compiler should be relatively pain-free. We are still ramping up the process for accepting pull requests, so it may be slow at first. And if it is, you should complain loudly. Complaining is the only way to ensure that things get better. 
-
-This page should help guide you through the submitting process. We assume the reader already knows how to complain.
+This page should help guide you through the submitting process.
 
 ### [Code of Conduct]
 
@@ -13,9 +9,11 @@ This page should help guide you through the submitting process. We assume the re
 All interactions within the closure-compiler community are subject our [Code of Conduct].
 Please bear that in mind when filing pull requests and responding to comments on them.
 
-### Lifecycle of a Pull Request
+### Contributor License Agreement (CLA)
 
-To submit a pull request, you will need to sign a [Contributor License Agreement](https://github.com/google/closure-compiler#submitting-patches) if you haven't done so. 
+You will need to sign a [Contributor License Agreement](https://github.com/google/closure-compiler#submitting-patches) if you haven't done so. An automated system will check this when you create a pull request. If you haven't done it yet, it will prompt you with instructions on the pull request itself. We may choose not to review the PR until this has been done.
+
+### Lifecycle of a Pull Request
 
 One of our committers may ask you additional questions about the change, or request improvements. Once the first committer is satisfied, they may ask a second committer to review the change and sign off on it.
 
