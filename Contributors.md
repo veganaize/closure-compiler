@@ -6,6 +6,13 @@ Getting pull requests into Closure Compiler should be relatively pain-free. We a
 
 This page should help guide you through the submitting process. We assume the reader already knows how to complain.
 
+### [Code of Conduct]
+
+[Code of Conduct]: https://github.com/google/closure-compiler/blob/master/code_of_conduct.md
+
+All interactions within the closure-compiler community are subject our [Code of Conduct].
+Please bear that in mind when filing pull requests and responding to comments on them.
+
 ### Lifecycle of a Pull Request
 
 To submit a pull request, you will need to sign a [Contributor License Agreement](https://github.com/google/closure-compiler#submitting-patches) if you haven't done so. 
