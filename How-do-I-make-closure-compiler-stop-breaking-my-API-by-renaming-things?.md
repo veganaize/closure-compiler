@@ -130,7 +130,7 @@ async function sendWorkerRequest(request) {
 // somewhere later we use the method
 async function doSomethingNifty() {
   // The `requestId` an `action` properties here will not be renamed, because
-  // the compiler recognizes them as belonging to a record type defined in an externs files.
+  // the compiler recognizes them as belonging to a record type defined in an externs file.
   const response = await sendWorkerRequest({ requestId: getNextRequestId(), action: 'doSomethingNifty' })
   // handle the response
 }
@@ -146,6 +146,6 @@ class SomeInternalClass {
     this.action = action;
   }
 
-  // remainder of this clas
+  // remainder of this class
 }
 ```
