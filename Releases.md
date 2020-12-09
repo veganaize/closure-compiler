@@ -29,8 +29,6 @@ For complete list of changes refer to the [change log](https://github.com/google
 *   Made function inlining slightly more aggressive, with the result that more
     call sites are inlined. Generally improves code size but we have seen a few
     small increases in code size.
-*   [Internal only] Fixed [bug](http://b/163285669) where fixjs didn't work
-    inside fig clients
 *   Add externs for maps api v3.43
 *   b/169739353: Don't conflate async and generator functions with regular
     function in FunctionRewriter.
