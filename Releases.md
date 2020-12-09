@@ -10,6 +10,46 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### December 7, 2020 (v20201207)
+
+*   Type-based property ambiguation now ambiguates properties accessed on JS
+    scalars. This has a negligible effect on code size. It's unliekly to be a
+    breaking change since type-based property disambiguation already
+    disambiguates scalar properties
+*   Fixed https://github.com/google/closure-compiler/issues/3733, which caused
+    incorrect collapsing of properties, generating broken code.
+*   Add externs for HTMLMediaElement.captureStream.
+*   Add externs for CanvasCaptureMediaStreamTrack.
+*   Add externs for ImageBitmap.close.
+*   Fix externs for RTCTrackEvent to make fields non-optional.
+*   Fix externs for RTCPeerConnection.setLocalDescription to make all args
+    optional.
+*   JsFileFullParser now reports symbols and dependencies in goog.loadModule
+    calls.
+*   Made function inlining slightly more aggressive, with the result that more
+    call sites are inlined. Generally improves code size but we have seen a few
+    small increases in code size.
+*   [Internal only] Fixed [bug](http://b/163285669) where fixjs didn't work
+    inside fig clients
+*   Add externs for maps api v3.43
+*   b/169739353: Don't conflate async and generator functions with regular
+    function in FunctionRewriter.
+*   The ReplaceStrings pass no longer supports being passed `.prototype` methods
+    in its configuration. Non-prototype namespaced methods are still supported.
+*   `OffscreenCanvas` can now be passed to `createImageBitmap`
+*   Remove the old "missingRequire", "strictMissingRequire", and
+    "legacyGoogScopeRequire" diagnostic groups (and the associated
+    CheckMissingAndExtraRequires pass).
+
+    If you would like to continue to get checking of missing requires in your
+    binary builds, the recommendation is to use the CheckMissingRequires pass
+    currently controlled by the "stricterMissingRequire" diagnostic group.
+*   `Window.prototype.navigator` is no longer nullable.
+* Avoid reporting a compilation error for `@async` annotations,
+  which are now part of the Open Source JSDoc standard.
+  The compiler will ignore these annotations.
+*   Omit fill files from the manifest.
+
 ### November 2, 2020 (v20201102)
 *   Add `$jscomp.global` to the list of known aliases of the global object
 *   Delete always-false `isDisposes` method from `JSDocInfo` API
