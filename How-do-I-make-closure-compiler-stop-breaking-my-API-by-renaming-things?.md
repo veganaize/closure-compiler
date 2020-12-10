@@ -2,10 +2,10 @@
 
 # Why is closure-compiler breaking me by renaming properties?
 
-closure-compiler has a core assumption that the JS files you give it are the
-entire world of JS code that it needs to know about.  When this assumption is
-correct, the compiler can safely rename property 'foo' to just 'a', because it
-can see all of the places where that property is referenced.
+Whole-application optimization has proved to be the most effective at achieving output code size small enough to make the extremely feature-rich applications Google produces possible, so closure-compiler is designed with that model in mind.
+It works with the assumption that the code you give it is **all** of the code that is going to exist in the web page when the output compiled code runs. The only exception made is for symbols it is specifically told about using externs files.
+
+Based on this assumption, it will freely rename variables and object properties to achieve better output code size, unless they are specifically mentioned in an externs file. Having a global variable named "Foo" in an externs file will prevent the compiler from removing or renaming that global, but it won't prevent it from renaming properties on it or, if it's a class, properties on instances of it.
 
 Unfortunately, there are several cases where this assumption is incorrect.
 These include.
