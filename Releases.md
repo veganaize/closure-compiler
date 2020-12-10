@@ -30,7 +30,7 @@ For complete list of changes refer to the [change log](https://github.com/google
     call sites are inlined. Generally improves code size but we have seen a few
     small increases in code size.
 *   Add externs for maps api v3.43
-*   b/169739353: Don't conflate async and generator functions with regular
+*   Don't conflate async and generator functions with regular
     function in FunctionRewriter.
 *   The ReplaceStrings pass no longer supports being passed `.prototype` methods
     in its configuration. Non-prototype namespaced methods are still supported.
@@ -43,9 +43,9 @@ For complete list of changes refer to the [change log](https://github.com/google
     binary builds, the recommendation is to use the CheckMissingRequires pass
     currently controlled by the "stricterMissingRequire" diagnostic group.
 *   `Window.prototype.navigator` is no longer nullable.
-* Avoid reporting a compilation error for `@async` annotations,
-  which are now part of the Open Source JSDoc standard.
-  The compiler will ignore these annotations.
+*   Avoid reporting a compilation error for `@async` annotations,
+    which are now part of the Open Source JSDoc standard.
+    The compiler will ignore these annotations.
 *   Omit fill files from the manifest.
 
 ### November 2, 2020 (v20201102)
