@@ -10,6 +10,40 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### January 6, 2021 (v20210106)
+
+*   Added experimental support for allowing dynamic import expressions 
+    import('./path') to pass through the compiler unchanged. Enabling
+    this requires supplying the command line option --allow_dynamic_import
+    and also setting --output_language=ES_2020.
+*   Compiler now assumes that ES5-style prototype method assignments 
+    Foo.prototype.m = function() { never trigger setters. This improves code
+    size for projects that use getters/setters.
+*   Remove CodingConvention#getGlobalObject and special handling for treating 
+    some deleted goog.* functions as "property checks". 
+*   Use the 'missingRequire' diagnostic group (previously a no-op) to turn on
+    the new stricter missing require check. From this release, using 
+    '--jscomp_error=missingRequire' is the recommended way to turn on missing 
+    requires checks.
+*   Allow closure bundler to optionally embed source map.
+*   Define --browser_featureset_year=2021 based on Chrome 87, Firefox 84, and 
+    Safari 14. Almost everything through ES2020, including bigint, optional 
+    chaining, and more.
+*   GlobalNamespace was treating a lot of operators as potentially creating 
+    aliases that should prevent property collapsing. This was a missed 
+    optimization opportunity.
+*   Always apply the input source maps in the base transpiler. This is useful
+    for transpiling generated files from typescript compiler. 
+*   Add a new option to embed the source map in base64 encoding (instead of 
+    textual escaping).
+*   The --generate_exports and --export_local_property_definitions flags now
+    default to true. This only affects code that uses the@export annotation 
+    but does not already set these flags. 
+*   Preserve parentheses on spread operator's AssignmentExpression. Previously,
+    these were incorrectly dropped in the compiler's output, creating syntax errors.
+*   goog.tweak is deprecated. Turn unused flag --override_tweak_value and 
+    switch closure_tweak_processing from CHECK to OFF by default.
+
 ### December 7, 2020 (v20201207)
 
 *   Type-based property ambiguation now ambiguates properties accessed on JS
