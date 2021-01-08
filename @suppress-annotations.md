@@ -171,6 +171,10 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_MISSING_NULLABILITY_MODIFIER_JSDOC|lintChecks|
 |JSC_MISSING_PARAMETER_JSDOC|lintChecks|
 |JSC_MISSING_PROVIDE|missingProvide|
+|JSC_MISSING_REQUIRE|missingRequire|
+|JSC_MISSING_REQUIRE_IN_PROVIDES_FILE|missingRequire|
+|JSC_MISSING_REQUIRE_TYPE|missingRequire|
+|JSC_MISSING_REQUIRE_TYPE_IN_PROVIDES_FILE|missingRequire|
 |JSC_MISSING_RETURN_JSDOC|lintChecks|
 |JSC_MISSING_RETURN_STATEMENT|missingReturn|
 |JSC_MISSING_SEMICOLON|lintChecks|
