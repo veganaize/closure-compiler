@@ -115,13 +115,13 @@ Enable additional optimizations based on the assumption that the output will be 
 Enable debugging options\. Property renaming uses long mangled names which can be mapped back to the original name\. \(default: false\)
 
 **--export_local_property_definitions**  
-Generates export code for local properties marked with @export \(default: false\)
+Generates export code for local properties marked with @export \(default: true\)
 
 **--formatting [PRETTY_PRINT | PRINT_INPUT_DELIMITER | SINGLE_QUOTES]**  
 Specifies which formatting options, if any, should be applied to the output JS\. Options: PRETTY_PRINT, PRINT_INPUT_DELIMITER, SINGLE_QUOTES
 
 **--generate_exports**  
-Generates export code for those marked with @export \(default: false\)
+Generates export code for those marked with @export \(default: true\)
 
 **--isolation_mode [NONE | IIFE]**  
 If set to IIFE the compiler output will follow the form:
