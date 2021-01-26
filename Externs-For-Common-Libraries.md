@@ -58,6 +58,12 @@ project: https://github.com/lukeasrodgers/backbone-js-externs
 
 https://raw.github.com/lukeasrodgers/backbone-js-externs/master/backbone-0.9.10-externs.js
 
+## CodeMirror
+
+project: https://codemirror.net/
+
+https://gist.github.com/PeterTillema/8e037add8416c891f72560b8ba153fb3
+
 ## Facebook React
 
 project: https://github.com/steida/react-externs
