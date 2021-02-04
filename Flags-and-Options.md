@@ -171,9 +171,6 @@ Ordered list of entries to look for in package\.json files when processing modul
 **--angular_pass**  
 Generate $inject properties for AngularJS for functions annotated with @ngInject \(default: false\)
 
-**--dart_pass**  
-Rewrite Dart Dev Compiler output to be compiler\-friendly\. \(default: false\)
-
 **--force_inject_library VAL**  
 Force injection of named runtime libraries\. The format is \<name\> where \<name\> is the name of a runtime library\. Possible libraries include: base, es6_runtime, runtime_type_check
 
@@ -197,6 +194,11 @@ A JavaScript chunk specification\. The format is \<name\>:\<num\-js\-files\>\[:\
 
 **--chunk_output_path_prefix (--module_output_path_prefix) VAL**  
 Prefix for filenames of compiled JS chunks\. \<chunk\-name\>\.js will be appended to this prefix\. Directories will be created as needed\. Use with \-\-chunk \(default: \./\)
+
+**--chunk_output_type [GLOBAL_NAMESPACE | ES_MODULES]**  
+Indicates what format the compiler should use for output chunks\. Options are:
+                                                                                      1\. GLOBAL_NAMESPACE \(default\)
+                                                                                      2\. ES_MODULES \(default: GLOBAL_NAMESPACE\)
 
 **--chunk_wrapper (--module_wrapper) VAL**  
 An output wrapper for a JavaScript chunk \(optional\)\. The format is \<name\>:\<wrapper\>\. The chunk name must correspond with a chunk specified using \-\-chunk\. The wrapper must contain %s as the code placeholder\. Alternately, %output% can be used in place of %s\. %n% can be used to represent a newline\. The %basename% placeholder can also be used to substitute the base name of the chunk output file\.
@@ -237,6 +239,9 @@ File where the serialized version of the variable renaming map produced should b
 
 # Miscellaneous
 
+**--browser_featureset_year N**  
+shortcut for defining goog\.FEATURESET_YEAR=YYYY\. The minimum valid value of the browser year is 2012 \(default: 0\)
+
 **--charset VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Input and output charset for all files\. By default, we accept UTF\-8 as input and output US_ASCII \(default: \)
@@ -246,9 +251,6 @@ Don't generate output\. Run checks, but no optimization passes\. \(default: fals
 
 **--define (--D, -D) VAL**  
 Override the value of a variable annotated @define\. The format is \<name\>\[=\<val\>\], where \<name\> is the name of a @define variable and \<val\> is a boolean, number, or a single\-quoted string that contains no single quotes\. If \[=\<val\>\] is omitted, the variable is marked true
-
-**--browser_featureset_year N**  
-shortcut for defining goog\.FEATURESET_YEAR=YYYY\. The minimum valid value of the browser year is 2012 \(default: 0\)
 
 **--help**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
