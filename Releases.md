@@ -1,14 +1,42 @@
 ## Introduction
 
 Here's a list of recent releases of Closure Compiler.
-To download a binary version of any release, see [[Binary Downloads]].
+See the [README](https://github.com/google/closure-compiler#getting-started) for how to obtain the latest release.
 We also update the source distribution and the compile service (at http://closure-compiler.appspot.com) at each release.
 
-The Closure Compiler team's goal is to release every three weeks, although we may miss that deadline due to unexpected internal test failures or holidays.
+The Closure Compiler team's goal is to release during the first week of every month, although we may miss that deadline due to unexpected internal test failures or holidays.
 
-For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master)
+For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master).
 
 ## Details
+
+### February 2, 2021 (v20210202)
+
+*   Added experimental support for allowing dynamic import expressions
+    `import('./path')` to pass through the compiler unchanged. Enabling this
+    requires supplying the command line option `--allow_dynamic_import` and also
+    setting `--output_language=ES_2020`. See also [#2270](https://github.com/google/closure-compiler/issues/2770#issuecomment-668271474).
+*   Fixed bug where `--generate_exports=false` failed to disable the option.
+*   Delete flag `--dart_pass`. Assume its default value, `false`.
+*   Remove the `strictMissingRequire` and `stricterMissingRequire` diagnostic
+    groups completely, in favor of the `missingRequire` flag.
+*   Introduce a `BanStaticThis` conformance check for forbidden references to
+    `this` in a static context.
+*   Deprecate the APIs used to configure the StripCode pass and make the
+    CompilerOptions#strip* members package private.
+*   Remove support for `CompilerOptions#setStripTypePrefixes()`
+*   Switched to new implementation of property disambiguation. This is faster
+    for large projects but slightly more conservative.
+*   Enable "optimize constructors" when "optimize calls" is enabled.
+*   Create an optimization to remove trivial ES6 class constructors where the
+    implicit constructor is equivalent.
+*   Fixes a [bug](https://github.com/google/closure-compiler/issues/3756) where arrow functions that referenced this could be improperly
+    inlined in ES2015 output mode. Thanks @DavidANeil!
+*   Compiler no longer disambiguates properties that are ever used on a `@record`.
+     This is expected to improve code size in some cases and regress it in others
+*   Compiler now assumes that ES5-style prototype method assignments
+    `Foo.prototype.m = function() {` never trigger setters. This improves code
+    size for projects that use getters/setters.
 
 ### January 6, 2021 (v20210106)
 
