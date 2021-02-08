@@ -44,6 +44,19 @@ python ../javascript/closure-library/closure/bin/build/depswriter.py \
 Note that the `root_with_prefix` has the name of the `myProject` source directory,
 and the path back to the source directory from `closure-library/closure/bin`.
 
+**Note:** The `deps.js` file in Closure Library itself is implicitly loaded as well.
+In recent updates (Jan 2021 and newer) to the Closure Library GitHub repository,
+this file must be updated with `npm run gen_deps_js` (or `npm install` if running
+for the first time). These commands should be run from the closure-library root
+directory, for example:
+
+```
+cd ~/src/closure-library
+npm run gen_deps_js # or `npm install` if it has not previously been run in this dir
+```
+
+That command should generate the file `closure-library/closure/goog/deps.js`.
+
 Setting `goog.LOCALE` (seen in the script above) is optional, if you leave that out then
 the default `LOCALE` will be used.  Similarly with `goog.DEBUG`.
 
