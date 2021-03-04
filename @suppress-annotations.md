@@ -71,7 +71,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_CONSTANT_REASSIGNED_VALUE_ERROR|const|
 |JSC_CONSTRUCTOR_NOT_CALLABLE|checkTypes|
 |JSC_CONSTRUCTOR_REQUIRED|checkTypes|
-|JSC_CONVENTION_MISMATCH|visibility|
 |JSC_CTOR_INITIALIZER_NOT_CTOR|checkTypes|
 |JSC_DEBUGGER_STATEMENT_PRESENT|checkDebuggerStatement|
 |JSC_DECLARE_LEGACY_NAMESPACE_IN_NON_MODULE|lintChecks|
@@ -170,7 +169,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_MISSING_NAMESPACE_IMPORT|moduleLoad|
 |JSC_MISSING_NULLABILITY_MODIFIER_JSDOC|lintChecks|
 |JSC_MISSING_PARAMETER_JSDOC|lintChecks|
-|JSC_MISSING_PROVIDE|missingProvide|
 |JSC_MISSING_REQUIRE|missingRequire|
 |JSC_MISSING_REQUIRE_IN_PROVIDES_FILE|missingRequire|
 |JSC_MISSING_REQUIRE_TYPE|missingRequire|
