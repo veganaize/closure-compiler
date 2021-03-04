@@ -10,6 +10,25 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### March 2, 2021 (v20210302)
+
+*   Bugfix: Allow `--browser_featureset_year=2021` to be passed via the command
+    line.
+*   Add externs for maps api v3.44
+*   Remove support for "private" by convention properties in `CheckProvides`.
+    Since "by convention" private is not enforced elsewhere it doesn't make
+    sense to enforce it here.
+*   Upgrade the default `language_in`/`language_out` settings
+    to the stable defaults for users from ant. Also remove the ability to
+    override the `language_in` value through ant.
+*   Remove the `CheckProvides` compiler checks. This pass would look for
+    `@constructor`s that were not not paired with `goog.provide`. The pass had many
+    holes and has limited value in a world where `goog.provide` files are being
+    actively removed.
+*   `GETPROP` and `OPTCHAIN_GETPROP` Nodes now have source info corresponding to the
+    source text of their property name, rather than their entire expression
+    tree.
+
 ### February 2, 2021 (v20210202)
 
 *   Added experimental support for allowing dynamic import expressions
