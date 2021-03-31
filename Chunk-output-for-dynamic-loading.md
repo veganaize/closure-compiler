@@ -44,6 +44,6 @@ If you load them as JS modules, you may have problems with some global variables
 (See e.g. https://github.com/google/closure-compiler/issues/3752).
 
 Although you can use whatever mechanism you like to trigger loading chunks.
-Closure library provides a `goog.loadModule()` method intended specifically for this purpose.
+Closure library provides a `goog.module.ModuleManager` class and related classes for this purpose.
 
-NOTE: For a long time we used the term "module" to refer to these separately-loadable chunks, but that was too easily confused with `goog.module()` and ES modules which came along later. The Closure library method name is still `loadModule()` due to this.
+NOTE: For a long time we used the term "module" to refer to these separately-loadable chunks, but that was too easily confused with `goog.module()` and ES modules which came along later. The Closure library namespace and class names reflect this older naming.
