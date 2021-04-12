@@ -6,7 +6,7 @@ If you cannot easily fix a JsCompiler warning, you can suppress it using the `@s
  * ...
  * Good; suppresses within the entire function.
  * Also, this suppresses multiple warnings.
- * @suppress {visibility|underscore} 
+ * @suppress {visibility|underscore}
  */
 function blah() {
   /** @suppress {visibility} */ // Good; suppresses within this declaration only.
@@ -75,7 +75,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_DEBUGGER_STATEMENT_PRESENT|checkDebuggerStatement|
 |JSC_DECLARE_LEGACY_NAMESPACE_IN_NON_MODULE|lintChecks|
 |JSC_DEFAULT_EXPORT|lintChecks|
-|JSC_DEFAULT_EXPORT_GOOG_MODULE|lintChecks|
+|JSC_DEFAULT_EXPORT_IN_GOOG_MODULE|lintChecks|
 |JSC_DEFAULT_PARAM_MUST_BE_MARKED_OPTIONAL|misplacedTypeAnnotation|
 |JSC_DELETE_VARIABLE|es5Strict|
 |JSC_DEPRECATED_CLASS|deprecated|
@@ -135,8 +135,8 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_INSTANTIATE_ABSTRACT_CLASS|checkTypes|
 |JSC_INSUFFICIENT_OUTPUT_VERSION|missingPolyfill|
 |JSC_INTERFACE_CLASS_NONSTATIC_METHOD_NOT_EMPTY|lintChecks|
-|JSC_INTERFACE_CONSTRUCTOR_NOT_EMPTY|lintChecks|
 |JSC_INTERFACE_CONSTRUCTOR_SHOULD_NOT_TAKE_ARGS|lintChecks|
+|JSC_INTERFACE_DEFINED_WITH_EXTENDS|lintChecks|
 |JSC_INTERFACE_METHOD_NOT_EMPTY|checkTypes|
 |JSC_INTERFACE_METHOD_NOT_IMPLEMENTED|checkTypes|
 |JSC_INTERFACE_METHOD_OVERRIDE|checkTypes|
@@ -154,16 +154,19 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_JSDOC_IMPORT_TYPE_WARNING|nonStandardJsDocs|
 |JSC_JSDOC_IN_BLOCK_COMMENT|nonStandardJsDocs|
 |JSC_JSDOC_MISSING_BRACES_WARNING|lintChecks|
+|JSC_JSDOC_ON_RETURN|misplacedTypeAnnotation|
 |JSC_JS_MODULE_LOAD_WARNING|moduleLoad|
 |JSC_LATE_PROVIDE_ERROR|lateProvide|
 |JSC_LENDS_ON_NON_OBJECT|checkTypes|
 |JSC_LET_CLOSURE_IMPORT|lintChecks|
 |JSC_MALFORMED_REGEXP|checkRegExp|
+|JSC_MAYBE_ACCIDENTAL_DEFAULT_EXPORT_IN_GOOG_MODULE|lintChecks|
 |JSC_MISPLACED_ANNOTATION|misplacedTypeAnnotation|
 |JSC_MISPLACED_MSG_ANNOTATION|misplacedTypeAnnotation|
 |JSC_MISSING_CONST_ON_CONSTANT_CASE|lintChecks|
 |JSC_MISSING_EXTENDS_TAG|checkTypes|
 |JSC_MISSING_JSDOC|lintChecks|
+|JSC_MISSING_JSDOC_IN_DECLARATION_STATEMENT|lintChecks|
 |JSC_MISSING_MODULE_OR_PROVIDE|missingSourcesWarnings|
 |JSC_MISSING_MODULE_OR_PROVIDE_FOR_FORWARD_DECLARE|missingProvide|
 |JSC_MISSING_NAMESPACE_IMPORT|moduleLoad|
@@ -189,9 +192,10 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_MUST_HAVE_TRAILING_UNDERSCORE|underscore|
 |JSC_MUTATED_EXPORT|lintChecks|
 |JSC_NAMESPACE_REDEFINED|duplicate|
+|JSC_NAME_DEFINED_LATE|lateProvide|
 |JSC_NAME_REFERENCE_IN_EXTERNS|externsValidation|
 |JSC_NESTED_NAME_IN_GOOG_MODULE|lintChecks|
-|JSC_NON_DECLARATION_STATEMENT_IN_RECORD|lintChecks|
+|JSC_NON_DECLARATION_STATEMENT_IN_INTERFACE|lintChecks|
 |JSC_NON_STATIC_INITIALIZER_STRING_VALUE_IN_ENUM|lintChecks|
 |JSC_NON_STRINGIFIABLE_OBJECT_KEY|checkTypes|
 |JSC_NOT_A_CONSTRUCTOR|checkTypes|
@@ -268,3 +272,4 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_VISIBILITY_MISMATCH|visibility|
 |JSC_WRONG_ARGUMENT_COUNT|checkTypes|
 |JSC_WRONG_NUMBER_OF_PARAMS|lintChecks|
+|MODULE_NAMESPACE_MISMATCHES_TYPESCRIPT_NAMESPACE|lintChecks|
