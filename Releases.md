@@ -10,6 +10,43 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### April 6, 2021 (v20210406)
+
+*   Remove the ability to select specific strings to alias from the compiler
+    API.
+*   Enable trailing commas in arrow function parameter lists as allowed in the
+    language spec:
+    https://tc39.es/ecma262/#prod-CoverParenthesizedExpressionAndArrowParameterList
+*   Add `--dynamic_import_alias` option which instructs the
+    compiler to replace dynamic import expressions with a function call using
+    the specified name. This allows dynamic import expressions to be externally
+    polyfilled when the output language level does not natively support them.
+*   Properly report a parse error for functions that have trailing commas after
+    rest parameters.
+*   In the AliasString pass remove support for skipping certain strings based on
+    whether they match a supplied regex.
+*   For AliasString pass, rather than using the source location of the file that
+    aliased strings are added to, use instead the first original use location.
+    This will prevent the first file of affected chucks from being artificially
+    bloated when using source maps to determine "weight" of input source on the
+    output.
+*   The `BanGlobalVars` conformance rule now accepts specific variables names to
+    allowlist via the `value` field.
+*   Stricten validation of goog. module ids to match closure/base.js.
+    Only ASCII, \_, $, and 0-9 are now allowed.
+*   Add linter warning for using `extends` keyword in @interface/@records
+    definition.
+*   Refactoring of compiler handling of goog.define: tooling using checksOnly
+    will now see the original source's `goog.define('name', 0);` instead being
+    rewritten to the default value `0`
+*   Implement decomposition of `super.method()` calls in `ExpressionDecomposer`.
+    This fixed a compiler crash that could occur when inlining a function call
+    into the arguments of a `super.method()` call.
+*   Fixed enableMultistageCompilation() option in `CompilerTestCase` API to work
+    again, and also run multistage compilation if `enableNormalize()` is on.
+*   Fixes to optimizations of 'class side inhertiance', including small fixes to
+    make optimizations both safer and more consistent.
+
 ### March 2, 2021 (v20210302)
 
 *   Bugfix: Allow `--browser_featureset_year=2021` to be passed via the command
