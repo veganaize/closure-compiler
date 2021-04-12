@@ -153,6 +153,12 @@ A file or namespace to use as the starting point for determining which src files
 
 # JS Modules
 
+**--allow_dynamic_import**  
+Indicates that the compiler should allow dynamic import expressions\. Dynamic import expressions are not yet fully supported and may lead to broken output code\. \(default: false\)
+
+**--dynamic_import_alias VAL**  
+Instructs the compiler to replace dynamic imports expressions with a function call using the specified name\. Allows dynamic import expressions to be externally polyfilled when the output language level does not natively support them\.
+
 **--js_module_root VAL**  
 Path prefixes to be removed from ES6 & CommonJS modules\.
 
