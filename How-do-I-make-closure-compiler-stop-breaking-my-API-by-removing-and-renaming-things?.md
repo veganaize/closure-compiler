@@ -1,6 +1,6 @@
 **The tl;dr here is "use externs". The rest is showing why and how.**
 
-# Why is closure-compiler breaking me by renaming properties?
+# Why is closure-compiler breaking me by removing globals I define and renaming properties?
 
 Whole-application optimization has proved to be the most effective at achieving output code size small enough to make the extremely feature-rich applications Google produces possible, so closure-compiler is designed with that model in mind.
 It works with the assumption that the code you give it is **all** of the code that is going to exist in the web page when the output compiled code runs. The only exception made is for symbols it is specifically told about using externs files.
