@@ -737,7 +737,7 @@ goog.userAgent.ASSUME_IE = false;
 
 ### `@export`, `@export {SomeType}`
 
-When properties are marked with `@export` and the compiler is run with the `--generate_exports` flag, a corresponding `goog.exportSymbol` statement will be generated:
+When static or prototype properties are marked with `@export` and the compiler is run with the `--generate_exports` flag, a corresponding `goog.exportSymbol` statement will be generated:
 
 ```javascript
 /** @export */
@@ -752,6 +752,30 @@ foo.MyPublicClass.prototype.myPublicMethod);
 ```
 
 You can write `/** @export {SomeType} */` as a shorthand for `/** @export @type {SomeType} */`.
+
+When instance properties are marked with `@export`, the compiler backs off property renaming on that property in the entire compilation unit.
+
+```
+class C {
+  constructor() {
+    /** @export {number} */
+    this.foo = 0;
+    /** @type {number} */
+    this.bar = 0;
+  }
+}
+```
+
+becomes after property renaming
+
+```
+class C {
+  constructor() {
+    this.foo = 0; //unrenamed
+    this.a = 0;   // renamed
+  }
+}
+```
 
 Code that uses the @export annotation must either:
 
