@@ -2,7 +2,19 @@ NOTE: This page started life as a copy of a [stackoverflow article](https://stac
 
 # Overview of dynamic loading and chunks
 
-By default the output from closure-compiler is one long JS script that combines all of the input source code after optimizations have been applied. However, this may not work for you if your application is really big. In that case, you may want to have the compiler break your code up into multiple chunks that can be loaded separately. You will design your application so that the code you always need gets loaded in an initial chunk, probably from a `<script>` tag, then that chunk will load others (which may load still others) as needed in order to support the user's actions. (e.g. The user may request a new display view, which requires you to load the code for showing that view.)
+Regardless of input type, the compiler will normalize all files and bundle them together. By default, a single output file is produced. However, this may not work for you if your application is really big. In that case, you may want to have the compiler break your code up into multiple chunks that can be loaded separately. You will design your application so that the code you always need gets loaded in an initial chunk, probably from a `<script>` tag, then that chunk will load others (which may load still others) as needed in order to support the user's actions. (e.g. The user may request a new display view, which requires you to load the code for showing that view.)
+
+There are two different types of output chunks available specified by the `--chunk_output_type` flag.
+
+## GLOBAL_NAMESPACE: Chunks as Scripts using a Global Namespace
+
+This is the default option and the compiler will produce standard scripts. This mode is normally paired with the `--chunk_wrapper` flag for script isolation and the `--rename_prefix_namespace` flag so that symbols can be referenced across chunks.
+
+For this type, you must fully specify your own script loader.
+
+## ES_MODULES: Chunks as Ecmacript modules
+
+The compiler will output es modules and cross chunk references will utilize the `import` and `export` statements. Since modules have build in isolation and modern browsers know how to load them, this option is by far the easiest.
 
 # Asking closure-compiler to produce chunks - the easy way
 
@@ -40,8 +52,6 @@ In this case, you are telling the compiler that the page1 and page2 chunks depen
 Keep in mind that the compiler can and does move code from one chunk into other chunk output files if it determines that it is only used by that chunk.
 
 None of this requires closure-library or the use of goog.require/provide calls nor does it add any code to your output. If you want the compiler to determine dependencies automatically or to be able to manage those dependencies for you, you'll need to use a module format such as CommonJS, ES2015 modules or goog.require/provide/module calls.
-
-See also https://github.com/chadkillingsworth/closure-calculate-chunks for a tool that will help you automate the process of deciding which source files should end up in which chunks.
 
 # Loading the chunks at runtime
 
