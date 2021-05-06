@@ -10,7 +10,7 @@ During compilation, the compiler normalizes and inlines all of these disparate m
 Dynamic import expressions (ex: `import('./my-module.js')`) allow ES modules to be loaded asynchronously from any input type - scripts or module.
 
 ### Resolving the Import Specifier
-When the import specifier is a string literal (ex `import('./my-module.js')`), the compiler will statically resolve the module and enable full type checking on the returned promise. If the specifier can’t be resolved, the compiler will emit a warning. This methodology is similar to how other JS build tools statically analyze dynamic imports.
+When the import specifier is a string literal (ex `import('./my-module.js')`), the compiler will statically resolve the module and enable full type checking on the returned promise. If the specifier can’t be resolved, the compiler will emit a warning. This methodology is similar to how other JS build tools statically analyze dynamic imports. The compiler will update the specifier to reference the correct output bundle.
 
 Dynamic import specifiers can also be arbitrary expressions (ex `import(modulePathVar)`). In this case, the compiler can’t resolve the module. The returned promise will resolve to an unknown type and no warning will be issued. The compiler assumes you know what you are doing here and the imported module is external.
 
