@@ -135,9 +135,6 @@ Interpolate output into this string at the place denoted by the marker token %ou
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Loads the specified file and passes the file contents to the \-\-output_wrapper flag, replacing the value if it exists\. This is useful if you want special characters like newline in the wrapper\. \(default: \)
 
-**--rename_prefix_namespace VAL**  
-Specifies the name of an object that will be used to store all non\-extern globals
-
 **--rename_variable_prefix VAL**  
 Specifies a prefix that will be prepended to all variables\.
 
@@ -152,9 +149,6 @@ A file or namespace to use as the starting point for determining which src files
 
 
 # JS Modules
-
-**--allow_dynamic_import**  
-Indicates that the compiler should allow dynamic import expressions\. Dynamic import expressions are not yet fully supported and may lead to broken output code\. \(default: false\)
 
 **--dynamic_import_alias VAL**  
 Instructs the compiler to replace dynamic imports expressions with a function call using the specified name\. Allows dynamic import expressions to be externally polyfilled when the output language level does not natively support them\.
@@ -195,19 +189,20 @@ Rewrite ES6 library calls to use polyfills provided by the compiler's runtime\. 
 
 # Code Splitting
 
-**--chunk (--module) VAL**  
+**--chunk VAL**  
 A JavaScript chunk specification\. The format is \<name\>:\<num\-js\-files\>\[:\[\<dep\>,\.\.\.\]\[:\]\]\]\. Chunk names must be unique\. Each dep is the name of a chunk that this chunk depends on\. Chunks must be listed in dependency order, and JS source files must be listed in the corresponding order\. Where \-\-chunk flags occur in relation to \-\-js flags is unimportant\. \<num\-js\-files\> may be set to 'auto' for the first chunk if it has no dependencies\. Provide the value 'auto' to trigger chunk creation from CommonJSmodules\.
 
-**--chunk_output_path_prefix (--module_output_path_prefix) VAL**  
+**--chunk_output_path_prefix VAL**  
 Prefix for filenames of compiled JS chunks\. \<chunk\-name\>\.js will be appended to this prefix\. Directories will be created as needed\. Use with \-\-chunk \(default: \./\)
 
 **--chunk_output_type [GLOBAL_NAMESPACE | ES_MODULES]**  
-Indicates what format the compiler should use for output chunks\. Options are:
-                                                                                      1\. GLOBAL_NAMESPACE \(default\)
-                                                                                      2\. ES_MODULES \(default: GLOBAL_NAMESPACE\)
+Indicates what format the compiler should use for output chunks\. GLOBAL_NAMESPACE is typically used in conjunction with \-\-rename_prefix_namespace\. ES_MODULES outputs chunks as proper modules with 'import' and 'export' statements\. \(default: GLOBAL_NAMESPACE\)
 
-**--chunk_wrapper (--module_wrapper) VAL**  
+**--chunk_wrapper VAL**  
 An output wrapper for a JavaScript chunk \(optional\)\. The format is \<name\>:\<wrapper\>\. The chunk name must correspond with a chunk specified using \-\-chunk\. The wrapper must contain %s as the code placeholder\. Alternately, %output% can be used in place of %s\. %n% can be used to represent a newline\. The %basename% placeholder can also be used to substitute the base name of the chunk output file\.
+
+**--rename_prefix_namespace VAL**  
+Specifies the name of an object that will be used to store all non\-extern globals
 
 
 # Reports
@@ -219,7 +214,7 @@ If specified, a source map file mapping the generated source files back to the o
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Prints out a list of all the files in the compilation\. If \-\-dependency_mode=PRUNE or PRUNE_LEGACY is specified, this will not include files that got dropped because they were not required\. The %outname% placeholder expands to the JS output file\. If you're using modularization, using %outname% will create a manifest for each module\. \(default: \)
 
-**--output_chunk_dependencies (--output_module_dependencies) VAL**  
+**--output_chunk_dependencies VAL**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Prints out a JSON file of dependencies between chunks\. \(default: \)
 
@@ -261,6 +256,9 @@ Override the value of a variable annotated @define\. The format is \<name\>\[=\<
 **--help**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
 Displays this message on stdout and exit \(default: false\)
+
+**--json_streams [NONE | IN | OUT | BOTH]**  
+Specifies whether standard input and output streams will be a JSON array of sources\. Each source will be an object of the form \{path: filename, src: file_contents, srcmap: srcmap_contents \}\. Intended for use by stream\-based build systems such as gulpjs\. Options: NONE, IN, OUT, BOTH\. Defaults to NONE\. \(default: NONE\)
 
 **--third_party**  
 <sub><sup>*Not supported by the JavaScript version*</sup></sub>  
