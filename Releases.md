@@ -10,6 +10,41 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### May 5, 2021 (v20210505)
+*   Deprecated the `undefinedNames` diagnostic group and removed the associated
+    error. Undefined namespaces are still detected via enabling `undefinedVars`
+    and `missingProperties` diagnostics.
+*   Changes to the public command-line runner:
+    -   Remove long deprecated flags aliases
+        -   `--module` should be `--chunk`
+        -   `--module_wrapper` should be `--chunk_wrapper`
+        -   `--module_output_path_prefix` should be `--chunk_output_path_prefix`
+        -   `--output_module_dependencies` should be
+            `--output_chunk_dependencies`
+        -   `--common_js_module_path_prefix` should be `--js_module_root`
+        -   `--common_js_entry_module` should be `--entry_point`
+        -   `--closure_entry_point` should be `--entry_point`
+        -   `--module` should be `--chunk`
+        -   `--manage_closure_dependencies` should be
+            `--dependency_mode=PRUNE_LEGACY`
+        -   `--only_closure_dependencies` should be `--dependency_mode=PRUNE`
+        -   `--polymer_pass` should be `--polymer_version=1`
+    -   Remove long deprecated option `--transform_amd_modules`
+    -   Allow dynamic import expressions by default
+    -   Document the --json_streams flag
+    -   Enable optimal flags automatically when `--chunk_output_type=ES_MODULES`
+        is specified
+*   `SourceMapConsumerV3`: Add a field to `OriginalMapping` to indicate
+    whether the mapping is exact, estimated, or of unknown precision.
+*   Canonicalized destructuring import shorthand properties with the JSCompiler
+    Linter.
+*   Sped up serialization of AST and types in multistage builds. Not expected to
+    be a behavioral change.
+*   Added BanSetAttribute conformance check
+*   For users of the Java API: deleted `SourceFile.fromGenerated`. Replace with
+    either a reference to a file on disk or a preloaded string
+    `SourceFile.fromCode`
+
 ### April 6, 2021 (v20210406)
 
 *   Remove the ability to select specific strings to alias from the compiler
