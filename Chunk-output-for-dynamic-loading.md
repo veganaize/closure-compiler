@@ -14,7 +14,7 @@ For this type, you must fully specify your own script loader.
 
 ## ES_MODULES: Chunks as Ecmacript modules
 
-The compiler will output es modules and cross chunk references will utilize the `import` and `export` statements. Since modules have build in isolation and modern browsers know how to load them, this option is by far the easiest.
+The compiler will output es modules and cross chunk references will utilize the `import` and `export` statements. Since modules have built in isolation and modern browsers know how to load them, this option is by far the easiest.
 
 # Asking closure-compiler to produce chunks - the easy way
 
