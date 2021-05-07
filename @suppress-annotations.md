@@ -194,7 +194,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_NAMESPACE_REDEFINED|duplicate|
 |JSC_NAME_DEFINED_LATE|lateProvide|
 |JSC_NAME_REFERENCE_IN_EXTERNS|externsValidation|
-|JSC_NESTED_NAME_IN_GOOG_MODULE|lintChecks|
 |JSC_NON_DECLARATION_STATEMENT_IN_INTERFACE|lintChecks|
 |JSC_NON_STATIC_INITIALIZER_STRING_VALUE_IN_ENUM|lintChecks|
 |JSC_NON_STRINGIFIABLE_OBJECT_KEY|checkTypes|
@@ -243,7 +242,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_TYPE_PARSE_ERROR|checkTypes|
 |JSC_TYPE_REDEFINITION|checkTypes|
 |JSC_UNDEFINED_EXTERN_VAR_ERROR|externsValidation|
-|JSC_UNDEFINED_NAME|undefinedNames|
 |JSC_UNDEFINED_VARIABLE|undefinedVars|
 |JSC_UNKNOWN_DEFINE_WARNING|unknownDefines|
 |JSC_UNKNOWN_EXPR_TYPE|reportUnknownTypes|
