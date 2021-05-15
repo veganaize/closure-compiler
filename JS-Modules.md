@@ -17,7 +17,7 @@ Dynamic import specifiers can also be arbitrary expressions (ex `import(modulePa
 ### Transpiling Dynamic Import
 Dynamic imports can’t be cleanly transpiled. While there are polyfills which utilize `<script type="module">` insertion in the DOM, most of them require unsafe-eval or data url manipulations that might run afoul of a content security policy. Closure Compiler has opted not to even attempt a polyfill.
 
-Instead, Closure-Compiler will let you alias (or rename) `import()` expressions into a function call (ex `import_()`) using the new `--dyanmic_import_alias=import_` command line flag. The presence of this flag instructs the compiler to allow dynamic imports even when the output language is lower than ECMASCRIPT_2020. The compiler will expect you to provide a definition (external or in source) for this aliased function. This way you can choose how you want to polyfill dynamic imports.
+Instead, Closure-Compiler will alias (or rename) `import()` expressions during compilation into a function call (ex `import_()`) using the new `--dyanmic_import_alias=import_` command line flag. The presence of this flag instructs the compiler to allow dynamic imports even when the output language is lower than ECMASCRIPT_2020. The compiler will expect you to provide a definition (external or in source) for this aliased function. This way you can choose how you want to polyfill dynamic imports.
 
 ## Module Resolution Mode
 
