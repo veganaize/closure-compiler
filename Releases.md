@@ -10,6 +10,27 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### June 1, 2021 (v20210601)
+*   Dropped `RefasterJS` from the closure-compiler GitHub repo, because it is
+    unsupported. See https://github.com/google/closure-compiler/issues/3702
+*   Avoid unnecessary polyfills when using browser `FeatureSet` year
+    to select the output level.
+*   Removed the remains of the "private by convention" wiring in the
+    CodeConvention classes and associated lint checks.
+*   Compiler option 'setBadRewriteModulesBeforeTypecheckingThatWeWantToGetRidOf'
+    is now false by default. This may lead to new type errors. This change only
+    affects users of the Java API, not the command line or NPM versions.
+*   Deleted the `BanExpose` conformance rule. `@expose` is now a parse error so
+    this conformance rule is unnecessary.
+*   Removed support for deprecated JSDoc tag `@expose`. Instead either use
+    [`@export`](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#export-export-sometype)
+    to fix
+    [property renaming issues](https://developers.google.com/closure/compiler/docs/limitations#implications-of-global-variable,-function,-and-property-renaming:),
+    or use
+    [`@nocollapse`](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#nocollapse)
+    to prevent problems with
+    [property flattening](https://developers.google.com/closure/compiler/docs/limitations#implications-of-object-property-flattening).
+
 ### May 5, 2021 (v20210505)
 *   Deprecated the `undefinedNames` diagnostic group and removed the associated
     error. Undefined namespaces are still detected via enabling `undefinedVars`
