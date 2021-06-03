@@ -187,12 +187,9 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_MSG_NOT_INITIALIZED_USING_NEW_SYNTAX|messageConventions|
 |JSC_MSG_TREE_MALFORMED|messageConventions|
 |JSC_MULTIPLE_VAR_DEF|checkTypes|
-|JSC_MUST_BE_PRIVATE|underscore|
 |JSC_MUST_COME_BEFORE_IN_ES6_MODULE|lintChecks|
-|JSC_MUST_HAVE_TRAILING_UNDERSCORE|underscore|
 |JSC_MUTATED_EXPORT|lintChecks|
 |JSC_NAMESPACE_REDEFINED|duplicate|
-|JSC_NAME_DEFINED_LATE|lateProvide|
 |JSC_NAME_REFERENCE_IN_EXTERNS|externsValidation|
 |JSC_NON_DECLARATION_STATEMENT_IN_INTERFACE|lintChecks|
 |JSC_NON_STATIC_INITIALIZER_STRING_VALUE_IN_ENUM|lintChecks|
@@ -225,7 +222,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_STRICT_INEXISTENT_PROPERTY_WITH_SUGGESTION|strictMissingProperties|
 |JSC_STRICT_INEXISTENT_UNION_PROPERTY|strictMissingProperties|
 |JSC_STRICT_MODULE_DEPENDENCY|strictModuleDepCheck|
-|JSC_STRICT_MODULE_DEP_QNAME|strictModuleDepCheck|
 |JSC_SUSPICIOUS_IN|suspiciousCode|
 |JSC_SUSPICIOUS_INSTANCEOF_LEFT|suspiciousCode|
 |JSC_SUSPICIOUS_LEFT_OPERAND_OF_LOGICAL_OPERATOR|suspiciousCode|
@@ -251,9 +247,8 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_UNKNOWN_TYPEOF_VALUE|checkTypes|
 |JSC_UNREACHABLE_CODE|uselessCode|
 |JSC_UNRECOGNIZED_TYPE_ERROR|checkTypes|
-|JSC_UNRESOLVED_TYPE|checkTypes|
 |JSC_UNTRANSPILABLE|untranspilableFeatures|
-|JSC_UNUSED|legacyGoogScopeRequire|
+|JSC_UNUSED|underscore|
 |JSC_UNUSED_LABEL|lintChecks|
 |JSC_UNUSED_LOCAL_ASSIGNMENT|unusedLocalVariables|
 |JSC_UNUSED_PRIVATE_PROPERTY|unusedPrivateMembers|
@@ -270,4 +265,5 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_VISIBILITY_MISMATCH|visibility|
 |JSC_WRONG_ARGUMENT_COUNT|checkTypes|
 |JSC_WRONG_NUMBER_OF_PARAMS|lintChecks|
+|JSC_XMODULE_REQUIRE_ERROR|strictModuleDepCheck|
 |MODULE_NAMESPACE_MISMATCHES_TYPESCRIPT_NAMESPACE|lintChecks|
