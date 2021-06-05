@@ -42,6 +42,8 @@ Example import statements for NODE mode:
  * `require('/folder/source')`
  * `require('folder/source')`
 
+**Note:** package.json files are required to properly resolve node modules. The appropriate package.json files should be passed to the compiler as source files (using the `--js` flag). These files are only used to resolve modules and won't affect the output size of the compipiled js.
+
 ### BROWSER Resolution Mode
 
 Modules which do not begin with a "." or "/" character are not supported. Module import statements must always specify the file extension.
