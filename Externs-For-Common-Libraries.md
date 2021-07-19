@@ -90,6 +90,12 @@ project: https://github.com/IvanRF/hls.js-externs
 
 https://github.com/IvanRF/hls.js-externs/blob/master/hls.js
 
+## Leaflet
+
+project: https://gist.github.com/PeterTillema/74117f5c7a2f2ff603b5ec5c95f83230
+
+https://gist.githubusercontent.com/PeterTillema/74117f5c7a2f2ff603b5ec5c95f83230/raw/7eec2e0521781c187e7f3868add7ec6ad9830edf/leaflet-extern.js
+
 ## node.js
 
 project: https://github.com/dcodeIO/node.js-closure-compiler-externs
