@@ -14,21 +14,21 @@ For complete list of changes refer to the [change log](https://github.com/google
 * Add a FeatureSet corresponding to the ES2021 language version. Includes features in the ES2021 spec, e.g. logical assignment operators and numeric separators.
 * Fixed bug where builds with language_out ES2015+ did not see warning about rest parameter JSDoc missing the ["..." variadic annotation](https://github.com/google/closure-compiler/wiki/Types-in-the-Closure-Type-System).
 * Update Maps JS usage allowed externs to allow using the current weekly version (by explicit version number).
-* Ban files with nested goog.provides where a nested goog.provide is used as a @typedef. If you see a new JSC_TYPEDEF_CHILD_OF_PROVIDE error, the recommended fix is to delete the nested goog.provide (and optionally move to goog.module)
+* Ban files with nested goog.provides where a nested goog.provide is used as a `@typedef`. If you see a new `JSC_TYPEDEF_CHILD_OF_PROVIDE` error, the recommended fix is to delete the nested goog.provide (and optionally move to goog.module)
 * Fix to @const enforcement on @externs properties. A single assignment to the property in executable code now triggers an error.
-* Add an error for new proeprties in metadata: for Wiz views.
+* Add an error for new proeprties in `metadata:` for Wiz views.
 * Fold String#replace when all the values are string literals. Add a few more unit tests to the String#replace folding
-* Remove the deprecated --module and --module_wrapper aliases for the --chunk and --chunk_wrapper flags.
-* Make JSC_POSSIBLE_INEXISTENT_PROPERTY error message explain what it actually means.
-* Symbol representing namespaces (declared by goog.provide or goog.module) are prefixed with ns$ in SymbolTable.
-* Add polyfills for Promise.any and AggregateError.
+* Remove the deprecated `--module` and `--module_wrapper` aliases for the `--chunk` and `--chunk_wrapper` flags.
+* Make `JSC_POSSIBLE_INEXISTENT_PROPERTY` error message explain what it actually means.
+* Symbol representing namespaces (declared by `oog.provide` or `goog.module`) are prefixed with `ns$` in `SymbolTable`.
+* Add polyfills for `Promise.any` and `AggregateError`.
 * Switch @fileoverview parsing from "last one wins" to "first one wins". @suppress annotations are merged across all @fileoverviews in a file, including implicit ones (e.g. @externs).
-* Running in checksOnly mode no longer runs the pass that replaces goog.provide('a.b'); with var a = {}; a.b = {};. To temporarily revert this change, set options.setBadRewriteProvidesInChecksOnlyThatWeWantToGetRidOf(true).
-* Add polyfill and externs for String.prototype.replaceAll
+* Running in checksOnly mode no longer runs the pass that replaces `goog.provide('a.b');` with `var a = {}; a.b = {};`. To temporarily revert this change, set `options.setBadRewriteProvidesInChecksOnlyThatWeWantToGetRidOf(true)`.
+* Add polyfill and externs for `String.prototype.replaceAll`
 * Add externs for maps api v3.45
-* Added GamepadEvent to w3c_gamepad.js
-* Added constant folding support for Math.imul
-* Deleted deprecated CompilerOption setCheckGlobalNamesLevel and error group undefinedNames, as in --jscomp_{error,warning,off}=undefinedNames. These options were no-ops and are covered by other diagnostics. @suppress {undefinedNames} still parses but is a no-op.
+* Added `GamepadEvent` to `w3c_gamepad.js`
+* Added constant folding support for `Math.imul`
+* Deleted deprecated CompilerOption `setCheckGlobalNamesLevel` and error group `undefinedNames`, as in `--jscomp_{error,warning,off}=undefinedNames`. These options were no-ops and are covered by other diagnostics. `@suppress {undefinedNames}` still parses but is a no-op.
 
 ### June 1, 2021 (v20210601)
 *   Dropped `RefasterJS` from the closure-compiler GitHub repo, because it is
