@@ -43,6 +43,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 
 | Error | Suppression tag |
 |---|---|
+|BAD_REST_PARAMETER_ANNOTATION|misplacedTypeAnnotation|
 |JSC_ABSTRACT_METHOD_IN_CONCRETE_CLASS|checkTypes|
 |JSC_ABSTRACT_METHOD_NOT_IMPLEMENTED|checkTypes|
 |JSC_ABSTRACT_SUPER_METHOD_NOT_USABLE|checkTypes|
