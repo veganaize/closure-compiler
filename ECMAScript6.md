@@ -2,9 +2,9 @@
 
 # Introduction
 
-ECMAScript 6, ECMAScript 2016, and ECMAScript 2017 are now officially supported as both input and output language for the Closure Compiler.
+ECMAScript 2015 - 2020 are now officially supported as both input and output language for the Closure Compiler.
 
-If you find that the Closure Compiler does not support your favorite feature, you can file an issue, but please be aware that supporting the entire ECMAScript specification is a non-goal for the Closure Compiler. We currently avoid features that cannot be transpiled cleanly to ES5, and features that tend to lead to code which is difficult to analyze and typecheck. 
+If you find that the Closure Compiler does not support your favorite feature, you can file an issue. 
 
 This is a place to collect changes that will need to be made to the compiler.
 
@@ -46,6 +46,3 @@ Type checking is done on the original code before transpilation.
 
 Optimization currently occur after the code is transpiled to your chosen output language.
 
-## Code Printer
-
-The code printer currently supports up to ECMAScript 2019.
