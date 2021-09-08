@@ -165,6 +165,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_MISPLACED_ANNOTATION|misplacedTypeAnnotation|
 |JSC_MISPLACED_MSG_ANNOTATION|misplacedTypeAnnotation|
 |JSC_MISSING_CONST_ON_CONSTANT_CASE|lintChecks|
+|JSC_MISSING_CONST_PROPERTY|lintChecks|
 |JSC_MISSING_EXTENDS_TAG|checkTypes|
 |JSC_MISSING_JSDOC|lintChecks|
 |JSC_MISSING_JSDOC_IN_DECLARATION_STATEMENT|lintChecks|
@@ -252,7 +253,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_UNUSED|underscore|
 |JSC_UNUSED_LABEL|lintChecks|
 |JSC_UNUSED_LOCAL_ASSIGNMENT|unusedLocalVariables|
-|JSC_UNUSED_PRIVATE_PROPERTY|unusedPrivateMembers|
+|JSC_UNUSED_PRIVATE_PROPERTY|lintChecks|
 |JSC_USED_GLOBAL_THIS|globalThis|
 |JSC_USELESS_BLOCK|lintChecks|
 |JSC_USELESS_CODE|uselessCode|
