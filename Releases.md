@@ -12,11 +12,13 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### September 7, 2021 (v20210906)
 
+*   The default input language is updated from ECMASCRIPT_2020 to **ECMASCRIPT_2021.**
 *   Fixed bug where using `--rewrite_function_expressions` could break the
     scoping of `this` inside arrow function bodies when not transpiling to ES5.
 *   Disallow setting --language_out in conjunction with --browser_featureset_year
 *   Correct transpilation of `for await (const [pattern] of something) {}`.
     Previously the compiler crashed for a destructuring variable declaration.
+*   Removed lint check for nullable return values that never return null.
 *   All transpilation passes now run in stage 2 (a.k.a. the optimizations phase)
     of a multistage compiler build.
 *   Add externs for maps api v3.46
@@ -25,11 +27,9 @@ For complete list of changes refer to the [change log](https://github.com/google
     ProcessClosureProvidesAndRequires from deleting goog.requires. The first can
     be done via options.setWarningLevel and the second can be done via
     options.setPreserveClosureProvidesAndRequires.
-*   Removed lint check for nullable return values that never return null.
 *   Removed peephole optimization folding `RegExp` calls to regex literals. The
     implementation was complex and had some subtle existing bugs, and the size
     savings measured on sample projects didn't justify the complexity.
-*   The default input language is updated from ECMASCRIPT_2020 to **ECMASCRIPT_2021.**
 *   When pretty printing, print "()" for constructors with empty parameter lists.
 *   Fix printing of trailing commas for refactorings.
 
