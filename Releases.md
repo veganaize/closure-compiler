@@ -10,6 +10,12 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### September 8, 2021 (v20210907)
+*   Moved `JSC_UNUSED_PRIVATE_PROPERTY` and `JSC_MISSING_CONST_PROPERTY` checks
+    out of the analyzer and into the linter. The DiagnosticGroups
+    `UNUSED_PRIVATE_PROPERTY` and `MISSING_CONST_PROPERTY` are deprecated and
+    no-ops.
+
 ### September 7, 2021 (v20210906)
 
 *   The default input language is updated from ECMASCRIPT_2020 to **ECMASCRIPT_2021.**
