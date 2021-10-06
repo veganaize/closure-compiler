@@ -179,7 +179,200 @@ Which version of Polymer is being used \(1 or 2\)\.
 Processes built\-ins from the Closure library, such as goog\.require\(\), goog\.provide\(\), and goog\.exportSymbol\(\)\. True by default\. \(default: true\)
 
 **--rewrite_polyfills**  
-Rewrite ES6 library calls to use polyfills provided by the compiler's runtime\. \(default: true\)
+Injects polyfills for ES2015\+ library classes and methods used in source\. See alsohttps://github\.com/google/closure\-compiler/wiki/Polyfills \(default: true\)
+
+
+# Code Splitting
+
+**--chunk VAL**  
+A JavaScript chunk specification\. The format is \<name\>:\<num\-js\-files\>\[:\[\<dep\>,\.\.\.\]\[:\]\]\]\. Chunk names must be unique\. Each dep is the name of a chunk that this chunk depends on\. Chunks must be listed in dependency order, and JS source files must be listed in the corresponding order\. Where \-\-chunk flags occur in relation to \-\-js flags is unimportant\. \<num\-js\-files\> may be set to 'auto' for the first chunk if it has no dependencies\. Provide the value 'auto' to trigger chunk creation from CommonJSmodules\.
+
+**--chunk_output_path_prefix VAL**  
+Prefix for filenames of compiled JS chunks\. \<chunk\-name\>\.js will be appended to this prefix\. Directories will be created as needed\. Use with \-\-chunk \(default: \./\)
+
+**--chunk_output_type [GLOBAL_NAMESPACE | ES_MODULES]**  
+# Basic Usage
+
+**--compilation_level (-O) VAL**  
+Specifies the compilation level to use\. Options: BUNDLE, WHITESPACE_ONLY, SIMPLE \(default\), ADVANCED \(default: SIMPLE\)
+
+**--env [BROWSER | CUSTOM]**  
+Determines the set of builtin externs to load\. Options: BROWSER, CUSTOM\. Defaults to BROWSER\. \(default: BROWSER\)
+
+**--externs VAL**  
+The file containing JavaScript externs\. You may specify multiple
+
+**--js VAL**  
+The JavaScript filename\. You may specify multiple\. The flag name is optional, because args are interpreted as files by default\. You may also use minimatch\-style glob patterns\. For example, use \-\-js='\*\*\.js' \-\-js='\!\*\*_test\.js' to recursively include all js files that do not end in _test\.js
+
+**--js_output_file VAL**  
+Primary output filename\. If not specified, output is written to stdout \(default: \)
+
+**--language_in VAL**  
+Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, ECMASCRIPT_2020,ECMASCRIPT_2021, STABLE, ECMASCRIPT_NEXT \(latest features supported\) \(default: STABLE\)
+
+**--language_out VAL**  
+Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, ECMASCRIPT_2020, ECMASCRIPT_2021, STABLE \(default: STABLE\)
+
+**--warning_level (-W) [QUIET | DEFAULT | VERBOSE]**  
+Specifies the warning level to use\. Options: QUIET, DEFAULT, VERBOSE \(default: DEFAULT\)
+
+
+# Warning and Error Management
+
+**--conformance_configs VAL**  
+A list of JS Conformance configurations in text protocol buffer format\.
+
+**--error_format [STANDARD | JSON]**  
+Specifies format for error messages\. \(default: STANDARD\)
+
+**--extra_annotation_name VAL**  
+A allowlist of tag names in JSDoc\. You may specify multiple
+
+**--hide_warnings_for VAL**  
+If specified, files whose path contains this string will have their warnings hidden\. You may specify multiple\.
+
+**--jscomp_error VAL**  
+Make the named class of warnings an error\. Must be one of the error group items\. '\*' adds all supported\.
+
+**--jscomp_off VAL**  
+Turn off the named class of warnings\. Must be one of the error group items\. '\*' adds all supported\.
+
+**--jscomp_warning VAL**  
+Make the named class of warnings a normal warning\. Must be one of the error group items\. '\*' adds all supported\.
+
+**--strict_mode_input**  
+Assume input sources are to run in strict mode\. \(default: true\)
+
+**--warnings_allowlist_file (--warnings_whitelist_file) VAL**  
+A file containing warnings to suppress\. Each line should be of the form
+                                                                                      \<file\-name\>:\<line\-number\>?  \<warning\-description\> \(default: \)
+
+## Available Error Groups
+
+  - accessControls
+  - checkPrototypalTypes
+  - checkRegExp
+  - checkTypes
+  - checkVars
+  - conformanceViolations
+  - const
+  - constantProperty
+  - deprecated
+  - deprecatedAnnotations
+  - duplicateMessage
+  - es5Strict
+  - externsValidation
+  - functionParams
+  - globalThis
+  - invalidCasts
+  - misplacedTypeAnnotation
+  - missingOverride
+  - missingPolyfill
+  - missingProperties
+  - missingProvide
+  - missingRequire
+  - missingReturn
+  - missingSourcesWarnings
+  - moduleLoad
+  - moduleImports
+  - msgDescriptions
+  - nonStandardJsDocs
+  - partialAlias
+  - polymer
+  - reportUnknownTypes
+  - strictCheckTypes
+  - strictMissingProperties
+  - strictModuleDepCheck
+  - strictPrimitiveOperators
+  - suspiciousCode
+  - typeInvalidation
+  - undefinedVars
+  - underscore
+  - unknownDefines
+  - unusedLocalVariables
+  - unusedPrivateMembers
+  - uselessCode
+  - untranspilableFeatures,visibility
+
+# Output
+
+**--assume_function_wrapper**  
+Enable additional optimizations based on the assumption that the output will be wrapped with a function wrapper\.  This flag is used to indicate that "global" declarations will not actually be global but instead isolated to the compilation unit\. This enables additional optimizations\. \(default: false\)
+
+**--debug**  
+Enable debugging options\. Property renaming uses long mangled names which can be mapped back to the original name\. \(default: false\)
+
+**--export_local_property_definitions**  
+Generates export code for local properties marked with @export \(default: true\)
+
+**--formatting [PRETTY_PRINT | PRINT_INPUT_DELIMITER | SINGLE_QUOTES]**  
+Specifies which formatting options, if any, should be applied to the output JS\. Options: PRETTY_PRINT, PRINT_INPUT_DELIMITER, SINGLE_QUOTES
+
+**--generate_exports**  
+Generates export code for those marked with @export \(default: true\)
+
+**--isolation_mode [NONE | IIFE]**  
+If set to IIFE the compiler output will follow the form:
+                                                                                        \(function\(\)\{%output%\}\)\.call\(this\);
+                                                                                      Options: NONE, IIFE \(default: NONE\)
+
+**--output_wrapper VAL**  
+Interpolate output into this string at the place denoted by the marker token %output%\. Use marker token %output|jsstring% to do js string escaping on the output\. Consider using the \-\-isolation_mode flag instead\. \(default: \)
+
+**--output_wrapper_file VAL**  
+Loads the specified file and passes the file contents to the \-\-output_wrapper flag, replacing the value if it exists\. This is useful if you want special characters like newline in the wrapper\. \(default: \)
+
+**--rename_variable_prefix VAL**  
+Specifies a prefix that will be prepended to all variables\.
+
+
+# Dependency Management
+
+**--dependency_mode [NONE | SORT_ONLY | PRUNE_LEGACY | PRUNE]**  
+Specifies how the compiler should determine the set and order of files for a compilation\. Options: NONE the compiler will include all src files in the order listed, SORT_ONLY the compiler will include all source files in dependency order, PRUNE files will only be included if they are transitive dependencies of files listed in the \-\-entry_point flag and then sorted in dependency order, PRUNE_LEGACY same as PRUNE but files that do not goog\.provide a namespace and are not modules will be automatically added as \-\-entry_point entries\. Defaults to PRUNE_LEGACY if entry points are defined, otherwise to NONE\.
+
+**--entry_point VAL**  
+A file or namespace to use as the starting point for determining which src files to include in the compilation\. ES6 and CommonJS modules are specified as file paths \(without the extension\)\. Closure\-library namespaces are specified with a "goog:" prefix\. Example: \-\-entry_point=goog:goog\.Promise
+
+
+# JS Modules
+
+**--dynamic_import_alias VAL**  
+Instructs the compiler to replace dynamic imports expressions with a function call using the specified name\. Allows dynamic import expressions to be externally polyfilled when the output language level does not natively support them\. An alias of 'import' is allowed\.
+
+**--js_module_root VAL**  
+Path prefixes to be removed from ES6 & CommonJS modules\.
+
+**--module_resolution [BROWSER | BROWSER_WITH_TRANSFORMED_PREFIXES | NODE | WEBPACK]**  
+Specifies how the compiler locates modules\. BROWSER requires all module imports to begin with a '\.' or '/' and have a file extension\. NODE uses the node module rules\. WEBPACK looks up modules from a special lookup map\. \(default: BROWSER\)
+
+**--process_common_js_modules**  
+Process CommonJS modules to a concatenable form\. \(default: false\)
+
+**--package_json_entry_names VAL**  
+Ordered list of entries to look for in package\.json files when processing modules with the NODE module resolution strategy \(i\.e\. esnext:main,browser,main\)\. Defaults to a list with the following entries: "browser", "module", "main"\.
+
+
+# Library and Framework Specific
+
+**--angular_pass**  
+Generate $inject properties for AngularJS for functions annotated with @ngInject \(default: false\)
+
+**--force_inject_library VAL**  
+Force injection of named runtime libraries\. The format is \<name\> where \<name\> is the name of a runtime library\. Possible libraries include: base, es6_runtime, runtime_type_check
+
+**--inject_libraries**  
+Allow injecting runtime libraries\. \(default: true\)
+
+**--polymer_version N**  
+Which version of Polymer is being used \(1 or 2\)\.
+
+**--process_closure_primitives**  
+Processes built\-ins from the Closure library, such as goog\.require\(\), goog\.provide\(\), and goog\.exportSymbol\(\)\. True by default\. \(default: true\)
+
+**--rewrite_polyfills**  
+Injects polyfills for ES2015\+ library classes and methods used in source\. See alsohttps://github\.com/google/closure\-compiler/wiki/Polyfills \(default: true\)
 
 
 # Code Splitting
