@@ -9,6 +9,41 @@ The Closure Compiler team's goal is to release during the first week of every mo
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master).
 
 ## Details
+### October 6, 2021 (v20211006)
+
+*   Crash in Closure Compiler if languageOut is incompatible with ZoneJS. This
+    only happens when the compiler detects ZoneJS as one of the inputs. This is
+    because ZoneJS is incompatible with async functions (see
+    https://github.com/angular/angular/issues/31730)
+*   Added `--assume_static_inheritance_is_not_used` flag. It is on by default
+    to be consistent with the previous behavior of the compiler. Setting
+    it to false will make the compiler expect to see references to static
+    methods via `this` in static methods or via subclass names and avoid
+    changes that could break that.
+*   Don't parse types in JSDoc @throws annotations anymore. Types become part of
+    the textual description of the throws annotation.
+*   Externs for `Proxy` are now included by default. 
+*   Fix output directory of `--print_source_after_each_pass` flag to be
+    consistent with released notes.
+*   Changed diagnostic type name for overriding final methods from
+    `JSC_CONSTANT_PROPERTY_REASSIGNED_VALUE` to `JSC_FINAL_PROPERTY_OVERRIDDEN`.
+    The canonical way of suppressing this error is now `@suppress {visibility}`.
+    `@suppress {const}` and `@suppress {constProperty}` will still work until we
+    finish cleaning up existing usages.
+*   Deleted @deprecated `setAliasAllStrings`. Please use
+    `setAliasStringsMode(AliasStringsMode.ALL)` to alias all repeated strings,
+    which is the same behavior as `setAliasAllStrings(true)`.
+*   Added String.raw polyfill.
+*   Update public method names in JSDocInfo to be consistent with other record*
+    named methods
+*   Add support for parsing and printing JSDoc text descriptions after @suppress
+    annotation
+*   Do not mark indirect calls to functions as useless code.
+    Indirecting calls in the form `(0, prefix.myFn)()` prevents passing prefix as
+    the this context object to myFn, which is useful. This fixes a dead code
+    removal with TypeScript 4.4, which uses this pattern for functions imported
+    from modules.
+
 
 ### September 8, 2021 (v20210907)
 *   Moved `JSC_UNUSED_PRIVATE_PROPERTY` and `JSC_MISSING_CONST_PROPERTY` checks
