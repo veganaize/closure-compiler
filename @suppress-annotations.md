@@ -106,6 +106,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_EXTEND_FINAL_CLASS|visibility|
 |JSC_EXTERNS_FILES_SHOULD_BE_ANNOTATED|lintChecks|
 |JSC_EXTRA_REQUIRE_WARNING|extraRequire|
+|JSC_FINAL_PROPERTY_OVERRIDDEN|constantProperty|
 |JSC_FRACTIONAL_BITWISE_OPERAND|transitionalSuspiciousCodeWarnings|
 |JSC_FUNCTION_ARGUMENTS_PROP_FORBIDDEN|es5Strict|
 |JSC_FUNCTION_CALLER_FORBIDDEN|es5Strict|
