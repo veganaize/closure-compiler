@@ -179,7 +179,7 @@ Which version of Polymer is being used \(1 or 2\)\.
 Processes built\-ins from the Closure library, such as goog\.require\(\), goog\.provide\(\), and goog\.exportSymbol\(\)\. True by default\. \(default: true\)
 
 **--rewrite_polyfills**  
-Injects polyfills for ES2015\+ library classes and methods used in source\. See alsohttps://github\.com/google/closure\-compiler/wiki/Polyfills \(default: true\)
+Injects polyfills for ES2015\+ library classes and methods used in source\. See also https://github.com/google/closure-compiler/wiki/Polyfills \(default: true\)
 
 
 # Code Splitting
