@@ -12,7 +12,7 @@
  * [My code broke when using advanced optimizations! How do I figure out what's wrong?](#my-code-broke-when-using-advanced-optimizations-how-do-i-figure-out-whats-wrong)
  * [Some of my properties are getting renamed, but some aren't. Why?](#some-of-my-properties-are-getting-renamed-but-some-arent-why)
  * [When using type-checking, sometimes Closure Compiler doesn't warn me about missing properties. Why not?](#when-using-type-checking-sometimes-closure-compiler-doesnt-warn-me-about-missing-properties-why-not)
- * [I got an "Incomplete alias created for namespace" error.  What do I do?](#i-got-an-incomplete-alias-created-for-namespace-error--what-do-i-do)
+ * [I got a "Partial alias created for namespace" error.  What do I do?](#i-got-a-partial-alias-created-for-namespace-error--what-do-i-do)
 
 ### Using Closure Compiler
  * [What are the recommended Java VM command-line options?](#what-are-the-recommended-java-vm-command-line-options)
@@ -157,7 +157,7 @@ Not all elements have "contentWindow" defined on them. Only HTMLIframeElements d
 
 It is possible to get stricter property check on specific types by annotating by enabling the `strictMissingProperties` diagnostic group.   Annotating individual classes with [`@struct`](https://github.com/google/closure-compiler/wiki/@struct-and-@dict-Annotations) enables these stricter checks on individual classes.   
 
-### I got an "incomplete alias created for namespace" error.  What do I do?
+### I got a "partial alias created for namespace" error.  What do I do?
 
 ```javascript
 async function (x) {
@@ -165,7 +165,7 @@ async function (x) {
 }
 ```
 ```
-Incomplete alias created for namepace `goog.asserts`
+Partial alias created for namepace `goog.asserts`
   return goog.asserts.assertString(yield x);
 ```
 
