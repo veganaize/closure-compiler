@@ -66,6 +66,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_COMMONJS_UNKNOWN_REQUIRE_ENSURE_ERROR|moduleLoad|
 |JSC_COMPUTED_PROP_NAME_IN_ENUM|lintChecks|
 |JSC_CONFLICTING_EXTENDED_TYPE|checkTypes|
+|JSC_CONFLICTING_GETTER_SETTER_TYPE|checkTypes|
 |JSC_CONFLICTING_IMPLEMENTED_TYPE|checkTypes|
 |JSC_CONSTANT_PROPERTY_DELETED|constantProperty|
 |JSC_CONSTANT_PROPERTY_REASSIGNED_VALUE|constantProperty|
@@ -106,7 +107,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_EXTEND_FINAL_CLASS|visibility|
 |JSC_EXTERNS_FILES_SHOULD_BE_ANNOTATED|lintChecks|
 |JSC_EXTRA_REQUIRE_WARNING|extraRequire|
-|JSC_FINAL_PROPERTY_OVERRIDDEN|constantProperty|
+|JSC_FINAL_PROPERTY_OVERRIDDEN|visibility|
 |JSC_FRACTIONAL_BITWISE_OPERAND|transitionalSuspiciousCodeWarnings|
 |JSC_FUNCTION_ARGUMENTS_PROP_FORBIDDEN|es5Strict|
 |JSC_FUNCTION_CALLER_FORBIDDEN|es5Strict|
