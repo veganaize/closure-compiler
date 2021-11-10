@@ -9,6 +9,54 @@ The Closure Compiler team's goal is to release during the first week of every mo
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master).
 
 ## Details
+### November 7, 2021 (v20211107)
+
+*   ECMASCRIPT_NEXT is now the default language out
+    This makes it so that folks need to explicitly ask for transpilation by
+    setting the `--language_out` flag. For folks who want the old behavior, you
+    can continue to get it by setting `--language_OUT=ECMASCRIPT5` or
+    `--language_out=STABLE`.
+    Note that in order to maintain the default behavior of not including the
+    `"use strict"` directive the `--emit_use_strict` flag now defaults to
+    `false`.
+*   Fix [incorrect ordering of side-effects](https://github.com/google/closure-compiler/issues/3874)
+    when an function inlining target was part of a call target expression.
+*   Making ConvertToDottedProperties convert computed properties, member
+    functions, and optional chaining with brackets.
+*   Change to allow Collapse Properties to collapse properties of functions used
+    in call target indirection (i.e. `(0,qualified.name.fn)()`).
+    This addresses a code size regression seen with TypeScript 4.4 generated
+    code.
+*   Fixed regression that caused a crash when setting `chunk_output_type` to
+    `ES_MODULES`
+*   Fix incorrect documentation of "print_file_after_each_pass" and
+    "print_module_after_each_file" flag.
+*   Stop rewriting async `super.function()` calls with `Object.getPrototypeOf`.
+    This is in effect a rollback of the functional change in
+    https://github.com/google/closure-compiler/pull/3103
+    Preserving the `super.function()` syntax is more spec-compliant in some
+    cases, and MS Edge 17 is incredibly rare these days.
+*   Transpile Rest Arguments using a helper function to allow them to be removed
+    as dead code.
+*   Do not mark indirect call targets for tagged template literals as useless
+    code. Indirecting calls in the form `(0, prefix.myFn)`abc` prevents passing
+    prefix as the this context object to myFn, which is useful. This fixes a
+    dead code removal with TypeScript 4.4, which uses this pattern for functions
+    imported from modules.
+*   When the special first parameter is unused, convert all tagged template
+    literal references into ordinary function calls.
+    This allows for debugging or logging functions intended to be called with
+    tagged template literals that do nothing when compiled for production to be
+    recognized and removed.
+*   Fix to the problem where CodePrinter omits required parens around arrow
+    function in some contexts.
+*   The zero, comma pattern introduced in TS4.4 is recognized in goog.testSuite
+    calls. (e.g. `(0, goog.testSuite)({});`)
+*   Errors for overriding a `@final` method may no longer be suppressed via
+    `@suppress {const}` or `@suppress {constantProperty}`. The canonical way is
+    `@suppress {visibility}`.
+
+
 ### October 6, 2021 (v20211006)
 
 *   Crash in Closure Compiler if languageOut is incompatible with ZoneJS. This
