@@ -9,6 +9,51 @@ The Closure Compiler team's goal is to release during the first week of every mo
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master).
 
 ## Details
+### December 1, 2021 (v20211201)
+*   Remove `GlobalVarReferenceMap` which was part of now obsolete hotswap
+    checking support.
+*   Deleted methods from JSTypeRegistry that supported hotswap typechecking, as
+    hotswap passes are no longer supported in the compiler.
+*   Moved injection of transpilation and polyfill libraries just before
+    optimizations and after typechecking.
+*   In conformance, treat `elem[prop] = foo;` as `elem.setAttribute(prop,
+    foo);`, if `elem` is an `Element`.
+*   Change ConvertToDottedProperties to include static keyword in computed
+    method definition and computed field definition
+*   Improve pretty printing for else-if statements
+    ```javascript
+    // Input
+    if (0) {
+      0;
+    } else if (1) {
+      1;
+    }
+
+    // Output before:
+    if (0) {
+      0;
+    } else {
+      if (1) {
+        1;
+      }
+    }
+
+    // Output after:
+    if (0) {
+      0;
+    } else if (1) {
+      1;
+    }
+    ```
+*   Source maps now refer to runtime library and polyfill code by their path
+    instead of a name with a `[synthetic:` prefix
+*   Modify the `typeof` guard created by CrossChunkCodeMotion to ensure it
+    doesn't match dom elements added the global namespace by browsers.
+*   Removed @deprecated method `SourceFile.Builder.buildFromFile`. Use
+    `builder.withPath(fileName).build()` instead.
+*   Add support for --broswer_featureset_year=2018
+*   Show JSC_UNKNOWN_DEFINE_WARNING when 'use_typed_ast = True' in js_binary.
+
 ### November 7, 2021 (v20211107)
 
 *   ECMASCRIPT_NEXT is now the default language out
