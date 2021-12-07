@@ -110,6 +110,9 @@ Enable additional optimizations based on the assumption that the output will be 
 **--debug**  
 Enable debugging options\. Property renaming uses long mangled names which can be mapped back to the original name\. \(default: false\)
 
+**--emit_use_strict**  
+Start output with "'use strict';"\. \(default: false\)
+
 **--export_local_property_definitions**  
 Generates export code for local properties marked with @export \(default: true\)
 
@@ -179,7 +182,7 @@ Which version of Polymer is being used \(1 or 2\)\.
 Processes built\-ins from the Closure library, such as goog\.require\(\), goog\.provide\(\), and goog\.exportSymbol\(\)\. True by default\. \(default: true\)
 
 **--rewrite_polyfills**  
-Injects polyfills for ES2015\+ library classes and methods used in source\. See also https://github.com/google/closure-compiler/wiki/Polyfills \(default: true\)
+Injects polyfills for ES2015\+ library classes and methods used in source\. See also the "Polyfills" GitHub Wiki page\. \(default: true\)
 
 
 # Code Splitting
