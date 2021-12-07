@@ -10,10 +10,6 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 ### December 1, 2021 (v20211201)
-*   Remove `GlobalVarReferenceMap` which was part of now obsolete hotswap
-    checking support.
-*   Deleted methods from JSTypeRegistry that supported hotswap typechecking, as
-    hotswap passes are no longer supported in the compiler.
 *   Moved injection of transpilation and polyfill libraries just before
     optimizations and after typechecking.
 *   In conformance, treat `elem[prop] = foo;` as `elem.setAttribute(prop,
