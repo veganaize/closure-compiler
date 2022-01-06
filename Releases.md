@@ -9,6 +9,16 @@ The Closure Compiler team's goal is to release during the first week of every mo
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master).
 
 ## Details
+### January 4, 2022 (v20220104)
+*   Recognize "ns.Foo = Bar = class {}" as declaring a type "ns.Foo"
+*   Calling `compiler.restoreState()` now verifies that `compiler.init` or
+    `compiler.initModules` has already been called.
+*   Improve the performance of sourcemap generation when embedding source text.
+*   Remove `GlobalVarReferenceMap` which was part of now obsolete hotswap
+    checking support.
+*   Deleted methods from JSTypeRegistry that supported hotswap typechecking, as
+    hotswap passes are no longer supported in the compiler.
+
 ### December 1, 2021 (v20211201)
 *   Moved injection of transpilation and polyfill libraries just before
     optimizations and after typechecking.
