@@ -184,7 +184,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_MISSING_RETURN_STATEMENT|missingReturn|
 |JSC_MISSING_SEMICOLON|lintChecks|
 |JSC_MIXED_PARAM_JSDOC_STYLES|lintChecks|
-|JSC_MSG_HAS_NO_DESCRIPTION|messageConventions|
+|JSC_MSG_HAS_NO_DESCRIPTION|msgDescriptions|
 |JSC_MSG_HAS_NO_TEXT|messageConventions|
 |JSC_MSG_HAS_NO_VALUE|messageConventions|
 |JSC_MSG_KEY_DUPLICATED|messageConventions|
