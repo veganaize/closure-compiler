@@ -10,6 +10,35 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### Mar 3rd, 2022 (v20220301)
+
+*   Remove GETPROP/GETELEM from NodeUtil.isSimpleOperator as getters/setters can
+    have side-effects.
+*   InlineObjectLiterals now identifies the right scope for statements with CASE
+    nodes without user authored blocks.
+*   Rename Closure Compiler debugger web UI checkbox names
+    "PRESERVE_FULL_JSDOC_DESCRIPTIONS" and "PRESERVE_TYPE_ANNOTATIONS" to
+    "PARSE_FULL_JSDOC_DESCRIPTIONS" and "PARSE_TYPE_ANNOTATIONS".
+*   Fix optional chaining converting any following get property optional when
+    removing brackets.
+*   Add support for a new jsdoc annotation called `@tstype`. This can be used by
+    .d.ts generation tools to specialize function type signatures. Currently
+    this is uninterpreted by the compiler.
+*   Add externs for maps api v3.48
+*   Break down destructured node to simple var node in @typeSummary/.i.js files.
+*   Ban setting inline event handlers with `setAttribute`.
+*   Treat the first, not last, property definition's JSDoc as canonical for
+    conformance and access controls checks.
+*   Update `BANNED_PROPERTY` conformance check to cover object literals.
+*   Added
+    [`--isolate_polyfills` flag](https://github.com/google/closure-compiler/wiki/Polyfills#polyfill-isolation)
+    to the open source command line runner.
+*   Deleted deprecated method
+    `CompilerOptions.setBadRewriteProvidesInChecksOnlyThatWeWantToGetRidOf`.
+    This will only affect users of the Java API running with
+    `options.setChecksOnly(true)`
+*   Support BROWSER_FEATURESET_YEAR 2022.
+
 ### Feb 7th, 2022 (v20220202)
 
 *   Fix a compiler crash when trying to remove Object.defineProperties from
