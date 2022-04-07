@@ -10,6 +10,115 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### April 7th, 2022 (v20220405)
+
+*   Allow specification of example text and original code text for
+    message placeholders in `goog.getMsg()`.
+
+    It's easiest to explain this with an example.
+
+    ```javascript
+    const MSG_WELCOME =
+        goog.getMsg(
+            // message template
+            //
+            // This example represents automatically-generated code where
+            // meaningful placeholder names cannot be generated.
+            'Hi {$interpolation_0}! Welcome to {$interpolation_1}.',
+
+            // values object
+            {
+              // Also, for the sake of this example, suppose a runtime system is
+              // responsible for transforming these magic strings into the real
+              // values, so the compiler doesn't even have access to any
+              // meaningful source code here it could stick into the XMB file as
+              // a clue to translators.
+              'interpolation_0': 'magic-string-0',
+              'interpolation_1': 'magic-string-1'
+            },
+
+            // options bag containing the 2 new fields
+            {
+              // These new fields are entirely ignored at runtime.
+              // Both contain object literals whose keys are placeholder names.
+              // Both have values that are string literals.
+
+              original_code: {
+                // Text indicating how the value is obtained.
+                // Typically this is expected to be a snippet of source code.
+                // Used as the contents of the `<ph>` tag in the XMB file.
+                // Default is `-` for historical reasons.
+                //
+                // Human-written code should use meaningful placeholder names
+                // instead of this field.
+                'interpolation_0': 'foo.getUserName()',
+                'interpolation_1': 'bar.getProductName()'
+              },
+
+              example: {
+                // Example value for the placeholder.
+                // Used as the contents of the `<ex>` tag in the XMB file.
+                // Default is `-` for historical reasons.
+                'interpolation_0': "Yosemite Sam",
+                'interpolation_1': "Google Six Shooters"
+              }
+            });
+    ```
+*   Enabled "unnecessary escape" lint warnings in untagged template literals
+*   Add a new rule to `OptimizeParameters` to trim trailing `undefined`
+    parameters from calls where the callee doesn't use rest parameters or access
+    the `arguments` object. Should save code size in most applications since
+    inlining functions that pass through optional params tends to create this
+    pattern.
+*   Remove references to goog.mixin now that it has been removed.
+*   Loosen the constraints on `goog.module.get` so that only assignments to
+    global variables are banned.
+
+    The constraint on where `goog.module.get` was called was to discourage
+    accidental treatment of `goog.provide` or bare scripts as having module
+    scopes and polluting the global scope with imports and causing problems in
+    far flung files.
+
+    However, we want to allow reexporting of `goog.module` namespaces in
+    goog.provide files to simplify migrations to `goog.module`. So here we
+    explicitly allow alias such as:
+
+    ```
+    goog.provide('a.b.c');
+    a.b.c = goog.module.get('c')
+    ```
+
+    or
+
+    ```
+    goog.provide('a.b.c');
+    a.b.c = goog.module.get('other').c;
+    ```
+
+    While we are here cleanup the checks for `goog.module.get` so that they are
+    only reported from CheckClosureImports.
+*   Add support for @provideAlreadyProvided
+
+    When this JSDoc annotation is used with a `goog.provide` call like:
+
+    ```
+    goog.provide('a.b');
+    /** @provideAlreadyProvided */ goog.provide('a.b.c');
+    a.b = something;
+    ```
+
+    The `goog.provide` rewriting pass (ProcessClosureProvidesAndRequires) will
+    avoid creating the definition for the namespace. Without this the pass would
+    create a declaration (`a.b.c = {}` in the example above).
+*   Make BanSetAttribute less restrictive by allowing certain "effectively
+    constant" attribute names.
+*   Only enable "unnecessary escape" warnings in the linter.
+*   Support matching types imported from a JS boundle in conformance.
+*   Fixed parser crash on multiline string literals with invalid escape
+    sequences.
+*   Modify for-await-of to only exist inside an async function.
+
+
 ### Mar 3rd, 2022 (v20220301)
 
 *   Remove GETPROP/GETELEM from NodeUtil.isSimpleOperator as getters/setters can
