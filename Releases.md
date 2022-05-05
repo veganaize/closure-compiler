@@ -10,6 +10,21 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### May 5th, 2022 (v20220502)
+
+*   Removed `@version` tag support from `JSDocInfo.java`. The parser still
+    allows this tag but it has no native support in JSCompiler.
+*   Remove the Compiler#getProgress API.
+    This API doesn't currently serve any purpose.
+*   Added externs and polyfills for `String.prototype.at` and
+    `TypedArray.prototype.at`.
+*   Adding support for `@wizcallback` jsdoc annotation to allowed list of
+    annotations supported by a JS Compiler.
+*   Treat xid processed attribute names to be always secure in setAttribute.
+*   Set default input language of JSCompiler to ES_NEXT
+*   Added externs and polyfill for `Array.prototype.at`. `String.prototype.at`
+    and `TypedArray.prototype.at` externs and polyfill will follow.
+
 ### April 7th, 2022 (v20220405)
 
 *   Allow specification of example text and original code text for
