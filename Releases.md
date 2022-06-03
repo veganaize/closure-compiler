@@ -10,6 +10,49 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### June 1st, 2022 (v20220601)
+
+*   Correct useless label optimization when a label is nested within a label.
+    Fixes github issue #3946.
+*   Compilation error on duplicate module and provide names.
+*   Fix crash with label'd do/while blocks.
+*   Support `@provideAlreadyProvided` during typechecking.
+    Here we are doing a couple of things:
+    *   avoid creating a default namespace object type when a `goog.provide` is
+        annotated with `@provideAlreadyProvided`.
+    *   add some logic find the type of the implicitly assigned namespace by
+        looking up the object from the parent namespace object.
+    The second is valid as `@provideAlreadyProvided` is only useful if the
+    parent namespace is assigned a value that contains the child namespace.
+*   Add externs for maps api v3.49.
+*   Add a flag --emit_async_functions_with_zonejs to relax the restriction on
+    disallowing --language_out=ES_2017 together with Zone.js
+*   Fix cases of incorrect constant folding for the coalesce operator `??`
+*   Move "public class fields" feature down from ES_NEXT to UNSTABLE.
+    Since ES_NEXT is supposed to be for features that are fully supported, and
+    transpilation of public fields is not yet fully implemented, by our
+    accounting it should only be considered UNSTABLE and not yet ES_NEXT. We do
+    intend to add support for transpilation and will move the feature back to
+    ES_NEXT when we do.
+*   Fix false positive "missing @const annotation" lint when using destructuring
+    assigns.
+*   Fix potential misoptimization of variables/properties in a logical
+    assignment. Some compiler passes failed to realize that such assignments
+    could evaluate to a mutable value and so would delete code incorrect.
+*   Set --angular_pass to true by default.
+*   Refactor pass building so that there is a central way to check conditions
+    for the pass. This is step toward making it easier to configure modes for
+    the passes (transpile only, renaming only, etc).
+*   Made typechecker change to fix edge cases where `@implements {I<SomeType>}`
+    was treated as `@implements {I<?}`
+*   Fix handling of tagged template literals side-effect detection to consider
+    contained expressions.
+*   Improves performance and memory usage of ControlFlowAnalysis.
+*   Fix an issue when where source text could be retained in memory throughout
+    the compilation process.
+*   Fix an issue when resolving non-trivial unions when complex types, where the
+    check for existence of template types would be n^2.
+
 ### May 5th, 2022 (v20220502)
 
 *   Removed `@version` tag support from `JSDocInfo.java`. The parser still
