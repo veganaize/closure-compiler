@@ -15,6 +15,7 @@
  * [I got a "Partial alias created for namespace" error.  What do I do?](#i-got-a-partial-alias-created-for-namespace-error--what-do-i-do)
 
 ### Using Closure Compiler
+ * [What version of Java is required?](#What-version-of-Java-is-required)
  * [What are the recommended Java VM command-line options?](#what-are-the-recommended-java-vm-command-line-options)
  * [How do I use Advanced Optimizations?](#how-do-i-use-advanced-optimizations)
  * [I want to use Advanced Optimizations, but { jQuery, YUI, Underscore, Prototype, JS Library Foo } does not work with them. What do I do?](#i-want-to-use-advanced-optimizations-but--jquery-yui-underscore-prototype-js-library-foo--does-not-work-with-them-what-do-i-do)
@@ -47,7 +48,7 @@ multi-line `goog.require` statements.
 
 ### The compiler crashes with `UnsupportedClassVersionError` or `Unsupported major.minor version 51.0` or `NoSuchMethodError`
 
-Closure Compiler requires [Java 11](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or newer. This cryptic error message is Java's way of telling you to upgrade your version of Java.
+Closure Compiler requires [Java 11](https://www.oracle.com/technetwork/java/javase/downloads/index.html) or newer. This cryptic error message is Java's way of telling you to upgrade your version of Java.
 
 ### I get a "Trailing comma is not legal" error. But it works on Firefox!
 
@@ -203,6 +204,10 @@ Unfortunately, under some circumstances, this generated code runs into the same 
 The workaround is to rewrite the `yield x` into a separate variable.
 
 ## Using Closure Compiler
+
+### What version of Java is required?
+
+[Java 11]((https://www.oracle.com/technetwork/java/javase/downloads/index.html)) or newer is required to run Closure Compiler.
 
 ### What are the recommended Java VM command-line options?
 
