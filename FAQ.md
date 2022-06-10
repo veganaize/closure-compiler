@@ -48,7 +48,7 @@ multi-line `goog.require` statements.
 
 ### The compiler crashes with `UnsupportedClassVersionError` or `Unsupported major.minor version 51.0` or `NoSuchMethodError`
 
-Closure Compiler requires [Java 11](https://www.oracle.com/technetwork/java/javase/downloads/index.html) or newer. This cryptic error message is Java's way of telling you to upgrade your version of Java.
+Closure Compiler requires [Java 11](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or newer. This cryptic error message is Java's way of telling you to upgrade your version of Java.
 
 ### I get a "Trailing comma is not legal" error. But it works on Firefox!
 
@@ -207,7 +207,7 @@ The workaround is to rewrite the `yield x` into a separate variable.
 
 ### What version of Java is required?
 
-[Java 11]((https://www.oracle.com/technetwork/java/javase/downloads/index.html)) or newer is required to run Closure Compiler.
+[Java 11](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or newer is required to run Closure Compiler.
 
 ### What are the recommended Java VM command-line options?
 
