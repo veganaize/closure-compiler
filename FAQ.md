@@ -45,9 +45,9 @@ The compiler needs to be able to quickly examine files to determine their depend
 an early regex-based pass just to find the `goog.require` statements. The regex isn't smart enough to handle
 multi-line `goog.require` statements.
 
-### The compiler crashes with `UnsupportedClassVersionError` or `Unsupported major.minor version 51.0`
+### The compiler crashes with `UnsupportedClassVersionError` or `Unsupported major.minor version 51.0` or `NoSuchMethodError`
 
-Closure Compiler requires [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html). This cryptic error message is Java's way of telling you to upgrade your version of Java.
+Closure Compiler requires [Java 11](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or newer. This cryptic error message is Java's way of telling you to upgrade your version of Java.
 
 ### I get a "Trailing comma is not legal" error. But it works on Firefox!
 
