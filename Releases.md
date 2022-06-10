@@ -12,6 +12,7 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ### June 1st, 2022 (v20220601)
 
+*   Java 11 or newer is now required to run Closure Compiler.
 *   Correct useless label optimization when a label is nested within a label.
     Fixes github issue #3946.
 *   Compilation error on duplicate module and provide names.
