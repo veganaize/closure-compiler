@@ -25,6 +25,7 @@ Some specific `@suppress` annotations are allowed elsewhere:
 
 * `@suppress {extraRequire}` is valid just before a `goog.require(...);` statement.
 * `@suppress {missingRequire}` is valid on any statement.
+* `@suppress {with}` is valid on `with` statements e.g. `/** @suppress {with} */ with(Math) { alert(PI);}` suppresses `JSC_USE_OF_WITH` warning.  
 
 All other annotations can only be suppressed for a function, file, or declaration.  You cannot suppress most warnings for a single line within a function.
 
