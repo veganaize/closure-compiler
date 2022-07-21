@@ -10,6 +10,47 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### July 19th, 2022 (v20220719)
+
+*   Make more property-based dead code elimination back off on reflective
+    accesses of a property name, like `goog.reflect.objectProperty('m', c)`.
+*   Update GOOG_PROVIDE_REQUIRE_PATTERN and its usage to support multi-lines
+    declarations
+
+    Make 2-lines module declarations recognizable by JsFileRegexParser.
+*   Fix bug where types shadowing goog.module imports were not resolved
+*   Fixed bug where function arguments with side effects were sometimes deleted
+*   Improved dead-code elimination for special case of `new class {}`
+*   When performing a partial (stage 1 or stage 2) compilation, the compiler
+    compiler exits with a 0 status only when no errors are reported. The exit
+    status contains the number of errors reported up to a maximum of 127.
+
+    This was always the intended behavior, and is consistent with single-stage
+    compilation. A recent change accidentally caused it to exit with 0 for
+    partial compilations regardless of any errors reported.
+*   Added extern and polyfill for `Object.hasOwn`. Confirmed the TS
+    declarations exist in the standard .d.ts files.
+*   Updates to allow use of the `'d'` flag for regular expressions and the
+    indices values it creates. Currently, input and output language level
+    need to be `ES_NEXT` to avoid an error message from the compiler for using
+    this feature.
+*   CLOSURE_DEFINES values may now be specified with separate invididual
+    property assignments, rather than requiring them to be in a single object
+    literal (though it must still be in the top-level/global scope). Duplicate
+    keys produce an error.
+*   Add extern definition for Object.hasOwn(object,property) method.
+*   Added BanSettingAttributes conformance check
+*   Added recognition, validation, and error of the new `/d` flag for RegExps as
+    part of ES_2022.
+*   Enable support for the Error constructor `{cause: err}` argument and
+    `Error.prototype.cause` feature added in ES2022.
+    NOTE: This behavior is not polyfilled. We only ensure that the compiler
+    will not complain about the argument.
+*   Rework pass config to aways run VarCheck pass after VariableReferenceCheck
+    pass. This may cause more errors to surface in single-file transpilation
+    mode.
+
+
 ### June 1st, 2022 (v20220601)
 
 *   Java 11 or newer is now required to run Closure Compiler.
