@@ -74,6 +74,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_CONSTRUCTOR_NOT_CALLABLE|checkTypes|
 |JSC_CONSTRUCTOR_REQUIRED|checkTypes|
 |JSC_CTOR_INITIALIZER_NOT_CTOR|checkTypes|
+|JSC_CYCLIC_INHERITANCE_ERROR|checkTypes|
 |JSC_DEBUGGER_STATEMENT_PRESENT|checkDebuggerStatement|
 |JSC_DECLARE_LEGACY_NAMESPACE_IN_NON_MODULE|lintChecks|
 |JSC_DEFAULT_EXPORT|lintChecks|
