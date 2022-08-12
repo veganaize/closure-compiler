@@ -43,7 +43,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 
 | Error | Suppression tag |
 |---|---|
-|BAD_REST_PARAMETER_ANNOTATION|misplacedTypeAnnotation|
 |JSC_ABSTRACT_METHOD_IN_CONCRETE_CLASS|checkTypes|
 |JSC_ABSTRACT_METHOD_NOT_IMPLEMENTED|checkTypes|
 |JSC_ABSTRACT_SUPER_METHOD_NOT_USABLE|checkTypes|
@@ -57,6 +56,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_BAD_PRIVATE_GLOBAL_ACCESS|visibility|
 |JSC_BAD_PRIVATE_PROPERTY_ACCESS|visibility|
 |JSC_BAD_PROTECTED_PROPERTY_ACCESS|visibility|
+|JSC_BAD_REST_PARAMETER_ANNOTATION|misplacedTypeAnnotation|
 |JSC_BAD_TYPES_FOR_BINARY_OPERATION|checkTypes|
 |JSC_BAD_TYPE_FOR_BIT_OPERATION|checkTypes|
 |JSC_BAD_TYPE_FOR_UNARY_OPERATION|checkTypes|
@@ -126,6 +126,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_ILLEGAL_OBJLIT_KEY|checkTypes|
 |JSC_ILLEGAL_PROPERTY_ACCESS|checkTypes|
 |JSC_ILLEGAL_PROPERTY_CREATION|checkTypes|
+|JSC_ILLEGAL_PROPERTY_CREATION_ON_UNION_TYPE|strictMissingProperties|
 |JSC_ILLEGAL_PROTOTYPE_MEMBER|lintChecks|
 |JSC_IMPLEMENTS_NON_INTERFACE|checkTypes|
 |JSC_IMPLEMENTS_WITHOUT_CONSTRUCTOR|checkTypes|
@@ -185,6 +186,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_MISSING_RETURN_STATEMENT|missingReturn|
 |JSC_MISSING_SEMICOLON|lintChecks|
 |JSC_MIXED_PARAM_JSDOC_STYLES|lintChecks|
+|JSC_MODULE_NAMESPACE_MISMATCHES_TYPESCRIPT_NAMESPACE|lintChecks|
 |JSC_MSG_HAS_NO_DESCRIPTION|msgDescriptions|
 |JSC_MSG_HAS_NO_TEXT|messageConventions|
 |JSC_MSG_HAS_NO_VALUE|messageConventions|
@@ -272,5 +274,5 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_WRONG_ARGUMENT_COUNT|checkTypes|
 |JSC_WRONG_NUMBER_OF_PARAMS|lintChecks|
 |JSC_XMODULE_REQUIRE_ERROR|strictModuleDepCheck|
-|MODULE_NAMESPACE_MISMATCHES_TYPESCRIPT_NAMESPACE|lintChecks|
+
 
