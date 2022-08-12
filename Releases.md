@@ -10,6 +10,23 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### August 12th, 2022 (v20220803)
+
+*   Corrected a bug that could cause the source map info for a qualified name
+    reference to point to the location of the qname's definition instead of the
+    location of the reference itself.
+*   Define a new DiagnosticType `ILLEGAL_PROPERTY_CREATION_ON_UNION_TYPE` that
+    can be suppressed using `strictMissingProperties`.
+*   Modify Closure Compiler open source build to pull in org.jspecify to add
+    @Nullable annotations.
+*   Remove support for @hidden as a part of message translation.
+*   Always gather source map information for stages 1 and 2.
+
+    It doesn't make sense to specify the output source map location for the
+    early stage invocations of a multi-stage build, but leaving it unspecified
+    caused the compiler to lose type information that should have been gathered
+    in those stages.
+
 ### July 19th, 2022 (v20220719)
 
 *   Make more property-based dead code elimination back off on reflective
