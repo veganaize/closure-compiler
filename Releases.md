@@ -10,6 +10,17 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### September 6th, 2022 (v20220905)
+
+*   Move CFG management out of NodeTraversal and into common callback
+    base class (NodeTraversal.AbstractCfgCallback).
+*   Add externs for maps api v3.50.
+*   Modifications to make the missing property and property creations checks on
+    union stricter. A property must be known on all members of a union
+    (excluding null or undefined). Previously, existance on any member of
+    the union was sufficient.
+*   Fix incorrect optimization that inlines super.x() to super.x
+
 ### August 12th, 2022 (v20220803)
 
 *   Corrected a bug that could cause the source map info for a qualified name
