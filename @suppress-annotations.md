@@ -96,7 +96,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_DUPLICATE_PARAM|es5Strict|
 |JSC_DUP_VAR_DECLARATION|duplicate|
 |JSC_DUP_VAR_DECLARATION_TYPE_MISMATCH|duplicate|
-|JSC_ENUM_DUP|checkTypes|
 |JSC_ENUM_PROP_NOT_CONSTANT|lintChecks|
 |JSC_ENUM_VALUE_NOT_STRING_OR_NUMBER|lintChecks|
 |JSC_ES5_CLASS_EXTENDING_ES6_CLASS|checkTypes|
@@ -129,7 +128,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_ILLEGAL_PROPERTY_CREATION_ON_UNION_TYPE|strictMissingProperties|
 |JSC_ILLEGAL_PROTOTYPE_MEMBER|lintChecks|
 |JSC_IMPLEMENTS_NON_INTERFACE|checkTypes|
-|JSC_IMPLEMENTS_WITHOUT_CONSTRUCTOR|checkTypes|
 |JSC_INCOMPATIBLE_EXTENDED_PROPERTY_TYPE|checkTypes|
 |JSC_INCORRECT_PARAM_NAME|lintChecks|
 |JSC_INCORRECT_SHORTNAME_CAPITALIZATION|lintChecks|
@@ -144,7 +142,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_INTERFACE_DEFINED_WITH_EXTENDS|lintChecks|
 |JSC_INTERFACE_METHOD_NOT_EMPTY|checkTypes|
 |JSC_INTERFACE_METHOD_NOT_IMPLEMENTED|checkTypes|
-|JSC_INTERFACE_METHOD_OVERRIDE|checkTypes|
 |JSC_INVALID_ASYNC_RETURN_TYPE|checkTypes|
 |JSC_INVALID_CAST|invalidCasts|
 |JSC_INVALID_CLOSURE_CALL_ERROR|closureDepMethodUsageChecks|
@@ -175,7 +172,6 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_MISSING_JSDOC_IN_DECLARATION_STATEMENT|lintChecks|
 |JSC_MISSING_MODULE_OR_PROVIDE|missingSourcesWarnings|
 |JSC_MISSING_MODULE_OR_PROVIDE_FOR_FORWARD_DECLARE|missingProvide|
-|JSC_MISSING_NAMESPACE_IMPORT|moduleLoad|
 |JSC_MISSING_NULLABILITY_MODIFIER_JSDOC|lintChecks|
 |JSC_MISSING_PARAMETER_JSDOC|lintChecks|
 |JSC_MISSING_REQUIRE|missingRequire|
@@ -191,7 +187,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_MSG_HAS_NO_TEXT|messageConventions|
 |JSC_MSG_HAS_NO_VALUE|messageConventions|
 |JSC_MSG_KEY_DUPLICATED|messageConventions|
-|JSC_MSG_NOT_INITIALIZED_USING_NEW_SYNTAX|messageConventions|
+|JSC_MSG_NOT_INITIALIZED_CORRECTLY|messageConventions|
 |JSC_MSG_TREE_MALFORMED|messageConventions|
 |JSC_MULTIPLE_VAR_DEF|checkTypes|
 |JSC_MUST_COME_BEFORE_IN_ES6_MODULE|lintChecks|
@@ -236,10 +232,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_SUSPICIOUS_NEGATED_LEFT_OPERAND_OF_IN_OPERATOR|suspiciousCode|
 |JSC_SUSPICIOUS_SEMICOLON|suspiciousCode|
 |JSC_TEMPLATE_TRANSFORMATION_ON_CLASS|checkTypes|
-|JSC_TEMPLATE_TYPE_DUPLICATED|checkTypes|
-|JSC_TEMPLATE_TYPE_EXPECTED|checkTypes|
 |JSC_TEMPLATE_TYPE_ILLEGAL_BOUND|checkTypes|
-|JSC_THIS_TYPE_NON_OBJECT|checkTypes|
 |JSC_TYPE_MISMATCH|checkTypes|
 |JSC_TYPE_ON_GETTER_SETTER|lintChecks|
 |JSC_TYPE_PARSE_ERROR|checkTypes|
