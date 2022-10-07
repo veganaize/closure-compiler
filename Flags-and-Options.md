@@ -73,6 +73,7 @@ A file containing warnings to suppress\. Each line should be of the form
   - functionParams
   - globalThis
   - invalidCasts
+  - lintVarDeclarations
   - misplacedTypeAnnotation
   - missingOverride
   - missingPolyfill
@@ -261,4 +262,3 @@ Enable or disable the optimizations based on available type information\. Inaccu
 
 **--version**  
 Prints the compiler version to stdout and exit\. \(default: false\)
-
