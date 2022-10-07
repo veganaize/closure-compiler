@@ -260,12 +260,10 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_USELESS_USE_STRICT_DIRECTIVE|lintChecks|
 |JSC_USE_OF_GOOG_PROVIDE|useOfGoogProvide|
 |JSC_USE_OF_WITH|es5Strict|
-|JSC_VAR|lintChecks|
+|JSC_VAR|lintVarDeclarations|
 |JSC_VAR_ARGS_MUST_BE_LAST|checkTypes|
 |JSC_VAR_MULTIPLY_DECLARED_ERROR|checkVars|
 |JSC_VISIBILITY_MISMATCH|visibility|
 |JSC_WRONG_ARGUMENT_COUNT|checkTypes|
 |JSC_WRONG_NUMBER_OF_PARAMS|lintChecks|
 |JSC_XMODULE_REQUIRE_ERROR|strictModuleDepCheck|
-
-
