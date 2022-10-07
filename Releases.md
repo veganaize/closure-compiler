@@ -10,6 +10,20 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### October 4th, 2022 (v20221005)
+*   Lint warnings about usage of `var` can now be suppressed with `@suppress
+    {lintVarDeclarations}`
+*   Allow dead-code elimination of `(void 0)?.()` in ES2022 output mode
+*   Fixed bug where invalid `super` property and `this` references within the
+    arguments of a `super(...)` constructor call were not reported
+*   Added a compiler flag `--assume_no_prototype_method_enumeration`, which is
+    mapped to `CompilerOptions.crossChunkCodeMotionNoStubMethods`, which
+    controls `CrossChunkMethodMotion#noStubFunctions`. When it is set to `true`,
+    it will allow the compiler to move a prototype method declaration into a
+    deeper chunk without creating stub functions in a parent chunk.
+*   Fixed bug where references to local variables named `exports` in a
+    goog.module (e.g. `function f(exports) {`}) could be mangled.
+
 ### September 6th, 2022 (v20220905)
 
 *   Move CFG management out of NodeTraversal and into common callback
