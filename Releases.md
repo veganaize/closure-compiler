@@ -10,6 +10,35 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### November 2nd, 2022 (v20221102)
+*   Improve the compiler's license tracking so that input files with licensed
+    code that end up unused after optimizations don't force the retention of the
+    license texts.
+*   Moved the `com.google.javascript.jscomp.parsing.parser.util.format` package
+    to the more central location of `com.google.javascript.jscomp.base.format`
+*   Java API change: deleted two of the five `JSError.make` variants that take
+    explicit `CheckLevel`s and override `CheckLevel` of the associated
+    `DiagnosticType`.
+*   Treat 'codebase' and 'data' as security sensitive attributes in the
+    conformance checks
+*   Remove "runtime type check" support.
+
+    This feature of the compiler has long been under used and under maintained.
+    At this time we believe our efforts would be better spent elsewhere.
+*   Deleted unused class `com.google.javascript.rhino.SimpleErrorReporter`
+*  We now avoid creating an unshaded deploy jar that contains copies of
+   dependencies instead of using dependencies from Maven.
+   *   `compiler_uberjar_deploy.jar` has replaced `compiler_unshaded_deploy.jar`
+   *   Issue: https://github.com/google/closure-compiler/issues/3896
+   *   PR: https://github.com/google/closure-compiler/pull/3935
+   *   Thanks to Colin Alworth for donating this change.
+*   In conformance, treat setAttributeNS with a null namespace the same as
+    setAttribute.
+*   Allow `@suppress {dangerousUnrecognizedTypeError}` in JS code to suppress
+    `JSC_UNRECOGNIZED_TYPE_ERROR`s.
+*   Simplify logic in InlineSimpleMethods to fix compiler crash reported in
+    https://github.com/google/closure-compiler/issues/3999
+
 ### October 4th, 2022 (v20221005)
 *   Lint warnings about usage of `var` can now be suppressed with `@suppress
     {lintVarDeclarations}`
