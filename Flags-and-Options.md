@@ -16,7 +16,7 @@ The JavaScript filename\. You may specify multiple\. The flag name is optional, 
 Primary output filename\. If not specified, output is written to stdout \(default: \)
 
 **--language_in VAL**  
-Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, ECMASCRIPT_2020,ECMASCRIPT_2021, STABLE, ECMASCRIPT_NEXT \(latest features supported\),UNSTABLE \(for testing only\) \(default: STABLE\)
+Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, ECMASCRIPT_2020,ECMASCRIPT_2021, STABLE, ECMASCRIPT_NEXT \(latest features supported\) \(default: STABLE\)
 
 **--language_out VAL**  
 Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, ECMASCRIPT_2020, ECMASCRIPT_2021, STABLE, ECMASCRIPT_NEXT \(latest features supported\) \(default: ECMASCRIPT_NEXT\)
@@ -73,7 +73,6 @@ A file containing warnings to suppress\. Each line should be of the form
   - functionParams
   - globalThis
   - invalidCasts
-  - lintVarDeclarations
   - misplacedTypeAnnotation
   - missingOverride
   - missingPolyfill
@@ -184,9 +183,6 @@ Processes built\-ins from the Closure library, such as goog\.require\(\), goog\.
 
 **--rewrite_polyfills**  
 Injects polyfills for ES2015\+ library classes and methods used in source\. See also the "Polyfills" GitHub Wiki page\. \(default: true\)
-
-**--isolate_polyfills**  
-Hides injected polyfills from the global scope and any external code\. See the the "Polyfills" GitHub Wiki page for details\. \(default: false\)
 
 
 # Code Splitting
