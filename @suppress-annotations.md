@@ -247,7 +247,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_UNKNOWN_TYPEOF_VALUE|checkTypes|
 |JSC_UNNECESSARY_ESCAPE|lintChecks|
 |JSC_UNREACHABLE_CODE|uselessCode|
-|JSC_UNRECOGNIZED_TYPE_ERROR|checkTypes|
+|JSC_UNRECOGNIZED_TYPE_ERROR|dangerousUnrecognizedTypeError|
 |JSC_UNTRANSPILABLE|untranspilableFeatures|
 |JSC_UNUSED|underscore|
 |JSC_UNUSED_LABEL|lintChecks|
