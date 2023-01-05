@@ -16,7 +16,7 @@ The JavaScript filename\. You may specify multiple\. The flag name is optional, 
 Primary output filename\. If not specified, output is written to stdout \(default: \)
 
 **--language_in VAL**  
-Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, ECMASCRIPT_2020,ECMASCRIPT_2021, STABLE, ECMASCRIPT_NEXT \(latest features supported\) \(default: STABLE\)
+Sets the language spec to which input sources should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, ECMASCRIPT_2020,ECMASCRIPT_2021, STABLE, ECMASCRIPT_NEXT \(latest features supported\),UNSTABLE \(for testing only\) \(default: STABLE\)
 
 **--language_out VAL**  
 Sets the language spec to which output should conform\. Options: ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT_2015, ECMASCRIPT_2016, ECMASCRIPT_2017, ECMASCRIPT_2018, ECMASCRIPT_2019, ECMASCRIPT_2020, ECMASCRIPT_2021, STABLE, ECMASCRIPT_NEXT \(latest features supported\) \(default: ECMASCRIPT_NEXT\)
@@ -73,6 +73,7 @@ A file containing warnings to suppress\. Each line should be of the form
   - functionParams
   - globalThis
   - invalidCasts
+  - lintVarDeclarations
   - misplacedTypeAnnotation
   - missingOverride
   - missingPolyfill
@@ -82,7 +83,7 @@ A file containing warnings to suppress\. Each line should be of the form
   - missingReturn
   - missingSourcesWarnings
   - moduleLoad
-  - moduleImports
+  - moduleImport
   - msgDescriptions
   - nonStandardJsDocs
   - partialAlias
@@ -170,7 +171,7 @@ Ordered list of entries to look for in package\.json files when processing modul
 Generate $inject properties for AngularJS for functions annotated with @ngInject \(default: false\)
 
 **--force_inject_library VAL**  
-Force injection of named runtime libraries\. The format is \<name\> where \<name\> is the name of a runtime library\. Possible libraries include: base, es6_runtime, runtime_type_check
+Force injection of named runtime libraries\. The format is \<name\> where \<name\> is the name of a runtime library\. Possible libraries include: base, es6_runtime
 
 **--inject_libraries**  
 Allow injecting runtime libraries\. \(default: true\)
@@ -183,6 +184,9 @@ Processes built\-ins from the Closure library, such as goog\.require\(\), goog\.
 
 **--rewrite_polyfills**  
 Injects polyfills for ES2015\+ library classes and methods used in source\. See also the "Polyfills" GitHub Wiki page\. \(default: true\)
+
+**--isolate_polyfills**  
+Hides injected polyfills from the global scope and any external code\. See the the "Polyfills" GitHub Wiki page for details\. \(default: false\)
 
 
 # Code Splitting
@@ -231,6 +235,9 @@ File where the serialized version of the variable renaming map produced should b
 
 
 # Miscellaneous
+
+**--assume_static_inheritance_is_not_used**  
+Assume that static \(class\-side\) inheritance is not being used and that static methods will not be referenced via \`this\` or through subclasses\. This enables optimizations that could break code that did those things\. \(default: true\)
 
 **--browser_featureset_year N**  
 shortcut for defining goog\.FEATURESET_YEAR=YYYY\. The minimum valid value of the browser year is 2012 \(default: 0\)
