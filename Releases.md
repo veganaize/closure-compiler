@@ -10,6 +10,38 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### January 3rd, 2023 (v20230103)
+
+*   Avoid checking weak sources when running CheckConformance to avoid false
+    positives when sources are pulled in only for type references.
+*   Report parse error on illegal LHS of += and similar operators
+*   Rename Rhino Node isQuotedString and setQuotedString methods to better indicate
+    the methods are for checking quoted property keys, not string literals with quotes.
+    isQuotedString -> isQuotedStringKey and setQuotedString -> setQuotedStringKey.
+*   Normalize arrow functions when transpiling classes with forced class transpilation
+    Unnormalized arrows are not handled in ES6ExtractClasses pass and typically get normalized
+    when the pass runs. But with forced class transpilation turned on, the normalization
+    is skipped causing JSCompiler to crash.
+*   Removes an old compiler feature preferNewLineAtEndOfFile that would cause the code
+    printer to output additional whitespace between files when printing. There are no
+    more use cases for this feature that was added to workaround an issue in source map
+    composition in an old serving system.
+*   Add debug logging annotation to observe inferred types.
+*   Allow @suppress JSDoc on every statement, as opposed to only declarations/assignments.
+*   Make IteratorIterable and IIterableResult covariant.
+*   Add externs for maps api v3.51
+*   Makes ReadonlyArray covariant.
+*   Fixes value type inference on for-of over unions.
+*   Handle default parameter assigned to class in ES6 class transpilation.
+*   Corrects type inference for subscript access on unions.
+*   Add conformance check for BANNED_STRING_REGEX.
+*   Add typings on ReadonlyArray for ES6 Array methods.
+*   Fixed bug present if using --language_out=ECMASCRIPT_2015 or higher and the
+    "rename prefix namespace" functionality. Previously, functions declared in blocks
+    in the global hoist scope were accidentally hoisted into the global scope.
+    Now they are correctly treated as block-scoped.
+
+
 ### November 2nd, 2022 (v20221102)
 *   Improve the compiler's license tracking so that input files with licensed
     code that end up unused after optimizations don't force the retention of the
