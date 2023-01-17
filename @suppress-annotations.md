@@ -1,4 +1,9 @@
-If you cannot easily fix a JsCompiler warning, you can suppress it using the `@suppress` annotation in the function's JSDoc block or the `@fileoverview` block or any assignment in statement position.
+If you cannot easily fix a JsCompiler warning, you can suppress it using the `@suppress` annotation.
+
+The `@suppress` annotation is usable in a few places:
+ * a function's JSDoc block
+ * the `@fileoverview` block
+ * any variable declaration, assignment, or top-level expression such as a function call.
 
 ## Example
 ```js
@@ -12,11 +17,16 @@ function blah() {
   /** @suppress {visibility} */ // Good; suppresses within this declaration only.
   otherClass.privateField_ = blah;
 
-  /** @suppress {checkTypes} */  // Bad; doesn't work.
+  /** @suppress {checkTypes} */  // Good; suppresses the error in this line only
   foo(incompatible.type);
 
-  /** @suppress {missingRequire} */  // Good; this is an exception (see below).
+  /** @suppress {missingRequire} */  // Good; suppresses the missing require
   foo(blah.not.required);
+
+  /** @suppress {checkTypes} */  // Bad; suppression not allowed here
+  if (foo(incompatible.type)) {
+    console.log("blah");
+  }
 }
 ```
 
@@ -25,10 +35,7 @@ Some specific `@suppress` annotations are allowed elsewhere:
 
 * `@suppress {extraRequire}` is valid just before a `goog.require(...);` statement.
 * `@suppress {missingRequire}` is valid on any statement.
-* `@suppress {with}` is valid on `with` statements e.g. `/** @suppress {with} */ with(Math) { alert(PI);}` suppresses `JSC_USE_OF_WITH` warning.  
-
-All other annotations can only be suppressed for a function, file, or declaration.  You cannot suppress most warnings for a single line within a function.
-
+* `@suppress {with}` is valid on `with` statements e.g. `/** @suppress {with} */ with(Math) { alert(PI);}` suppresses `JSC_USE_OF_WITH` warning.
 
 ## Suppression tags
 The full list of suppressions accepted by the parser can be found in the `jsdoc.suppressions` list [here](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/ParserConfig.properties#L154).
