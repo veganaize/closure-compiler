@@ -130,3 +130,23 @@ See also https://github.com/google/closure-compiler/issues/2899
 | Nullish coalescing operator `??`              | `ES_2020`        | yes                                                                     |
 | Optional chaining operator `?.`               | `ES_2020`        | yes                                                                     |
 | BigInt                                        | `ES_2020`        | see [BigInt Support](https://github.com/google/closure-compiler/wiki/BigInt-support) |
+| Numeric separators                            | `ES_2021`        | yes |
+| `String.prototype.replaceAll` | `ES_2021` | yes |
+| `Promise.any` | `ES_2021` | yes |
+| Logical assignment operators | `ES_2021` | yes |
+| WeakRefs | `ES_2021` | yes (externs only, no polyfill) |
+| RegExp Match indices | `ES_2022` | recognized in input, but cannot be transpiled |
+| `.at()` | `ES_2022` | polyfill |
+| Error Cause | `ES_2022` | externs only, no polyfill |
+| `Object.hasOwn` | `ES_2022` | polyfill |
+| class public instance fields | `ES_2022` | no (implementation started, but stalled) |
+| class public static fields | `ES_2022` | no (implementation started, but stalled) |
+| class private instance fields | `ES_2022` | no |
+| class private static fields| `ES_2022` | no |
+| class private instance methods | `ES_2022` | no |
+| class private static methods | `ES_2022` | no |
+| Top-level await | `ES_2022` | no |
+| `#something in object` | `ES_2022` | no |
+| class static blocks | `ES_2022` | no |
+| Array find from last | `ES_2022` | no |
+| Hashbang grammar | `ES_2022` | no |
