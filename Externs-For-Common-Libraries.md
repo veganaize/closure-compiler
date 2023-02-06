@@ -64,15 +64,7 @@ project: https://codemirror.net/
 
 https://gist.github.com/PeterTillema/8e037add8416c891f72560b8ba153fb3
 
-## Facebook React
-
-project: https://github.com/steida/react-externs
-
-https://github.com/steida/react-externs/blob/master/externs.js
-
 ## Firebase
-
-https://github.com/firebase/firebase-js-sdk/tree/master/packages/firebase/externs
 
 project: https://github.com/isabo/firebase-externs
 
@@ -115,8 +107,6 @@ https://raw.github.com/lukeasrodgers/underscore-js-externs/master/underscore-1.4
 ## YouTube
 
 project: https://github.com/google/closure-compiler/tree/master/contrib/externs
-
-https://github.com/google/closure-compiler/tree/master/contrib/externs/youtubeplayer.js
 
 # Collections
 
