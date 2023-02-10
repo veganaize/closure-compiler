@@ -10,6 +10,27 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### February 6th, 2023 (v20230206)
+
+* Correct the name of SourceBuffer `mode` property from externs.
+*   Fix behavior of `Array.prototype.flat()` and `Array.prototype.flatMap()` for
+    sparse arrays.
+*   Avoid using regex parser unless bundling or pruning unused inputs. This is
+    expected to be a small speedup and not a breaking change.
+*   Define --browser_featureset_year 2023 based on Chromium 108, Firefox 108
+    (jinx!), and Safari 16.2. Due to a missing feature in Safari, this will
+    still emit ES2021, but userland code can still switch off of an expectation
+    of more recent browsers.
+
+    For more info on newly supported features, see:
+    https://caniuse.com/?compare=chrome+96,safari+15,firefox+95,chrome+108,safari+16.2,firefox+108&compareCats=all
+*   Removed multiple deprecated compiler options: `setInlineFunctions(boolean)`
+    was replaced by `setInlineFunctions(Reach)`, `setMoveFunctionDeclarations`
+    was replaced by `setRewriteGlobalDeclarationsForTryCatchWrapping`, and
+    `setCssRenamingWhitelist` was replaced by `setCssRenamingSkiplist`
+*   Speed up bundle generation by only relying on the regex-based fast parse.
+    This is not expected to be a behavioral change.
+
 ### January 3rd, 2023 (v20230103)
 
 *   Avoid checking weak sources when running CheckConformance to avoid false
