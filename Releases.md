@@ -10,9 +10,27 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### February 28th, 2023 (v20230228)
+
+*   Deleted `CodingConvention::isInlinableFunction`. The standard way of preventing inlining for a function is now the `@noinline` annotation in JSDoc.
+
+*   Don't register types mismatch if actual type satisfies any of required union's alternates
+
+*   Add externs for maps api v3.52
+
+*   A for-of loop transpiled down to ES5 should throw a `TypeError` if the object to be iterated has neither a `Symbol.iterator` property nor a `length` property.
+
+*   Allow `@nosideeffects` in function jsdoc outside of externs, and use it as a signal in `PureFunctionIdentifier` to treat the function as pure.
+
+*   Prevent mutations to `ReadonlyArrays`.
+
+*   Correct the name of `SourceBuffer` `mode` property from externs.
+
+*   Fix behavior of `Array.prototype.flat()` and `Array.prototype.flatMap()` for sparse arrays.
+
 ### February 6th, 2023 (v20230206)
 
-* Correct the name of SourceBuffer `mode` property from externs.
+*   Correct the name of SourceBuffer `mode` property from externs.
 *   Fix behavior of `Array.prototype.flat()` and `Array.prototype.flatMap()` for
     sparse arrays.
 *   Avoid using regex parser unless bundling or pruning unused inputs. This is
