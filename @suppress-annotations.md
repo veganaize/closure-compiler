@@ -216,6 +216,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_PRIMITIVE_OBJECT|lintChecks|
 |JSC_PRIMITIVE_OBJECT_DECLARATION|lintChecks|
 |JSC_PRIVATE_OVERRIDE|visibility|
+|JSC_PROPERTY_ASSIGNMENT_TO_READONLY_VALUE|checkTypes|
 |JSC_PROTOTYPAL_HIDDEN_SUPERCLASS_PROPERTY|checkPrototypalTypes|
 |JSC_PROVIDES_NOT_SORTED|lintChecks|
 |JSC_REASSIGNED_CONSTANT_CASE_NAME|lintChecks|
@@ -274,4 +275,3 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_WRONG_ARGUMENT_COUNT|checkTypes|
 |JSC_WRONG_NUMBER_OF_PARAMS|lintChecks|
 |JSC_XMODULE_REQUIRE_ERROR|strictModuleDepCheck|
-
