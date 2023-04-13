@@ -9,6 +9,36 @@ The Closure Compiler team's goal is to release during the first week of every mo
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master).
 
 ## Details
+### April 11th, 2023 (v20230411)
+*   Made performance improvement that also slightly improves property
+    disambiguation (i.e. type-based property renaming). This is generally
+    expected to be a safe change, but in some edge cases could break code that
+    has incorrect type annotations.
+
+*   Fixed bug in
+    [polyfill isolation](https://github.com/google/closure-compiler/wiki/Polyfills#polyfill-isolation)
+    that sometimes caused polyfill of `Reflect.construct` to be used on ES6+
+    compatible browsers
+
+*   Fix inlining `goog.reflect.objectProperty`
+
+* InlineAndCollapseProperties does a better job of inlining destructuring
+    patterns, which can improve code sizes when targeting ES2015+ output.
+
+*   Fix a bug in CoalesceVariableNames pass where we generate incorrect code
+    with `usePseudoNames=true`
+
+* Remove the setCssRenamingMap/getCssRenamingMap APIs from
+    Compiler/AbstractCompiler (but leave the ones in CompilerOptions where they
+    make more sense).
+
+*   Add a new compiler option to force let/const transpilation
+
+*   Never suppress unrecognized type errors for goog.provide/goog.module
+    namespaces. Previously, if running the compiler in a mode that sorts or
+    prunes unused dependencies, all goog.module & goog.provide namespaces are
+    "forward declared", so the compiler won't report unrecognized type errors
+    for those namespaces.
 
 ### February 28th, 2023 (v20230228)
 
