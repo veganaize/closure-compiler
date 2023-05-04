@@ -9,6 +9,11 @@ The Closure Compiler team's goal is to release during the first week of every mo
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master).
 
 ## Details
+### May 2, 2023 (v20230502)
+*   Add externs for maps api v3.53
+
+*   Improve pathological edge case in InlineSimpleMethods performance
+
 ### April 11th, 2023 (v20230411)
 *   Made performance improvement that also slightly improves property
     disambiguation (i.e. type-based property renaming). This is generally
