@@ -9,6 +9,75 @@ The Closure Compiler team's goal is to release during the first week of every mo
 For complete list of changes refer to the [change log](https://github.com/google/closure-compiler/commits/master).
 
 ## Details
+
+### August 2, 2023 (v20230802)
+
+*   RemoveUnusedCode will now generate an "unremovable.log" file when debug
+    logging is enabled. It contains a line for each non-removed variable stating
+    why it could not be removed.
+*   Improve constant inference in BanElementSetAttribute
+*   Removed support for referencing goog.module exports or local variables by
+    the compiler-mangled name in JSDoc, e.g. `@type {!module$exports$foo}`. Use
+    goog.require/goog.requireType instead.
+*   Add support for the `@pureOrBreakMyCode` jsdoc annotation in the
+    `RemoveUnusedCode` pass to help it decide if side effects can be removed.
+*   Update the latestEcmaScript in JSCompiler config to return ES2021
+*   Respect constantness indicated by @const when checking setAttribuite
+    violations.
+*   Add `ReplaceToggles` pass, which replaces calls to `goog.toggle(num)` with a
+    direct lookup on the `goog.TOGGLES_` bitset.
+*   Make custom conformance rules match optional types.
+*   Fixes a crash when the RHS of a string key was an object pattern, e.g.
+
+```
+let {["x"]:{["y"]:bar}}={["x"]:{["y"]:"foo"}}
+            ^^^^^^^^^
+               crashes when turning this into a string key, i.e.
+                 {y:bar}
+```
+
+*   Node.JS externs: Add optional second arg to fs.readdirSync
+*   Certain redeclarations that were previously warnings are now errors.
+
+```
+{ var x; function x() {}; }
+```
+
+In this example, the redeclaration of x as a function was treated as a warning,
+only to later break inlining. It is now (correctly) treated as an error.
+
+*   Deleted TransformAMDToCJSModule.java and associated logic. We have not been
+    maintaining this pass and believe it is unused.
+*   Elide function name when inlining function declaration variables. For
+    example:
+
+```js
+    function foo() { /* function impl not using foo */ }
+    exports.bar = foo;
+```
+
+when inlined will now become
+
+```js
+    exports.bar = function() {...}
+```
+
+*   Fix a bug in RemoveUnusedCode that was previously too aggressive when
+    encountering unused members inside object destructuring with object rest.
+*   Fix bug where code printer omitted parentheses around some arrow functions
+    in casts and produced syntactically invalid code. This bug only affected
+    certain builds that don't run optimizations, e.g. a build using
+    "transpileOnly" mode and producing ES2019.
+*   Fixed crash when transpiling down to ES5 a `let`/`const` variable that is a)
+    defined within a loop and b) referenced in an object literal getter or
+    setter in that loop.
+    (https://github.com/google/closure-compiler/issues/3599)
+*   Modified Compiler Java API so that it's no longer necessary to call
+    `compiler.parse()` after `compiler.initWithTypedAstFilesystem` or
+    `compiler.initModulesWithTypedAstFilesystem`
+*   Improved type inference of goog.requires and Symbol('') calls in some edge
+    cases.
+
 ### May 2, 2023 (v20230502)
 *   Add externs for maps api v3.53
 
