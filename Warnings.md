@@ -18,9 +18,12 @@ Closure Compiler has an API for configuring the errors and warnings that you wou
 
 In the examples above, `<group>` is a pre-defined category of warnings.
 
-Run the compiler with the --help flag to get a comprehensive up-to-date list. This may be out of date. Or consult [DiagnosticGroups.java](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/DiagnosticGroups.java#L87). 
+The following table describes the available diagnostic groups, but may be out of date.
 
-The following table describes the available diagnostic groups.
+Additional information:
+ * Run the compiler with the --help flag to get a comprehensive up-to-date list.
+ * Read the [@suppress annotation](https://github.com/google/closure-compiler/wiki/@suppress-annotations) documentation to suppress a specific error in source code.
+ * Consult [DiagnosticGroups.java](https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/DiagnosticGroups.java#L87). 
 
 Name|Effect|Default Value
 ----|------|-----------------
