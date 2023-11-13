@@ -95,6 +95,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_DEPRECATED_VAR|deprecated|
 |JSC_DEPRECATED_VAR_REASON|deprecated|
 |JSC_DETERMINISTIC_TEST|suspiciousCode|
+|JSC_DICT_EXTEND_STRUCT_TYPE|checkTypes|
 |JSC_DISALLOWED_MEMBER_JSDOC|misplacedTypeAnnotation|
 |JSC_DUPLICATE_CASE|suspiciousCode|
 |JSC_DUPLICATE_ENUM_VALUE|lintChecks|
@@ -257,7 +258,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_UNREACHABLE_CODE|uselessCode|
 |JSC_UNRECOGNIZED_TYPE_ERROR|dangerousUnrecognizedTypeError|
 |JSC_UNTRANSPILABLE|untranspilableFeatures|
-|JSC_UNUSED|underscore|
+|JSC_UNUSED|unusedPrivateMembers|
 |JSC_UNUSED_LABEL|lintChecks|
 |JSC_UNUSED_LOCAL_ASSIGNMENT|unusedLocalVariables|
 |JSC_UNUSED_PRIVATE_PROPERTY|lintChecks|
