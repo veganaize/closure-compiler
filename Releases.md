@@ -10,28 +10,6 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
-### November 12, 2023 (v20231112)
-
-*   Files annotated with `@nocoverage` will not be instrumented for code coverage.
-*   Speed up escaping JavaScript.
-*   Generate one conformance report for each chunk.
-*   Allow subclasses to broaden visibility of overridden methods
-*   Support tested assignments of classes (e.g. `let Foo = Foo_1 = class
-    Foo{}`). This is newly emitted by TypeScript 5.2 for decorated classes,
-    which reference a static property of itself.
-*   Fix enclosing `@ngInject` detection for TypeScript 5.2 emit for decorated
-    classes.
-*   Fix case where goog.forwardDeclare conformance error message would omitted
-    the goog.forwardDeclared type name and just print "NoResolvedType" instead.
-*   Fixed bug where optimizations would, in rare cases, copy static properties
-    between unrelated classes. This is unlikely to be a breaking change since
-    those properties should later be dead-code eliminated, and any accidental
-    references should cause a missing property error.
-*   don't crash when emitting member function defs whose names refer to collapsed
-    properties
-
-
-
 ### August 2, 2023 (v20230802)
 
 *   RemoveUnusedCode will now generate an "unremovable.log" file when debug
