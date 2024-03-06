@@ -713,6 +713,7 @@ when inlined will now become
 * Added `GamepadEvent` to `w3c_gamepad.js`
 * Added constant folding support for `Math.imul`
 * Deleted deprecated CompilerOption `setCheckGlobalNamesLevel` and error group `undefinedNames`, as in `--jscomp_{error,warning,off}=undefinedNames`. These options were no-ops and are covered by other diagnostics. `@suppress {undefinedNames}` still parses but is a no-op.
+* Removed `SourceFile.fromInputStream()` methods. Replace with `SourceFile.builder().withPath(fileName).withContent(stream)[...]`.
 
 ### June 1, 2021 (v20210601)
 *   Dropped `RefasterJS` from the closure-compiler GitHub repo, because it is
