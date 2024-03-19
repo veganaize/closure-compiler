@@ -10,6 +10,90 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 ## Details
 
+### March 17, 2024 (v20240317)
+
+*   Add `--variable_map_input_file` and `--property_map_input_file` options
+    to the OSS command-line runner.
+
+*   fix infinite recursion in certain template type checks
+
+*   Moved the warning/error on use of string continuations to be a linter-only
+    check.
+
+*   Error on unrecognized Closure .base method calls instead of silently
+    ignoring them, which would previously lead to property renaming bugs.
+*   Rename `removeDeadCode` to `removeUnreachableCode`. `remove_dead_code` is
+    replaced by `remove_unreachable_code`.
+
+    "dead code" is extremely ambiguous where as "unreachable" is more often used
+    when talking about CFG guided code removals.
+
+*   Add externs for maps api v3.56
+
+*   Define --browser_featureset_year 2024 based on Chromium 120, Firefox 121,
+    and Safari 17.2. For the first time, all major browsers have surpassed
+    Closure Compiler's support for emitting JS, so users opting into BFY 2024
+    may see more modern JS in their binaries over time as support for emitting
+    additional JS language features lands in Closure Compiler. And as always,
+    userland code can also use goog.FEATURESET_YEAR to produce binaries
+    specialized for modern browsers.
+
+    For more info on newly supported features, see:
+    https://caniuse.com/?compare=chrome+108,safari+16.2,firefox+108,chrome+120,safari+17.2,firefox+121&compareCats=all
+
+    Notable features newly supported in 2024 browsers include: Offscreen Canvas,
+    AVIF images, the `loading` attribute, Import Maps, CSS Subgrid, LCH and Lab
+    color values, and tons of CSS features.
+
+*   Merge #4134 by ecrider: Add missing `AbortSignal` static methods.
+
+    In addition, this also changes `AbortSignal` from `@interface` to `@constructor`,
+    and add the missing property implementation (`addEventListener`,
+    `removeEventListener`, `dispatchEvent`) as it was not required before as an
+    interface.
+
+*   Allow `$` in `@template` names
+
+*   Fix inlining bug treating assignments in chunks as unconditionally loaded
+
+*   Added externs and polyfills for `Array.findLast`, `Array.findLastIndex`, and
+    `TypedArray` variants (https://github.com/tc39/proposal-array-find-from-last)
+
+*   Preserve unions of different `ReadonlyArray` types instead of using raw type
+
+*   Detect toggle usage via `goog.module.get`.
+*   Fix transpilation of block-scoped vars in loop bodies to no longer leak data
+    from one iteration into the TDZ of the next iteration
+
+*   Fix `MakeDeclaredNamesUnique` so that it does not generate conflicting names
+
+*   Allow unused `void` operator without a suspicious code warning
+
+*   Files annotated with `@nocoverage` will not be instrumented for code coverage.
+
+*   Speed up escaping JavaScript.
+
+*   Generate one conformance report for each chunk.
+
+*   Allow subclasses to broaden visibility of overridden methods
+
+*   Support tested assignments of classes (e.g. `let Foo = Foo_1 = class
+    Foo{}`). This is newly emitted by TypeScript 5.2 for decorated classes,
+    which reference a static property of itself.
+*   Fix enclosing `@ngInject` detection for TypeScript 5.2 emit for decorated
+    classes.
+
+*   Fix case where `goog.forwardDeclare` conformance error message would omitted
+    the `goog.forwardDeclare`d type name and just print "NoResolvedType" instead.
+
+*   Fixed bug where optimizations would, in rare cases, copy static properties
+    between unrelated classes. This is unlikely to be a breaking change since
+    those properties should later be dead-code eliminated, and any accidental
+    references should cause a missing property error.
+
+*   don't crash when emitting member function defs whose names refer to collapsed
+    properties
+
 ### August 2, 2023 (v20230802)
 
 *   RemoveUnusedCode will now generate an "unremovable.log" file when debug
