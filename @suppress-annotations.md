@@ -212,6 +212,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_OPTIONAL_PARAM_NOT_MARKED_OPTIONAL|lintChecks|
 |JSC_PARTIAL_NAMESPACE|partialAlias|
 |JSC_POLYMER_DESCRIPTOR_NOT_VALID|polymer|
+|JSC_POSSIBLE_BASE_CLASS_ERROR|closureClassChecks|
 |JSC_POSSIBLE_INEXISTENT_PROPERTY|missingProperties|
 |JSC_PREFER_BACKTICKS_TO_AT_SIGN_CODE|lintChecks|
 |JSC_PRIMITIVE_OBJECT|lintChecks|
@@ -226,7 +227,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_REFERENCE_BEFORE_DECLARE|checkVars|
 |JSC_REGEXP_REFERENCE|checkRegExp|
 |JSC_REQUIRES_NOT_SORTED|lintChecks|
-|JSC_RESOLVED_TAG_EMPTY|missingSourcesWarnings|
+|JSC_RESOLVED_TAG_EMPTY|checkTypes|
 |JSC_SAME_INTERFACE_MULTIPLE_IMPLEMENTS|checkTypes|
 |JSC_SHORTHAND_ASSIGNMENT_IN_ENUM|lintChecks|
 |JSC_STATIC_MEMBER_FUNCTION_IN_INTERFACE_CLASS|lintChecks|
@@ -234,6 +235,7 @@ These suppression tags are not canonical. In some cases multiple tags may suppre
 |JSC_STRICT_INEXISTENT_PROPERTY_WITH_SUGGESTION|strictMissingProperties|
 |JSC_STRICT_INEXISTENT_UNION_PROPERTY|strictMissingProperties|
 |JSC_STRICT_MODULE_DEPENDENCY|strictModuleDepCheck|
+|JSC_STRING_CONTINUATION|lintChecks|
 |JSC_SUSPICIOUS_IN|suspiciousCode|
 |JSC_SUSPICIOUS_INSTANCEOF_LEFT|suspiciousCode|
 |JSC_SUSPICIOUS_LEFT_OPERAND_OF_LOGICAL_OPERATOR|suspiciousCode|
