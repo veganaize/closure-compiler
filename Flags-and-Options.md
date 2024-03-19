@@ -53,7 +53,7 @@ Assume input sources are to run in strict mode\. \(default: true\)
 
 **--warnings_allowlist_file (--warnings_whitelist_file) VAL**  
 A file containing warnings to suppress\. Each line should be of the form
-                                                                                      \<file\-name\>:\<line\-number\>?  \<warning\-description\> \(default: \)
+                                                                                             \<file\-name\>:\<line\-number\>?  \<warning\-description\> \(default: \)
 
 ## Available Error Groups
 
@@ -125,8 +125,8 @@ Generates export code for those marked with @export \(default: true\)
 
 **--isolation_mode [NONE | IIFE]**  
 If set to IIFE the compiler output will follow the form:
-                                                                                        \(function\(\)\{%output%\}\)\.call\(this\);
-                                                                                      Options: NONE, IIFE \(default: NONE\)
+                                                                                               \(function\(\)\{%output%\}\)\.call\(this\);
+                                                                                             Options: NONE, IIFE \(default: NONE\)
 
 **--output_wrapper VAL**  
 Interpolate output into this string at the place denoted by the marker token %output%\. Use marker token %output|jsstring% to do js string escaping on the output\. Consider using the \-\-isolation_mode flag instead\. \(default: \)
@@ -140,7 +140,7 @@ Specifies a prefix that will be prepended to all variables\.
 
 # Dependency Management
 
-**--dependency_mode [NONE | SORT_ONLY | PRUNE_LEGACY | PRUNE]**  
+**--dependency_mode [NONE | SORT_ONLY | PRUNE_LEGACY | PRUNE | PRUNE_ALLOW_NO_ENTRY_POINTS]**  
 Specifies how the compiler should determine the set and order of files for a compilation\. Options: NONE the compiler will include all src files in the order listed, SORT_ONLY the compiler will include all source files in dependency order, PRUNE files will only be included if they are transitive dependencies of files listed in the \-\-entry_point flag and then sorted in dependency order, PRUNE_LEGACY same as PRUNE but files that do not goog\.provide a namespace and are not modules will be automatically added as \-\-entry_point entries\. Defaults to PRUNE_LEGACY if entry points are defined, otherwise to NONE\.
 
 **--entry_point VAL**  
