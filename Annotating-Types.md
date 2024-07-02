@@ -46,6 +46,50 @@ or as a complete type:
 function f(x) {return x + ' apples'}
 ```
 
+### Tagged template literals
+
+Functions intended to be used as a template literal tag are annotated basically the same as a normal function declaration. The first parameter must take an `TemplateLitArray` object or subtype. The remaining parameter(s) correspond to the `${...}` substitutions in the template literal.
+
+For example:
+
+``` js
+/**
+ * @param {!ITemplateArray} templateObj
+ * @param {number} sub1
+ * @param {string} sub2
+ */
+function tag(templateObj, sub1, sub2) {}
+
+// ok
+tag`... ${3} ...  ${'hi'} ...`;
+// error: Function tag: called with 1 argument(s). Function requires at least 3 argument(s) and no more than 3 argument(s).
+tag`...`;
+// error: Function tag: called with 2 argument(s). Function requires at least 3 argument(s) and no more than 3 argument(s).
+tag`... ${3} ...`;
+// error: actual parameter 2 of tag does not match formal parameter
+//        found   : string
+//        required: number
+tag`... ${'not a number'} ...  ${'hi'} ...`;
+```
+
+The compiler always infers the implicit template object argument as the first argument passed to to `tag`. Remaining `${}` substitutions are treated as additional arguments.
+
+To define a tag function taking an unlimited number of arguments, use `...`:
+
+``` js
+/**
+ * @param {!ITemplateArray} templateObj
+ * @param {...*} rest
+ */
+function tagMany(templateObj, ...rest) {}
+
+// all ok
+tag``;
+tag`...`;
+tag`... ${3} ...`;
+tag`... ${3} ...  ${'hi'} ...`;
+```
+
 ### Property declarations
 ```js
 /** @type {string} */
