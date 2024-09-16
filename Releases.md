@@ -69,6 +69,8 @@ For complete list of changes refer to the [change log](https://github.com/google
 
 *   Allow unused `void` operator without a suspicious code warning
 
+### November 12, 2023 (v20231112)
+
 *   Files annotated with `@nocoverage` will not be instrumented for code coverage.
 
 *   Speed up escaping JavaScript.
